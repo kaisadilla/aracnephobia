@@ -31,6 +31,7 @@ function WipPage (props: WipPageProps) {
     );
 
     function handleLogoClick (evt: React.MouseEvent) {
+        if (isActive === false) return;
         setActive(false);
 
         setImgSrc(SRC_LOGO_HOLE);
