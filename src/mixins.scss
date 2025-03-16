@@ -1,0 +1,65 @@
+@mixin hex-horizontal {
+    aspect-ratio: 1 / cos(30deg);
+    clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+}
+@mixin hex-vertical {
+    aspect-ratio: cos(30deg) / 1;
+    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+}
+
+@mixin cut-side-left ($perc) {
+    clip-path: polygon(
+        #{$perc} 0%,
+        100% 0%,
+        100% 100%,
+        #{$perc} 100%,
+        0% calc(100% -  #{$perc}),
+        0% #{$perc}
+    );
+}
+
+@mixin cut-side-right ($perc) {
+    clip-path: polygon(
+        calc(100% -  #{$perc}) 0%,
+        0% 0%,
+        0% 100%,
+        calc(100% -  #{$perc}) 100%,
+        100% calc(100% -  #{$perc}),
+        100% #{$perc}
+    );
+}
+
+@mixin blog-body {
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 964px;
+    min-height: max(30vw, 200px);
+}
+
+@mixin when-tablet {
+    @media (min-width: 50rem) {
+        @content;
+    }
+}
+
+@mixin when-desktop {
+    @media (min-width: 75rem) {
+        @content;
+    }
+}
+
+@mixin when-system-theme-light {
+    @media (prefers-color-scheme: light) {
+        @content;
+    }
+}
+
+@mixin when-system-theme-dark {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+@function rem-as-pt ($pt, $base: 12) {
+    @return ($pt / $base) * 1rem;
+}

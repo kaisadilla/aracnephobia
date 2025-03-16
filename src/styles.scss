@@ -1,0 +1,33 @@
+@import "src/mixins";
+
+:root {
+    --color-primary-l1: #ff33ae;
+    --color-primary: #ff009a;
+    --color-primary-d1: #be0071;
+
+    --color-secondary-l1: #33ffff;
+    --color-secondary: #00ffff;
+    --color-secondary-d1: #00cccc;
+
+    --min-desktop: 50rem;
+
+    --background: var(--color-primary);
+
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #030303;
+}
+
+@include when-desktop {
+    body {
+        
+    }
+}
