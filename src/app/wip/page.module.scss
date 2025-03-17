@@ -9,10 +9,30 @@
     user-select: none;
 
     .logo {
-        max-width: 90%;
+        aspect-ratio: 814 / 470;
+        width: 80%;
+        max-width: 40em;
+        //max-height: 40%;
+        background-image: url("/img/aracnephobia-logo.webp");
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        &.activeLogo {
+        &:hover {
+            background-image: url("/img/aracnephobia-logo-alt.webp");
+        }
+
+        &.clickable {
             cursor: pointer;
+        }
+
+        &:not(.clickable) {
+            background-image: none;
+        }
+
+        img {
+            height: 100%;
         }
     }
 }

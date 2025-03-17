@@ -5,6 +5,7 @@ import styles from "./page.module.scss"
 import { getClassString } from 'src/utils';
 
 const SRC_LOGO_REGULAR = "/img/aracnephobia-logo.webp";
+const SRC_LOGO_ALT = "/img/aracnephobia-logo-alt.webp";
 const SRC_LOGO_HOLE = "/img/wip-hole-here.webp";
 const SRC_LOGO_GONE = "/img/wip-gone-now.webp";
 
@@ -13,34 +14,53 @@ export interface WipPageProps {
 }
 
 function WipPage (props: WipPageProps) {
-    const [isActive, setActive] = useState(true);
+    const [isClickable, setClickable] = useState(true);
     const [imgSrc, setImgSrc] = useState(SRC_LOGO_REGULAR);
 
     return (
         <div className={styles.page}>
-            <img
+            {/* Prevent lazy loading the logo on hover. */}
+            <img src="/img/aracnephobia-logo-alt.webp" style={{display: 'none'}} />
+            <div
                 className={getClassString(
                     styles.logo,
-                    isActive && styles.activeLogo,
+                    isClickable && styles.clickable,
                 )}
-                src={imgSrc}
-                alt="logo"
                 onClick={handleLogoClick}
-            />
+                onMouseEnter={handleLogoMouseEnter}
+                onMouseLeave={handleLogoMouseLeave}
+            >
+                <img
+                    src={imgSrc}
+                    style={{display: isClickable ? 'none' : 'block'}}
+                />
+            </div>
         </div>
     );
 
     function handleLogoClick (evt: React.MouseEvent) {
-        if (isActive === false) return;
-        setActive(false);
+        if (isClickable === false) return;
+        setClickable(false);
 
         setImgSrc(SRC_LOGO_HOLE);
-        setTimeout(() => setImgSrc(SRC_LOGO_GONE), 1_600);
-        setTimeout(() => setImgSrc(SRC_LOGO_REGULAR), 2_500);
+
+        setTimeout(() => setImgSrc(SRC_LOGO_GONE), 800);
         setTimeout(() => {
+            setImgSrc(SRC_LOGO_REGULAR);
             changeFavicon(16);
             changeFavicon(32);
-        }, 2_500);
+            setClickable(true);
+        }, 1_400);
+    }
+
+    function handleLogoMouseEnter (evt: React.MouseEvent) {
+        if (isClickable === false) return;
+        setImgSrc(SRC_LOGO_ALT);
+    }
+
+    function handleLogoMouseLeave (evt: React.MouseEvent) {
+        if (isClickable === false) return;
+        setImgSrc(SRC_LOGO_REGULAR);
     }
 }
 
