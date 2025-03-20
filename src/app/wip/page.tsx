@@ -19,7 +19,7 @@ function WipPage (props: WipPageProps) {
     const [imgSrc, setImgSrc] = useState(SRC_LOGO_REGULAR);
     
     useEffect(() => {
-        setTimeout(() => setCoverRemoved(true), 2000);
+        setTimeout(() => setCoverRemoved(true), 200);
     }, []);
 
     return (
