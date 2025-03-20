@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles.scss";
-import { getClassString } from "src/utils";
+import { $cl } from "src/utils";
 import { amaticSc, creepster, jollyLodger, metalMania, wonderNight } from "src/fonts/google_fonts";
 
 const geistSans = Geist({
@@ -50,7 +50,7 @@ export default function RootLayout({
 }
 
 function fontVariables () : string {
-    return getClassString(
+    return $cl(
         metalMania.variable,
         creepster.variable,
         jollyLodger.variable,

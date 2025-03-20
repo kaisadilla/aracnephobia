@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from "./page.module.scss"
-import { getClassString } from 'src/utils';
+import { $cl } from 'src/utils';
 
 const SRC_LOGO_REGULAR = "/img/aracnephobia-logo.webp";
 const SRC_LOGO_ALT = "/img/aracnephobia-logo-alt.webp";
@@ -14,15 +14,25 @@ export interface WipPageProps {
 }
 
 function WipPage (props: WipPageProps) {
+    const [isCoverRemoved, setCoverRemoved] = useState(false);
     const [isClickable, setClickable] = useState(true);
     const [imgSrc, setImgSrc] = useState(SRC_LOGO_REGULAR);
+    
+    useEffect(() => {
+        setCoverRemoved(true);
+    }, []);
 
     return (
         <div className={styles.page}>
             {/* Prevent lazy loading the logo on hover. */}
             <img src="/img/aracnephobia-logo-alt.webp" style={{display: 'none'}} />
+            
+            <div className={$cl(styles.curtain, isCoverRemoved && styles.removed)}>
+                <img src="/img/curtain-default.svg" />
+            </div>
+            
             <div
-                className={getClassString(
+                className={$cl(
                     styles.logo,
                     isClickable && styles.clickable,
                 )}

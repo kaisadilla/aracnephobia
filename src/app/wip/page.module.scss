@@ -7,6 +7,28 @@
     justify-content: center;
     align-items: center;
     user-select: none;
+    position: relative;
+
+    .curtain {
+        position: absolute;
+        width: 100vw;
+        height: calc(100vh + 10rem);
+        top: 0;
+        left: 0;
+        transition: top 2s ease;
+        background-color: black;
+        z-index: 100000;
+
+        &.removed {
+            top: calc(100vh + 10rem);
+        }
+
+        img {
+            position: absolute;
+            width: 100%;
+            top: -50px;
+        }
+    }
 
     .logo {
         aspect-ratio: 814 / 470;
