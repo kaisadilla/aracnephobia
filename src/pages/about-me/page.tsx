@@ -20,12 +20,40 @@ function AboutMePage () {
                     <Word
                         word="CARTOON"
                         font='invisible'
+                        fontSize={1.15}
                         pos={makeRect(0, 0, 0.23, 0.42)}
                     />
                     <Word
                         word="UI/UX"
                         font='illusion-magic'
-                        pos={makeRect(0.18, 0, 0.53, 0.37)}
+                        fontSize={1.45}
+                        pos={makeRect(0.21, 0, 0.42, 0.37)}
+                    />
+                    <Word
+                        word="CONTENT CREATOR"
+                        font='gotile'
+                        fontSize={0.5}
+                        pos={makeRect(0.63, 0, 0.37, 0.25)}
+                    />
+                    <Word
+                        word="MARKETING"
+                        font='invisible'
+                        fontSize={1.2}
+                        pos={makeRect(0.58, 0.25, 0.42, .75)}
+                    />
+                    <Word
+                        word="WEB&#x2009; DESIGN"
+                        font='gotile'
+                        align='end'
+                        fontSize={0.55}
+                        pos={makeRect(0.03, 0.76, 0.48, 0.235)}
+                    />
+                    <Word
+                        word="ILLUSTRATION"
+                        font='grandstander'
+                        align='end'
+                        fontSize={1.2}
+                        pos={makeRect(0.47, 0.67, 0.14, 0.325)}
                     />
                 </WordTable>
             </div>

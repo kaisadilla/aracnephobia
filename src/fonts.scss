@@ -6,6 +6,20 @@
 }
 
 @font-face {
+    font-family: 'Gotile';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gotile'), url('public/fonts/Gotile.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Grandstander';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Grandstander'), url('public/fonts/Grandstander-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Illusion Magic';
     font-style: normal;
     font-weight: normal;
@@ -28,6 +42,8 @@
 
 :root {
     --font-creepster: "Creepster";
+    --font-gotile: "Gotile";
+    --font-grandstander: "Grandstander";
     --font-illusion-magic: "Illusion Magic";
     --font-invisible: "Invisible";
     --font-wonder-night: "Wonder Night";

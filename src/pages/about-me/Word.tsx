@@ -3,16 +3,20 @@ import styles from "./Word.module.scss";
 import { Rect } from '../../types';
 import { $cl } from '../../utils';
 import { usePlaySound } from '../../hooks/usePlaySound';
+import { Typewriter } from 'react-simple-typewriter';
 
-const WRITE_SPEED = 200;
+const DURATION = 1500;
 const FINAL_DELAY = 1000;
 
-export type WordFont = 'invisible' | 'illusion-magic';
+export type WordFont = 'gotile'
+    | 'grandstander'
+    | 'invisible'
+    | 'illusion-magic';
 
 type FontInfo = {
     fontFamily: string;
-    multiplier: number;
     marginTop: number;
+    lineHeight: number;
 }
 
 type RevealState = 'hidden' | 'revealing' | 'complete';
@@ -21,20 +25,32 @@ export interface WordProps {
     font: WordFont;
     pos: Rect;
     word: string;
-    writeSpeed?: number;
+    fontSize: number;
+    align?: string;
+    duration?: number;
     finalDelay?: number;
 }
 
 const FONT_INFO: {[key in WordFont]: FontInfo} = {
+    'gotile': {
+        fontFamily: "var(--font-gotile)",
+        marginTop: 0.1,
+        lineHeight: 0.8,
+    },
+    'grandstander': {
+        fontFamily: "var(--font-grandstander)",
+        marginTop: 0,
+        lineHeight: 1,
+    },
     'illusion-magic': {
         fontFamily: "var(--font-illusion-magic)",
-        multiplier: 1.5,
-        marginTop: -0.43,
+        marginTop: -0.15,
+        lineHeight: 1,
     },
     'invisible': {
         fontFamily: "var(--font-invisible)",
-        multiplier: 1.1,
-        marginTop: -0.25,
+        marginTop: 0.04,
+        lineHeight: 1,
     },
 };
 
@@ -42,50 +58,45 @@ function Word ({
     font,
     pos,
     word,
-    writeSpeed = WRITE_SPEED,
+    fontSize = 1,
+    align = 'center',
+    duration = DURATION,
     finalDelay = FINAL_DELAY,
 }: WordProps) {
     const ref = useRef<HTMLDivElement>(null);
 
     const [height, setHeight] = useState(16);
-    const [displayText, setDisplayText] = useState("?");
     const [revealState, setRevealState] = useState<RevealState>('hidden');
 
     const { playRepeated } = usePlaySound("/sfx/typewriter0.ogg");
 
     const fontInfo = FONT_INFO[font as 'invisible'];
 
+    // Resize the text to fit the container.
     useEffect(() => {
         const handleResize = () => {
             if (!ref.current) return;
-            setHeight(ref.current.clientHeight * fontInfo.multiplier);
+            setHeight(ref.current.clientHeight * fontSize);
         }
 
         if (ref.current) {
-            setHeight(ref.current.clientHeight * fontInfo.multiplier);
+            setHeight(ref.current.clientHeight * fontSize);
         }
 
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
-    }, [ref.current]);
+    }, [ref.current?.clientHeight, fontSize]);
 
     const handleHover = () => {
         if (revealState !== 'hidden') return;
         setRevealState('revealing');
 
-        for (let i = 0; i < word.length; i++) {
-            setTimeout(
-                () => setDisplayText(word.substring(0, i + 1)),
-                writeSpeed * i
-            );
-        }
-
-        playRepeated(word.length, writeSpeed);
+        playRepeated(word.length, duration / word.length);
 
         setTimeout(
             () => setRevealState('complete'),
-            (writeSpeed * word.length + finalDelay)
+            (duration + finalDelay)
         );
     }
 
@@ -96,6 +107,8 @@ function Word ({
         height: pos.height * 100 + "%",
         fontFamily: fontInfo.fontFamily,
         fontSize: height + "px",
+        lineHeight: fontInfo.lineHeight + "em",
+        textAlign: (revealState === 'hidden' ? 'center' : align) as unknown as any,
     }
 
     return (
@@ -105,10 +118,21 @@ function Word ({
                 style={{marginTop: fontInfo.marginTop + "em"}}
             >
                 <span
-                    className={$cl(styles.text, styles[revealState])}
+                    className={$cl(styles.text)}
                     onMouseEnter={handleHover}
                 >
-                    {displayText}
+                    {revealState === 'hidden' && "?"}
+                    {revealState !== 'hidden' && <Typewriter
+                        words={[word]}
+                        cursor
+                        cursorStyle="|"
+                        cursorColor={
+                            revealState === 'revealing'
+                                ? "var(--color-primary)"
+                                : "transparent"
+                        }
+                        typeSpeed={duration / word.length}
+                    />}
                 </span>
             </div>
         </div>

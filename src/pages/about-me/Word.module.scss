@@ -1,6 +1,5 @@
 .word {
     position: absolute;
-    text-align: center;
     //border: 1px solid red;
     overflow: hidden;
 
@@ -8,23 +7,6 @@
         display: block;
         width: 100%;
         overflow-y: visible;
-
-        .text {
-            text-align: center;
-            white-space: nowrap; /* Prevents text wrapping */
-            //margin: 0 1rem;
-            //padding-right: 0.1em;
-            //border-right: .05em solid transparent;
-
-            &.revealing {
-                &::after {
-                    content: '|';
-                    animation: blink-caret .75s step-end infinite;
-                }
-            }
-
-            //animation: typing 1s steps(12, end) forwards;
-        }
     }
 }
 
