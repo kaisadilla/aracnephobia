@@ -1,4 +1,4 @@
-@import "src/mixins";
+@import "fonts.scss";
 
 :root {
     --color-primary-l1: #ff33ae;
@@ -24,6 +24,12 @@ body {
     margin: 0;
     overflow: hidden;
     background: #030303;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 @include when-desktop {

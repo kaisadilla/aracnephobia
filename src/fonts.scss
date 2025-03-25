@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Creepster";
+    src: url("/public/fonts/Creepster-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Illusion Magic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Illusion Magic'), url('public/fonts/Illusion Magic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Invisible';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Invisible Extra Bold'), url('public/fonts/Invisible-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Wonder Night";
+    src: url("/public/fonts/Wonder\ Night.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-creepster: "Creepster";
+    --font-illusion-magic: "Illusion Magic";
+    --font-invisible: "Invisible";
+    --font-wonder-night: "Wonder Night";
+}

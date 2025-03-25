@@ -1,19 +1,13 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
-import styles from "./page.module.scss"
-import { $cl } from 'src/utils';
+import styles from "./WipPage.module.scss";
+import { $cl } from '../utils';
 
 const SRC_LOGO_REGULAR = "/img/aracnephobia-logo.webp";
 const SRC_LOGO_ALT = "/img/aracnephobia-logo-alt.webp";
 const SRC_LOGO_HOLE = "/img/wip-hole-here.webp";
 const SRC_LOGO_GONE = "/img/wip-gone-now.webp";
 
-export interface WipPageProps {
-    
-}
-
-function WipPage (props: WipPageProps) {
+function WipPage () {
     const [isCoverRemoved, setCoverRemoved] = useState(false);
     const [isClickable, setClickable] = useState(true);
     const [imgSrc, setImgSrc] = useState(SRC_LOGO_REGULAR);

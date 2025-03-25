@@ -1,0 +1,30 @@
+.page {
+    @include as-viewport;
+    
+    font-size: 30pt;
+    background-image: url("/img/bg-galaxy-desktop.webp");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    .headerContainer {
+        flex-shrink: 0;
+    }
+
+    .content {
+        width: 100%;
+        flex: 1;
+
+        :not(.curtainTop) {
+            z-index: 1;
+        }
+
+        .wordTable {
+            margin-top: 6rem;
+        }
+    }
+
+    .curtainTop {
+        position: absolute;
+    }
+}
