@@ -1,11 +1,14 @@
 import React from 'react';
-import WebHeader from '@src/components/WebHeader';
 import styles from "./page.module.scss";
 import twpHorizThin from "@src/img/twp-horiz-thin.webp";
 import Word from './Word';
 import WordTable from './WordTable';
-import { makeRect } from '../../types';
+import { makeRect } from 'types';
 import { Typewriter } from 'react-simple-typewriter';
+import { IMG } from 'img/img';
+import { Tooltip } from '@mantine/core';
+import SiteImage from 'components/SiteImage';
+import WebHeader from 'components/WebHeader';
 
 function AboutMePage () {
 
@@ -51,21 +54,67 @@ function AboutMePage () {
                     <Word
                         word="ILLUSTRATION"
                         font='grandstander'
-                        align='end'
                         fontSize={1.2}
-                        pos={makeRect(0.47, 0.67, 0.14, 0.325)}
+                        pos={makeRect(0.47, 0.705, 0.14, 0.29)}
                     />
                 </WordTable>
             </div>
-            {false && <div style={{width: 210}}>
-                {/*this is a long string*/}
-                <Typewriter
-                    words={["This is a long string"]}
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={150}
+            <div className={styles.aboutMeCard}>
+                <SiteImage
+                    className={styles.portrait}
+                    image={IMG.aracne}
                 />
-            </div>}
+                <div className={styles.msg0}>
+                    siento si hago cosas raras
+                </div>
+                <div className={styles.msg1}>
+                    yo soy rara, volverá a pasar.
+                </div>
+                <div className={styles.social}>
+                    <Tooltip.Floating position='top' label="YouTube">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.youtube}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="Twitch">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.twitch}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="Instagram">
+                        <SiteImage 
+                            className={styles.icon}
+                            image={IMG.social.instagram}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="TikTok">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.tiktok}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="X (Twitter)">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.twitter}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="Bluesky">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.bsky}
+                        />
+                    </Tooltip.Floating>
+                    <Tooltip.Floating position='top' label="LinkedIn">
+                        <SiteImage
+                            className={styles.icon}
+                            image={IMG.social.linkedin}
+                        />
+                    </Tooltip.Floating>
+                </div>
+            </div>
         </div>
     );
 }

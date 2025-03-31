@@ -28,9 +28,11 @@ export function usePlaySound (src: string) {
         audioSource.start();
     }
 
-    function playRepeated (times: number, interval: number) {
+    function playRepeated (
+        times: number, interval: number, delayFirst: Boolean = false
+    ) {
         for (let i = 0; i < times; i++) {
-            setTimeout(play, i * interval);
+            setTimeout(play, (i * interval) + (delayFirst ? interval : 0));
         }
     }
 

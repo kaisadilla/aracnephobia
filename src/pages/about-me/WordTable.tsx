@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./WordTable.module.scss";
-import { $cl } from '@src/utils';
+import { $cl } from 'utils';
 
 export interface WordTableProps {
     className?: string;

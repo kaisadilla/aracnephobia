@@ -1,4 +1,6 @@
 .page {
+    $curtain-height: 6.57vw;
+
     @include as-viewport;
     
     font-size: 30pt;
@@ -6,6 +8,7 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
+    user-select: none;
 
     .headerContainer {
         flex-shrink: 0;
@@ -20,11 +23,72 @@
         }
 
         .wordTable {
-            margin-top: 6rem;
+            margin-top: calc($curtain-height * 0.7);
         }
     }
 
     .curtainTop {
         position: absolute;
+        height: $curtain-height;
+    }
+
+    .aboutMeCard {
+        font-size: 1vw;
+        z-index: 10000000;
+        position: absolute;
+        top: 8vw;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .portrait {
+            $size: 12.5vw;
+            width: $size;
+            height: $size;
+            border: 0.5rem solid white;
+            border-radius: 50%;
+        }
+
+        .msg0 {
+            font-family: var(--font-wonder-night);
+            color: white;
+            font-size: 3.5em;
+            height: 0.8em;
+            line-height: 0.8em;
+        }
+
+        .msg1 {
+            font-family: var(--font-creepster);
+            color: var(--color-secondary);
+            font-size: 2em;
+            height: 1.3em;
+            line-height: 1em;
+        }
+
+        .social {
+            background-color: #ffffffB2;
+            border-radius: 0.75em;
+            border-bottom-right-radius: 0;
+            height: 2.5em;
+            padding: 0.5em 3em;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+            justify-content: center;
+
+            .icon {
+                cursor: pointer;
+                
+                max-height: 100%;
+                font-size: 1rem;
+            }
+        }
     }
 }

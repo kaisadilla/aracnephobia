@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./WebHeader.module.scss";
-import planet from "@src/img/planet.webp";
-import logo from "@src/img/logo-lettering.webp";
+import planet from "img/planet.webp";
+import logo from "img/logo-lettering.webp";
 
 export interface WebHeaderProps {
     

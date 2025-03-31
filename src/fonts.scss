@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Creepster";
-    src: url("/public/fonts/Creepster-Regular.ttf") format("truetype");
+    src: url("fonts/Creepster-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -9,33 +9,40 @@
     font-family: 'Gotile';
     font-style: normal;
     font-weight: normal;
-    src: local('Gotile'), url('public/fonts/Gotile.ttf') format('truetype');
+    src: local('Gotile'), url('fonts/Gotile.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Grandstander';
     font-style: normal;
     font-weight: normal;
-    src: local('Grandstander'), url('public/fonts/Grandstander-VariableFont_wght.ttf') format('truetype');
+    src: local('Grandstander'), url('fonts/Grandstander-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Illusion Magic';
     font-style: normal;
     font-weight: normal;
-    src: local('Illusion Magic'), url('public/fonts/Illusion Magic.otf') format('opentype');
+    src: local('Illusion Magic'), url('fonts/Illusion Magic.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Invisible';
     font-style: normal;
     font-weight: normal;
-    src: local('Invisible Extra Bold'), url('public/fonts/Invisible-ExtraBold.woff') format('woff');
+    src: local('Invisible Extra Bold'), url('fonts/Invisible-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Jolly Lodger';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Jolly Lodger'), url('fonts/JollyLodger-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Wonder Night";
-    src: url("/public/fonts/Wonder\ Night.ttf") format("truetype");
+    src: url("fonts/Wonder\ Night.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -46,5 +53,6 @@
     --font-grandstander: "Grandstander";
     --font-illusion-magic: "Illusion Magic";
     --font-invisible: "Invisible";
+    --font-jolly-lodger: "Jolly Lodger";
     --font-wonder-night: "Wonder Night";
 }

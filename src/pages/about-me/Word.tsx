@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from "./Word.module.scss";
-import { Rect } from '../../types';
-import { $cl } from '../../utils';
-import { usePlaySound } from '../../hooks/usePlaySound';
+import { Rect } from 'types';
+import { usePlaySound } from 'hooks/usePlaySound';
 import { Typewriter } from 'react-simple-typewriter';
+import { $cl } from 'utils';
 
 const DURATION = 1500;
 const FINAL_DELAY = 1000;
@@ -92,7 +92,7 @@ function Word ({
         if (revealState !== 'hidden') return;
         setRevealState('revealing');
 
-        playRepeated(word.length, duration / word.length);
+        playRepeated(word.length, duration / word.length, true);
 
         setTimeout(
             () => setRevealState('complete'),
@@ -118,8 +118,9 @@ function Word ({
                 style={{marginTop: fontInfo.marginTop + "em"}}
             >
                 <span
-                    className={$cl(styles.text)}
+                    className={$cl(styles.text, styles[revealState])}
                     onMouseEnter={handleHover}
+                    onTouchStart={handleHover}
                 >
                     {revealState === 'hidden' && "?"}
                     {revealState !== 'hidden' && <Typewriter

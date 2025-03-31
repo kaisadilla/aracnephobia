@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./WipPage.module.scss";
-import { $cl } from '../utils';
+import { $cl } from 'utils';
 
 const SRC_LOGO_REGULAR = "/img/aracnephobia-logo.webp";
 const SRC_LOGO_ALT = "/img/aracnephobia-logo-alt.webp";
