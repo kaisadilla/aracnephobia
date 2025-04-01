@@ -12,6 +12,10 @@
             padding: 0 0.5em;
         }
     }
+
+    &.debug {
+        border: 1px solid blue;
+    }
 }
 
 @keyframes blink-caret {

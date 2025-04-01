@@ -9,14 +9,12 @@ import { IMG } from 'img/img';
 import { Tooltip } from '@mantine/core';
 import SiteImage from 'components/SiteImage';
 import WebHeader from 'components/WebHeader';
+import Navigator from 'components/Navigator';
 
 function AboutMePage () {
 
     return (
         <div className={styles.page}>
-            <div className={styles.headerContainer}>
-                <WebHeader />
-            </div>
             <div className={styles.content}>
                 <img className={styles.curtainTop} src={twpHorizThin} alt="" />
                 <WordTable className={styles.wordTable}>
@@ -42,20 +40,20 @@ function AboutMePage () {
                         word="MARKETING"
                         font='invisible'
                         fontSize={1.2}
-                        pos={makeRect(0.58, 0.25, 0.42, .75)}
+                        pos={makeRect(0.62, 0.27, 0.38, .73)}
                     />
                     <Word
                         word="WEB&#x2009; DESIGN"
                         font='gotile'
                         align='end'
                         fontSize={0.55}
-                        pos={makeRect(0.03, 0.76, 0.48, 0.235)}
+                        pos={makeRect(0.03, 0.76, 0.45, 0.235)}
                     />
                     <Word
                         word="ILLUSTRATION"
                         font='grandstander'
                         fontSize={1.2}
-                        pos={makeRect(0.47, 0.705, 0.14, 0.29)}
+                        pos={makeRect(0.47, 0.705, 0.13, 0.29)}
                     />
                 </WordTable>
             </div>

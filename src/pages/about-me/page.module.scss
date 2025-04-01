@@ -4,8 +4,6 @@
     @include as-viewport;
     
     font-size: 30pt;
-    background-image: url("/img/bg-galaxy-desktop.webp");
-    background-size: cover;
     display: flex;
     flex-direction: column;
     user-select: none;
@@ -34,9 +32,9 @@
 
     .aboutMeCard {
         font-size: 1vw;
-        z-index: 10000000;
+        z-index: 10000;
         position: absolute;
-        top: 8vw;
+        top: -1vw;
         left: 50%;
         transform: translate(-50%, 0%);
         overflow: hidden;
@@ -70,7 +68,7 @@
         }
 
         .social {
-            background-color: #ffffffB2;
+            background-color: var(--color-translucid);
             border-radius: 0.75em;
             border-bottom-right-radius: 0;
             height: 2.5em;

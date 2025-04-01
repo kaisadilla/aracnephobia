@@ -1,5 +1,22 @@
-.window {
-    background: green;
+.websiteFrame {
+    position: relative;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    background-image: url("/img/bg-galaxy-desktop.webp");
+    background-size: cover;
+
+    .pageContainer {
+        flex: 1;
+    }
+
+    .navigator {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+    }
 }

@@ -9,10 +9,15 @@
     --color-secondary-l1: #33ffff;
     --color-secondary: #00ffff;
     --color-secondary-d1: #00cccc;
+    
+    --color-translucid: #ffffffb2;
+    --color-translucid-contrast: #63605b;
 
     --min-desktop: 50rem;
 
     --background: var(--color-primary);
+
+    --navigator-height: 7vw;
 
     box-sizing: border-box;
 }
@@ -26,6 +31,7 @@ body {
     overflow: hidden;
     background: #030303;
     color: white;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #root {

@@ -8,6 +8,7 @@
     align-items: center;
     user-select: none;
     position: relative;
+    @include crt;
 
     .curtain {
         position: absolute;

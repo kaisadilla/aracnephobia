@@ -29,6 +29,7 @@ export interface WordProps {
     align?: string;
     duration?: number;
     finalDelay?: number;
+    debug?: boolean;
 }
 
 const FONT_INFO: {[key in WordFont]: FontInfo} = {
@@ -62,6 +63,7 @@ function Word ({
     align = 'center',
     duration = DURATION,
     finalDelay = FINAL_DELAY,
+    debug = false,
 }: WordProps) {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -112,7 +114,11 @@ function Word ({
     }
 
     return (
-        <div ref={ref} className={styles.word} style={style}>
+        <div
+            ref={ref}
+            className={$cl(styles.word, debug && styles.debug)}
+            style={style}
+        >
             <div
                 className={styles.textContainer}
                 style={{marginTop: fontInfo.marginTop + "em"}}

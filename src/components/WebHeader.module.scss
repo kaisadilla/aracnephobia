@@ -4,7 +4,7 @@
     background: black;
     border-bottom: 0.5rem solid white;
     position: relative;
-    height: 9vw;
+    height: 8vw;
 
     display: flex;
     flex-direction: row;
@@ -16,8 +16,24 @@
         margin-right: -1.5vw;
     }
 
-    .lettering {
-        margin-top: 2rem;
+    .letteringContainer {
+        margin-top: 0.5vw;
         height: 9.1vw;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .lettering {
+            width: 100%;
+            max-width: 72rem;
+        }
+    }
+
+    .psycho {
+        cursor: pointer;
+        height: 40%;
+        align-self: center;
+        margin-right: 2vw;
     }
 }

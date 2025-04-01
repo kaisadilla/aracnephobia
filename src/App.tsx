@@ -6,21 +6,41 @@ import IndexPage from './IndexPage';
 import WipPage from './pages/WipPage';
 import AboutMePage from './pages/about-me/page';
 import { MantineProvider } from '@mantine/core';
+import styles from "./App.module.scss";
+import WebHeader from 'components/WebHeader';
+import Navigator from 'components/Navigator';
+import PortfolioPage from 'pages/portfolio/page';
 
 function App() {
     return (
         <>
-        <MantineProvider>
+            <MantineProvider>
 
-        <BrowserRouter>
-            <Routes>
-                <Route index element={<IndexPage />} />
-                <Route path="/wip" element={<WipPage />} />
-                <Route path="/about-me" element={<AboutMePage />} />
-            </Routes>
-        </BrowserRouter>
+            <BrowserRouter>
+                <Routes>
+                    <Route index element={<IndexPage />} />
+                    <Route path="/wip" element={<WipPage />} />
+                </Routes>
+            </BrowserRouter>
 
-        </MantineProvider>
+            <div className={styles.websiteFrame}>
+                <div className={styles.headerContainer}>
+                    <WebHeader />
+                </div>
+                <div className={styles.pageContainer}>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/about-me" element={<AboutMePage />} />
+                            <Route path="/portfolio" element={<PortfolioPage />} />
+                        </Routes>
+                    </BrowserRouter>
+                </div>
+                <div className={styles.navigator}>
+                    <Navigator />
+                </div>
+            </div>
+
+            </MantineProvider>
         </>
     )
 }
