@@ -19,7 +19,7 @@ function WipPage () {
     return (
         <div className={styles.page}>
             {/* Prevent lazy loading the logo on hover. */}
-            <img src="/img/aracnephobia-logo-alt.webp" style={{display: 'none'}} />
+            <img src={SRC_LOGO_ALT} style={{display: 'none'}} />
             
             <div className={$cl(styles.curtain, isCoverRemoved && styles.removed)}>
                 <img src="/img/curtain-default.svg" />
