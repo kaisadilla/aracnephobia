@@ -1,0 +1,72 @@
+.chromaticAberration {
+    position: relative;
+
+    .sentinel {
+        visibility: hidden;
+    }
+
+    img:not(.sentinel) {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    img {
+        height: 100%;
+    }
+
+    .aber1 {
+        filter: sepia(100%) saturate(1000%) brightness(80%) hue-rotate(295deg);
+        opacity: 0.5;
+        animation: aberration 5.1s infinite;
+    }
+
+    .aber2 {
+        filter: sepia(100%) saturate(1000%) brightness(80%) hue-rotate(190deg);
+        opacity: 0.5;
+        animation: aberration 3.8s infinite;
+        animation-delay: 0.6s;
+    }
+
+    .top {
+        opacity: 0.99;
+    }
+}
+
+@keyframes aberration {
+    $horiz: 2px;
+
+    0% {
+        transform: translateX(calc($horiz * 1));
+    }
+    10% {
+        transform: translateX(calc($horiz * 0.4));
+    }
+    20% {
+        transform: translateX(calc($horiz * -0.8));
+    }
+    30% {
+        transform: translateX(calc($horiz * 1));
+    }
+    40% {
+        transform: translateX(calc($horiz * 0.6));
+    }
+    50% {
+        transform: translateX(calc($horiz * 0.2));
+    }
+    60% {
+        transform: translateX(calc($horiz * -1));
+    }
+    70% {
+        transform: translateX(calc($horiz * -0.6));
+    }
+    80% {
+        transform: translateX(calc($horiz * 0));
+    }
+    90% {
+        transform: translateX(calc($horiz * -0.4));
+    }
+    100% {
+        transform: translateX(calc($horiz * 0.4));
+    }
+}

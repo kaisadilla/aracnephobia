@@ -1,0 +1,32 @@
+.icon {
+    @include crt-text;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    user-select: none;
+    position: absolute;
+    pointer-events: auto;
+
+    &.selected {
+        .image {
+            filter: sepia(100%) saturate(250%) brightness(90%) hue-rotate(273deg);
+        }
+
+        .fileName {
+            background-color: var(--color-primary);
+        }
+    }
+
+    .image {
+        width: 95px;
+        height: 72px;
+    }
+
+    .fileName {
+        padding: 0 0.6em;
+        border-radius: 0.3em;
+    }
+}

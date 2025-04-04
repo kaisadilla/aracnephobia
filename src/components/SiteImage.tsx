@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageSrc } from 'img/img';
 import { Except, ImgProps } from 'types';
+import { $cl } from 'utils';
 
 export interface SiteImageProps extends Except<ImgProps, 'src'> {
     image: ImageSrc;

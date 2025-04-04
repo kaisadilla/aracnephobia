@@ -1,0 +1,98 @@
+.window {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: var(--color-os-primary);
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    pointer-events: auto;
+    user-select: none;
+
+    .titlebar {
+        $height: 2rem;
+
+        display: flex;
+        flex-direction: row;
+        height: 1.6rem;
+        border-bottom: 1px solid black;
+        background-color: var(--color-os-primary-l1);
+
+        .back {
+            padding-left: 0.5rem;
+            padding-right: 1rem;
+        }
+
+        .title {
+            @include crt-text-border;
+            flex: 1;
+        }
+
+        .minimize {
+            border-left: 1px solid black;
+        }
+
+        .minimize, .maximize, .close {
+            width: 2.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .minimize, .maximize {
+            border-right: 1px solid black;
+        }
+
+        .close {
+            background-color: var(--color-primary);
+        }
+    }
+
+    .content {
+        background-color: var(--color-os-primary-l2);
+        flex: 1;
+        width: calc(100% - 1rem);
+        margin: 0.5rem;
+        border: 1px solid white;
+        border-bottom-color: black;
+        border-right-color: black;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+}
+
+.listView {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 1rem;
+    gap: 0.5rem;
+
+    .folder {
+        @include crt-text-light;
+
+        height: 1.5em;
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        align-items: center;
+
+        .icon {
+            height: 100%;
+        }
+
+        span {
+            color: #444;
+        }
+    }
+}

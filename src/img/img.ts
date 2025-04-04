@@ -13,6 +13,9 @@ import twp_vert_2 from "./twp-vert.2x.webp";
 import navigator_blog from "./navigator/blog.webp";
 import navigator_me from "./navigator/me.webp";
 import navigator_portfolio from "./navigator/portfolio.webp";
+import os_folder from "./os/folder.png";
+import os_folder_1_5 from "./os/folder.1.5x.png";
+import os_folder_2 from "./os/folder.2x.png";
 import bsky from "./social/bsky.webp";
 import twitter from "./social/formerly-known-as-twitter.webp";
 import instagram from "./social/instagram.webp";
@@ -38,6 +41,16 @@ export const IMG = {
         blog: navigator_blog,
         me: navigator_me,
         portfolio: navigator_portfolio,
+    } as ImageCollection,
+    os: {
+        folder: {
+            src: os_folder,
+            srcSet: getSrcSet([
+                { src: os_folder, size: "1x" },
+                { src: os_folder_1_5, size: "1.5x"},
+                { src: os_folder_2, size: "2x"},
+            ])
+        }
     } as ImageCollection,
     social: {
         bsky: bsky,

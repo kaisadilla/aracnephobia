@@ -2,7 +2,8 @@ import SiteImage from 'components/SiteImage';
 import { IMG } from 'img/img';
 import React from 'react';
 import styles from "./page.module.scss";
-import PortfolioOs from 'components/PortfolioOs';
+import PortfolioOs from 'components/portfolio_os/PortfolioOs';
+import { OsContextProvider } from 'context/usePortfolioContext';
 
 export interface PortfolioPageProps {
     
@@ -24,7 +25,9 @@ function PortfolioPage (props: PortfolioPageProps) {
             />
             <div className={styles.content}>
                 <div className={styles.screen}>
-                    <PortfolioOs />
+                    <OsContextProvider>
+                        <PortfolioOs />
+                    </OsContextProvider>
                 </div>
             </div>
         </div>
