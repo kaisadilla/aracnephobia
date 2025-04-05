@@ -10,6 +10,8 @@ export default function useIndices (ids: string[]) {
         return ind;
     })());
 
+    const [focused, setFocused] = useState<string | null>(ids.length === 0 ? null : ids[0]);
+
     function setOnTop (key: string) {
         const newIndices = {...indices};
         const maxIndex = Object.keys(newIndices).length;
@@ -20,10 +22,12 @@ export default function useIndices (ids: string[]) {
         newIndices[key] = maxIndex;
 
         setIndices(newIndices);
+        setFocused(key);
     }
 
     return {
         indices,
+        focused,
         setOnTop,
     };
 }

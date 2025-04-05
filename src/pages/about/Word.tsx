@@ -4,6 +4,8 @@ import { Rect } from 'types';
 import { usePlaySound } from 'hooks/usePlaySound';
 import { Typewriter } from 'react-simple-typewriter';
 import { $cl } from 'utils';
+import SiteImage from 'components/SiteImage';
+import { IMG } from 'img/img';
 
 const DURATION = 1500;
 const FINAL_DELAY = 1000;
@@ -22,8 +24,9 @@ type FontInfo = {
 type RevealState = 'hidden' | 'revealing' | 'complete';
 
 export interface WordProps {
+    imagePos?: Rect;
     font: WordFont;
-    pos: Rect;
+    wordPos: Rect;
     word: string;
     fontSize: number;
     align?: string;
@@ -56,8 +59,9 @@ const FONT_INFO: {[key in WordFont]: FontInfo} = {
 };
 
 function Word ({
+    imagePos,
     font,
-    pos,
+    wordPos,
     word,
     fontSize = 1,
     align = 'center',
@@ -65,6 +69,7 @@ function Word ({
     finalDelay = FINAL_DELAY,
     debug = false,
 }: WordProps) {
+    imagePos ??= wordPos;
     const ref = useRef<HTMLDivElement>(null);
 
     const [height, setHeight] = useState(16);
@@ -102,11 +107,18 @@ function Word ({
         );
     }
 
-    const style: React.CSSProperties = {
-        left: pos.left * 100 + "%",
-        top: pos.top * 100 + "%",
-        width: pos.width * 100 + "%",
-        height: pos.height * 100 + "%",
+    const hiddenStyle: React.CSSProperties = {
+        left: imagePos.left * 100 + "%",
+        top: imagePos.top * 100 + "%",
+        width: imagePos.width * 100 + "%",
+        height: imagePos.height * 100 + "%",
+    }
+
+    const revealedStyle: React.CSSProperties = {
+        left: wordPos.left * 100 + "%",
+        top: wordPos.top * 100 + "%",
+        width: wordPos.width * 100 + "%",
+        height: wordPos.height * 100 + "%",
         fontFamily: fontInfo.fontFamily,
         fontSize: height + "px",
         lineHeight: fontInfo.lineHeight + "em",
@@ -117,9 +129,18 @@ function Word ({
         <div
             ref={ref}
             className={$cl(styles.word, debug && styles.debug)}
-            style={style}
+            style={revealState === 'hidden' ? hiddenStyle : revealedStyle}
         >
-            <div
+            {revealState === 'hidden' && <SiteImage
+                className={styles.image}
+                image={IMG.about.cartoon}
+                onMouseEnter={handleHover}
+                onTouchStart={handleHover}
+                style={{
+
+                }}
+            />}
+            {revealState !== 'hidden' && <div
                 className={styles.textContainer}
                 style={{marginTop: fontInfo.marginTop + "em"}}
             >
@@ -128,8 +149,7 @@ function Word ({
                     onMouseEnter={handleHover}
                     onTouchStart={handleHover}
                 >
-                    {revealState === 'hidden' && "?"}
-                    {revealState !== 'hidden' && <Typewriter
+                    <Typewriter
                         words={[word]}
                         cursor
                         cursorStyle="|"
@@ -139,9 +159,9 @@ function Word ({
                                 : "transparent"
                         }
                         typeSpeed={duration / word.length}
-                    />}
+                    />
                 </span>
-            </div>
+            </div>}
         </div>
     );
 }

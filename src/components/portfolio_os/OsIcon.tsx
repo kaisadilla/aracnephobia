@@ -2,17 +2,17 @@ import React from 'react';
 import styles from './OsIcon.module.scss'
 import SiteImage from 'components/SiteImage';
 import { IMG } from 'img/img';
-import { FileOrFolder } from './portfolio';
 import { $cl } from 'utils';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
+import { OsFile, useOsContext } from 'context/usePortfolioContext';
 
 export const ICON_WIDTH = 95;
 export const ICON_HEIGHT = 100;
 
 export interface OsIconProps {
-    file: FileOrFolder;
+    file: OsFile;
     position: { top: number, left: number }
     index?: number;
     selected?: boolean;
@@ -26,6 +26,8 @@ function OsIcon ({
     selected = false,
     onPointerDown,
 }: OsIconProps) {
+    const ctx = useOsContext();
+
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: file.name
     });
@@ -45,7 +47,7 @@ function OsIcon ({
             {...listeners}
             {...attributes}
             onPointerDown={handlePointerDown}
-            //onDoubleClick={handleDoubleClick}
+            onDoubleClick={handleDoubleClick}
         >
             <ChromaticAberrationImage
                 className={styles.image}
@@ -59,6 +61,11 @@ function OsIcon ({
     function handlePointerDown (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         listeners?.onPointerDown?.(evt);
         onPointerDown?.(evt);
+    }
+
+    function handleDoubleClick () {
+        const uuid = ctx.openWindow(file);
+        ctx.setWindowOnTop(uuid);
     }
 }
 

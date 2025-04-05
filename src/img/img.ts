@@ -10,9 +10,11 @@ import psychedelic_planet from "./psychedelic_planet.webp";
 import twp_vert from "./twp-vert.webp";
 import twp_vert_1_5 from "./twp-vert.1_5x.webp";
 import twp_vert_2 from "./twp-vert.2x.webp";
+import cartoon_2 from "./about/cartoon.2x.webp";
 import navigator_blog from "./navigator/blog.webp";
 import navigator_me from "./navigator/me.webp";
 import navigator_portfolio from "./navigator/portfolio.webp";
+import os_cursor from "./os/cursor.webp";
 import os_folder from "./os/folder.png";
 import os_folder_1_5 from "./os/folder.1.5x.png";
 import os_folder_2 from "./os/folder.2x.png";
@@ -37,12 +39,16 @@ type ImageCollection = {
 }
 
 export const IMG = {
+    about: {
+        cartoon: cartoon_2,
+    } as ImageCollection,
     navigator: {
         blog: navigator_blog,
         me: navigator_me,
         portfolio: navigator_portfolio,
     } as ImageCollection,
     os: {
+        cursor: os_cursor,
         folder: {
             src: os_folder,
             srcSet: getSrcSet([
@@ -53,7 +59,7 @@ export const IMG = {
         }
     } as ImageCollection,
     social: {
-        bsky: bsky,
+        bsky,
         twitter,
         instagram,
         linkedin,

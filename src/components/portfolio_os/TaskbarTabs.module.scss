@@ -3,4 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    gap: 0.2em;
+    overflow-x: auto;
+    height: 100%;
 }

@@ -4,7 +4,7 @@ import '@mantine/core/styles.layer.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import IndexPage from './IndexPage';
 import WipPage from './pages/WipPage';
-import AboutMePage from './pages/about-me/page';
+import AboutMePage from './pages/about/page';
 import { MantineProvider } from '@mantine/core';
 import styles from "./App.module.scss";
 import WebHeader from 'components/WebHeader';
@@ -30,7 +30,7 @@ function App() {
                 <div className={styles.pageContainer}>
                     <BrowserRouter>
                         <Routes>
-                            <Route path="/about-me" element={<AboutMePage />} />
+                            <Route path="/about" element={<AboutMePage />} />
                             <Route path="/portfolio" element={<PortfolioPage />} />
                         </Routes>
                     </BrowserRouter>

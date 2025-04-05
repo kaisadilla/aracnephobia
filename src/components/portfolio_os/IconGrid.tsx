@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './IconGrid.module.scss';
 import { useOsContext } from 'context/usePortfolioContext';
 import OsIcon, { ICON_HEIGHT, ICON_WIDTH } from './OsIcon';
-import PORTFOLIO_OS from './portfolio';
 import useDynamicHook from 'hooks/useDynamicSize';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
@@ -17,10 +16,10 @@ export interface IconGridProps {
 
 function IconGrid (props: IconGridProps) {
     const ref = useRef<HTMLDivElement>(null);
-
     const ctx = useOsContext();
+
     const desktopSize = useDynamicHook(ref);
-    const { indices, setOnTop } = useIndices(PORTFOLIO_OS.map(f => f.name));
+    const { indices, setOnTop } = useIndices(ctx.desktopFiles.map(f => f.name));
 
     const [rows, setRows] = useState(1);
     const [cols, setCols] = useState(1);
@@ -38,7 +37,7 @@ function IconGrid (props: IconGridProps) {
         let currentRow = 0;
         let currentCol = 0;
 
-        for (const f of PORTFOLIO_OS) {
+        for (const f of ctx.desktopFiles) {
             const top = currentCol * (ICON_HEIGHT + ICON_GAP)
             const left = currentRow * (ICON_WIDTH + ICON_GAP)
 
@@ -59,10 +58,10 @@ function IconGrid (props: IconGridProps) {
         <div
             ref={ref}
             className={styles.iconGrid}
-            onClick={() => setSelected(null)}
+            onClick={handleGridClick}
         >
             <DndContext onDragEnd={handleDragEnd}>
-                {PORTFOLIO_OS.map(f => {
+                {ctx.desktopFiles.map(f => {
                     const pos = iconPos[f.name] ?? [0, 0];
                     const index = indices[f.name] ?? 0;
 
@@ -94,6 +93,11 @@ function IconGrid (props: IconGridProps) {
             ...prev,
             [evt.active.id]: newPos,
         }))
+    }
+
+    function handleGridClick () {
+        setSelected(null);
+        ctx.setWindowOnTop("0");
     }
 }
 

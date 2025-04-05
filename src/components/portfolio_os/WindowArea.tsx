@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './WindowArea.module.scss';
 import Window from './Window';
 import { Folder, useOsContext } from 'context/usePortfolioContext';
-import MovableWindow from './MovableWindow';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import useDynamicHook from 'hooks/useDynamicSize';
 import { clampNumber } from 'utils';
+import useIndices from 'hooks/useIndices';
 
 export interface WindowAreaProps {
 }
@@ -17,34 +17,40 @@ function WindowArea ({
     const ctx = useOsContext();
     const desktopSize = useDynamicHook(ref);
 
-    const [windowPos, setWindowPos] = useState<Record<string, [number, number]>>({
-        'Drawing': [200, 100],
-    });
-
-    const tmp = windowPos['Drawing'];
-
     return (
         <div ref={ref} className={styles.windowArea}>
             <DndContext onDragEnd={handleDragEnd}>
-                <MovableWindow folder={ctx.drawingFolder} position={{top: tmp[0], left: tmp[1]}} />
+                {Object.keys(ctx.openWindows)
+                    .map(k => ctx.openWindows[k])
+                    .filter(w => w.isMinimized === false)
+                    .map(w => (
+                        <Window
+                            key={w.id}
+                            parentWidth={desktopSize.width}
+                            parentHeight={desktopSize.height}
+                            window={w}
+                            index={ctx.windowIndices[w.id]}
+                            onPointerDown={() => ctx.setWindowOnTop(w.id)}
+                        />
+                    )
+                )}
             </DndContext>
         </div>
     );
 
     function handleDragEnd (evt: DragEndEvent) {
-        let newPos = windowPos[evt.active.id] ?? [0, 0];
-        newPos[0] += evt.delta.y;
-        newPos[1] += evt.delta.x;
+        const window = ctx.openWindows[evt.active.id];
+        let newPos = ctx.openWindows[evt.active.id].position;
+        newPos.top += evt.delta.y;
+        newPos.left += evt.delta.x;
 
-        newPos[0] = clampNumber(newPos[0], 0, desktopSize.height);
-        newPos[1] = clampNumber(newPos[1], 0, desktopSize.width);
+        newPos.top = clampNumber(newPos.top, 0, desktopSize.height - 64);
+        newPos.left = clampNumber(newPos.left, 0, desktopSize.width - 160);
 
-        console.log(windowPos);
-
-        setWindowPos(prev => ({
-            ...prev,
-            [evt.active.id]: newPos,
-        }));
+        ctx.updateWindow(evt.active.id as string, {
+            ...window,
+            position: newPos,
+        });
     }
 }
 

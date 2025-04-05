@@ -7,8 +7,21 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    //cursor: none;
 
-    @include crt;
+    @include crt(1000000);
+
+    .cursor {
+        width: 19px;
+        height: 24px;
+        image-rendering: crisp-edges;
+        z-index: 999999;
+
+        img {
+            width: 19px;
+            height: 24px;
+        }
+    }
 
     .desktop {
         flex: 1;
@@ -26,6 +39,7 @@
         align-items: center;
         gap: 2em;
         padding: 0 2em;
+        z-index: 10;
 
         .startContainer {
             width: 6em;
@@ -40,6 +54,8 @@
 
         .taskbarContainer {
             flex: 1;
+            overflow: hidden;
+            height: 100%;
         }
 
         .clockContainer {
