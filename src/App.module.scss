@@ -19,4 +19,78 @@
         left: 0;
         width: 100vw;
     }
+
+    .curtain {
+        animation: fallOffScreen 1.2s ease-in 0.6s forwards;
+        position: absolute;
+        width: 100vw;
+        height: calc(100vh + 15vw);
+        top: -15vw;
+        left: 0;
+        transition: top 4s ease;
+        background-color: black;
+        z-index: 100000000;
+
+        &.removed {
+            top: calc(100vh + 20rem);
+        }
+
+        img {
+            position: absolute;
+            width: 100%;
+            top: -5vw;
+        }
+    }
+
+    .introLogoContainer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .introLogo {
+            transform: scale(0);
+            animation: bounceIn 0.6s linear 0.5s forwards, bounceOut 0.6s linear 2s forwards;
+            width: 80vw;
+            max-width: 600px;
+        }
+    }
+}
+
+@keyframes fallOffScreen {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(100vh + 20vw));
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
 }

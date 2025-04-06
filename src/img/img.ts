@@ -2,6 +2,7 @@
 import aracne from "./aracne.webp";
 import aracne1_5 from "./aracne-1.5x.webp";
 import aracne2 from "./aracne-2x.webp";
+import aracnephobia_logo from "./aracnephobia-logo.webp";
 import lettering from "./logo-lettering.webp";
 import lettering_1_5 from "./logo-lettering.1_5x.webp";
 import lettering_2 from "./logo-lettering.2x.webp";
@@ -10,7 +11,20 @@ import psychedelic_planet from "./psychedelic_planet.webp";
 import twp_vert from "./twp-vert.webp";
 import twp_vert_1_5 from "./twp-vert.1_5x.webp";
 import twp_vert_2 from "./twp-vert.2x.webp";
-import cartoon_2 from "./about/cartoon.2x.webp";
+import about_animation_2 from "./about/animation.2x.webp";
+import about_branding_2 from "./about/branding.2x.webp";
+import about_cartoon_2 from "./about/cartoon.2x.webp";
+import about_content_creator_2 from "./about/content-creator.2x.webp";
+import about_digital_artist_2 from "./about/digital-artist.2x.webp";
+import about_graphic_design_2 from "./about/graphic-design.2x.webp";
+import about_illustration_2 from "./about/illustration.2x.webp";
+import about_marketing_2 from "./about/marketing.2x.webp";
+import about_storyboard_2 from "./about/storyboard.2x.webp";
+import about_storytelling_2 from "./about/storytelling.2x.webp";
+import about_uiux_2 from "./about/uiux.2x.webp";
+import about_video_2 from "./about/video.2x.webp";
+import about_web_design_2 from "./about/web-design.2x.webp";
+import about_writer_2 from "./about/writer.2x.webp";
 import navigator_blog from "./navigator/blog.webp";
 import navigator_me from "./navigator/me.webp";
 import navigator_portfolio from "./navigator/portfolio.webp";
@@ -40,7 +54,20 @@ type ImageCollection = {
 
 export const IMG = {
     about: {
-        cartoon: cartoon_2,
+        animation: about_animation_2,
+        branding: about_branding_2,
+        cartoon: about_cartoon_2,
+        content_creator: about_content_creator_2,
+        digital_artist: about_digital_artist_2,
+        graphic_design: about_graphic_design_2,
+        illustration: about_illustration_2,
+        marketing: about_marketing_2,
+        storyboard: about_storyboard_2,
+        storytelling: about_storytelling_2,
+        uiux: about_uiux_2,
+        video: about_video_2,
+        web_design: about_web_design_2,
+        writer: about_writer_2,
     } as ImageCollection,
     navigator: {
         blog: navigator_blog,
@@ -75,6 +102,7 @@ export const IMG = {
             { src: aracne2, size: "2x"},
         ])
     },
+    aracnephobia_logo: aracnephobia_logo,
     lettering: {
         src: lettering,
         srcSet: getSrcSet([

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Navigator.module.scss";
 import SiteImage from './SiteImage';
 import { ImageSrc, IMG } from 'img/img';
+import { Link } from 'react-router-dom';
 
 export interface NavigatorProps {
     
@@ -12,15 +13,15 @@ function Navigator (props: NavigatorProps) {
     return (
         <div className={styles.navigatorContainer}>
             <div className={styles.navigator}>
-                <div className={styles.left}>
+                <Link className={styles.left} to="/portfolio">
                     <_Icon icon={<_PortfolioIcon />} label="Portfolio" />
-                </div>
-                <div className={styles.center}>
+                </Link>
+                <Link className={styles.center} to="/home">
                     <_Icon icon={<_HomeIcon />} label="Home" />
-                </div>
-                <div className={styles.right}>
+                </Link>
+                <Link className={styles.right} to="/about">
                     <_Icon icon={<_AboutIcon />} label="About" />
-                </div>
+                </Link>
             </div>
         </div>
     );

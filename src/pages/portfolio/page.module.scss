@@ -5,6 +5,9 @@
     z-index: 0;
 
     .rightCurtain {
+        animation: rightCurtainIn 0.3s linear 0.2s forwards;
+        transform: translateX(25vh);
+
         position: absolute;
         top: 0;
         right: 0;
@@ -15,6 +18,9 @@
     }
 
     .aracne {
+        animation: aracneIn 0.6s linear 0.1s forwards;
+        transform: translateY(50vh);
+
         position: absolute;
         bottom: 0;
         left: 0;
@@ -25,6 +31,9 @@
     }
 
     .content {
+        animation: growIn 0.4s linear 0s forwards;
+        transform: scale(0);
+
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -42,5 +51,35 @@
             overflow: hidden;
             user-select: none;
         }
+    }
+}
+
+@keyframes growIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes aracneIn {
+    0% {
+        transform: translateY(50vh);
+    }
+    60% {
+        transform: translateY(-5vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rightCurtainIn {
+    0% {
+        transform: translateX(25vh);
+    }
+    100% {
+        transform: translateX(0);
     }
 }

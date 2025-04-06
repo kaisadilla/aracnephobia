@@ -1,4 +1,11 @@
 @font-face {
+    font-family: "Amatic SC";
+    src: local('Amatic SC'), url('../fonts/AmaticSC-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Creepster";
     src: url("../fonts/Creepster-Regular.ttf") format("truetype");
     font-weight: normal;
@@ -48,6 +55,7 @@
 }
 
 :root {
+    --font-amatic-sc: "Amatic SC";
     --font-creepster: "Creepster";
     --font-gotile: "Gotile";
     --font-grandstander: "Grandstander";

@@ -1,4 +1,7 @@
+$jump-height: 5vh;
+
 .navigatorContainer {
+
     width: 100%;
     height: var(--navigator-height);
     //background-color: #ff000040;
@@ -8,16 +11,23 @@
     justify-content: center;
     align-items: end;
     padding-top: 1vw;
+    z-index: 1000000;
+    position: relative;
+    pointer-events: none;
 
     .navigator {
+        animation: bounceIn 0.35s linear 0s forwards;
+
         width: 380px;
-        height: 10vh;
+        height: calc(10vh + $jump-height);
+        transform: translateY($jump-height);
         background-color: var(--color-navigator);
         border-top-left-radius: 2vh;
         border-top-right-radius: 2vh;
         border: 3px solid var(--color-navigator-text);
         border-bottom: 0;
-        padding-bottom: 1.5vh;
+        padding-bottom: calc(1.5vh + $jump-height);
+        pointer-events: auto;
 
         display: flex;
         flex-direction: row;
@@ -77,5 +87,19 @@
                 width: 70%;
             }
         }
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: translateY(calc(10vh + $jump-height));
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY($jump-height);
     }
 }

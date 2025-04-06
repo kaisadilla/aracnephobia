@@ -5,12 +5,14 @@ import { usePlaySound } from 'hooks/usePlaySound';
 import { Typewriter } from 'react-simple-typewriter';
 import { $cl } from 'utils';
 import SiteImage from 'components/SiteImage';
-import { IMG } from 'img/img';
+import { ImageSrc, IMG } from 'img/img';
+import useDynamicHook from 'hooks/useDynamicSize';
 
 const DURATION = 1500;
 const FINAL_DELAY = 1000;
 
-export type WordFont = 'gotile'
+export type WordFont = 'amatic-sc'
+    | 'gotile'
     | 'grandstander'
     | 'invisible'
     | 'illusion-magic';
@@ -24,6 +26,7 @@ type FontInfo = {
 type RevealState = 'hidden' | 'revealing' | 'complete';
 
 export interface WordProps {
+    image: ImageSrc;
     imagePos?: Rect;
     font: WordFont;
     wordPos: Rect;
@@ -36,29 +39,35 @@ export interface WordProps {
 }
 
 const FONT_INFO: {[key in WordFont]: FontInfo} = {
+    'amatic-sc': {
+        fontFamily: "var(--font-amatic-sc)",
+        marginTop: 0.1,
+        lineHeight: 0.9,
+    },
     'gotile': {
         fontFamily: "var(--font-gotile)",
         marginTop: 0.1,
-        lineHeight: 0.8,
+        lineHeight: 0.9,
     },
     'grandstander': {
         fontFamily: "var(--font-grandstander)",
         marginTop: 0,
-        lineHeight: 1,
+        lineHeight: 0.76,
     },
     'illusion-magic': {
         fontFamily: "var(--font-illusion-magic)",
         marginTop: -0.15,
-        lineHeight: 1,
+        lineHeight: 0.53,
     },
     'invisible': {
         fontFamily: "var(--font-invisible)",
         marginTop: 0.04,
-        lineHeight: 1,
+        lineHeight: 0.8,
     },
 };
 
 function Word ({
+    image,
     imagePos,
     font,
     wordPos,
@@ -72,6 +81,8 @@ function Word ({
     imagePos ??= wordPos;
     const ref = useRef<HTMLDivElement>(null);
 
+    const wordSize = useDynamicHook(ref);
+
     const [height, setHeight] = useState(16);
     const [revealState, setRevealState] = useState<RevealState>('hidden');
 
@@ -81,19 +92,22 @@ function Word ({
 
     // Resize the text to fit the container.
     useEffect(() => {
-        const handleResize = () => {
-            if (!ref.current) return;
-            setHeight(ref.current.clientHeight * fontSize);
-        }
-
-        if (ref.current) {
-            setHeight(ref.current.clientHeight * fontSize);
-        }
-
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, [ref.current?.clientHeight, fontSize]);
+        setHeight(wordSize.height * fontSize);
+    }, [wordSize, fontSize]);
+    //useEffect(() => {
+    //    const handleResize = () => {
+    //        if (!ref.current) return;
+    //        setHeight(ref.current.clientHeight * fontSize);
+    //    }
+    //
+    //    if (ref.current) {
+    //        setHeight(ref.current.clientHeight * fontSize);
+    //    }
+    //
+    //    window.addEventListener('resize', handleResize);
+    //
+    //    return () => window.removeEventListener('resize', handleResize);
+    //}, [ref.current?.clientHeight, fontSize]);
 
     const handleHover = () => {
         if (revealState !== 'hidden') return;
@@ -112,6 +126,7 @@ function Word ({
         top: imagePos.top * 100 + "%",
         width: imagePos.width * 100 + "%",
         height: imagePos.height * 100 + "%",
+        //zIndex: 100,
     }
 
     const revealedStyle: React.CSSProperties = {
@@ -122,7 +137,7 @@ function Word ({
         fontFamily: fontInfo.fontFamily,
         fontSize: height + "px",
         lineHeight: fontInfo.lineHeight + "em",
-        textAlign: (revealState === 'hidden' ? 'center' : align) as unknown as any,
+        textAlign: align as unknown as any,
     }
 
     return (
@@ -133,7 +148,7 @@ function Word ({
         >
             {revealState === 'hidden' && <SiteImage
                 className={styles.image}
-                image={IMG.about.cartoon}
+                image={image}
                 onMouseEnter={handleHover}
                 onTouchStart={handleHover}
                 style={{
@@ -146,8 +161,6 @@ function Word ({
             >
                 <span
                     className={$cl(styles.text, styles[revealState])}
-                    onMouseEnter={handleHover}
-                    onTouchStart={handleHover}
                 >
                     <Typewriter
                         words={[word]}

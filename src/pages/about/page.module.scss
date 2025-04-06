@@ -1,6 +1,7 @@
-.page {
-    $curtain-height: 6.57vw;
+$curtain-height: 6.57vw;
+$fade-in-anim: fadeIn 0.4s linear 1s forwards;
 
+.page {
     @include as-viewport;
     
     font-size: 30pt;
@@ -13,6 +14,7 @@
     }
 
     .content {
+        position: relative;
         width: 100%;
         flex: 1;
 
@@ -21,11 +23,33 @@
         }
 
         .wordTable {
-            margin-top: calc($curtain-height * 0.7);
+            animation: $fade-in-anim;
+
+            max-height: calc(100% - 10vh - ($curtain-height * 0.7));
+            max-width: 100vw;
+            width: 187vh;
+            height: auto;
+            //width: 99vw;
+            top: $curtain-height * 0.7;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            opacity: 0;
+        }
+
+        .template {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: calc(100% - 10vh - ($curtain-height * 0.7));
+            //display: none;
         }
     }
 
     .curtainTop {
+        animation: fallDown 0.4s linear 0s forwards;
+
         position: absolute;
         height: $curtain-height;
     }
@@ -44,7 +68,9 @@
         align-items: center;
 
         .portrait {
-            $size: 12.5vw;
+            animation: bounceIn 0.4s linear 0s forwards;
+
+            $size: 14.5vw;
             width: $size;
             height: $size;
             border: 0.5rem solid white;
@@ -52,14 +78,20 @@
         }
 
         .msg0 {
+            animation: introduceSentence1 0.4s linear 0.35s forwards;
+            opacity: 0;
+
             font-family: var(--font-wonder-night);
-            color: white;
+            color: var(--color-primary);
             font-size: 3.5em;
-            height: 0.8em;
-            line-height: 0.8em;
+            height: 0.9em;
+            line-height: 0.9em;
         }
 
         .msg1 {
+            animation: introduceSentence1 0.4s linear 0.8s forwards;
+            opacity: 0;
+
             font-family: var(--font-creepster);
             color: var(--color-secondary);
             font-size: 2em;
@@ -68,6 +100,9 @@
         }
 
         .social {
+            animation: $fade-in-anim;
+            opacity: 0;
+
             background-color: var(--color-translucid);
             border-radius: 0.75em;
             border-bottom-right-radius: 0;
@@ -88,5 +123,57 @@
                 font-size: 1rem;
             }
         }
+    }
+}
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(-$curtain-height);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes introduceSentence1 {
+    0% {
+        transform: translateY(-1em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes introduceSentence2 {
+    0% {
+        transform: translateY(-1em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

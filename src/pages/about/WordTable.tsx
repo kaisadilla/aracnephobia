@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styles from "./WordTable.module.scss";
 import { $cl } from 'utils';
 
@@ -7,16 +7,16 @@ export interface WordTableProps {
     children?: React.ReactNode;
 }
 
-function WordTable ({
+const WordTable = forwardRef<HTMLDivElement, WordTableProps>(function WordTable ({
     className,
     children,
-}: WordTableProps) {
+}: WordTableProps, ref) {
 
     return (
-        <div className={$cl(styles.wordTable, className)}>
+        <div ref={ref} className={$cl(styles.wordTable, className)}>
             {children}
         </div>
     );
-}
+})
 
 export default WordTable;
