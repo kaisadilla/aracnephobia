@@ -6,7 +6,7 @@ import { $cl } from 'utils';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { OsFile, useOsContext } from 'context/usePortfolioContext';
+import { Folder, OsFile, useOsContext } from 'context/usePortfolioContext';
 
 export const ICON_WIDTH = 95;
 export const ICON_HEIGHT = 100;
@@ -64,7 +64,10 @@ function OsIcon ({
     }
 
     function handleDoubleClick () {
-        const uuid = ctx.openWindow(file);
+        const uuid = ctx.openWindow({
+            type: 'folder',
+            folder: file as Folder,
+        });
         ctx.setWindowOnTop(uuid);
     }
 }

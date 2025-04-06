@@ -24,6 +24,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
 
         .wordTable {
             animation: $fade-in-anim;
+            pointer-events: none;
 
             max-height: calc(100% - 10vh - ($curtain-height * 0.7));
             max-width: 100vw;
@@ -102,6 +103,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
         .social {
             animation: $fade-in-anim;
             opacity: 0;
+            pointer-events: none;
 
             background-color: var(--color-translucid);
             border-radius: 0.75em;
@@ -138,9 +140,11 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
 @keyframes fadeIn {
     0% {
         opacity: 0;
+        pointer-events: none;
     }
     100% {
         opacity: 1;
+        pointer-events: auto;
     }
 }
 

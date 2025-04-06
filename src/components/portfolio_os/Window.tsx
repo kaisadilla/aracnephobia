@@ -1,7 +1,7 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
-import { Folder, OsFile, OsWindow, useOsContext } from 'context/usePortfolioContext';
+import { Folder, FolderWindow, getWindowTitle, ImageFile, OsFile, OsWindow, useOsContext, WindowContent } from 'context/usePortfolioContext';
 import { IMG } from 'img/img';
 import React, { useState } from 'react';
 import styles from './window.module.scss';
@@ -9,6 +9,7 @@ import { Rnd } from 'react-rnd';
 import { NumberSize } from 're-resizable';
 import { Direction } from 're-resizable/lib/resizer';
 import { $cl } from 'utils';
+import ReactPlayer from 'react-player';
 
 export interface WindowProps {
     parentWidth: number;
@@ -31,7 +32,7 @@ function Window ({
         id: window.id,
     });
 
-    const [size, setSize] = useState({width: 500, height: 300});
+    const [size, setSize] = useState({width: 700, height: 450});
     
     const rndStyle: React.CSSProperties = {
         top: window.isMaximized ? 0 : window.position.top + "px",
@@ -62,20 +63,20 @@ function Window ({
         >
             <div className={styles.window} style={windowStyle}>
                 <div className={styles.titlebar}>
-                    <div className={
-                        $cl(styles.back, window.file.parentFolder && styles.enabled)
+                    {window.content.type === 'folder' && <div className={
+                        $cl(styles.back, window.content.folder.parentFolder && styles.enabled)
                     }
                         onPointerDown={handleBack}
                     >
                         &lt;
-                    </div>
+                    </div>}
                     <div
                         className={styles.title}
                         {...attributes}
                         {...listeners} 
                         onPointerMove={handleTitleDrag}
                     >
-                        {window.file.name}
+                        {getWindowTitle(window.content)}
                     </div>
                     <div className={styles.minimize} onPointerDown={handleMinimize}>
                         _
@@ -88,9 +89,22 @@ function Window ({
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {window.file.type === 'folder' && <_ListView
-                        folders={window.file}
-                        onOpen={file => handleOpen(file)}
+                    {window.content.type === 'folder' && window.content.folder.display === 'list' && (
+                        <_ListView
+                            folder={window.content.folder}
+                            onOpen={file => handleOpenInsideWindow(file)}
+                        />
+                    )}
+                    {window.content.type === 'folder' && window.content.folder.display === 'gallery' && (
+                        <_GalleryView
+                            folder={window.content.folder}
+                        />
+                    )}
+                    {window.content.type === 'image' && <_ImageView
+                        window={window}
+                    />}
+                    {window.content.type === 'video' && <_VideoView
+                        window={window}
                     />}
                 </div>
             </div>
@@ -98,10 +112,15 @@ function Window ({
     );
 
     function handleBack () {
-        if (window.file.parentFolder) {
+        if (window.content.type !== 'folder') return;
+
+        if (window.content.folder.parentFolder) {
             ctx.updateWindow(window.id, {
                 ...window,
-                file: window.file.parentFolder,
+                content: {
+                    type: 'folder',
+                    folder: window.content.folder.parentFolder,
+                }
             });
         }
     }
@@ -146,32 +165,33 @@ function Window ({
         ctx.closeWindow(window.id);
     }
 
-    function handleOpen (file: OsFile) {
-        if (file.type === 'folder') {
-            ctx.updateWindow(window.id, {
-                ...window,
-                file: file,
-            });
-        }
+    function handleOpenInsideWindow (folder: Folder) {
+        ctx.updateWindow(window.id, {
+            ...window,
+            content: {
+                type: 'folder',
+                folder: folder,
+            }
+        });
     }
 }
 
 interface _ListViewProps {
-    folders: Folder;
-    onOpen: (file: OsFile) => void;
+    folder: Folder;
+    onOpen: (folder: Folder) => void;
 }
 
 function _ListView ({
-    folders,
+    folder,
     onOpen,
 }: _ListViewProps) {
 
     return (
         <div className={styles.listView}>
-            {folders.content.map(f => <div
+            {folder.content.map(f => <div
                 key={f.name}
                 className={styles.folder}
-                onPointerDown={() => onOpen(f)}
+                onPointerDown={() => {if (f.type === 'folder') onOpen(f)}}
             >
                 <ChromaticAberrationImage className={styles.icon} image={IMG.os.folder} />
                 <span>{f.name}</span>
@@ -179,6 +199,202 @@ function _ListView ({
         </div>
     );
 }
+
+interface _GalleryViewProps {
+    folder: Folder;
+}
+
+function _GalleryView ({
+    folder,
+}: _GalleryViewProps) {
+    const ctx = useOsContext();
+
+    const images = folder.content.filter(f => f.type === 'image');
+    const videos = folder.content.filter(f => f.type === 'video');
+
+    return (
+        <div className={styles.galleryView}>
+            <div className={styles.section}>
+                <h2 className={styles.title}>Image</h2>
+                <div className={styles.galleryContent}>
+                    {images.map((img, i) => <div
+                        key={img.name}
+                        className={styles.imageFile}
+                        onPointerDown={() => handleOpenImage(i)}
+                    >
+                        <img src={img.content} draggable={false} />
+                        <div className={styles.fileName}>{img.name}</div>
+                    </div>)}
+                </div>
+            </div>
+            <div className={styles.section}>
+                <h2 className={styles.title}>Video</h2>
+                <div className={styles.galleryContent}>
+                    {videos.map((vid, i) => <div
+                        key={vid.name}
+                        className={styles.imageFile}
+                        onPointerDown={() => handleOpenVideo(i)}
+                    >
+                        <img src={vid.thumbnail} draggable={false} />
+                        <div className={styles.fileName}>{vid.name}</div>
+                    </div>)}
+                </div>
+            </div>
+        </div>
+    );
+
+    function handleOpenImage (index: number) {
+        const uuid = ctx.openWindow({
+            type: 'image',
+            images,
+            selectedIndex: index,
+        });
+        setTimeout(() => ctx.setWindowOnTop(uuid), 10);
+    }
+
+    function handleOpenVideo (index: number) {
+        const uuid = ctx.openWindow({
+            type: 'video',
+            videos,
+            selectedIndex: index,
+        });
+        setTimeout(() => ctx.setWindowOnTop(uuid), 10);
+    }
+}
+
+interface _ImageOrVideoViewProps {
+    window: OsWindow;
+}
+
+function _ImageView ({
+    window,
+}: _ImageOrVideoViewProps) {
+    const ctx = useOsContext();
+
+    if (window.content.type !== 'image') return <div>Incorrect file.</div>
+
+    const amount = window.content.images.length;
+    const index = window.content.selectedIndex;
+
+    return (
+        <div className={styles.imageView}>
+            <div
+                className={$cl(styles.control, styles.previous)}
+                onPointerDown={handlePrevious}
+            >
+                &lt;
+            </div>
+            <img
+                className={styles.image}
+                src={window.content.images[window.content.selectedIndex].content}
+            />
+            <div
+                className={$cl(styles.control, styles.next)}
+                onPointerDown={handleNext}
+            >
+                &gt;
+            </div>
+        </div>
+    );
+
+    function handlePrevious () {
+        if (window.content.type !== 'image') return;
+
+        ctx.updateWindow(window.id, {
+            ...window,
+            content: {
+                ...window.content,
+                selectedIndex: (index + amount - 1) % amount,
+            }
+        })
+    }
+
+    function handleNext () {
+        if (window.content.type !== 'image') return;
+
+        ctx.updateWindow(window.id, {
+            ...window,
+            content: {
+                ...window.content,
+                selectedIndex: (index + 1) % amount,
+            }
+        })
+    }
+}
+
+function _VideoView ({
+    window,
+}: _ImageOrVideoViewProps) {
+    const ctx = useOsContext();
+
+    const [isLoaded, setLoaded] = useState(false);
+    const [playing, setPlaying] = useState(false);
+
+    if (window.content.type !== 'video') return <div>Incorrect file.</div>
+
+    const videoFile = window.content.videos[window.content.selectedIndex];
+    const amount = window.content.videos.length;
+    const index = window.content.selectedIndex;
+
+    return (
+        <div className={styles.imageView}>
+            <div
+                className={$cl(styles.control, styles.previous)}
+                onPointerDown={handlePrevious}
+            >
+                &lt;
+            </div>
+            <div
+                className={styles.videoContainer}
+            >
+                {isLoaded === false && <div className={styles.loading}>
+                    Loading video...
+                </div>}
+                <ReactPlayer
+                    className={styles.video}
+                    url={videoFile.content}
+                    onReady={() => setLoaded(true)}
+                    playing={playing}
+                />
+                {isLoaded && playing === false && <div
+                    className={styles.playButton}
+                    onPointerDown={() => setPlaying(true)}
+                />}
+            </div>
+            <div
+                className={$cl(styles.control, styles.next)}
+                onPointerDown={handleNext}
+            >
+                &gt;
+            </div>
+        </div>
+    );
+
+    function handlePrevious () {
+        if (window.content.type !== 'video') return;
+
+        ctx.updateWindow(window.id, {
+            ...window,
+            content: {
+                ...window.content,
+                selectedIndex: (index + amount - 1) % amount,
+            }
+        })
+    }
+
+    function handleNext () {
+        if (window.content.type !== 'video') return;
+
+        ctx.updateWindow(window.id, {
+            ...window,
+            content: {
+                ...window.content,
+                selectedIndex: (index + 1) % amount,
+            }
+        })
+    }
+}
+
 
 
 export default Window;

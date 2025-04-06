@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './Tab.module.scss'
-import { OsWindow, useOsContext } from 'context/usePortfolioContext';
+import { getWindowTitle, OsWindow, useOsContext } from 'context/usePortfolioContext';
 import { $cl } from 'utils';
 
 export interface TabProps {
@@ -11,10 +11,6 @@ function Tab ({
     window,
 }: TabProps) {
     const ctx = useOsContext();
-    
-    useEffect(() => {
-        console.log(ctx.focusedWindow);
-    }, [ctx.focusedWindow])
 
     return (
         <div
@@ -24,7 +20,7 @@ function Tab ({
             )}
             onPointerDown={handlePointerDown}
         >
-            {window.file.name}
+            {getWindowTitle(window.content)}
         </div>
     );
 

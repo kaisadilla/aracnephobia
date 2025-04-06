@@ -89,18 +89,21 @@
     }
 }
 
+.listView, .galleryView {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
 .listView {
     flex: 1;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     overflow-x: auto;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 1rem;
 
     .folder {
         @include crt-text-light;
@@ -125,5 +128,133 @@
         &:hover {
             background-color: var(--color-primary);
         }
+    }
+}
+
+.galleryView {
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .title {
+            @include crt-text-light;
+
+            color: var(--color-os-text-dark);
+            font-weight: 400;
+            font-size: 1.25rem;
+            padding-left: 1em;
+            margin: 0;
+            border-bottom: 1px solid var(--color-os-text-dark);
+        }
+
+        .galleryContent {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .imageFile {
+                cursor: pointer;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5em;
+
+                img {
+                    width: 6rem;
+                    height: 6rem;
+                    object-fit: contain;
+                }
+
+                > .fileName {
+                    @include crt-text-light;
+
+                    font-size: 0.8rem;
+                    color: var(--color-os-text-dark);
+                }
+
+                &:hover {
+                    background-color: var(--color-primary);
+                }
+            }
+        }
+    }
+}
+
+.imageView {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+
+    .control {
+        @include crt-text;
+
+        cursor: pointer;
+
+        width: 5rem;
+        height: 100%;
+        flex-shrink: 0;
+        background-color: #00000030;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--color-os-text-dark);
+
+        &:hover {
+            background-color: var(--color-primary);
+        }
+    }
+
+    .image {
+        flex: 1;
+        width: 1%;
+        object-fit: contain;
+    }
+
+    .videoContainer {
+        flex: 1;
+        width: 1%;
+        height: 100%;
+        position: relative;
+
+        .video {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .playButton {
+            $size: 80px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: $size solid transparent;
+            border-bottom: $size solid transparent;
+            border-left: ($size * 1.5) solid var(--color-os-primary-l1);
+            z-index: 100;
+
+            &:hover {
+                border-left-color: var(--color-primary);
+            }
+        }
+    }
+
+    .loading {
+        @include crt-text-light;
+
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-os-text-dark);
+        font-size: 1.5rem;
     }
 }

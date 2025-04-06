@@ -2,13 +2,40 @@ import useIndices from "hooks/useIndices";
 import { Context, createContext, useContext, useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
+import branding_jlazz_logo from "assets/portfolio/branding/jlazz/LOGO.png";
+import branding_jlazz_logo_bg from "assets/portfolio/branding/jlazz/logo-bg.png";
+import branding_jlazz_logo_mp4 from "assets/portfolio/branding/jlazz/logo-006.mp4";
+import branding_jlazz_logo_mp4_thumbnail from "assets/portfolio/branding/jlazz/logo-006.thumbnail.jpg";
+import branding_jlazz_portrait from "assets/portfolio/branding/jlazz/portrait.png";
+import branding_jlazz_transition from "assets/portfolio/branding/jlazz/transition-sound.mp4";
+import branding_jlazz_transition_thumbnail from "assets/portfolio/branding/jlazz/transition-sound.thumbnail.jpg";
+
 export interface OsWindow {
-    file: OsFile;
+    content: WindowContent;
     id: string;
     position: { top: number, left: number };
     isMinimized: boolean;
     isMaximized: boolean;
 }
+
+export interface FolderWindow {
+    type: 'folder';
+    folder: Folder;
+}
+
+export interface ImageWindow {
+    type: 'image';
+    images: ImageFile[];
+    selectedIndex: number;
+}
+
+export interface VideoWindow {
+    type: 'video';
+    videos: VideoFile[];
+    selectedIndex: number;
+}
+
+export type WindowContent = FolderWindow | ImageWindow | VideoWindow;
 
 interface OsContextState {
     activeWindowId: string | null;
@@ -16,7 +43,7 @@ interface OsContextState {
     openWindows: {[uuid: string]: OsWindow};
     windowIndices: Record<string, number>;
     focusedWindow: string | null;
-    openWindow: (file: OsFile) => string;
+    openWindow: (content: WindowContent) => string;
     updateWindow: (id: string, window: OsWindow) => void;
     closeWindow: (id: string) => void;
     setWindowOnTop: (key: string) => void;
@@ -43,7 +70,7 @@ const OsContextProvider = ({ children }: any) => {
     } = useIndices(Object.keys(state.openWindows));
 
     const value: OsContextState = useMemo(() => {
-        function openWindow (file: OsFile) : string {
+        function openWindow (content: WindowContent) : string {
             const uuid = uuidv4();
             setState(prev => ({
                 ...prev,
@@ -51,9 +78,9 @@ const OsContextProvider = ({ children }: any) => {
                     ...prev.openWindows,
                     [uuid]: {
                         id: uuid,
-                        file: file,
+                        content,
                         position: {
-                            top: Math.floor(Math.random() * 300),
+                            top: Math.floor(Math.random() * 100),
                             left: Math.floor(Math.random() * 300),
                         },
                         isMinimized: false,
@@ -95,7 +122,6 @@ const OsContextProvider = ({ children }: any) => {
             setWindowOnTop,
         }
     }, [state, windowIndices, setWindowOnTop]);
-    console.log("E");
 
     return (
         <OsContext.Provider value={value}>
@@ -117,28 +143,71 @@ export interface BaseFile {
 
 export interface Folder extends BaseFile {
     type: 'folder';
+    display: 'list' | 'gallery';
     content: OsFile[];
 }
 
+export interface ImageFile extends BaseFile {
+    type: 'image';
+    content: string;
+}
+
+export interface VideoFile extends BaseFile {
+    type: 'video';
+    content: string;
+    thumbnail: string;
+}
+
 export type OsFile = Folder
+    | ImageFile
+    | VideoFile
     ;
 
 function getBrandingFolder () : Folder {
     const folder: Folder = {
         type: 'folder',
         name: "Branding",
+        display: 'list',
         parentFolder: null,
         content: [
             {
                 type: 'folder',
-                name: "Concept art",
+                name: "jlazz",
+                display: 'gallery',
                 content: [
-
+                    {
+                        type: 'image',
+                        name: "logo",
+                        content: branding_jlazz_logo,
+                    },
+                    {
+                        type: 'image',
+                        name: "logo_bg",
+                        content: branding_jlazz_logo_bg,
+                    },
+                    {
+                        type: 'video',
+                        name: "logo_mp4",
+                        content: branding_jlazz_logo_mp4,
+                        thumbnail: branding_jlazz_logo_mp4_thumbnail,
+                    },
+                    {
+                        type: 'image',
+                        name: "portrait",
+                        content: branding_jlazz_portrait,
+                    },
+                    {
+                        type: 'video',
+                        name: "transition-sound",
+                        content: branding_jlazz_transition,
+                        thumbnail: branding_jlazz_transition_thumbnail,
+                    },
                 ]
             },
             {
                 type: 'folder',
                 name: "Digital art",
+                display: 'list',
                 content: [
 
                 ]
@@ -146,6 +215,7 @@ function getBrandingFolder () : Folder {
             {
                 type: 'folder',
                 name: "Editorial art",
+                display: 'list',
                 content: [
 
                 ]
@@ -153,6 +223,7 @@ function getBrandingFolder () : Folder {
             {
                 type: 'folder',
                 name: "Tattoo art",
+                display: 'list',
                 content: [
 
                 ]
@@ -168,11 +239,13 @@ function getDrawingFolder () : Folder {
     const folder: Folder = {
         type: 'folder',
         name: "Drawing",
+        display: 'list',
         parentFolder: null,
         content: [
             {
                 type: 'folder',
                 name: "Book of Mistery",
+                display: 'list',
                 content: [
 
                 ]
@@ -180,6 +253,7 @@ function getDrawingFolder () : Folder {
             {
                 type: 'folder',
                 name: "Doll's chest",
+                display: 'list',
                 content: [
 
                 ]
@@ -187,6 +261,7 @@ function getDrawingFolder () : Folder {
             {
                 type: 'folder',
                 name: "Delugram",
+                display: 'list',
                 content: [
 
                 ]
@@ -194,6 +269,7 @@ function getDrawingFolder () : Folder {
             {
                 type: 'folder',
                 name: "Aracne Phobia",
+                display: 'list',
                 content: [
 
                 ]
@@ -209,6 +285,7 @@ function getReelsFolder () : Folder {
     const folder: Folder = {
         type: 'folder',
         name: "Reel",
+        display: 'list',
         parentFolder: null,
         content: [
         ]
@@ -227,5 +304,17 @@ function linkParents (folder: Folder) {
         if (f.type === 'folder') {
             linkParents(f);
         }
+    }
+}
+
+export function getWindowTitle (content: WindowContent) {
+    if (content.type === 'folder') {
+        return content.folder.name;
+    }
+    else if (content.type === 'image') {
+        return content.images[content.selectedIndex].name;
+    }
+    else if (content.type === 'video') {
+        return content.videos[content.selectedIndex].name;
     }
 }
