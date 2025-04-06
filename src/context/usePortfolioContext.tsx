@@ -2,7 +2,7 @@ import useIndices from "hooks/useIndices";
 import { Context, createContext, useContext, useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-import branding_jlazz_logo from "assets/portfolio/branding/jlazz/LOGO.png";
+import branding_jlazz_logo from "assets/portfolio/branding/jlazz/logo.png";
 import branding_jlazz_logo_bg from "assets/portfolio/branding/jlazz/logo-bg.png";
 import branding_jlazz_logo_mp4 from "assets/portfolio/branding/jlazz/logo-006.mp4";
 import branding_jlazz_logo_mp4_thumbnail from "assets/portfolio/branding/jlazz/logo-006.thumbnail.jpg";

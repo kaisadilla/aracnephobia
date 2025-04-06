@@ -3,7 +3,7 @@ import { CSS } from '@dnd-kit/utilities';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { Folder, FolderWindow, getWindowTitle, ImageFile, OsFile, OsWindow, useOsContext, WindowContent } from 'context/usePortfolioContext';
 import { IMG } from 'img/img';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './window.module.scss';
 import { Rnd } from 'react-rnd';
 import { NumberSize } from 're-resizable';
@@ -329,6 +329,10 @@ function _VideoView ({
 
     const [isLoaded, setLoaded] = useState(false);
     const [playing, setPlaying] = useState(false);
+
+    useEffect(() => {
+        setPlaying(false);
+    }, [window]);
 
     if (window.content.type !== 'video') return <div>Incorrect file.</div>
 
