@@ -32,6 +32,7 @@ import os_cursor from "./os/cursor.webp";
 import os_folder from "./os/folder.png";
 import os_folder_1_5 from "./os/folder.1.5x.png";
 import os_folder_2 from "./os/folder.2x.png";
+import os_pdf_logo_2 from "./os/pdf_logo.2x.webp";
 import bsky from "./social/bsky.webp";
 import twitter from "./social/formerly-known-as-twitter.webp";
 import instagram from "./social/instagram.webp";
@@ -83,7 +84,8 @@ export const IMG = {
                 { src: os_folder_1_5, size: "1.5x"},
                 { src: os_folder_2, size: "2x"},
             ])
-        }
+        },
+        pdf_logo: os_pdf_logo_2,
     } as ImageCollection,
     social: {
         bsky,

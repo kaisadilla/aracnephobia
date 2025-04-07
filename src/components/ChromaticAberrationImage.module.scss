@@ -5,13 +5,13 @@
         visibility: hidden;
     }
 
-    img:not(.sentinel) {
+    img:not(.sentinel), svg:not(.sentinel) {
         position: absolute;
         top: 0px;
         left: 0px;
     }
 
-    img {
+    img, svg {
         height: 100%;
     }
 

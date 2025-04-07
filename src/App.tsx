@@ -1,5 +1,6 @@
 import './styles.scss'
 import '@mantine/core/styles.layer.css';
+import 'material-symbols';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import IndexPage from './IndexPage';

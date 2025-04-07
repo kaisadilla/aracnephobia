@@ -3,13 +3,17 @@ import { CSS } from '@dnd-kit/utilities';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { Folder, FolderWindow, getWindowTitle, ImageFile, OsFile, OsWindow, useOsContext, WindowContent } from 'context/usePortfolioContext';
 import { IMG } from 'img/img';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './window.module.scss';
 import { Rnd } from 'react-rnd';
 import { NumberSize } from 're-resizable';
 import { Direction } from 're-resizable/lib/resizer';
 import { $cl } from 'utils';
 import ReactPlayer from 'react-player';
+import SVG from 'img/svg';
+import { Tooltip } from '@mantine/core';
+import SiteImage from 'components/SiteImage';
+import ChromaticAberration from 'components/ChromaticAberration';
 
 export interface WindowProps {
     parentWidth: number;
@@ -79,13 +83,19 @@ function Window ({
                         {getWindowTitle(window.content)}
                     </div>
                     <div className={styles.minimize} onPointerDown={handleMinimize}>
-                        _
+                        <ChromaticAberration containerClassName={styles.icon}>
+                            <SVG.os.window.minimize />
+                        </ChromaticAberration>
                     </div>
                     <div className={styles.maximize} onPointerDown={handleMaximize}>
-                        O
+                        <ChromaticAberration containerClassName={styles.icon}>
+                            <SVG.os.window.maximize />
+                        </ChromaticAberration>
                     </div>
                     <div className={styles.close} onPointerDown={handleClose}>
-                        X
+                        <ChromaticAberration containerClassName={styles.icon}>
+                            <SVG.os.window.close />
+                        </ChromaticAberration>
                     </div>
                 </div>
                 <div className={styles.content}>
@@ -211,10 +221,11 @@ function _GalleryView ({
 
     const images = folder.content.filter(f => f.type === 'image');
     const videos = folder.content.filter(f => f.type === 'video');
+    const pdfs = folder.content.filter(f => f.type === 'pdf');
 
     return (
         <div className={styles.galleryView}>
-            <div className={styles.section}>
+            {images.length !== 0 && <div className={styles.section}>
                 <h2 className={styles.title}>Image</h2>
                 <div className={styles.galleryContent}>
                     {images.map((img, i) => <div
@@ -226,8 +237,8 @@ function _GalleryView ({
                         <div className={styles.fileName}>{img.name}</div>
                     </div>)}
                 </div>
-            </div>
-            <div className={styles.section}>
+            </div>}
+            {videos.length !== 0 && <div className={styles.section}>
                 <h2 className={styles.title}>Video</h2>
                 <div className={styles.galleryContent}>
                     {videos.map((vid, i) => <div
@@ -239,7 +250,23 @@ function _GalleryView ({
                         <div className={styles.fileName}>{vid.name}</div>
                     </div>)}
                 </div>
-            </div>
+            </div>}
+            {pdfs.length !== 0 && <div className={styles.section}>
+                <h2 className={styles.title}>Documents</h2>
+                <div className={styles.galleryContent}>
+                    {pdfs.map((pdf, i) => <div
+                        key={pdf.name}
+                        className={styles.imageFile}
+                        onPointerDown={() => handleOpenVideo(i)}
+                    >
+                        <SiteImage
+                            image={IMG.os.pdf_logo}
+                            draggable={false}
+                        />
+                        <div className={styles.fileName}>{pdf.name}</div>
+                    </div>)}
+                </div>
+            </div>}
         </div>
     );
 
@@ -327,12 +354,33 @@ function _VideoView ({
 }: _ImageOrVideoViewProps) {
     const ctx = useOsContext();
 
+    const videoRef = useRef<ReactPlayer>(null);
+
     const [isLoaded, setLoaded] = useState(false);
     const [playing, setPlaying] = useState(false);
+    const [volume, setVolume] = useState(0.5);
+    const [progress, setProgress] = useState(0); // 0 to 1.
+    const [isFullscreen, setFullscreen] = useState(false);
+
+    useEffect(() => {
+        handleLoadedMetadata();
+    }, [videoRef.current]);
+
+    useEffect(() => {
+        function handleFullScreenChange () {
+            setFullscreen(
+                document.fullscreenElement === videoRef.current?.getInternalPlayer()
+            );
+        }
+
+        document.addEventListener('fullscreenchange', handleFullScreenChange);
+
+        return () => document.removeEventListener('fullscreenchange', handleFullScreenChange);
+    }, []);
 
     useEffect(() => {
         setPlaying(false);
-    }, [window]);
+    }, [window.content.type === 'video' && window.content.selectedIndex]);
 
     if (window.content.type !== 'video') return <div>Incorrect file.</div>
 
@@ -341,61 +389,138 @@ function _VideoView ({
     const index = window.content.selectedIndex;
 
     return (
-        <div className={styles.imageView}>
-            <div
-                className={$cl(styles.control, styles.previous)}
-                onPointerDown={handlePrevious}
+        <div
+            className={styles.videoView}
+        >
+
+        <div className={styles.fileNavigator}>
+            {window.content.videos.map((v, i) => <button 
+                key={i}
+                className={$cl(styles.button, i === index && styles.selected)}
+                onClick={() => i !== index && selectVideo(i)}
             >
-                &lt;
-            </div>
-            <div
-                className={styles.videoContainer}
-            >
-                {isLoaded === false && <div className={styles.loading}>
-                    Loading video...
-                </div>}
-                <ReactPlayer
-                    className={styles.video}
-                    url={videoFile.content}
-                    onReady={() => setLoaded(true)}
-                    playing={playing}
+                {v.name}
+            </button>)}
+        </div>
+        <div className={styles.videoContainer}>
+            {isLoaded === false && <div className={styles.loading}>
+                Loading video...
+            </div>}
+            <ReactPlayer
+                key={videoFile.name}
+                ref={videoRef}
+                className={styles.video}
+                url={videoFile.content}
+                onReady={() => setLoaded(true)}
+                onEnded={() => setPlaying(false)}
+                onLoadedMetadata={handleLoadedMetadata}
+                onTimeUpdate={handleTimeUpdate}
+                playing={playing}
+                onClick={() => setPlaying(prev => !prev)}
+                volume={volume}
+                playIcon={<div>play</div>}
+                controls={isFullscreen}
+            />
+            {isLoaded && playing === false && <div
+                className={styles.playButton}
+                onPointerDown={() => setPlaying(true)}
+            />}
+        </div>
+        <div className={styles.controls}>
+            <div className={styles.seekBar}>
+                <input
+                    className={styles.slider}
+                    type='range'
+                    min={0}
+                    max={1}
+                    step={0.001}
+                    value={progress}
+                    onChange={handleSeek}
                 />
-                {isLoaded && playing === false && <div
-                    className={styles.playButton}
-                    onPointerDown={() => setPlaying(true)}
-                />}
             </div>
-            <div
-                className={$cl(styles.control, styles.next)}
-                onPointerDown={handleNext}
-            >
-                &gt;
+            <div className={styles.buttonRibbon}>
+                <button title="Full screen" onClick={handleFullScreen}>
+                    <span className="material-symbols-sharp">fullscreen</span>
+                </button>
             </div>
+            <div className={styles.audioControl}>
+                <SVG.os.videoPlayer.volume className={styles.icon} />
+                <div className={styles.clickable}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map(i => <div
+                        key={i}
+                        className={styles.bar}
+                        onPointerDown={() => setVolume(i / 8)}
+                    >
+                        <div
+                            className={$cl(
+                                styles.visible,
+                                volume >= i / 8 && styles.selected
+                            )}
+                            style={{height: (i * 100 / 8) + "%"}}
+                        />
+                    </div>)}
+                </div>
+            </div>
+        </div>
+
         </div>
     );
 
-    function handlePrevious () {
+    function selectVideo (i: number) {
         if (window.content.type !== 'video') return;
 
         ctx.updateWindow(window.id, {
             ...window,
             content: {
                 ...window.content,
-                selectedIndex: (index + amount - 1) % amount,
+                selectedIndex: i,
             }
         })
     }
 
-    function handleNext () {
-        if (window.content.type !== 'video') return;
+    function handleLoadedMetadata () {
+        // we don't actually do anything yet.
 
-        ctx.updateWindow(window.id, {
-            ...window,
-            content: {
-                ...window.content,
-                selectedIndex: (index + 1) % amount,
-            }
-        })
+        if (videoRef.current === null) return;
+        const player = videoRef.current.getInternalPlayer();
+        if (player === null) return;
+    }
+
+    function handleSeek (evt: React.ChangeEvent<HTMLInputElement>) {
+        if (videoRef.current === null) return;
+        const player = videoRef.current.getInternalPlayer();
+        if (player === null) return;
+
+        const prog = parseFloat(evt.target.value);
+
+        if (isNaN(prog)) return;
+        
+        setProgress(prog);
+        player.currentTime = prog * player.duration;
+    }
+
+    function handleTimeUpdate (evt: React.SyntheticEvent<HTMLVideoElement>) {
+        if (videoRef.current === null) return;
+        const player = videoRef.current.getInternalPlayer();
+        if (player === null) return;
+
+        setProgress(player.currentTime / player.duration);
+    }
+
+    function handleFullScreen () {
+        if (videoRef.current === null) return;
+        const player = videoRef.current.getInternalPlayer();
+        if (player === null) return;
+
+        if (player.requestFullscreen) {
+            player.requestFullscreen();
+        } else if (player.webkitRequestFullscreen) {
+            player.webkitRequestFullscreen(); // Safari
+        } else if (player.mozRequestFullScreen) {
+            player.mozRequestFullScreen(); // Firefox
+        } else if (player.msRequestFullscreen) {
+            player.msRequestFullscreen(); // IE/Edge
+        }
     }
 }
 

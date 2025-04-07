@@ -25,11 +25,20 @@ function Tab ({
     );
 
     function handlePointerDown () {
-        ctx.setWindowOnTop(window.id);
-        ctx.updateWindow(window.id, {
-            ...window,
-            isMinimized: false,
-        })
+        if (ctx.focusedWindow === window.id) {
+            ctx.setWindowOnTop('0');
+            ctx.updateWindow(window.id, {
+                ...window,
+                isMinimized: true,
+            })
+        }
+        else {
+            ctx.setWindowOnTop(window.id);
+            ctx.updateWindow(window.id, {
+                ...window,
+                isMinimized: false,
+            })
+        }
     }
 }
 
