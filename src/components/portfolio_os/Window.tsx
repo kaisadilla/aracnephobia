@@ -1,7 +1,7 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
-import { Folder, FolderWindow, getWindowTitle, ImageFile, OsFile, OsWindow, useOsContext, WindowContent } from 'context/usePortfolioContext';
+import { Folder, FolderWindow, getWindowTitle, ImageFile, OsFile, OsWindow, PdfFile, useOsContext, WindowContent } from 'context/usePortfolioContext';
 import { IMG } from 'img/img';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './window.module.scss';
@@ -14,6 +14,12 @@ import SVG from 'img/svg';
 import { Tooltip } from '@mantine/core';
 import SiteImage from 'components/SiteImage';
 import ChromaticAberration from 'components/ChromaticAberration';
+import { Document, Outline, Page, pdfjs } from 'react-pdf';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker?worker&url';
+import myPdfFile from 'assets/portfolio/branding/aracne_phobia/brand_bible.pdf';
+import useDynamicHook from 'hooks/useDynamicSize';
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export interface WindowProps {
     parentWidth: number;
@@ -114,6 +120,9 @@ function Window ({
                         window={window}
                     />}
                     {window.content.type === 'video' && <_VideoView
+                        window={window}
+                    />}
+                    {window.content.type === 'pdf' && <_PdfView
                         window={window}
                     />}
                 </div>
@@ -257,7 +266,7 @@ function _GalleryView ({
                     {pdfs.map((pdf, i) => <div
                         key={pdf.name}
                         className={styles.imageFile}
-                        onPointerDown={() => handleOpenVideo(i)}
+                        onPointerDown={() => handleOpenPdf(pdf)}
                     >
                         <SiteImage
                             image={IMG.os.pdf_logo}
@@ -284,6 +293,14 @@ function _GalleryView ({
             type: 'video',
             videos,
             selectedIndex: index,
+        });
+        setTimeout(() => ctx.setWindowOnTop(uuid), 10);
+    }
+
+    function handleOpenPdf (pdf: PdfFile) {
+        const uuid = ctx.openWindow({
+            type: 'pdf',
+            pdf,
         });
         setTimeout(() => ctx.setWindowOnTop(uuid), 10);
     }
@@ -534,6 +551,56 @@ function _VideoView ({
     }
 }
 
+function _PdfView ({
+    window,
+}: _ImageOrVideoViewProps) {
+    const ctx = useOsContext();
+    const ref = useRef<HTMLDivElement>(null);
+    const containerSize = useDynamicHook(ref);
+    
+    const [width, setWidth] = useState(100);
+    const [numPages, setNumPages] = useState(0);
+    const [isFullScreen, setFullScreen] = useState(false);
 
+    useEffect(() => {
+        setWidth(containerSize.width);
+    }, [containerSize]);
+
+    if (window.content.type !== 'pdf') return <div>Incorrect file.</div>
+
+    function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+        setNumPages(numPages);
+    }
+
+    return (
+        <div ref={ref} className={$cl(styles.pdfView, isFullScreen && styles.fullscreen)}>
+            <Document
+                className={styles.pdf}
+                file={window.content.pdf.content}
+                onLoadSuccess={onDocumentLoadSuccess}
+                loading={<div className={styles.loading}>Loading document...</div>}
+            >
+                {Array.from({ length: numPages }).map((_, i) => <Page
+                    key={i}
+                    className={styles.page}
+                    pageNumber={i + 1}
+                    width={width}
+                    loading={<div className={styles.loading}>Loading page...</div>}
+                    renderTextLayer={false}
+                    renderAnnotationLayer={false}
+                />)}
+            </Document>
+            <div className={styles.buttonRibbon}>
+                <button title="Full screen" onClick={handleFullScreen}>
+                    <span className="material-symbols-sharp">fullscreen</span>
+                </button>
+            </div>
+        </div>
+    );
+
+    function handleFullScreen () {
+        setFullScreen(prev => !prev);
+    }
+}
 
 export default Window;

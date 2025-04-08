@@ -198,7 +198,16 @@ export interface VideoWindow {
     selectedIndex: number;
 }
 
-export type WindowContent = FolderWindow | ImageWindow | VideoWindow;
+export interface PdfWindow {
+    type: 'pdf';
+    pdf: PdfFile;
+}
+
+export type WindowContent = FolderWindow
+    | ImageWindow
+    | VideoWindow
+    | PdfWindow
+    ;
 
 interface OsContextState {
     activeWindowId: string | null;
@@ -1227,5 +1236,8 @@ export function getWindowTitle (content: WindowContent) {
     }
     else if (content.type === 'video') {
         return content.videos[content.selectedIndex].name;
+    }
+    else if (content.type === 'pdf') {
+        return content.pdf.name;
     }
 }
