@@ -379,6 +379,7 @@ function _VideoView ({
     }, []);
 
     useEffect(() => {
+        setLoaded(false);
         setPlaying(false);
     }, [window.content.type === 'video' && window.content.selectedIndex]);
 
@@ -420,13 +421,22 @@ function _VideoView ({
                 volume={volume}
                 playIcon={<div>play</div>}
                 controls={isFullscreen}
+                config={{
+                    youtube: {
+                        playerVars: {
+                            controls: 1,
+                            modestbranding: 1,
+                            rel: 0,
+                        }
+                    }
+                }}
             />
             {isLoaded && playing === false && <div
                 className={styles.playButton}
                 onPointerDown={() => setPlaying(true)}
             />}
         </div>
-        <div className={styles.controls}>
+        {!videoFile.host && <div className={styles.controls}>
             <div className={styles.seekBar}>
                 <input
                     className={styles.slider}
@@ -461,7 +471,7 @@ function _VideoView ({
                     </div>)}
                 </div>
             </div>
-        </div>
+        </div>}
 
         </div>
     );
