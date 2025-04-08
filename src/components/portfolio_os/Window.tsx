@@ -18,6 +18,7 @@ import { Document, Outline, Page, pdfjs } from 'react-pdf';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker?worker&url';
 import myPdfFile from 'assets/portfolio/branding/aracne_phobia/brand_bible.pdf';
 import useDynamicHook from 'hooks/useDynamicSize';
+import { createPortal } from 'react-dom';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -572,7 +573,7 @@ function _PdfView ({
         setNumPages(numPages);
     }
 
-    return (
+    const view = (
         <div ref={ref} className={$cl(styles.pdfView, isFullScreen && styles.fullscreen)}>
             <Document
                 className={styles.pdf}
@@ -597,6 +598,13 @@ function _PdfView ({
             </div>
         </div>
     );
+
+    if (isFullScreen) {
+        return createPortal(view, document.body);
+    }
+    else {
+        return view;
+    }
 
     function handleFullScreen () {
         setFullScreen(prev => !prev);

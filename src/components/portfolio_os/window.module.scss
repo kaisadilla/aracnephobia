@@ -413,6 +413,16 @@
     height: 100%;
     overflow: hidden;
 
+    &.fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 500000000000000000000000000;
+        background-color: var(--color-os-primary);
+    }
+
     .pdf {
         flex: 1;
         height: 100%;
