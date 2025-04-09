@@ -53,6 +53,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
 
         position: absolute;
         height: $curtain-height;
+        pointer-events: none;
     }
 
     .aboutMeCard {

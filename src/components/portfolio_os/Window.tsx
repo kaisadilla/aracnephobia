@@ -69,6 +69,7 @@ function Window ({
             maxHeight={parentHeight}
             style={rndStyle}
             onResizeStop={handleResizeStop}
+            onResize={handleResize}
             size={windowSize}
             onPointerDown={onPointerDown}
         >
@@ -160,10 +161,34 @@ function Window ({
         elementRef: HTMLElement,
         delta: NumberSize
     ) {
-        console.log(size);
+        //setSize({
+        //    width: elementRef.offsetWidth,
+        //    height: elementRef.offsetHeight,
+        //});
+    }
+
+    function handleResize(
+        evt: MouseEvent | TouchEvent,
+        direction: Direction,
+        elementRef: HTMLElement,
+        delta: NumberSize
+    ) {
+        const newPos = {...window.position}
+
+        if (direction.toLowerCase().includes("left")) {
+            newPos.left += size.width - elementRef.offsetWidth;
+        }
+        if (direction.toLowerCase().includes("top")) {
+            newPos.top += size.height - elementRef.offsetHeight;
+        }
         setSize({
             width: elementRef.offsetWidth,
             height: elementRef.offsetHeight,
+        });
+
+        ctx.updateWindow(window.id, {
+            ...window,
+            position: newPos,
         });
     }
 
