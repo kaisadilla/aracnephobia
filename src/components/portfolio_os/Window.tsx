@@ -451,7 +451,7 @@ function _VideoView ({
             />
             {isLoaded && playing === false && <div
                 className={styles.playButton}
-                onPointerDown={() => setPlaying(true)}
+                onClick={() => setPlaying(true)}
             />}
         </div>
         {!videoFile.host && <div className={styles.controls}>
@@ -467,7 +467,7 @@ function _VideoView ({
                 />
             </div>
             <div className={styles.buttonRibbon}>
-                <button title="Full screen" onClick={handleFullScreen}>
+                <button title="Full screen" onPointerDown={handleFullScreen}>
                     <span className="material-symbols-sharp">fullscreen</span>
                 </button>
             </div>
