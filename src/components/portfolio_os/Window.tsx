@@ -68,7 +68,6 @@ function Window ({
             maxWidth={parentWidth}
             maxHeight={parentHeight}
             style={rndStyle}
-            onResizeStop={handleResizeStop}
             onResize={handleResize}
             size={windowSize}
             onPointerDown={onPointerDown}
@@ -155,18 +154,6 @@ function Window ({
         }
     }
 
-    function handleResizeStop (
-        evt: MouseEvent | TouchEvent,
-        direction: Direction,
-        elementRef: HTMLElement,
-        delta: NumberSize
-    ) {
-        //setSize({
-        //    width: elementRef.offsetWidth,
-        //    height: elementRef.offsetHeight,
-        //});
-    }
-
     function handleResize(
         evt: MouseEvent | TouchEvent,
         direction: Direction,
@@ -181,14 +168,15 @@ function Window ({
         if (direction.toLowerCase().includes("top")) {
             newPos.top += size.height - elementRef.offsetHeight;
         }
-        setSize({
-            width: elementRef.offsetWidth,
-            height: elementRef.offsetHeight,
-        });
 
         ctx.updateWindow(window.id, {
             ...window,
             position: newPos,
+        });
+
+        setSize({
+            width: elementRef.offsetWidth,
+            height: elementRef.offsetHeight,
         });
     }
 
