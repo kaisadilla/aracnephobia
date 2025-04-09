@@ -27,11 +27,12 @@ type RevealState = 'hidden' | 'revealing' | 'complete';
 
 export interface WordProps {
     image: ImageSrc;
-    imagePos?: Rect;
+    imagePos: Rect;
     font: WordFont;
     wordPos: Rect;
     word: string;
     fontSize: number;
+    startsRevealed?: boolean;
     align?: string;
     duration?: number;
     finalDelay?: number;
@@ -73,6 +74,7 @@ function Word ({
     wordPos,
     word,
     fontSize = 1,
+    startsRevealed = false,
     align = 'center',
     duration = DURATION,
     finalDelay = FINAL_DELAY,
@@ -94,20 +96,6 @@ function Word ({
     useEffect(() => {
         setHeight(wordSize.height * fontSize);
     }, [wordSize, fontSize]);
-    //useEffect(() => {
-    //    const handleResize = () => {
-    //        if (!ref.current) return;
-    //        setHeight(ref.current.clientHeight * fontSize);
-    //    }
-    //
-    //    if (ref.current) {
-    //        setHeight(ref.current.clientHeight * fontSize);
-    //    }
-    //
-    //    window.addEventListener('resize', handleResize);
-    //
-    //    return () => window.removeEventListener('resize', handleResize);
-    //}, [ref.current?.clientHeight, fontSize]);
 
     const handleHover = () => {
         if (revealState !== 'hidden') return;
@@ -139,6 +127,8 @@ function Word ({
         lineHeight: fontInfo.lineHeight + "em",
         textAlign: align as unknown as any,
     }
+
+    if (startsRevealed) handleHover();
 
     return (
         <div
@@ -178,5 +168,72 @@ function Word ({
         </div>
     );
 }
+
+interface MultiWordProps {
+    image: ImageSrc;
+    imagePos: Rect;
+    words: {
+        word: string;
+        wordPos: Rect;
+        font: WordFont;
+        fontSize: number;
+    }[];
+}
+
+export function MultiWord ({
+    image,
+    imagePos,
+    words,
+}: MultiWordProps) {
+    const [isHidden, setHidden] = useState(true);
+
+    const { playRepeated } = usePlaySound("/sfx/typewriter0.ogg");
+
+    const handleHover = () => {
+        setHidden(false);
+
+        for (const w of words) {
+            playRepeated(w.word.length, DURATION / w.word.length, true);
+        }
+    };
+
+    const style: React.CSSProperties = {
+        left: imagePos.left * 100 + "%",
+        top: imagePos.top * 100 + "%",
+        width: imagePos.width * 100 + "%",
+        height: imagePos.height * 100 + "%",
+    }
+
+    if (isHidden) {
+        return (
+            <div
+                className={styles.word}
+                style={style}
+            >
+                <SiteImage
+                    className={styles.image}
+                    image={image}
+                    onMouseEnter={handleHover}
+                    onTouchStart={handleHover}
+                />
+            </div>
+        );
+    }
+
+    return (<>
+        {words.map((w, i) => <Word
+            key={i}
+            image={image}
+            imagePos={{ top: 0, left: 0, height: 0, width: 0 }}
+            word={w.word}
+            wordPos={w.wordPos}
+            font={w.font}
+            fontSize={w.fontSize}
+            startsRevealed
+        />)}
+    </>);
+
+}
+
 
 export default Word;

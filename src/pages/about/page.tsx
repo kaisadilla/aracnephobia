@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styles from "./page.module.scss";
 import twpHorizThin from "@src/img/twp-horiz-thin.webp";
-import Word from './Word';
+import Word, { MultiWord } from './Word';
 import WordTable from './WordTable';
 import { makeRect } from 'types';
 import { Typewriter } from 'react-simple-typewriter';
@@ -107,22 +107,6 @@ function AboutPage () {
                         wordPos={makeRect(0.845, 0.54, 0.155, 0.3)}
                     />
                     <Word
-                        image={IMG.about.illustration}
-                        imagePos={makeRect(0.495, 0.825, 0.635, 0.133)}
-                        word="ILLUSTRATION"
-                        font='grandstander'
-                        fontSize={1.2}
-                        wordPos={makeRect(0.485, 0.66, 0.13, 0.33)}
-                    />
-                    <Word
-                        image={IMG.about.illustration}
-                        imagePos={makeRect(0.495, 0.825, 0.635, 0.133)}
-                        word="COMIC"
-                        font='illusion-magic'
-                        fontSize={3}
-                        wordPos={makeRect(0.91, 0.82, 0.1, 0.18)}
-                    />
-                    <Word
                         image={IMG.about.web_design}
                         imagePos={makeRect(0.063, 0.776, 0.441, 0.176)}
                         word="WEB&#x2009; DESIGN"
@@ -131,13 +115,47 @@ function AboutPage () {
                         align='end'
                         wordPos={makeRect(0, 0.69, 0.5, 0.31)}
                     />
-                    <Word
+                    <MultiWord
+                        image={IMG.about.illustration}
+                        imagePos={makeRect(0.495, 0.825, 0.635, 0.133)}
+                        words={[
+                            {
+                                word: "ILLUSTRATION",
+                                wordPos: makeRect(0.485, 0.66, 0.13, 0.33),
+                                font: 'grandstander',
+                                fontSize: 1.2,
+                            },
+                            {
+                                word: "COMIC",
+                                wordPos: makeRect(0.91, 0.82, 0.1, 0.18),
+                                font: 'illusion-magic',
+                                fontSize: 3,
+                            },
+                        ]}
+                    />
+                    <MultiWord
                         image={IMG.about.animation}
                         imagePos={makeRect(0.063, 0.6745, 0.195, 0.122)}
-                        word="GRAPHICS"
-                        font='invisible'
-                        fontSize={1.15}
-                        wordPos={makeRect(0.125, 0.663, 0.08, 0.145)}
+                        words={[
+                            {
+                                word: "GRAPHICS",
+                                wordPos: makeRect(0.125, 0.663, 0.08, 0.145),
+                                font: 'invisible',
+                                fontSize: 1.15,
+                            },
+                            {
+                                word: "MOTION",
+                                wordPos: makeRect(0.04, 0.663, 0.086, 0.145),
+                                font: 'illusion-magic',
+                                fontSize: 2.4,
+                            },
+                            {
+                                word: "ANIMATION",
+                                wordPos: makeRect(0.205, 0.663, 0.06, 0.145),
+                                font: 'grandstander',
+                                fontSize: 1.5,
+                            },
+                        ]}
                     />
                 </WordTable>
                 {false && <img className={styles.template} src="template2.webp" style={{
