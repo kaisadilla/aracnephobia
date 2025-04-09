@@ -118,6 +118,10 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
             align-items: center;
             justify-content: center;
 
+            a {
+                height: 100%;
+            }
+
             .icon {
                 cursor: pointer;
                 

@@ -175,46 +175,81 @@ function AboutPage () {
                 </div>
                 <div className={styles.social}>
                     <Tooltip.Floating position='top' label="YouTube">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.youtube}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://www.youtube.com/@LaMorguedeAracnePhobia"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.youtube}
+                            />
+                        </a>
                     </Tooltip.Floating>
                     <Tooltip.Floating position='top' label="Twitch">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.twitch}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://www.twitch.tv/aracnephobia"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.twitch}
+                            />
+                        </a>
                     </Tooltip.Floating>
                     <Tooltip.Floating position='top' label="Instagram">
-                        <SiteImage 
-                            className={styles.icon}
-                            image={IMG.social.instagram}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://www.instagram.com/aracnephobia/"
+                        >
+                            <SiteImage 
+                                className={styles.icon}
+                                image={IMG.social.instagram}
+                            />
+                        </a>
                     </Tooltip.Floating>
                     <Tooltip.Floating position='top' label="TikTok">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.tiktok}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://www.tiktok.com/@aracne_phobia"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.tiktok}
+                            />
+                        </a>
                     </Tooltip.Floating>
-                    <Tooltip.Floating position='top' label="X (Twitter)">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.twitter}
-                        />
+                    <Tooltip.Floating position='top' label="X (formerly known as Twitter)">
+                        <a
+                            target='_blank'
+                            href="https://x.com/Aracnephobia"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.twitter}
+                            />
+                        </a>
                     </Tooltip.Floating>
                     <Tooltip.Floating position='top' label="Bluesky">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.bsky}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://bsky.app/profile/aracnephobia.com"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.bsky}
+                            />
+                        </a>
                     </Tooltip.Floating>
                     <Tooltip.Floating position='top' label="LinkedIn">
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.linkedin}
-                        />
+                        <a
+                            target='_blank'
+                            href="https://www.linkedin.com/in/ana-l%C3%A1zaro-estalot-52a860104/"
+                        >
+                            <SiteImage
+                                className={styles.icon}
+                                image={IMG.social.linkedin}
+                            />
+                        </a>
                     </Tooltip.Floating>
                 </div>
             </div>
