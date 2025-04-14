@@ -106,7 +106,7 @@ function Window ({
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {window.content.type === 'folder' && window.content.folder.display === 'gallery' && (
+                    {window.content.type === 'folder' && (
                         <_GalleryView
                             folder={window.content.folder}
                             onOpen={file => handleOpenInsideWindow(file)}
@@ -247,7 +247,8 @@ function _GalleryView ({
     return (
         <div className={styles.galleryView}>
             {folders.length !== 0 && <div className={styles.section}>
-                <h2 className={styles.title}>Folders</h2>
+                {folders.length !== folder.content.length
+                && <h2 className={styles.title}>Folders</h2>}
                 <div className={styles.listView}>
                     {folders.map(f => <div
                         key={f.name}
