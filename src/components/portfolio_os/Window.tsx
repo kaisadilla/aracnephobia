@@ -106,15 +106,10 @@ function Window ({
                     </div>
                 </div>
                 <div className={styles.content}>
-                    {window.content.type === 'folder' && window.content.folder.display === 'list' && (
-                        <_ListView
-                            folder={window.content.folder}
-                            onOpen={file => handleOpenInsideWindow(file)}
-                        />
-                    )}
                     {window.content.type === 'folder' && window.content.folder.display === 'gallery' && (
                         <_GalleryView
                             folder={window.content.folder}
+                            onOpen={file => handleOpenInsideWindow(file)}
                         />
                     )}
                     {window.content.type === 'image' && <_ImageView
@@ -209,45 +204,61 @@ function Window ({
     }
 }
 
-interface _ListViewProps {
+//interface _ListViewProps {
+//    folder: Folder;
+//    onOpen: (folder: Folder) => void;
+//}
+//
+//function _ListView ({
+//    folder,
+//    onOpen,
+//}: _ListViewProps) {
+//
+//    return (
+//        <div className={styles.listView}>
+//            {folder.content.map(f => <div
+//                key={f.name}
+//                className={styles.folder}
+//                onPointerDown={() => {if (f.type === 'folder') onOpen(f)}}
+//            >
+//                <ChromaticAberrationImage className={styles.icon} image={IMG.os.folder} />
+//                <span>{f.name}</span>
+//            </div>)}
+//        </div>
+//    );
+//}
+
+interface _GalleryViewProps {
     folder: Folder;
     onOpen: (folder: Folder) => void;
 }
 
-function _ListView ({
-    folder,
-    onOpen,
-}: _ListViewProps) {
-
-    return (
-        <div className={styles.listView}>
-            {folder.content.map(f => <div
-                key={f.name}
-                className={styles.folder}
-                onPointerDown={() => {if (f.type === 'folder') onOpen(f)}}
-            >
-                <ChromaticAberrationImage className={styles.icon} image={IMG.os.folder} />
-                <span>{f.name}</span>
-            </div>)}
-        </div>
-    );
-}
-
-interface _GalleryViewProps {
-    folder: Folder;
-}
-
 function _GalleryView ({
     folder,
+    onOpen,
 }: _GalleryViewProps) {
     const ctx = useOsContext();
 
+    const folders = folder.content.filter(f => f.type === 'folder');
     const images = folder.content.filter(f => f.type === 'image');
     const videos = folder.content.filter(f => f.type === 'video');
     const pdfs = folder.content.filter(f => f.type === 'pdf');
 
     return (
         <div className={styles.galleryView}>
+            {folders.length !== 0 && <div className={styles.section}>
+                <h2 className={styles.title}>Folders</h2>
+                <div className={styles.listView}>
+                    {folders.map(f => <div
+                        key={f.name}
+                        className={styles.folder}
+                        onPointerDown={() => {if (f.type === 'folder') onOpen(f)}}
+                    >
+                        <ChromaticAberrationImage className={styles.icon} image={IMG.os.folder} />
+                        <span>{f.name}</span>
+                    </div>)}
+                </div>
+            </div>}
             {images.length !== 0 && <div className={styles.section}>
                 <h2 className={styles.title}>Image</h2>
                 <div className={styles.galleryContent}>

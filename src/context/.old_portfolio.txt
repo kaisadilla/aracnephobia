@@ -1,0 +1,874 @@
+
+function getBrandingFolder () : Folder {
+    const folder: Folder = {
+        type: 'folder',
+        name: "Branding",
+        display: 'list',
+        parentFolder: null,
+        content: [
+            {
+                type: 'folder',
+                name: "Aracne Phobia",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: "cartas_borde",
+                        content: branding_af_cartas,
+                    },
+                    {
+                        type: 'image',
+                        name: "iconos",
+                        content: branding_af_iconos,
+                    },
+                    {
+                        type: 'image',
+                        name: "iconos_2",
+                        content: branding_af_iconos2,
+                    },
+                    {
+                        type: 'image',
+                        name: "iconos_3",
+                        content: branding_af_iconos3,
+                    },
+                    {
+                        type: 'image',
+                        name: "imagen",
+                        content: branding_af_imagen,
+                    },
+                    {
+                        type: 'image',
+                        name: "logo",
+                        content: branding_af_logo,
+                    },
+                    {
+                        type: 'image',
+                        name: "logo_spider",
+                        content: branding_af_logo_spider,
+                    },
+                    {
+                        type: 'image',
+                        name: "paneles",
+                        content: branding_af_paneles,
+                    },
+                    {
+                        type: 'image',
+                        name: "tipos",
+                        content: branding_af_tipos,
+                    },
+                    {
+                        type: 'pdf',
+                        name: "brand_bible",
+                        content: branding_af_brand_bible,
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Delugram",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: 'bible_1',
+                        content: branding_delugram_bible_1,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_2',
+                        content: branding_delugram_bible_2,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_3',
+                        content: branding_delugram_bible_3,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_4',
+                        content: branding_delugram_bible_4,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_5',
+                        content: branding_delugram_bible_5,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_6',
+                        content: branding_delugram_bible_6,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_7',
+                        content: branding_delugram_bible_7,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_8',
+                        content: branding_delugram_bible_8,
+                    },
+                    {
+                        type: 'image',
+                        name: 'bible_9',
+                        content: branding_delugram_bible_9,
+                    },
+                    {
+                        type: 'pdf',
+                        name: 'bible',
+                        content: branding_delugram_bible_pdf,
+                    },
+                    {
+                        type: 'image',
+                        name: 'logo.gif',
+                        content: branding_delugram_logo_gif,
+                    },
+                    {
+                        type: 'video',
+                        name: 'logo.mp4',
+                        content: branding_delugram_logo_mp4,
+                        thumbnail: branding_delugram_logo_mp4_thumbnail,
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Farmacia",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'pdf',
+                        name: "Te cuida",
+                        content: branding_farmacia_tecuida,
+                    },
+                    {
+                        type: 'pdf',
+                        name: "Sancho de Mesa",
+                        content: branding_farmacia_sdm,
+                    },
+                    {
+                        type: 'video',
+                        name: "Logo Te Cuida",
+                        content: branding_farmacia_logo_tecuida,
+                        thumbnail: branding_farmacia_logo_tecuida_thumbnail,
+                    },
+                    {
+                        type: 'video',
+                        name: "Lettering SdM",
+                        content: branding_farmacia_lettering,
+                        thumbnail: branding_farmacia_lettering_thumbnail,
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: "jlazz",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: "logo",
+                        content: branding_jlazz_logo,
+                    },
+                    {
+                        type: 'image',
+                        name: "logo_bg",
+                        content: branding_jlazz_logo_bg,
+                    },
+                    {
+                        type: 'video',
+                        name: "logo_mp4",
+                        content: branding_jlazz_logo_mp4,
+                        thumbnail: branding_jlazz_logo_mp4_thumbnail,
+                    },
+                    {
+                        type: 'image',
+                        name: "portrait",
+                        content: branding_jlazz_portrait,
+                    },
+                    {
+                        type: 'video',
+                        name: "transition-sound",
+                        content: branding_jlazz_transition,
+                        thumbnail: branding_jlazz_transition_thumbnail,
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Proyectos",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: 'Doppie Ganger',
+                        content: branding_proyectos_doppie,
+                    },
+                    {
+                        type: 'image',
+                        name: 'Fun & Food',
+                        content: branding_proyectos_fun_n_food,
+                    },
+                    {
+                        type: 'image',
+                        name: 'Example packaging',
+                        content: branding_proyectos_example_packaging,
+                    },
+                ]
+            },
+        ]
+    };
+
+    linkParents(folder);
+
+    return folder;
+}
+function getDrawingFolder () : Folder {
+    const folder: Folder = {
+        type: 'folder',
+        name: "Drawing",
+        display: 'list',
+        parentFolder: null,
+        content: [
+            {
+                type: 'folder',
+                name: "Concept art",
+                display: 'list',
+                content: [
+                    {
+                        type: 'folder',
+                        name: "Book of Mystery",
+                        display: 'gallery',
+                        content: [
+                            {
+                                type: 'image',
+                                name: "3",
+                                content: drawing_conceptart_bom_3,
+                            },
+                            {
+                                type: 'image',
+                                name: "dana",
+                                content: drawing_conceptart_bom_dana,
+                            },
+                            {
+                                type: 'image',
+                                name: "dana_elect",
+                                content: drawing_conceptart_bom_dana_elect,
+                            },
+                            {
+                                type: 'image',
+                                name: "elec",
+                                content: drawing_conceptart_bom_elec,
+                            },
+                            {
+                                type: 'image',
+                                name: "elect1",
+                                content: drawing_conceptart_bom_elect1,
+                            },
+                            {
+                                type: 'image',
+                                name: "elect3",
+                                content: drawing_conceptart_bom_elect3,
+                            },
+                            {
+                                type: 'image',
+                                name: "lloyd",
+                                content: drawing_conceptart_bom_lloyd,
+                            },
+                            {
+                                type: 'image',
+                                name: "props",
+                                content: drawing_conceptart_bom_props,
+                            },
+                            {
+                                type: 'image',
+                                name: "virginia",
+                                content: drawing_conceptart_bom_virginia,
+                            }
+                        ]
+                    },
+                    {
+                        type: 'folder',
+                        name: "Aracnephobia",
+                        display: 'gallery',
+                        content: [
+                            {
+                                type: 'image',
+                                name: "1",
+                                content: drawing_conceptart_aracnephobia1,
+                            },
+                            {
+                                type: 'image',
+                                name: "10",
+                                content: drawing_conceptart_aracnephobia10,
+                            },
+                            {
+                                type: 'image',
+                                name: "11",
+                                content: drawing_conceptart_aracnephobia11,
+                            },
+                            {
+                                type: 'image',
+                                name: "12",
+                                content: drawing_conceptart_aracnephobia12,
+                            },
+                            {
+                                type: 'image',
+                                name: "13",
+                                content: drawing_conceptart_aracnephobia13,
+                            },
+                            {
+                                type: 'image',
+                                name: "14",
+                                content: drawing_conceptart_aracnephobia14,
+                            },
+                            {
+                                type: 'image',
+                                name: "15",
+                                content: drawing_conceptart_aracnephobia15,
+                            },
+                            {
+                                type: 'image',
+                                name: "16",
+                                content: drawing_conceptart_aracnephobia16,
+                            },
+                            {
+                                type: 'image',
+                                name: "17",
+                                content: drawing_conceptart_aracnephobia17,
+                            },
+                            {
+                                type: 'image',
+                                name: "18",
+                                content: drawing_conceptart_aracnephobia18,
+                            },
+                            {
+                                type: 'image',
+                                name: "19",
+                                content: drawing_conceptart_aracnephobia19,
+                            },
+                            {
+                                type: 'image',
+                                name: "2",
+                                content: drawing_conceptart_aracnephobia2,
+                            },
+                            {
+                                type: 'image',
+                                name: "20",
+                                content: drawing_conceptart_aracnephobia20,
+                            },
+                            {
+                                type: 'image',
+                                name: "3",
+                                content: drawing_conceptart_aracnephobia3,
+                            },
+                            {
+                                type: 'image',
+                                name: "4",
+                                content: drawing_conceptart_aracnephobia4,
+                            },
+                            {
+                                type: 'image',
+                                name: "5",
+                                content: drawing_conceptart_aracnephobia5,
+                            },
+                            {
+                                type: 'image',
+                                name: "6",
+                                content: drawing_conceptart_aracnephobia6,
+                            },
+                            {
+                                type: 'image',
+                                name: "7",
+                                content: drawing_conceptart_aracnephobia7,
+                            },
+                            {
+                                type: 'image',
+                                name: "8",
+                                content: drawing_conceptart_aracnephobia8,
+                            },
+                            {
+                                type: 'image',
+                                name: "9",
+                                content: drawing_conceptart_aracnephobia9,
+                            }
+                        ]
+                    },
+                    {
+                        type: 'folder',
+                        name: "Delugram",
+                        display: 'gallery',
+                        content: [
+                            {
+                                type: 'image',
+                                name: "corazon",
+                                content: drawing_conceptart_delugram_corazon,
+                            },
+                            {
+                                type: 'image',
+                                name: "fernanda_susto",
+                                content: drawing_conceptart_delugram_fernanda_susto,
+                            },
+                            {
+                                type: 'image',
+                                name: "fern_sorpresa",
+                                content: drawing_conceptart_delugram_fern_sorpresa,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_3559",
+                                content: drawing_conceptart_delugram_img_3559,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_3564",
+                                content: drawing_conceptart_delugram_img_3564,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_3567",
+                                content: drawing_conceptart_delugram_img_3567,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_3570",
+                                content: drawing_conceptart_delugram_img_3570,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4386",
+                                content: drawing_conceptart_delugram_img_4386,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4387",
+                                content: drawing_conceptart_delugram_img_4387,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4428",
+                                content: drawing_conceptart_delugram_img_4428,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4430",
+                                content: drawing_conceptart_delugram_img_4430,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4432",
+                                content: drawing_conceptart_delugram_img_4432,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4434",
+                                content: drawing_conceptart_delugram_img_4434,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4472",
+                                content: drawing_conceptart_delugram_img_4472,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4473",
+                                content: drawing_conceptart_delugram_img_4473,
+                            },
+                            {
+                                type: 'image',
+                                name: "love_2",
+                                content: drawing_conceptart_delugram_love_2,
+                            },
+                            {
+                                type: 'image',
+                                name: "maria_fernanda",
+                                content: drawing_conceptart_delugram_maria_fernanda,
+                            },
+                            {
+                                type: 'image',
+                                name: "max",
+                                content: drawing_conceptart_delugram_max,
+                            },
+                            {
+                                type: 'image',
+                                name: "max2",
+                                content: drawing_conceptart_delugram_max2,
+                            },
+                            {
+                                type: 'image',
+                                name: "max_6",
+                                content: drawing_conceptart_delugram_max_6,
+                            },
+                            {
+                                type: 'image',
+                                name: "max_suffer",
+                                content: drawing_conceptart_delugram_max_suffer,
+                            },
+                            {
+                                type: 'image',
+                                name: "max_y_travis",
+                                content: drawing_conceptart_delugram_max_y_travis,
+                            },
+                            {
+                                type: 'image',
+                                name: "telefono",
+                                content: drawing_conceptart_delugram_telefono,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis",
+                                content: drawing_conceptart_delugram_travis,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis_2",
+                                content: drawing_conceptart_delugram_travis_2,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis_buscando",
+                                content: drawing_conceptart_delugram_travis_buscando,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis_feliz",
+                                content: drawing_conceptart_delugram_travis_feliz,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis_frustrado",
+                                content: drawing_conceptart_delugram_travis_frustrado,
+                            },
+                            {
+                                type: 'image',
+                                name: "travis_preocupado",
+                                content: drawing_conceptart_delugram_travis_preocupado,
+                            },
+                            {
+                                type: 'image',
+                                name: "uiux",
+                                content: drawing_conceptart_delugram_uiux,
+                            },
+                            {
+                                type: 'image',
+                                name: "uiux2",
+                                content: drawing_conceptart_delugram_uiux2,
+                            }
+                        ]
+                    },
+                    {
+                        type: 'folder',
+                        name: "Doll's chest",
+                        display: 'gallery',
+                        content: [
+                            {
+                                type: 'image',
+                                name: "img_4447",
+                                content: drawing_conceptart_dc_img_4447,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4448",
+                                content: drawing_conceptart_dc_img_4448,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4449",
+                                content: drawing_conceptart_dc_img_4449,
+                            },
+                            {
+                                type: 'image',
+                                name: "img_4450",
+                                content: drawing_conceptart_dc_img_4450,
+                            }
+                        ]
+                    },
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Digital",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: "466794376_9413315175350647_7482732383852466772_n",
+                        content: drawing_digital_466794376_9413315175350647_7482732383852466772_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "466954493_9413315695350595_2470295891001182443_n",
+                        content: drawing_digital_466954493_9413315695350595_2470295891001182443_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "466962932_9413315718683926_2934517381596426580_n",
+                        content: drawing_digital_466962932_9413315718683926_2934517381596426580_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "480445171_931030712576154_8397980858810885146_n",
+                        content: drawing_digital_480445171_931030712576154_8397980858810885146_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "480867448_935132035499355_8039105087864904742_n",
+                        content: drawing_digital_480867448_935132035499355_8039105087864904742_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "481091585_936381998707692_3849161234069171315_n",
+                        content: drawing_digital_481091585_936381998707692_3849161234069171315_n,
+                    },
+                    {
+                        type: 'image',
+                        name: "bu",
+                        content: drawing_digital_bu,
+                    },
+                    {
+                        type: 'image',
+                        name: "crismasinada",
+                        content: drawing_digital_crismasinada,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4452",
+                        content: drawing_digital_img_4452,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4453",
+                        content: drawing_digital_img_4453,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4454",
+                        content: drawing_digital_img_4454,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4455",
+                        content: drawing_digital_img_4455,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4469",
+                        content: drawing_digital_img_4469,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4471",
+                        content: drawing_digital_img_4471,
+                    },
+                    {
+                        type: 'image',
+                        name: "la_princesa_del_país_de_las_maravillas",
+                        content: drawing_digital_la_princesa_del_pa_s_de_las_maravillas,
+                    }
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Editorial",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(10)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__10_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(12)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__12_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(13)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__13_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(14)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__14_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(17)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__17_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(18)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__18_,
+                    },
+                    {
+                        type: 'image',
+                        name: "ilustración_sin_título_(19)",
+                        content: drawing_editorial_ilustracio_n_sin_ti_tulo__19_,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_3284",
+                        content: drawing_editorial_img_3284,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4456",
+                        content: drawing_editorial_img_4456,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4457",
+                        content: drawing_editorial_img_4457,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4458",
+                        content: drawing_editorial_img_4458,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4459",
+                        content: drawing_editorial_img_4459,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4460",
+                        content: drawing_editorial_img_4460,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4461",
+                        content: drawing_editorial_img_4461,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4462",
+                        content: drawing_editorial_img_4462,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4463",
+                        content: drawing_editorial_img_4463,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4464",
+                        content: drawing_editorial_img_4464,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4465",
+                        content: drawing_editorial_img_4465,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4466",
+                        content: drawing_editorial_img_4466,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4467",
+                        content: drawing_editorial_img_4467,
+                    }
+                ]
+            },
+            {
+                type: 'folder',
+                name: "Tattoo",
+                display: 'gallery',
+                content: [
+                    {
+                        type: 'image',
+                        name: "img_4451",
+                        content: drawing_tatuaje_img_4451,
+                    },
+                    {
+                        type: 'image',
+                        name: "img_4470",
+                        content: drawing_tatuaje_img_4470,
+                    },
+                ]
+            },
+        ]
+    };
+
+    linkParents(folder);
+
+    return folder;
+}
+function getReelsFolder () : Folder {
+    const folder: Folder = {
+        type: 'folder',
+        name: "Reel",
+        display: 'gallery',
+        parentFolder: null,
+        content: [
+            {
+                type: 'video',
+                name: "blanco_sin_fondo",
+                content: reels_blanco_sin_fondo,
+                thumbnail: reels_blanco_sin_fondo_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "branding",
+                content: reels_branding,
+                thumbnail: reels_branding_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "espera_ouija",
+                content: reels_espera_ouija,
+                thumbnail: reels_espera_ouija_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "Esto es Aracne Phobia",
+                host: 'youtube',
+                content: "https://www.youtube.com/watch?v=jl8yUdUaZ70",
+                thumbnail: reels_esto_es_aracne_phobia_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "intro",
+                content: reels_intro,
+                thumbnail: reels_intro_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "intros_videos_fecha",
+                content: reels_intros_videos_fecha,
+                thumbnail: reels_intros_videos_fecha_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "intro_mejorada",
+                content: reels_intro_mejorada,
+                thumbnail: reels_intro_mejorada_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "multimedia1",
+                content: reels_multimedia1,
+                thumbnail: reels_multimedia1_thumbnail,
+            },
+            {
+                type: 'video',
+                name: "zona",
+                content: reels_zona,
+                thumbnail: reels_zona_thumbnail,
+            },
+        ]
+    };
+
+    linkParents(folder);
+
+    return folder;
+}

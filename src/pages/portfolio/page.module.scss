@@ -4,6 +4,12 @@
     height: 100%;
     z-index: 0;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+
     .rightCurtain {
         animation: rightCurtainIn 0.3s linear 0.2s forwards;
         transform: translateX(25vh);
@@ -40,6 +46,7 @@
         align-items: center;
         width: 100%;
         height: calc(100% - var(--navigator-height));
+        font-size: 1rem;
 
         .screen {
             aspect-ratio: 1293 / 650;
@@ -81,5 +88,12 @@
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@include when-tablet {
+    .page {
+        display: block;
+        font-size: 1em;
     }
 }
