@@ -8,6 +8,30 @@
     user-select: none;
     transform: none !important;
 
+    button {
+        flex-shrink: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 0;
+        padding: 0.2em 1em;
+        border-radius: 0;
+        border: 1px solid var(--color-os-primary);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--color-os-primary-d1);
+    
+        &.selected {
+            background-color: var(--color-os-primary-l1);
+            color: black;
+        }
+    
+        &:not(.selected):hover {
+            background-color: var(--color-primary);
+            color: var(--color-os-text-dark);
+        }
+    }
+
     .window {
         animation: bounceIn 0.15s linear 0s;
 
@@ -456,30 +480,6 @@
     }
     100% {
         transform: scale(1);
-    }
-}
-
-button {
-    flex-shrink: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
-    padding: 0.2em 1em;
-    border-radius: 0;
-    border: 1px solid var(--color-os-primary);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: var(--color-os-primary-d1);
-
-    &.selected {
-        background-color: var(--color-os-primary-l1);
-        color: black;
-    }
-
-    &:not(.selected):hover {
-        background-color: var(--color-primary);
-        color: var(--color-os-text-dark);
     }
 }
 

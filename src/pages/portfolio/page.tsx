@@ -11,11 +11,11 @@ export interface PortfolioPageProps {
 }
 
 function PortfolioPage (props: PortfolioPageProps) {
-    const is_phone = useMediaQuery('(min-width: 50rem)') === false;
+    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
 
     return (
         <div className={styles.page}>
-            {is_phone === false && <>
+            {isPhone === false && <>
                 <SiteImage
                     className={styles.rightCurtain}
                     image={IMG.twp_vert}
@@ -34,7 +34,7 @@ function PortfolioPage (props: PortfolioPageProps) {
                     </div>
                 </div>
             </>}
-            {is_phone && <span>This section is not yet available on phone devices.</span>}
+            {isPhone && <span>This section is not yet available on phone devices.</span>}
         </div>
     );
 }

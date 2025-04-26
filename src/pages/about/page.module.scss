@@ -4,7 +4,8 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
 .page {
     @include as-viewport;
     
-    font-size: 30pt;
+    position: relative;
+    font-size: 2.5rem;
     display: flex;
     flex-direction: column;
     user-select: none;
@@ -57,7 +58,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
     }
 
     .aboutMeCard {
-        font-size: 1vw;
+        font-size: 0.75rem;
         z-index: 10000;
         position: absolute;
         top: -1vw;
@@ -68,14 +69,16 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        pointer-events: none;
 
         .portrait {
             animation: bounceIn 0.4s linear 0s forwards;
 
-            $size: 14.5vw;
+            $size: 27.5vw;
             width: $size;
             height: $size;
-            border: 0.5rem solid white;
+            border: 0.25rem solid white;
             border-radius: 50%;
         }
 
@@ -128,6 +131,21 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
                 
                 max-height: 100%;
                 font-size: 1rem;
+            }
+        }
+    }
+}
+
+@include when-tablet {
+    .page {
+        .aboutMeCard {
+            font-size: 1vw;
+
+            .portrait {
+                $size: 14.5vw;
+                width: $size;
+                height: $size;
+                border: 0.5rem solid white;
             }
         }
     }

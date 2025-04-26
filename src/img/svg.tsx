@@ -4,7 +4,7 @@ const SVG = {
     os: {
         window: {
             minimize: (svgProps: SvgProps) => (
-                <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg {...svgProps} width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.598803 1.08128C1.09752 0.868244 1.5966 0.715207 2.09568 0.562171L3.59565 0.553053L6.6056 0.534755L11.1155 0.50734C11.6164 0.654297 12.1173 0.801255 12.6185 0.998212C12.1198 1.20125 11.6207 1.35428 11.1216 1.50732L2.10175 1.56215C1.60091 1.42519 1.10001 1.27824 0.598743 1.07128L0.598803 1.08128Z" fill="currentColor"/>
                 </svg>
             ),

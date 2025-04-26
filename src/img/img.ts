@@ -3,9 +3,15 @@ import aracne from "./aracne.webp";
 import aracne1_5 from "./aracne-1.5x.webp";
 import aracne2 from "./aracne-2x.webp";
 import aracnephobia_logo from "./aracnephobia-logo.webp";
+import crt_noise from "./crt_noise.gif";
 import lettering from "./logo-lettering.webp";
 import lettering_1_5 from "./logo-lettering.1_5x.webp";
 import lettering_2 from "./logo-lettering.2x.webp";
+import lettering_sq_black from "./logo-lettering-sq-black.webp";
+import menu_divider from "./menu-divider.webp";
+import menu_section_sections from "./menu-section-sections.webp";
+import menu_section_social from "./menu-section-social.webp";
+import planet_1 from "./planet-1.webp";
 import psychedelic_aracne from "./psychedelic_aracne.webp";
 import psychedelic_planet from "./psychedelic_planet.webp";
 import twp_vert from "./twp-vert.webp";
@@ -26,6 +32,7 @@ import about_video_2 from "./about/video.2x.webp";
 import about_web_design_2 from "./about/web-design.2x.webp";
 import about_writer_2 from "./about/writer.2x.webp";
 import navigator_blog from "./navigator/blog.webp";
+import navigator_cv from "./navigator/cv.webp";
 import navigator_me from "./navigator/me.webp";
 import navigator_portfolio from "./navigator/portfolio.webp";
 import os_cursor from "./os/cursor.webp";
@@ -72,6 +79,7 @@ export const IMG = {
     } as ImageCollection,
     navigator: {
         blog: navigator_blog,
+        cv: navigator_cv,
         me: navigator_me,
         portfolio: navigator_portfolio,
     } as ImageCollection,
@@ -105,6 +113,7 @@ export const IMG = {
         ])
     },
     aracnephobia_logo: aracnephobia_logo,
+    crt_noise: crt_noise,
     lettering: {
         src: lettering,
         srcSet: getSrcSet([
@@ -113,6 +122,11 @@ export const IMG = {
             { src: lettering_2, size: "2x"},
         ])
     },
+    lettering_sq_black: lettering_sq_black,
+    menu_divider: menu_divider,
+    menu_section_sections: menu_section_sections,
+    menu_section_social: menu_section_social,
+    planet_1: planet_1,
     psychedelic_aracne: psychedelic_aracne,
     psychedelic_planet: psychedelic_planet,
     twp_vert: {
