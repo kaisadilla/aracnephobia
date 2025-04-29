@@ -114,7 +114,7 @@ function Word ({
         top: imagePos.top * 100 + "%",
         width: imagePos.width * 100 + "%",
         height: imagePos.height * 100 + "%",
-        //zIndex: 100,
+        zIndex: 100,
     }
 
     const revealedStyle: React.CSSProperties = {
