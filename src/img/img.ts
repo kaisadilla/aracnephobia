@@ -4,6 +4,7 @@ import aracne1_5 from "./aracne-1.5x.webp";
 import aracne2 from "./aracne-2x.webp";
 import aracnephobia_logo from "./aracnephobia-logo.webp";
 import crt_noise from "./crt_noise.gif";
+import estalot_logo from "./estalot-logo.webp";
 import lettering from "./logo-lettering.webp";
 import lettering_1_5 from "./logo-lettering.1_5x.webp";
 import lettering_2 from "./logo-lettering.2x.webp";
@@ -20,11 +21,13 @@ import twp_vert_2 from "./twp-vert.2x.webp";
 import about_animation_2 from "./about/animation.2x.webp";
 import about_branding_2 from "./about/branding.2x.webp";
 import about_cartoon_2 from "./about/cartoon.2x.webp";
+import about_comic_2 from "./about/comic.2x.webp";
 import about_content_creator_2 from "./about/content-creator.2x.webp";
 import about_digital_artist_2 from "./about/digital-artist.2x.webp";
 import about_graphic_design_2 from "./about/graphic-design.2x.webp";
 import about_illustration_2 from "./about/illustration.2x.webp";
 import about_marketing_2 from "./about/marketing.2x.webp";
+import about_motion_graphics_2 from "./about/motion-graphics.2x.png";
 import about_storyboard_2 from "./about/storyboard.2x.webp";
 import about_storytelling_2 from "./about/storytelling.2x.webp";
 import about_uiux_2 from "./about/uiux.2x.webp";
@@ -65,11 +68,13 @@ export const IMG = {
         animation: about_animation_2,
         branding: about_branding_2,
         cartoon: about_cartoon_2,
+        comic: about_comic_2,
         content_creator: about_content_creator_2,
         digital_artist: about_digital_artist_2,
         graphic_design: about_graphic_design_2,
         illustration: about_illustration_2,
         marketing: about_marketing_2,
+        motion_graphics: about_motion_graphics_2,
         storyboard: about_storyboard_2,
         storytelling: about_storytelling_2,
         uiux: about_uiux_2,
@@ -114,6 +119,7 @@ export const IMG = {
     },
     aracnephobia_logo: aracnephobia_logo,
     crt_noise: crt_noise,
+    estalot_logo,
     lettering: {
         src: lettering,
         srcSet: getSrcSet([

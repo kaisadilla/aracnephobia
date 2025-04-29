@@ -64,9 +64,9 @@ function App() {
                             <Route path="/portfolio" element={<PortfolioPage />} />
                         </Routes>
                     </div>
-                    <div className={styles.navigator}>
+                    {isPhone === false && <div className={styles.navigator}>
                         <Navigator />
-                    </div>
+                    </div>}
                 </>}
             </div>
 
