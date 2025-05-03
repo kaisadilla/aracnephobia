@@ -1,4 +1,6 @@
 .page {
+    --border-width: 0.4rem;
+
     @include crt(100);
 
     background-color: var(--color-about-primary);
@@ -6,73 +8,88 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template: "lef hea" auto
+                   "lef nav" auto
                    "lef con" 1fr / 24vh 1fr;
 
     > .left {
         grid-area: lef;
+        order: 2;
+
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
+        height: 28vw;
+        width: 100%;
 
         .curtain {
-            height: 100vh;
+            width: 100vw;
         }
 
         .estalot {
-            height: 80vh;
+            flex: 1;
+            width: 80vw;
         }
     }
 
     > .header {
         grid-area: hea;
-        border-bottom: 0.5rem solid var(--color-about-primary);
+        order: 1;
+        display: none;
+
         font-family: var(--font-matisse-pro);
         font-weight: 100;
-        display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1em;
+
         user-select: none;
 
-        > .title {
-            height: 90px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1em;
-
-            > .left, > .right {
-                height: 30%;
-            }
-
-            > .right {
-                transform: scaleX(-1);
-            }
-
-            > span {
-                @include crt-text;
-
-                flex: 1;
-                text-align: center;
-                font-size: 2.5em;
-                white-space: nowrap;
-            }
+        > .left, > .right {
+            height: 30%;
         }
 
-        > .navbar {
-            background-color: var(--color-about-secondary);
-            min-height: 64px;
+        > .right {
+            transform: scaleX(-1);
+        }
+
+        > span {
+            @include crt-text;
+
+            flex: 1;
+            text-align: center;
+            font-size: 1.75em;
+            white-space: nowrap;
+        }
+    }
+
+    > .navbar {
+        grid-area: nav;
+        order: 3;
+
+        background-color: var(--color-about-secondary);
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > .ribbon {
+            flex: 1;
             display: flex;
             flex-direction: row;
             align-items: center;
-            padding: 0 1rem;
-            gap: 5em;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
 
             button {
-                border: 0.15em solid var(--color-about-primary);
-                padding: 0.25em 1.5em;
-                height: 2.2em;
-                max-width: 15em;
+                width: 4.5em;
+                white-space: nowrap;
+                flex: 1;
+                height: 100%;
 
                 display: flex;
                 align-items: center;
@@ -99,36 +116,148 @@
                     width: 2em;
                     height: 90%;
                 }
-            }
 
-            > .ribbon {
-                flex: 1;
-                height: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 1rem;
-                padding: 1rem 0;
-
-                button {
-                    flex: 1;
-                    white-space: nowrap;
+                > span {
+                    display: none;
                 }
             }
+        }
 
-            > img {
-                font-size: 1.2em;
-                height: 2.2em;
-            }
+        > .title {
+            background-color: var(--color-about-primary);
+            color: var(--color-about-secondary);
+            width: 100%;
+            font-family: var(--font-fragment-mono);
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        > img {
+            display: none;
+            font-size: 1.2em;
+            height: 2.2em;
         }
     }
 
     > .content {
         grid-area: con;
+        order: 4;
+        flex: 1;
+
         overflow: hidden;
         display: flex;
         justify-content: center;
+    }
+}
+
+@include when-tablet {
+    .page {
+        --border-width: 0.675rem;
+
+        display: grid;
+
+        .left {
+            flex-direction: row;
+            transform: none;
+            height: 100vh;
+            align-items: center;
+
+            .curtain {
+                width: unset;
+                height: 100vh;
+            }
+    
+            .estalot {
+                width: unset;
+                height: 80vh;
+            }
+        }
+        
+        .header {
+            display: flex;
+
+            > span {
+                font-size: 2.5em;
+            }
+        }
+
+        .navbar {
+            padding: 0 1rem;
+            flex-direction: row;
+            border-bottom: var(--border-width) solid var(--color-about-primary);
+            min-height: 64px;
+
+            > img {
+                display: block;
+            }
+
+            > .ribbon {
+                gap: 1rem;
+                padding: 1rem 0;
+
+                button {
+                    border: 0.15em solid var(--color-about-primary);
+                    padding: 0.25em 1.5em;
+                    height: 2.2em;
+                    max-width: 15em;
+                    flex: 1;
+
+                    > span {
+                        display: inline;
+                    }
+                }
+            }
+
+            > .title {
+                display: none;
+            }
+        }
+    }
+}
+
+@include when-desktop {
+    .page {
+        .navbar {
+            gap: 5rem;
+        }
+    }
+}
+
+@include when-phone-landscape {
+    .page {
+        > .header {
+            display: flex;
+        }
+
+        > .left {
+            display: none;
+        }
+
+        > .navbar {
+            min-height: 32px;
+
+            > .ribbon {
+                button {
+                    height: 32px;
+                    padding: 0.25em;
+                    max-width: 15em;
+                    flex: 1;
+                    border-bottom: var(--border-width) solid var(--color-about-primary);
+    
+                    > span {
+                        display: inline;
+                    }
+
+                    &:not(&:last-child) {
+                        border-right: 1px solid var(--color-about-primary);
+                    }
+                }
+            }
+
+            > .title {
+                display: none;
+            }
+        }
     }
 }
 

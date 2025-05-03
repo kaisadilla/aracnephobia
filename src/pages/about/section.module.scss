@@ -1,3 +1,5 @@
+:global(glitch-hover) {}
+
 .section {
     position: relative;
     max-width: 70rem;
@@ -6,6 +8,7 @@
     overflow-x: none;
     overflow-y: scroll;
     font-size: 1rem;
+    user-select: none;
 
     > :not(.bg) {
         position: relative;
@@ -15,7 +18,7 @@
     .bgGrid {
         position: absolute;
         opacity: 0.6;
-        top: -300px;
+        top: -15.5vw;
         width: 100%;
     }
 }
@@ -26,5 +29,92 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 12px;
+
+    > .aracneIntro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: -0.55rem;
+        margin-bottom: 2rem;
+
+        > .portrait {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: var(--border-width) solid var(--color-about-primary);
+            overflow: hidden;
+
+            &:hover {
+                .alt:global {
+                    animation: flicker-in 0.45s forwards;
+                }
+            }
+
+            > .regular, .alt {
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                height: 100%;
+            }
+
+            .alt {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+        }
+
+        > .sorry {
+            width: 100%;
+            max-width: 43.7rem;
+            object-fit: contain;
+
+            :global {
+                animation: glitch-move-sometimes 24s infinite;
+            }
+        }
+    }
+
+    > .wordTableWindow {
+        width: 95%;
+        aspect-ratio: 460 / 469;
+
+        .wordTableContainer {
+            aspect-ratio: 460 / 469;
+            width: 90%;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+    
+            > div {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@include when-tablet {
+    .section.aboutMe {
+        > .aracneIntro {
+            > .portrait {
+            }
+        }
+
+        > .wordTableWindow {
+            width: 80%;
+    
+            .wordTableContainer {
+                width: 90%;
+            }
+        }
+    }
 }

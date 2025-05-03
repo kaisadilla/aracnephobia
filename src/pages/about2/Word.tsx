@@ -5,7 +5,7 @@ import { usePlaySound } from 'hooks/usePlaySound';
 import { Typewriter } from 'react-simple-typewriter';
 import { $cl } from 'utils';
 import SiteImage from 'components/SiteImage';
-import { ImageSrc, IMG } from 'img/img';
+import { ImageSrc, IMG } from 'assets/img/img';
 import useDynamicHook from 'hooks/useDynamicSize';
 
 const DURATION = 1500;

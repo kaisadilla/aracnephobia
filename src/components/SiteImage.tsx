@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageSrc } from 'img/img';
+import { ImageSrc } from 'assets/img/img';
 import { Except, ImgProps } from 'types';
 import { $cl } from 'utils';
 
@@ -12,6 +12,7 @@ function SiteImage ({
     image,
     alt,
     noAlt,
+    draggable = false,
     ...imgProps
 }: SiteImageProps) {
     const src = typeof image === 'string' ? image : image.src;
@@ -23,6 +24,7 @@ function SiteImage ({
             src={src}
             srcSet={srcSet}
             alt={alt}
+            draggable={draggable}
             {...imgProps}
         />
     );

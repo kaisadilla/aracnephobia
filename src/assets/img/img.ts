@@ -2,6 +2,7 @@
 import aracne from "./aracne.webp";
 import aracne1_5 from "./aracne-1.5x.webp";
 import aracne2 from "./aracne-2x.webp";
+import aracne_alt_2 from "./aracne-alt.2x.webp";
 import aracnephobia_logo from "./aracnephobia-logo.webp";
 import crt_noise from "./crt_noise.gif";
 import estalot_logo from "./estalot-logo.webp";
@@ -20,12 +21,15 @@ import twp_vert_1_5 from "./twp-vert.1_5x.webp";
 import twp_vert_2 from "./twp-vert.2x.webp";
 import about_curtain_left from "./about/curtain-left.webp";
 import about_curtain_left_2 from "./about/curtain-left.2x.webp";
+import about_curtain_top from "./about/curtain-top.webp";
 import about_estalot_vertical_logo from "./about/estalot-vertical-logo.webp";
 import about_estalot_vertical_logo_2 from "./about/estalot-vertical-logo.2x.webp";
+import about_estalot_horizontal_logo from "./about/estalot-horizontal-logo.webp";
 import about_header_ae_logo from "./about/header-ae-logo.webp";
 import about_header_motif from "./about/header-motif.png";
 import about_am_3d_grid from "./about/about_me_3d_grid.webp";
 import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
+import about_sorry from "./about/sorry.webp";
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
 import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
@@ -81,6 +85,7 @@ export const IMG = {
                 { src: about_curtain_left_2, size: "2x"},
             ])
         },
+        curtain_top: about_curtain_top,
         estalot_vertical_logo: {
             src: about_estalot_vertical_logo,
             srcSet: getSrcSet([
@@ -89,6 +94,7 @@ export const IMG = {
                 { src: about_estalot_vertical_logo_2, size: "2x"},
             ])
         },
+        estalot_horizontal_logo: about_estalot_horizontal_logo,
         header_ae_logo: about_header_ae_logo,
         header_motif: about_header_motif,
         am_3d_grid: {
@@ -99,6 +105,7 @@ export const IMG = {
                 { src: about_am_3d_grid_2, size: "2x"},
             ])
         },
+        sorry: about_sorry,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,
@@ -153,6 +160,7 @@ export const IMG = {
             { src: aracne2, size: "2x"},
         ])
     },
+    aracne_alt: aracne_alt_2,
     aracnephobia_logo: aracnephobia_logo,
     crt_noise: crt_noise,
     estalot_logo,

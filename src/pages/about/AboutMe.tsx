@@ -4,6 +4,9 @@ import { $cl } from 'utils';
 import SiteImage from 'components/SiteImage';
 import { IMG } from 'assets/img/img';
 import Window from './Window';
+import WordTable from 'pages/about2/WordTable';
+import Word from 'pages/about2/Word';
+import { makeRect } from 'types';
 
 export interface AboutMeProps {
     
@@ -17,12 +20,175 @@ function AboutMe (props: AboutMeProps) {
                 className={$cl(styles.bg, styles.bgGrid)}
                 image={IMG.about.am_3d_grid}
             />
-            <div>kek</div>
-            <Window title="Hashtag.cloud">
-                contenu
+            <div className={styles.aracneIntro}>
+                <div className={styles.portrait}>
+                    <SiteImage
+                        className={styles.regular}
+                        image={IMG.aracne}
+                    />
+                    <SiteImage
+                        className={styles.alt}
+                        image={IMG.aracne_alt}
+                    />
+                </div>
+                <SiteImage
+                    className={styles.sorry}
+                    image={IMG.about.sorry}
+                />
+            </div>
+            <Window
+                className={styles.wordTableWindow}
+                contentClassName={styles.wordTableContainer}
+                title="Hashtag.cloud"
+            >
+                <_WordTable />
             </Window>
         </div>
     );
 }
+
+interface _WordTableProps {
+    
+}
+
+function _WordTable (props: _WordTableProps) {
+
+    return (
+        <WordTable className={styles.wordTable}>
+            <Word
+                image={IMG.about.cartoon}
+                imagePos={makeRect(0.74, 0.75, 0.26, 0.21)}
+                word="CARTOON"
+                font='invisible'
+                fontSize={1.3}
+                wordPos={makeRect(0.86, 0.18, 0.14, 0.82)}
+            />
+            <Word
+                image={IMG.about.storyboard}
+                imagePos={makeRect(0.14, 0.27, 0.12, 0.12)}
+                word="STORYBOARD"
+                font='invisible'
+                fontSize={1.35}
+                wordPos={makeRect(0.172, 0.005, 0.065, 0.565)}
+            />
+            <Word
+                image={IMG.about.content_creator}
+                imagePos={makeRect(-0.006, 0.605, 0.19, 0.18)}
+                word="CONTENT&#x2009; CREATOR"
+                font='gotile'
+                fontSize={0.52}
+                align='right'
+                wordPos={makeRect(-0.0075, 0.59, 0.185, 0.4)}
+            />
+            <Word
+                image={IMG.about.writer}
+                imagePos={makeRect(0.36, 0.34, 0.135, 0.135)}
+                word="WRITER"
+                font='illusion-magic'
+                fontSize={2.5}
+                wordPos={makeRect(0.375, 0.395, 0.07, 0.29)}
+            />
+            <Word
+                image={IMG.about.video}
+                imagePos={makeRect(0.465, 0.18, 0.15, 0.2)}
+                word="VIDEO"
+                font='invisible'
+                fontSize={1.4}
+                wordPos={makeRect(0.45, 0.01, 0.2, 0.8)}
+            />
+            <Word
+                image={IMG.about.digital_artist}
+                imagePos={makeRect(0.478, 0.755, 0.145, 0.14)}
+                word="DIGITAL ARTIST"
+                font='illusion-magic'
+                fontSize={1.15}
+                wordPos={makeRect(0.5, 0.79, 0.12, 0.21)}
+            />
+            <Word
+                image={IMG.about.graphic_design}
+                imagePos={makeRect(0.835, 0.05, 0.18, 0.18)}
+                word="GRAPHIC DESIGN"
+                font='amatic-sc'
+                fontSize={0.50}
+                wordPos={makeRect(0.86, 0.001, 0.14, 0.18)}
+            />
+            <Word
+                image={IMG.about.branding}
+                imagePos={makeRect(0.71, 0.292, 0.143, 0.23)}
+                word="BRANDING"
+                font='grandstander'
+                fontSize={1.42}
+                wordPos={makeRect(0.79, 0.01, 0.08, 0.5)}
+            />
+            <Word
+                image={IMG.about.marketing}
+                imagePos={makeRect(0.62, 0.06, 0.175, 0.155)}
+                word="MARKETING"
+                font='invisible'
+                fontSize={1.42}
+                wordPos={makeRect(0.654, 0.01, 0.13, 0.99)}
+            />
+            <Word
+                image={IMG.about.storytelling}
+                imagePos={makeRect(0.727, 0.565, 0.184, 0.18)}
+                word="STORYTELLING"
+                font='illusion-magic'
+                fontSize={2.25}
+                wordPos={makeRect(0.802, 0.51, 0.07, 0.49)}
+            />
+            <Word
+                image={IMG.about.web_design}
+                imagePos={makeRect(0.25, 0.047, 0.195, 0.222)}
+                word="WEB&#x2009; DESIGN"
+                font='gotile'
+                fontSize={0.55}
+                align='start'
+                wordPos={makeRect(0.23, 0.01, 0.215, 0.385)}
+            />
+            <Word
+                image={IMG.about.illustration}
+                imagePos={makeRect(-0.02, 0.785, 0.305, 0.19)}
+                word="ILLUSTRATION"
+                font='grandstander'
+                fontSize={1.25}
+                wordPos={makeRect(0.1825, 0.57, 0.058, 0.43)}
+            />
+            <Word
+                image={IMG.about.comic}
+                imagePos={makeRect(0.34, 0.656, 0.12, 0.17)}
+                word="COMIC"
+                font='invisible'
+                fontSize={1.3}
+                wordPos={makeRect(0.37, 0.68, 0.08, 0.32)}
+            />
+            <Word
+                image={IMG.about.animation}
+                imagePos={makeRect(0.18, 0.415, 0.18, 0.315)}
+                word="ANIMATION"
+                font='grandstander'
+                fontSize={1.41}
+                wordPos={makeRect(0.245, 0.265, 0.11, 0.735)}
+            />
+            <Word
+                image={IMG.about.motion_graphics}
+                imagePos={makeRect(0.0, 0.03, 0.173, 0.19)}
+                word="MOTION GRAPHICS"
+                font='invisible'
+                align='start'
+                fontSize={0.64}
+                wordPos={makeRect(0.005, 0, 0.17, 0.59)}
+            />
+            <Word
+                image={IMG.about.uiux}
+                imagePos={makeRect(0.005, 0.44, 0.12, 0.11)}
+                word="UX/UI"
+                font='illusion-magic'
+                fontSize={1.8}
+                wordPos={makeRect(0.024, 0.415, 0.08, 0.20)}
+            />{/**/}
+        </WordTable>
+    );
+}
+
 
 export default AboutMe;

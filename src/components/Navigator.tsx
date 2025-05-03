@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Navigator.module.scss";
 import SiteImage from './SiteImage';
-import { ImageSrc, IMG } from 'img/img';
+import { ImageSrc, IMG } from 'assets/img/img';
 import { Link } from 'react-router-dom';
 
 export interface NavigatorProps {
