@@ -48,7 +48,7 @@
             border: var(--border-width) solid var(--color-about-primary);
             overflow: hidden;
 
-            &:hover {
+            &:hover, &:active {
                 .alt:global {
                     animation: flicker-in 0.45s forwards;
                 }
