@@ -4,17 +4,27 @@ import SiteImage, { SiteImageProps } from './SiteImage';
 import { $cl } from 'utils';
 
 export interface ChromaticAberrationImageProps extends SiteImageProps {
-    
+    horizFlicker?: number;
+    vertFlicker?: number;
+    duration?: number;
 }
 
 function ChromaticAberrationImage ({
     className,
+    horizFlicker = 2,
+    vertFlicker = 0,
+    duration = 1,
     ...siteImageProps
 }: ChromaticAberrationImageProps) {
 
     return (
         <div
             className={$cl(styles.chromaticAberration, className)}
+            style={{
+                '--horiz-flicker': `${horizFlicker}px`,
+                '--vert-flicker': `${vertFlicker}px`,
+                '--duration': `${duration}`,
+            } as React.CSSProperties}
         >
             <SiteImage
                 className={styles.sentinel}

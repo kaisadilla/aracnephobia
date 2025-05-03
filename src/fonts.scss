@@ -13,6 +13,13 @@
 }
 
 @font-face {
+    font-family: "Fragment Mono";
+    src: url("../fonts/FragmentMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Gotile';
     font-style: normal;
     font-weight: normal;
@@ -48,6 +55,13 @@
 }
 
 @font-face {
+    font-family: "Matisse Pro";
+    src: url("../fonts/FOT-Matisse Pro EB.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Wonder Night";
     src: url("../fonts/Wonder\ Night.ttf") format("truetype");
     font-weight: normal;
@@ -57,10 +71,12 @@
 :root {
     --font-amatic-sc: "Amatic SC";
     --font-creepster: "Creepster";
+    --font-fragment-mono: "Fragment Mono";
     --font-gotile: "Gotile";
     --font-grandstander: "Grandstander";
     --font-illusion-magic: "Illusion Magic";
     --font-invisible: "Invisible";
     --font-jolly-lodger: "Jolly Lodger";
+    --font-matisse-pro: "Matisse Pro";
     --font-wonder-night: "Wonder Night";
 }

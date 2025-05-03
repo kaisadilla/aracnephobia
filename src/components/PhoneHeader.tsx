@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PhoneHeader.module.scss';
 import SiteImage from './SiteImage';
-import { IMG } from 'img/img';
+import { IMG } from 'assets/img/img';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal } from '@mantine/core';
 
@@ -58,34 +58,62 @@ function PhoneHeader (props: PhoneHeaderProps) {
                     <img src={IMG.menu_divider} />
                 </div>
                 <div className={styles.sectionList}>
-                    <div className={styles.entry}>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://www.youtube.com/@LaMorguedeAracnePhobia"
+                    >
                         <SiteImage image={IMG.social.youtube} />
                         <div className={styles.label}>YouTube</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://www.twitch.tv/aracnephobia"
+                    >
                         <SiteImage image={IMG.social.twitch} />
                         <div className={styles.label}>Twitch</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://www.tiktok.com/@aracne_phobia"
+                    >
                         <SiteImage image={IMG.social.tiktok} />
                         <div className={styles.label}>TikTok</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://x.com/Aracnephobia"
+                    >
                         <SiteImage image={IMG.social.twitter} />
                         <div className={styles.label}>Formerly Twitter</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://bsky.app/profile/aracnephobia.com"
+                    >
                         <SiteImage image={IMG.social.bsky} />
                         <div className={styles.label}>Bluesky</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://www.linkedin.com/in/ana-l%C3%A1zaro-estalot-52a860104/"
+                    >
                         <SiteImage image={IMG.social.linkedin} />
                         <div className={styles.label}>Linkedin</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        target='_blank'
+                        href="https://www.instagram.com/aracnephobia/"
+                    >
                         <SiteImage image={IMG.social.instagram} />
                         <div className={styles.label}>Instagram</div>
-                    </div>
+                    </a>
                 </div>
                 <div className={styles.divider}>
                     <img src={IMG.menu_section_sections} />

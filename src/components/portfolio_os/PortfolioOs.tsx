@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styles from "./PortfolioOs.module.scss";
 import SiteImage from '../SiteImage';
-import { IMG } from 'img/img';
+import { IMG } from 'assets/img/img';
 import IconGrid from './IconGrid';
 import WindowArea from './WindowArea';
 import TaskbarTabs from './TaskbarTabs';

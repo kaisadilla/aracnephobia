@@ -1,430 +1,100 @@
-import React, { useRef, useState } from 'react';
-import styles from "./page.module.scss";
-import twpHorizThin from "@src/img/twp-horiz-thin.webp";
-import Word, { MultiWord } from './Word';
-import WordTable from './WordTable';
-import { makeRect } from 'types';
-import { Typewriter } from 'react-simple-typewriter';
-import { IMG } from 'img/img';
-import { Tooltip } from '@mantine/core';
+import React, { useState } from 'react';
+import styles from './page.module.scss';
+import { IMG } from 'assets/img/img';
 import SiteImage from 'components/SiteImage';
-import WebHeader from 'components/WebHeader';
-import Navigator from 'components/Navigator';
-import useDynamicHook from 'hooks/useDynamicSize';
-import { useMediaQuery } from '@mantine/hooks';
+import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
+import SVG from 'assets/img/svg';
+import { $cl } from 'utils';
+import AboutMe from './AboutMe';
 
-function AboutPage () {
-    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
+type Section = 'about'
+    | 'skills'
+    | 'tools'
+    | 'education'
+    | 'experience'
+    ;
 
-    return isPhone ? <_PhoneContent /> : <_DesktopContent />
-}
-
-function _PhoneContent () {
-
-    return (
-        <div className={styles.page}>
-            <div className={styles.content}>
-                <img className={styles.curtainTop} src={twpHorizThin} alt="" />
-                <div className={styles.estalot}>
-                    <SiteImage image={IMG.menu_section_social} />
-                    <SiteImage image={IMG.menu_divider} />
-                    <SiteImage className={styles.logo} image={IMG.estalot_logo} />
-                    <SiteImage className={styles.invert} image={IMG.menu_divider} />
-                    <SiteImage image={IMG.menu_section_social} />
-                </div>
-                <div className={styles.wordTableContainer}>
-                    <WordTable className={styles.wordTable}>
-                        <Word
-                            image={IMG.about.cartoon}
-                            imagePos={makeRect(0.74, 0.75, 0.26, 0.21)}
-                            word="CARTOON"
-                            font='invisible'
-                            fontSize={1.3}
-                            wordPos={makeRect(0.86, 0.18, 0.14, 0.82)}
-                        />
-                        <Word
-                            image={IMG.about.storyboard}
-                            imagePos={makeRect(0.14, 0.27, 0.12, 0.12)}
-                            word="STORYBOARD"
-                            font='invisible'
-                            fontSize={1.35}
-                            wordPos={makeRect(0.172, 0.005, 0.065, 0.565)}
-                        />
-                        <Word
-                            image={IMG.about.content_creator}
-                            imagePos={makeRect(-0.006, 0.605, 0.19, 0.18)}
-                            word="CONTENT&#x2009; CREATOR"
-                            font='gotile'
-                            fontSize={0.52}
-                            align='right'
-                            wordPos={makeRect(-0.0075, 0.59, 0.185, 0.4)}
-                        />
-                        <Word
-                            image={IMG.about.writer}
-                            imagePos={makeRect(0.36, 0.34, 0.135, 0.135)}
-                            word="WRITER"
-                            font='illusion-magic'
-                            fontSize={2.5}
-                            wordPos={makeRect(0.375, 0.395, 0.07, 0.29)}
-                        />
-                        <Word
-                            image={IMG.about.video}
-                            imagePos={makeRect(0.465, 0.18, 0.15, 0.2)}
-                            word="VIDEO"
-                            font='invisible'
-                            fontSize={1.4}
-                            wordPos={makeRect(0.45, 0.01, 0.2, 0.8)}
-                        />
-                        <Word
-                            image={IMG.about.digital_artist}
-                            imagePos={makeRect(0.478, 0.755, 0.145, 0.14)}
-                            word="DIGITAL ARTIST"
-                            font='illusion-magic'
-                            fontSize={1.15}
-                            wordPos={makeRect(0.5, 0.79, 0.12, 0.21)}
-                        />
-                        <Word
-                            image={IMG.about.graphic_design}
-                            imagePos={makeRect(0.835, 0.05, 0.18, 0.18)}
-                            word="GRAPHIC DESIGN"
-                            font='amatic-sc'
-                            fontSize={0.50}
-                            wordPos={makeRect(0.86, 0.001, 0.14, 0.18)}
-                        />
-                        <Word
-                            image={IMG.about.branding}
-                            imagePos={makeRect(0.71, 0.292, 0.143, 0.23)}
-                            word="BRANDING"
-                            font='grandstander'
-                            fontSize={1.42}
-                            wordPos={makeRect(0.79, 0.01, 0.08, 0.5)}
-                        />
-                        <Word
-                            image={IMG.about.marketing}
-                            imagePos={makeRect(0.62, 0.06, 0.175, 0.155)}
-                            word="MARKETING"
-                            font='invisible'
-                            fontSize={1.42}
-                            wordPos={makeRect(0.654, 0.01, 0.13, 0.99)}
-                        />
-                        <Word
-                            image={IMG.about.storytelling}
-                            imagePos={makeRect(0.727, 0.565, 0.184, 0.18)}
-                            word="STORYTELLING"
-                            font='illusion-magic'
-                            fontSize={2.25}
-                            wordPos={makeRect(0.802, 0.51, 0.07, 0.49)}
-                        />
-                        <Word
-                            image={IMG.about.web_design}
-                            imagePos={makeRect(0.25, 0.047, 0.195, 0.222)}
-                            word="WEB&#x2009; DESIGN"
-                            font='gotile'
-                            fontSize={0.55}
-                            align='start'
-                            wordPos={makeRect(0.23, 0.01, 0.215, 0.385)}
-                        />
-                        <Word
-                            image={IMG.about.illustration}
-                            imagePos={makeRect(-0.02, 0.785, 0.305, 0.19)}
-                            word="ILLUSTRATION"
-                            font='grandstander'
-                            fontSize={1.25}
-                            wordPos={makeRect(0.1825, 0.57, 0.058, 0.43)}
-                        />
-                        <Word
-                            image={IMG.about.comic}
-                            imagePos={makeRect(0.34, 0.656, 0.12, 0.17)}
-                            word="COMIC"
-                            font='invisible'
-                            fontSize={1.3}
-                            wordPos={makeRect(0.37, 0.68, 0.08, 0.32)}
-                        />
-                        <Word
-                            image={IMG.about.animation}
-                            imagePos={makeRect(0.18, 0.415, 0.18, 0.315)}
-                            word="ANIMATION"
-                            font='grandstander'
-                            fontSize={1.41}
-                            wordPos={makeRect(0.245, 0.265, 0.11, 0.735)}
-                        />
-                        <Word
-                            image={IMG.about.motion_graphics}
-                            imagePos={makeRect(0.0, 0.03, 0.173, 0.19)}
-                            word="MOTION GRAPHICS"
-                            font='invisible'
-                            align='start'
-                            fontSize={0.64}
-                            wordPos={makeRect(0.005, 0, 0.17, 0.59)}
-                        />
-                        <Word
-                            image={IMG.about.uiux}
-                            imagePos={makeRect(0.005, 0.44, 0.12, 0.11)}
-                            word="UX/UI"
-                            font='illusion-magic'
-                            fontSize={1.8}
-                            wordPos={makeRect(0.024, 0.415, 0.08, 0.20)}
-                        />{/**/}
-                    </WordTable>
-                </div>
-                {false && <img className={styles.template} src="/public/about_phone_ref.png" />}
-            </div>
-        </div>
-    );
-}
-
-
-function _DesktopContent () {
+export interface AboutPageProps {
     
+}
+
+function AboutPage (props: AboutPageProps) {
+    const [section, setSection] = useState<Section>('about');
+
     return (
         <div className={styles.page}>
+            <div className={styles.left}>
+                <SiteImage
+                    className={styles.curtain}
+                    image={IMG.about.curtain_left}
+                />
+                <ChromaticAberrationImage
+                    className={styles.estalot}
+                    horizFlicker={4}
+                    vertFlicker={8}
+                    image={IMG.about.estalot_vertical_logo}
+                />
+            </div>
+            <div className={styles.header}>
+                <div className={styles.title}>
+                    <ChromaticAberrationImage
+                        image={IMG.about.header_motif}
+                        horizFlicker={4}
+                        className={styles.left}
+                    />
+                    <span>ANA LÁZARO</span>
+                    <ChromaticAberrationImage
+                        image={IMG.about.header_motif}
+                        horizFlicker={4}
+                        className={styles.right}
+                    />
+                </div>
+                <div className={styles.navbar}>
+                    <div className={styles.ribbon}>
+                        <button
+                            className={$cl(section === 'about' && styles.selected)}
+                            onClick={() => setSection('about')}
+                        >
+                            <SVG.about.navbar.about_me />
+                            <span>About me</span>
+                        </button>
+                        <button
+                            className={$cl(section === 'skills' && styles.selected)}
+                            onClick={() => setSection('skills')}
+                        >
+                            <SVG.about.navbar.skills />
+                            <span>Skills</span>
+                        </button>
+                        <button
+                            className={$cl(section === 'tools' && styles.selected)}
+                            onClick={() => setSection('tools')}
+                        >
+                            <SVG.about.navbar.tools />
+                            <span>Tools</span>
+                        </button>
+                        <button
+                            className={$cl(section === 'education' && styles.selected)}
+                            onClick={() => setSection('education')}
+                        >
+                            <SVG.about.navbar.education />
+                            <span>Education</span>
+                        </button>
+                        <button
+                            className={$cl(section === 'experience' && styles.selected)}
+                            onClick={() => setSection('experience')}
+                        >
+                            <SVG.about.navbar.experience />
+                            <span>Experience</span>
+                        </button>
+                    </div>
+                    <SiteImage image={IMG.about.header_ae_logo} />
+                </div>
+            </div>
             <div className={styles.content}>
-                <img className={styles.curtainTop} src={twpHorizThin} alt="" />
-                <WordTable className={styles.wordTable}>
-                    <Word
-                        image={IMG.about.cartoon}
-                        imagePos={makeRect(0, 0.29, 0.285, 0.078)}
-                        word="CARTOON"
-                        font='invisible'
-                        fontSize={1.42}
-                        wordPos={makeRect(0.04, 0, 0.16, 0.39)}
-                    />
-                    <Word
-                        image={IMG.about.uiux}
-                        imagePos={makeRect(0.234, 0.019, 0.235, 0.08)}
-                        word="UX/UI"
-                        font='illusion-magic'
-                        fontSize={2.6}
-                        wordPos={makeRect(0.26, 0, 0.16, 0.24)}
-                    />
-                    <Word
-                        image={IMG.about.storyboard}
-                        imagePos={makeRect(0.239, 0.203, 0.193, 0.069)}
-                        word="STORY BOARD"
-                        font='invisible'
-                        fontSize={0.65}
-                        wordPos={makeRect(0.23, 0.2, 0.18, 0.15)}
-                    />
-                    <Word
-                        image={IMG.about.content_creator}
-                        imagePos={makeRect(0.439, 0.0985, 0.294, 0.0965)}
-                        word="CONTENT CREATOR"
-                        font='gotile'
-                        fontSize={0.52}
-                        wordPos={makeRect(0.4, 0, 0.28, 0.24)}
-                    />
-                    <Word
-                        image={IMG.about.writer}
-                        imagePos={makeRect(0.445, 0.257, 0.1345, 0.046)}
-                        word="WRITER"
-                        font='illusion-magic'
-                        fontSize={1.6}
-                        wordPos={makeRect(0.43, 0.225, 0.1, 0.1)}
-                    />
-                    <Word
-                        image={IMG.about.video}
-                        imagePos={makeRect(0.75, 0.038, 0.17, 0.082)}
-                        word="VIDEO"
-                        font='invisible'
-                        fontSize={1.3}
-                        wordPos={makeRect(0.665, 0.02, 0.2, 0.28)}
-                    />
-                    <Word
-                        image={IMG.about.digital_artist}
-                        imagePos={makeRect(0.6, 0.244, 0.15, 0.05)}
-                        word="DIGITAL ARTIST"
-                        font='grandstander'
-                        fontSize={0.67}
-                        wordPos={makeRect(0.515, 0.22, 0.13, 0.1)}
-                    />
-                    <Word
-                        image={IMG.about.graphic_design}
-                        imagePos={makeRect(0.899, 0.173, 0.135, 0.048)}
-                        word="GRAPHIC DESIGN"
-                        font='amatic-sc'
-                        fontSize={1.02}
-                        wordPos={makeRect(0.84, 0.015, 0.16, 0.28)}
-                    />
-                    <Word
-                        image={IMG.about.branding}
-                        imagePos={makeRect(0.929, 0.292, 0.16, 0.096)}
-                        word="BRANDING"
-                        font='grandstander'
-                        fontSize={1.42}
-                        wordPos={makeRect(0.87, 0.27, 0.13, 0.28)}
-                    />
-                    <Word
-                        image={IMG.about.marketing}
-                        imagePos={makeRect(0.672, 0.447, 0.22, 0.127)}
-                        word="MARKETING"
-                        font='invisible'
-                        fontSize={1.3}
-                        wordPos={makeRect(0.6, 0.31, 0.28, 0.69)}
-                    />
-                    <Word
-                        image={IMG.about.storytelling}
-                        imagePos={makeRect(0.785, 0.654, 0.295, 0.098)}
-                        word="Storytelling"
-                        font='gotile'
-                        fontSize={1.0}
-                        wordPos={makeRect(0.845, 0.54, 0.155, 0.3)}
-                    />
-                    <Word
-                        image={IMG.about.web_design}
-                        imagePos={makeRect(0.063, 0.776, 0.441, 0.176)}
-                        word="WEB&#x2009; DESIGN"
-                        font='gotile'
-                        fontSize={0.53}
-                        align='end'
-                        wordPos={makeRect(0, 0.69, 0.5, 0.31)}
-                    />
-                    <MultiWord
-                        image={IMG.about.illustration}
-                        imagePos={makeRect(0.495, 0.825, 0.635, 0.133)}
-                        words={[
-                            {
-                                word: "ILLUSTRATION",
-                                wordPos: makeRect(0.485, 0.66, 0.13, 0.33),
-                                font: 'grandstander',
-                                fontSize: 1.2,
-                            },
-                            {
-                                word: "COMIC",
-                                wordPos: makeRect(0.91, 0.82, 0.1, 0.18),
-                                font: 'illusion-magic',
-                                fontSize: 3,
-                            },
-                        ]}
-                    />
-                    <MultiWord
-                        image={IMG.about.animation}
-                        imagePos={makeRect(0.063, 0.6745, 0.195, 0.122)}
-                        words={[
-                            {
-                                word: "GRAPHICS",
-                                wordPos: makeRect(0.125, 0.663, 0.08, 0.145),
-                                font: 'invisible',
-                                fontSize: 1.15,
-                            },
-                            {
-                                word: "MOTION",
-                                wordPos: makeRect(0.04, 0.663, 0.086, 0.145),
-                                font: 'illusion-magic',
-                                fontSize: 2.4,
-                            },
-                            {
-                                word: "ANIMATION",
-                                wordPos: makeRect(0.205, 0.663, 0.06, 0.145),
-                                font: 'grandstander',
-                                fontSize: 1.5,
-                            },
-                        ]}
-                    />
-                </WordTable>
-                {false && <img className={styles.template} src="template2.webp" style={{
-                    marginTop: "100px",
-                }} />}
-            </div>
-            <_AboutMeCard />
-        </div>
-    );
-}
-
-function _AboutMeCard () {
-    return (
-        <div className={styles.aboutMeCard}>
-            <SiteImage
-                className={styles.portrait}
-                image={IMG.aracne}
-            />
-            <div className={styles.msg0}>
-                sorry for acting weird
-            </div>
-            <div className={styles.msg1}>
-                i'm weird, it will happen again.
-            </div>
-            <div className={styles.social}>
-                <Tooltip.Floating position='top' label="YouTube">
-                    <a
-                        target='_blank'
-                        href="https://www.youtube.com/@LaMorguedeAracnePhobia"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.youtube}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="Twitch">
-                    <a
-                        target='_blank'
-                        href="https://www.twitch.tv/aracnephobia"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.twitch}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="Instagram">
-                    <a
-                        target='_blank'
-                        href="https://www.instagram.com/aracnephobia/"
-                    >
-                        <SiteImage 
-                            className={styles.icon}
-                            image={IMG.social.instagram}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="TikTok">
-                    <a
-                        target='_blank'
-                        href="https://www.tiktok.com/@aracne_phobia"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.tiktok}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="X (formerly known as Twitter)">
-                    <a
-                        target='_blank'
-                        href="https://x.com/Aracnephobia"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.twitter}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="Bluesky">
-                    <a
-                        target='_blank'
-                        href="https://bsky.app/profile/aracnephobia.com"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.bsky}
-                        />
-                    </a>
-                </Tooltip.Floating>
-                <Tooltip.Floating position='top' label="LinkedIn">
-                    <a
-                        target='_blank'
-                        href="https://www.linkedin.com/in/ana-l%C3%A1zaro-estalot-52a860104/"
-                    >
-                        <SiteImage
-                            className={styles.icon}
-                            image={IMG.social.linkedin}
-                        />
-                    </a>
-                </Tooltip.Floating>
+                {section === 'about' && <AboutMe />}
             </div>
         </div>
     );
 }
-
 
 export default AboutPage;

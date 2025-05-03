@@ -18,22 +18,30 @@ import psychedelic_planet from "./psychedelic_planet.webp";
 import twp_vert from "./twp-vert.webp";
 import twp_vert_1_5 from "./twp-vert.1_5x.webp";
 import twp_vert_2 from "./twp-vert.2x.webp";
-import about_animation_2 from "./about/animation.2x.webp";
-import about_branding_2 from "./about/branding.2x.webp";
-import about_cartoon_2 from "./about/cartoon.2x.webp";
-import about_comic_2 from "./about/comic.2x.webp";
-import about_content_creator_2 from "./about/content-creator.2x.webp";
-import about_digital_artist_2 from "./about/digital-artist.2x.webp";
-import about_graphic_design_2 from "./about/graphic-design.2x.webp";
-import about_illustration_2 from "./about/illustration.2x.webp";
-import about_marketing_2 from "./about/marketing.2x.webp";
-import about_motion_graphics_2 from "./about/motion-graphics.2x.png";
-import about_storyboard_2 from "./about/storyboard.2x.webp";
-import about_storytelling_2 from "./about/storytelling.2x.webp";
-import about_uiux_2 from "./about/uiux.2x.webp";
-import about_video_2 from "./about/video.2x.webp";
-import about_web_design_2 from "./about/web-design.2x.webp";
-import about_writer_2 from "./about/writer.2x.webp";
+import about_curtain_left from "./about/curtain-left.webp";
+import about_curtain_left_2 from "./about/curtain-left.2x.webp";
+import about_estalot_vertical_logo from "./about/estalot-vertical-logo.webp";
+import about_estalot_vertical_logo_2 from "./about/estalot-vertical-logo.2x.webp";
+import about_header_ae_logo from "./about/header-ae-logo.webp";
+import about_header_motif from "./about/header-motif.png";
+import about_am_3d_grid from "./about/about_me_3d_grid.webp";
+import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
+import about_animation_2 from "./about/word-table/animation.2x.webp";
+import about_branding_2 from "./about/word-table/branding.2x.webp";
+import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
+import about_comic_2 from "./about/word-table/comic.2x.webp";
+import about_content_creator_2 from "./about/word-table/content-creator.2x.webp";
+import about_digital_artist_2 from "./about/word-table/digital-artist.2x.webp";
+import about_graphic_design_2 from "./about/word-table/graphic-design.2x.webp";
+import about_illustration_2 from "./about/word-table/illustration.2x.webp";
+import about_marketing_2 from "./about/word-table/marketing.2x.webp";
+import about_motion_graphics_2 from "./about/word-table/motion-graphics.2x.png";
+import about_storyboard_2 from "./about/word-table/storyboard.2x.webp";
+import about_storytelling_2 from "./about/word-table/storytelling.2x.webp";
+import about_uiux_2 from "./about/word-table/uiux.2x.webp";
+import about_video_2 from "./about/word-table/video.2x.webp";
+import about_web_design_2 from "./about/word-table/web-design.2x.webp";
+import about_writer_2 from "./about/word-table/writer.2x.webp";
 import navigator_blog from "./navigator/blog.webp";
 import navigator_cv from "./navigator/cv.webp";
 import navigator_me from "./navigator/me.webp";
@@ -65,6 +73,34 @@ type ImageCollection = {
 
 export const IMG = {
     about: {
+        curtain_left: {
+            src: about_curtain_left,
+            srcSet: getSrcSet([
+                { src: about_curtain_left, size: "1x" },
+                { src: about_curtain_left_2, size: "1.5x"},
+                { src: about_curtain_left_2, size: "2x"},
+            ])
+        },
+        estalot_vertical_logo: {
+            src: about_estalot_vertical_logo,
+            srcSet: getSrcSet([
+                { src: about_estalot_vertical_logo, size: "1x" },
+                { src: about_estalot_vertical_logo_2, size: "1.5x"},
+                { src: about_estalot_vertical_logo_2, size: "2x"},
+            ])
+        },
+        header_ae_logo: about_header_ae_logo,
+        header_motif: about_header_motif,
+        am_3d_grid: {
+            src: about_am_3d_grid,
+            srcSet: getSrcSet([
+                { src: about_am_3d_grid, size: "1x" },
+                { src: about_am_3d_grid_2, size: "1.5x"},
+                { src: about_am_3d_grid_2, size: "2x"},
+            ])
+        },
+
+        // <--- TODO: MOVE --->
         animation: about_animation_2,
         branding: about_branding_2,
         cartoon: about_cartoon_2,

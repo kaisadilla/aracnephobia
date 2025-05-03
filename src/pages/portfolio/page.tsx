@@ -1,5 +1,5 @@
 import SiteImage from 'components/SiteImage';
-import { IMG } from 'img/img';
+import { IMG } from 'assets/img/img';
 import React from 'react';
 import styles from "./page.module.scss";
 import PortfolioOs from 'components/portfolio_os/PortfolioOs';

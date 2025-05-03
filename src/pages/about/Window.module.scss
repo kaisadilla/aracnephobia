@@ -1,0 +1,41 @@
+.window {
+    $border-width: 0.35rem;
+
+    width: calc(100% - 1rem);
+    background-color: var(--color-about-primary);
+    color: var(--color-about-secondary);
+
+    > .header {
+        @include crt-text-light;
+        display: flex;
+        align-items: center;
+        padding: $border-width $border-width;
+        user-select: none;
+        
+        > .title {
+            flex: 1;
+        }
+
+        > .ribbon {
+            display: flex;
+            gap: $border-width;
+            height: 1.75rem;
+
+            > div {
+                background-color: var(--color-about-secondary);
+                color: var(--color-about-primary);
+                width: 1.5rem;
+                padding: 0.25rem;
+
+                > svg {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    > .content {
+        padding: 0.5rem;
+    }
+}

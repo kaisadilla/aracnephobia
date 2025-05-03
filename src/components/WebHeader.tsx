@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from "./WebHeader.module.scss";
-import planet from "img/planet.webp";
-import logo from "img/logo-lettering.webp";
+import planet from "assets/img/planet.webp";
+import logo from "assets/img/logo-lettering.webp";
 import SiteImage from './SiteImage';
-import { IMG } from 'img/img';
+import { IMG } from 'assets/img/img';
 import { Tooltip } from '@mantine/core';
 
 export interface WebHeaderProps {

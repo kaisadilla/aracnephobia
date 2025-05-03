@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './OsIcon.module.scss'
 import SiteImage from 'components/SiteImage';
-import { IMG } from 'img/img';
+import { IMG } from 'assets/img/img';
 import { $cl } from 'utils';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { useDraggable } from '@dnd-kit/core';
