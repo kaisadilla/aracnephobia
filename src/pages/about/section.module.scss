@@ -9,6 +9,7 @@
     overflow-y: scroll;
     font-size: 1rem;
     user-select: none;
+    padding-bottom: 2rem;
 
     > :not(.bg) {
         position: relative;
@@ -29,6 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 
     > .aracneIntro {
         width: 100%;
@@ -93,12 +95,115 @@
             justify-content: center;
             margin: 0 auto;
             position: relative;
+            //border: var(--border-width) solid var(--color-about-secondary);
     
             > div {
                 width: 100%;
                 height: 100%;
                 filter: brightness(0.6) sepia(100%) saturate(60%) hue-rotate(0deg);
             }
+        }
+    }
+
+    > .socialMediaWindow {
+        width: 95%;
+
+        .ribbon {
+            background-color: var(--color-about-secondary);
+            border: var(--border-half-width) solid var(--color-about-primary);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            padding: 1rem;
+        }
+    }
+
+    > .cutTheShapesContainer {
+        width: 90%;
+        display: flex;
+
+        .cutTheShapesWindow {
+            width: 70%;
+            height: 640px;
+
+            .cutTheShapesFrame {
+                padding: 1rem;
+            }
+
+            .cutTheShapes {
+                height: 100%;
+                justify-content: start;
+
+                :global {
+                    animation: irregularBlur 30s infinite;
+                }
+
+                &:hover, &:active {
+                    :global {
+                        animation: blurToPop 60s forwards;
+                    }
+                }
+
+                img {
+                    object-position: left center;
+                }
+            }
+        }
+    }
+}
+
+.socialMediaButton {
+    $border-radius: 0.75rem;
+
+    display: flex;
+    flex-direction: column;
+    border: var(--border-quarter-width) solid var(--color-about-primary);
+    border-radius: $border-radius;
+    width: 7rem;
+
+    > .iconContainer {
+        background-color: var(--color-about-primary);
+        width: 100%;
+        height: 90px;
+        padding: 1rem;
+        border-top-left-radius: $border-radius * 0.6;
+        border-top-right-radius: $border-radius * 0.6;
+
+        svg {
+            height: 100%;
+            width: 100%;
+            fill: var(--color-about-secondary);
+        }
+    }
+
+    > .name {
+        color: var(--color-about-primary);
+        font-family: var(--font-fragment-mono);
+        text-transform: uppercase;
+        padding: 0.35rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+
+        > span {
+            font-size: 0.75rem;
+        }
+
+        > svg {
+            flex-shrink: 0;
+            animation: svgNeonFlicker 16s infinite;
+            height: 1.5rem;
+            fill: var(--color-primary);
+            stroke: var(--color-about-primary);
+            stroke-width: 1rem;
+        }
+    }
+            
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) > .name > svg {
+            animation-delay: #{-800 + (random(1600) / 100)}s;
         }
     }
 }
@@ -117,5 +222,35 @@
                 width: 90%;
             }
         }
+    }
+}
+
+@keyframes svgNeonFlicker {
+    0%, 31.69% {
+        fill: var(--color-primary);
+    }
+    31.7%, 31.89% {
+        fill: var(--color-secondary);
+    }
+    31.9%, 32.09% {
+        fill: var(--color-primary);
+    }
+    32.1%, 32.19% {
+        fill: var(--color-secondary);
+    }
+    32.2%, 32.39% {
+        fill: var(--color-primary);
+    }
+    32.4%, 40.99% {
+        fill: var(--color-secondary);
+    }
+    41%, 72.99% {
+        fill: var(--color-primary);
+    }
+    73%, 73.49% {
+        fill: var(--color-secondary);
+    }
+    73.5%, 100% {
+        fill: var(--color-primary);
     }
 }

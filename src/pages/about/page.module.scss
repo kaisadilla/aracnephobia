@@ -1,5 +1,7 @@
 .page {
     --border-width: 0.4rem;
+    --border-half-width: calc(var(--border-width) / 2);
+    --border-quarter-width: calc(var(--border-half-width) / 2);
 
     @include crt(100);
 

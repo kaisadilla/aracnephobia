@@ -4,6 +4,8 @@
     width: calc(100% - 1rem);
     background-color: var(--color-about-primary);
     color: var(--color-about-secondary);
+    display: flex;
+    flex-direction: column;
 
     > .header {
         @include crt-text-light;
@@ -14,6 +16,14 @@
         
         > .title {
             flex: 1;
+            font-family: var(--font-fragment-mono);
+            text-transform: uppercase;
+            padding-left: 1em;
+            font-size: 1.2rem;
+
+            :global {
+                animation: glitch-move-sometimes 24s infinite;
+            }
         }
 
         > .ribbon {
@@ -36,6 +46,17 @@
     }
 
     > .content {
-        padding: 0.5rem;
+        padding: calc(var(--border-width) / 2);
+        width: 100%;
+        flex: 1;
+        overflow: hidden;
+
+        > .contentFrame {
+            position: relative;
+            border: var(--border-half-width) solid var(--color-about-secondary);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
     }
 }

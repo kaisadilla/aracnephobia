@@ -263,3 +263,27 @@ a {
         color: var(--current-neon);
     }
 }
+
+@keyframes irregularBlur {
+    0%, 20% {
+        filter: none;
+    }
+    45% {
+        filter: blur(1px);
+    }
+    85% {
+        filter: none;
+    }
+}
+
+@keyframes blurToPop {
+    0% {
+        filter: blur(0px) hue-rotate(0deg);
+    }
+    99.99% {
+        filter: blur(20px) hue-rotate(180deg);
+    }
+    100% {
+        filter: none;
+    }
+}

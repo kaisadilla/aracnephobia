@@ -7,6 +7,8 @@ import Window from './Window';
 import WordTable from 'pages/about2/WordTable';
 import Word from 'pages/about2/Word';
 import { makeRect } from 'types';
+import SVG from 'assets/img/svg';
+import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 
 export interface AboutMeProps {
     
@@ -38,20 +40,67 @@ function AboutMe (props: AboutMeProps) {
             </div>
             <Window
                 className={styles.wordTableWindow}
-                contentClassName={styles.wordTableContainer}
                 title="Hashtag.cloud"
             >
-                <_WordTable />
+                <div className={styles.wordTableContainer}>
+                    <_WordTable />
+                </div>
             </Window>
+            <Window
+                className={styles.socialMediaWindow}
+                title="Social.media"
+            >
+                <div className={styles.ribbon}>
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.youtube />}
+                        name="YouTube"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.twitch />}
+                        name="Twitch"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.instagram />}
+                        name="Instagram"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.tiktok />}
+                        name="Tiktok"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.twitter />}
+                        name="Twitter"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.linkedin />}
+                        name="LinkedIn"
+                    />
+                    <_SocialMediaButton
+                        icon={<SVG.socialMedia.bsky />}
+                        name="Bluesky"
+                    />
+                </div>
+            </Window>
+            <div className={styles.cutTheShapesContainer}>
+                <Window
+                    className={styles.cutTheShapesWindow}
+                    frameClassName={styles.cutTheShapesFrame}
+                    title="CutThe.Shapes"
+                >
+                    <ChromaticAberrationImage
+                        className={styles.cutTheShapes}
+                        horizFlicker={12}
+                        duration={8}
+                        opacity={0.35}
+                        image={IMG.about.cut_the_shapes}
+                    />
+                </Window>
+            </div>
         </div>
     );
 }
 
-interface _WordTableProps {
-    
-}
-
-function _WordTable (props: _WordTableProps) {
+function _WordTable () {
 
     return (
         <WordTable className={styles.wordTable}>
@@ -189,6 +238,33 @@ function _WordTable (props: _WordTableProps) {
         </WordTable>
     );
 }
+
+interface _SocialMediaButtonProps {
+    icon: React.ReactElement;
+    name: string;
+}
+
+function _SocialMediaButton ({
+    icon,
+    name,
+}: _SocialMediaButtonProps) {
+    return (
+        <a
+            className={styles.socialMediaButton}
+            target='_blank'
+            href="https://www.youtube.com/@LaMorguedeAracnePhobia"
+        >
+            <div className={styles.iconContainer}>
+                {icon}
+            </div>
+            <div className={styles.name}>
+                <SVG.heart />
+                <span>{name}</span>
+            </div>
+        </a>
+    );
+}
+
 
 
 export default AboutMe;

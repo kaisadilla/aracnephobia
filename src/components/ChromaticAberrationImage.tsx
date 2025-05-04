@@ -7,6 +7,7 @@ export interface ChromaticAberrationImageProps extends SiteImageProps {
     horizFlicker?: number;
     vertFlicker?: number;
     duration?: number;
+    opacity?: number;
 }
 
 function ChromaticAberrationImage ({
@@ -14,6 +15,7 @@ function ChromaticAberrationImage ({
     horizFlicker = 2,
     vertFlicker = 0,
     duration = 1,
+    opacity = 0.5,
     ...siteImageProps
 }: ChromaticAberrationImageProps) {
 
@@ -24,6 +26,7 @@ function ChromaticAberrationImage ({
                 '--horiz-flicker': `${horizFlicker}px`,
                 '--vert-flicker': `${vertFlicker}px`,
                 '--duration': `${duration}`,
+                '--opacity': `${opacity}`,
             } as React.CSSProperties}
         >
             <SiteImage

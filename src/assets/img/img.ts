@@ -30,6 +30,7 @@ import about_header_motif from "./about/header-motif.png";
 import about_am_3d_grid from "./about/about_me_3d_grid.webp";
 import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
 import about_sorry from "./about/sorry.webp";
+import about_cut_the_shapes from "./about/cut_the_shapes.webp";
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
 import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
@@ -106,6 +107,7 @@ export const IMG = {
             ])
         },
         sorry: about_sorry,
+        cut_the_shapes: about_cut_the_shapes,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

@@ -2,6 +2,7 @@
     --horiz-flicker: 2px;
     --vert-flicker: 0px;
     --duration: 1;
+    --opacity: 0.5;
 
     position: relative;
 
@@ -23,13 +24,13 @@
 
     .aber1 {
         filter: sepia(100%) saturate(1000%) brightness(80%) hue-rotate(295deg);
-        opacity: 0.5;
+        opacity: var(--opacity);
         animation: aberration calc(5.1s * var(--duration)) infinite;
     }
 
     .aber2 {
         filter: sepia(100%) saturate(1000%) brightness(80%) hue-rotate(190deg);
-        opacity: 0.5;
+        opacity: var(--opacity);
         animation: aberration calc(3.8s * var(--duration)) infinite;
         animation-delay: 0.6s;
     }
