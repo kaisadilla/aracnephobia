@@ -12,6 +12,7 @@ import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { ScrollArea } from '@mantine/core';
 import { DndContext, DragEndEvent, useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
+import MutableJapaneseChar from './MutableJapaneseChar';
 
 const KATAKANA_CP_START = 0x30a0;
 const KATAKANA_CP_END = 0x30ff;
@@ -126,12 +127,11 @@ function AboutMe (props: AboutMeProps) {
             </div>
             <div className={styles.jpBigContainer}>
                 <div className={styles.frame}>
-                    {[...currentKanji].map((c, i) => <span
+                    {[...currentKanji].map((c, i) => <MutableJapaneseChar
                             key={i}
-                            onClick={() => handleKanjiReroll(i)}
-                        >
-                            {c}
-                        </span>
+                            id={"about_jp_char_" + i}
+                            initial={c}
+                        />
                     )}
                 </div>
                 <SiteImage

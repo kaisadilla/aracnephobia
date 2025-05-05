@@ -41,6 +41,7 @@ import about_technicolor from "./about/technicolor.webp";
 import about_mental_toxicity from "./about/mental_toxicity.webp";
 import about_skills_bg1 from "./about/skills_bg1.webp";
 import about_skills_pic1 from "./about/skills_pic1.webp";
+import about_eva1 from "./about/eva1.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -128,6 +129,7 @@ export const IMG = {
         mental_toxicity: about_mental_toxicity,
         skills_bg1: about_skills_bg1,
         skills_pic1: about_skills_pic1,
+        eva1: about_eva1,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

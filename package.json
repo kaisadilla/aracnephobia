@@ -14,6 +14,7 @@
     "@emotion/react": "^11.14.0",
     "@mantine/core": "^7.17.3",
     "@mantine/hooks": "^7.17.3",
+    "gsap": "^3.13.0",
     "material-symbols": "^0.29.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -23,6 +24,7 @@
     "react-router-dom": "^7.4.0",
     "react-simple-typewriter": "^5.0.1",
     "sass": "^1.86.0",
+    "text-to-svg": "^3.1.5",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
