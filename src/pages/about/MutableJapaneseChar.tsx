@@ -19,7 +19,7 @@ function MutableJapaneseChar ({
     const [active, setActive] = useState(0);
 
     return (
-        <svg onClick={handleClick} viewBox='0 0 110 110'>
+        <svg onClick={handleClick} viewBox='0 0 110 100'>
             <path ref={ref0} id={id + "-0"} d={d0} fill="currentColor" />
             <path ref={ref1} id={id + "-1"} d={d1} fill="none" />
         </svg>
