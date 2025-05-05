@@ -2,14 +2,14 @@
 
 .section {
     position: relative;
-    max-width: 70rem;
+    max-width: 72rem;
     width: 100%;
     height: 100%;
-    overflow-x: none;
-    overflow-y: scroll;
+    overflow: hidden;
     font-size: 1rem;
     user-select: none;
-    padding-bottom: 2rem;
+    background-color: var(--color-about-secondary);
+    color: var(--color-about-primary);
 
     > :not(.bg) {
         position: relative;
@@ -22,15 +22,35 @@
         top: -15.5vw;
         width: 100%;
     }
+
+    > .sectionContent {
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollbar {
+        display: block;
+        background-color: var(--color-about-primary);
+        padding: 0 1.98em;
+        transition: padding 0.33s;
+
+        &:hover {
+            padding: 0 var(--border-width);
+        }
+
+        .thumb {
+            background-color: var(--color-about-secondary);
+            border-radius: 0;
+        }
+    }
 }
 
-.section.aboutMe {
-    background-color: var(--color-about-secondary);
-    color: var(--color-about-primary);
+.sectionContent.aboutMe {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding-bottom: 2rem;
 
     > .aracneIntro {
         width: 100%;
@@ -122,6 +142,8 @@
     > .cutTheShapesContainer {
         width: 90%;
         display: flex;
+        gap: 0.5rem;
+        justify-content: space-between;
 
         .cutTheShapesWindow {
             width: 70%;
@@ -149,6 +171,196 @@
                     object-position: left center;
                 }
             }
+        }
+
+        > .shapeContainer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            max-width: 210px;
+
+            > img {
+                width: 100%;
+            }
+        }
+    }
+
+    > .jpBig {
+        width: 90%;
+    }
+
+    > .jpBigContainer {
+        position: relative;
+        width: 90%;
+        border: var(--border-half-width) solid var(--color-about-primary);
+
+        > .frame {
+            width: 100%;
+            border: var(--border-half-width) solid var(--color-about-secondary);
+            background-color: var(--color-about-primary);
+            text-align: center;
+            text-wrap: nowrap;
+            padding-left: 0.6em;
+            display: flex;
+            justify-content: space-around;
+            overflow: hidden;
+            //max-width: 50vw;
+
+            > span {
+                line-height: 1.1em;
+                font-size: min(5.9363vw, 4.9rem);
+                font-weight: 500;
+                color: var(--color-about-secondary);
+                //letter-spacing: 0.1em;
+
+                &:hover {
+                    @include crt-text;
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        > .technicolor {
+            position: absolute;
+            width: 25%;
+            right: 0;
+            bottom: -35px;
+        }
+    }
+
+    > .footer {
+        width: 90%;
+        display: flex;
+
+        > .planetContainer {
+            position: relative;
+            width: 55%;
+            height: 180px;
+            border: var(--border-half-width) solid var(--color-about-primary);
+
+            > .corner {
+                $size: 1.25rem;
+                $offset: 0.55rem;
+
+                position: absolute;
+                width: $size;
+                height: $size;
+
+                &:nth-child(1) {
+                    top: $offset;
+                    left: $offset;
+                }
+                &:nth-child(2) {
+                    top: $offset;
+                    right: $offset;
+                }
+                &:nth-child(3) {
+                    bottom: $offset;
+                    right: $offset;
+                }
+                &:nth-child(4) {
+                    bottom: $offset;
+                    left: $offset;
+                }
+            }
+
+            > .content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1em;
+
+                > .planet {
+                    fill: none;
+                    stroke-width: 1.8em;
+                    height: 90px;
+                    //visibility: hidden;
+                    
+                    &:nth-child(1) {
+                        stroke: var(--color-about-primary);
+                    }
+                    
+                    &:nth-child(2) {
+                        stroke: var(--color-primary);
+                    }
+    
+                    &:nth-child(3) {
+                        stroke: var(--color-secondary);
+                    }
+
+                    &:global {
+                        animation: shortGlitch 0.05s linear forwards;
+                    }
+                }
+            }
+        }
+        
+        > .draggablesContainer {
+            position: relative;
+            flex: 1;
+            height: 180px;
+            //background-color: red;
+
+            > div {
+                width: 100px;
+                height: 100px;
+                //background-color: blue;
+            }
+        }
+    }
+}
+
+.sectionContent.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    padding: 0 1%;
+
+    > .firstRow {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        > .left {
+            flex: 45;
+            width: 100px;
+            object-fit: contain;
+            padding-left: 1rem;
+        }
+
+        > .right {
+            flex: 55;
+            width: 100px;
+            background-size: contain;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+
+            > div {
+                width: 90%;
+            }
+        }
+    }
+
+    > .arts {
+        width: 100%;
+
+        .artContainer {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            background-color: var(--color-about-secondary);
+            gap: 2rem;
+            justify-content: center;
+            padding: 1.5rem 1rem;
         }
     }
 }
@@ -204,6 +416,67 @@
     @for $i from 1 through 10 {
         &:nth-child(#{$i}) > .name > svg {
             animation-delay: #{-800 + (random(1600) / 100)}s;
+        }
+    }
+}
+
+.artSkill {
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+    z-index: 100;
+    border: var(--border-quarter-width) solid var(--color-about-primary);
+
+    > .nameContainer {
+        color: var(--color-about-primary);
+
+        > span {
+            font-family: var(--font-fragment-mono);
+            display: block;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.25em 0;
+            font-weight: 800;
+        }
+    }
+
+    > .iconContainer {
+        background-color: var(--color-about-primary);
+        height: 7rem;
+        padding: 0.8rem;
+
+        > svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        > .nameContainer {
+            > span {
+                :global {
+                    animation: shortGlitch 0.05s linear forwards;
+                }
+
+                color: var(--color-primary);
+            }
+        }
+
+        svg {
+            :global {
+                animation: drawBorder 1.4s linear forwards;
+            }
+
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            color: var(--color-primary);
+        }
+
+        &:nth-child(3), &:nth-child(4) {
+            svg {
+                stroke-dasharray: 3600;
+                stroke-dashoffset: 3600;
+            }
         }
     }
 }

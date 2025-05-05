@@ -67,6 +67,53 @@ const SVG = {
                     <path d="M56.8906 9.39551L9.44226 56.8439" stroke="currentColor" stroke-width="17.7931" stroke-linecap="round"/>
                 </svg>
             ),
+        },
+        skills: {
+            comicArtist: (svgProps: SvgProps) => (
+                <svg viewBox="0 0 721.4 483.19" fill="none">
+                    <g>
+                        <path stroke="currentColor" stroke-width="10" d="M721.4,483.19l-50.73-131.2c31.05-34.62,48.85-74.88,48.85-117.86C719.52,104.82,558.45,0,359.76,0S0,104.82,0,234.13s161.07,234.13,359.76,234.13c69.55,0,134.48-12.85,189.52-35.09l172.12,50.02Z"/>
+                    </g>
+                </svg>
+            ),
+            conceptArt: (svgProps: SvgProps) => (
+                <svg {...svgProps} width="574" height="524" viewBox="0 0 574 524" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3.72494" y="106.053" width="50.9737" height="152.921" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="54.7093" y="61.4518" width="57.3455" height="44.602" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="105.678" y="4.10751" width="108.319" height="57.3455" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="207.616" y="61.4518" width="50.9737" height="44.602" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="264.967" y="106.053" width="44.602" height="57.3455" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="54.7093" y="265.354" width="57.3455" height="44.602" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="105.678" y="316.324" width="57.3455" height="50.9737" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="163.014" y="367.295" width="44.602" height="44.602" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="207.616" y="411.896" width="57.3455" height="57.3455" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="264.967" y="462.867" width="44.602" height="57.3455" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="50.9737" height="152.921" transform="matrix(-1 0 0 1 567.62 102.868)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="57.3455" height="44.602" transform="matrix(-1 0 0 1 516.652 58.2659)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="108.319" height="57.3455" transform="matrix(-1 0 0 1 465.667 0.921631)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="50.9737" height="44.602" transform="matrix(-1 0 0 1 363.73 58.2659)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="44.602" height="57.3455" transform="matrix(-1 0 0 1 306.378 102.868)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="57.3455" height="44.602" transform="matrix(-1 0 0 1 516.652 262.168)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="57.3455" height="50.9737" transform="matrix(-1 0 0 1 465.667 313.138)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="44.602" height="44.602" transform="matrix(-1 0 0 1 408.331 364.109)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="57.3455" height="57.3455" transform="matrix(-1 0 0 1 363.73 408.71)" stroke="currentColor" stroke-width="6.37176"/>
+                    <rect x="-3.18588" y="3.18588" width="44.602" height="57.3455" transform="matrix(-1 0 0 1 306.378 459.681)" stroke="currentColor" stroke-width="6.37176"/>
+                </svg>
+            ),
+            digitalPainting: (svgProps: SvgProps) => (
+                <svg {...svgProps} width="640" height="611" viewBox="0 0 640 611" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M332.07 418.013C356.251 423.77 407.376 418.704 418.43 352.38M332.07 418.013L428.793 497.464C450.671 497.464 493.045 486.41 487.518 442.194L418.43 352.38M332.07 418.013L317.949 404.195M418.43 352.38L387.34 320.287M300.981 231.142L97.1719 20.7583C62.628 11.5466 -3.00536 15.2313 10.8122 103.664L214.621 303.089M300.981 231.142L387.34 320.287M300.981 231.142L439.156 88.2701M387.34 320.287L529.68 176.206M439.156 88.2701L494.426 31.1215L504.789 40.717M439.156 88.2701L529.68 176.206M529.68 176.206L587.695 117.481L572.772 103.664M504.789 40.717C515.153 22.8053 546.242 -7.64445 587.695 13.8495C600.775 27.6671 616.104 64.9744 572.772 103.664M504.789 40.717L572.772 103.664M214.621 303.089L317.949 404.195M214.621 303.089L76.3616 442.194M317.949 404.195L167.154 545.825M76.3616 442.194L62.6279 456.011L30.5515 545.825M76.3616 442.194C69.4808 464.071 70.2275 504.373 128.261 490.555C119.646 510.13 115.362 548.589 167.154 545.825M167.154 545.825L152.442 559.643L62.6279 585.93M30.5515 545.825L10.8122 601.096L62.6279 585.93M30.5515 545.825L62.6279 585.93" stroke="currentColor" stroke-width="12.4044"/>
+                    <path d="M428.804 497.467C423.047 527.405 429.495 590.045 501.346 601.099C533.588 606.856 604.288 608.007 629.16 566.555C602.676 563.1 551.781 544.447 560.072 497.467C562.375 474.438 551.09 430.452 487.53 438.742" stroke="currentColor" stroke-width="12.4044"/>
+                </svg>
+            ),
+            tattooDesign: (svgProps: SvgProps) => (
+                <svg {...svgProps} width="654" height="619" viewBox="0 0 654 619" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M64.5485 448.135L189.866 322.818L132.904 269.652C120.752 242.31 132.904 220.285 167.081 239.272L406.324 474.718L588.604 296.235L383.539 91.1698C372.146 56.9923 394.931 45.5998 417.716 56.9923L558.224 205.095L569.617 193.702C612.149 99.5243 546.831 55.7265 508.856 45.5998C482.274 22.8148 498.73 8.89059 516.451 7.62476C656.959 56.9923 626.579 186.107 596.199 239.272L622.782 262.057C649.364 288.64 651.896 303.83 641.769 311.425L440.501 512.693C422.273 530.921 402.526 530.414 394.931 527.883L303.791 448.135L174.676 569.655L132.904 527.883L7.58594 611.428L98.726 489.908L64.5485 448.135Z" stroke="currentColor" stroke-width="13.4178" stroke-linejoin="round"/>
+                    <path d="M254.43 254.463L364.557 148.133L425.317 208.893L315.19 315.223L254.43 254.463Z" stroke="currentColor" stroke-width="13.4178" stroke-linejoin="round"/>
+                    <path d="M356.969 345.598L467.096 239.268L527.856 300.028L417.729 406.358L356.969 345.598Z" stroke="currentColor" stroke-width="13.4178" stroke-linejoin="round"/>
+                    <path d="M394.938 178.503L436.71 140.528M497.47 269.643L535.445 231.668" stroke="currentColor" stroke-width="40.2535" stroke-linejoin="round"/>
+                </svg>
+            ),
         }
     },
     socialMedia: {
@@ -184,8 +231,16 @@ const SVG = {
             ),
         },
     },
+    planet: (svgProps: SvgProps) => (
+        <svg {...svgProps} viewBox="0 0 919 602">
+            <path d="M713.3,432C666.1,522,571.7,583.5,463,583.5S263.4,524.3,215.3,437l-2-3.7"/>
+            <path d="M187.4,363.4l-1.1-5.5c-3.8-18.4-5.7-37.4-5.7-56.9C180.5,145,307,18.5,463,18.5S745.5,145,745.5,301c0,19.5-2,38.5-5.7,56.9"/>
+            <path d="M212.8,169.7l-9.7,2.5c-111.2,28.9-183.6,76-183.6,129.2c0,87.8,197,159,440,159s440-71.2,440-159c0-52.1-69.5-98.4-176.8-127.4l-8.2-1.8"/>
+            <path d="M185.1,249.7h-4.6c-44.4,0-80.4,23.4-80.4,52.3c0,14.5,16.8,28.4,33.6,38.7c16.6,10.2,34.8,17.7,53.6,22.7c73.2,19.4,166.8,31.1,268.6,31.1c124.5,0,194.6-4.4,272.4-32.1c0,0,92.6-27.9,92.6-56.8s-24.3-51.8-68.7-51.8l-10.6,0.7"/>
+        </svg>
+    ),
     heart: (svgProps: SvgProps) => (
-        <svg viewBox="0 0 162.12 146.71">
+        <svg {...svgProps} viewBox="0 0 162.12 146.71">
             <g>
                 <path d="M42.06,9.8c24.93,0,29.91,9.58,39.88,23.94,9.97-14.37,26.39-28.45,49.85-23.94,24.93,4.79,29.91,52.67,4.98,71.83l-54.84,52.67-49.85-47.88C-12.78,48.11,17.13,14.59,42.06,9.8Z"/>
             </g>

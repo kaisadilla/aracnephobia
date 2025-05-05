@@ -287,3 +287,101 @@ a {
         filter: none;
     }
 }
+
+@keyframes shortGlitch {
+    0%, 29.99% {
+        transform: skewX(-70deg);
+    }
+    30%, 49.99% {
+        transform: skewX(130deg) translate(40%, 0);
+    }
+    50%, 79.99% {
+        transform: translate(-50%) skew(60deg);
+    }
+    80%, 99.99% {
+        transform: skewX(-140deg);
+    }
+}
+
+@keyframes glitchOut {
+    0% {
+        opacity: 1;
+        transform: translate(2vw, 3vh);
+    }
+    11% {
+        transform: translate(2vw, 3vh);
+    }
+    12% {
+        opacity: 0;
+        transform: translate(-3vw, 2vh);
+    }
+    14% {
+        opacity: 0;
+        transform: translate(2vw, -2vh);
+    }
+    16% {
+        opacity: 1;
+        fill: var(--current-neon);
+        stroke: none;
+    }
+    42% {
+        transform: scaleY(1) skewX(0deg) translate(2vw, -2vh);
+    }
+    44% {
+        transform: scaleY(3) skewX(-60deg) translate(-4vw, -4vh);
+    }
+    46% {
+        transform: scaleY(1) skewX(0deg);
+    }
+    60% {
+        opacity: 1;
+    }
+    62% {
+        opacity: 0;
+        transform: translate(0 0);
+    }
+    68% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    83% {
+        transform: scaleX(1) scaleY(1) skewX(0deg);
+        fill: none;
+        stroke: var(--color-secondary);
+    }
+    84% {
+        transform: scaleX(1.5) scaleY(.2) skewX(80deg);
+    }
+    86% {
+        transform: scaleX(1) scaleY(1) skewX(0deg);
+        fill: var(--current-neon);
+        stroke: none;
+    }
+    94% {
+        fill: none;
+        stroke: var(--current-neon);
+    }
+}
+
+@keyframes drawBorder {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.5);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

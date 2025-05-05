@@ -31,6 +31,17 @@ import about_am_3d_grid from "./about/about_me_3d_grid.webp";
 import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
 import about_sorry from "./about/sorry.webp";
 import about_cut_the_shapes from "./about/cut_the_shapes.webp";
+import about_cts_model from "./about/cts_model.webp";
+import about_cts_planet from "./about/cts_planet.webp";
+import about_cts_error from "./about/cts_error.webp";
+import about_cts_pseudo from "./about/cts_pseudo.webp";
+import about_about_jp_big from "./about/about_jp_big.webp";
+import about_technicolor from "./about/technicolor.webp";
+
+import about_mental_toxicity from "./about/mental_toxicity.webp";
+import about_skills_bg1 from "./about/skills_bg1.webp";
+import about_skills_pic1 from "./about/skills_pic1.webp";
+
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
 import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
@@ -108,6 +119,15 @@ export const IMG = {
         },
         sorry: about_sorry,
         cut_the_shapes: about_cut_the_shapes,
+        cts_model: about_cts_model,
+        cts_planet: about_cts_planet,
+        cts_error: about_cts_error,
+        cts_pseudo: about_cts_pseudo,
+        about_jp_big: about_about_jp_big,
+        technicolor: about_technicolor,
+        mental_toxicity: about_mental_toxicity,
+        skills_bg1: about_skills_bg1,
+        skills_pic1: about_skills_pic1,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,
@@ -126,7 +146,7 @@ export const IMG = {
         video: about_video_2,
         web_design: about_web_design_2,
         writer: about_writer_2,
-    } as ImageCollection,
+    },
     navigator: {
         blog: navigator_blog,
         cv: navigator_cv,

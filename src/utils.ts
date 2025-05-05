@@ -53,6 +53,10 @@ export interface Vec2 {
     y: number;
 }
 
+export function randomInt (max: number) {
+    return Math.floor(Math.random() * max);
+}
+
 /**
  * Removes the item in the array at the index given. This MUTATES the array
  * given, and doesn't return anything.

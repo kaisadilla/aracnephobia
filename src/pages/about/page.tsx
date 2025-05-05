@@ -7,6 +7,7 @@ import SVG from 'assets/img/svg';
 import { $cl } from 'utils';
 import AboutMe from './AboutMe';
 import { useMediaQuery } from '@mantine/hooks';
+import Skills from './Skills';
 
 type Section = 'about'
     | 'skills'
@@ -114,6 +115,7 @@ function AboutPage (props: AboutPageProps) {
             </div>
             <div className={styles.content}>
                 {section === 'about' && <AboutMe />}
+                {section === 'skills' && <Skills />}
             </div>
         </div>
     );

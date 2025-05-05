@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './section.module.scss';
-import { $cl } from 'utils';
+import { $cl, randomInt } from 'utils';
 import SiteImage from 'components/SiteImage';
 import { IMG } from 'assets/img/img';
 import Window from './Window';
@@ -9,15 +9,37 @@ import Word from 'pages/about2/Word';
 import { makeRect } from 'types';
 import SVG from 'assets/img/svg';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
+import { ScrollArea } from '@mantine/core';
+import { DndContext, DragEndEvent, useDraggable } from '@dnd-kit/core';
+import { CSS } from '@dnd-kit/utilities';
+
+const KATAKANA_CP_START = 0x30a0;
+const KATAKANA_CP_END = 0x30ff;
+const KANJI_CP_START = 0x4e00;
+const KANJI_CP_END = 0x9faf;
 
 export interface AboutMeProps {
     
 }
 
 function AboutMe (props: AboutMeProps) {
+    const [currentKanji, setCurrentKanji] = useState("新世紀エヴァンゲリオン");
+    const [currentPlanet, setCurrentPlanet] = useState(randomInt(3));
 
     return (
-        <div className={$cl(styles.section, styles.aboutMe)}>
+        <ScrollArea
+            classNames={{
+                root: styles.section,
+                scrollbar: styles.scrollbar,
+                thumb: styles.thumb
+            }}
+            scrollbars='y'
+            offsetScrollbars='y'
+            type='always'
+            scrollbarSize="4em"
+        >
+            <div className={$cl(styles.sectionContent, styles.aboutMe)}>
+                
             <SiteImage
                 className={$cl(styles.bg, styles.bgGrid)}
                 image={IMG.about.am_3d_grid}
@@ -95,9 +117,106 @@ function AboutMe (props: AboutMeProps) {
                         image={IMG.about.cut_the_shapes}
                     />
                 </Window>
+                <div className={styles.shapeContainer}>
+                    <SiteImage image={IMG.about.cts_model} />
+                    <SiteImage image={IMG.about.cts_planet} />
+                    <SiteImage image={IMG.about.cts_error} />
+                    <SiteImage image={IMG.about.cts_pseudo} />
+                </div>
             </div>
-        </div>
+            <div className={styles.jpBigContainer}>
+                <div className={styles.frame}>
+                    {[...currentKanji].map((c, i) => <span
+                            key={i}
+                            onClick={() => handleKanjiReroll(i)}
+                        >
+                            {c}
+                        </span>
+                    )}
+                </div>
+                <SiteImage
+                    className={styles.technicolor}
+                    image={IMG.about.technicolor}
+                />
+            </div>
+            <div className={styles.footer}>
+                <div className={styles.planetContainer}>
+                    <SVG.about.window.close className={styles.corner} />
+                    <SVG.about.window.close className={styles.corner} />
+                    <SVG.about.window.close className={styles.corner} />
+                    <SVG.about.window.close className={styles.corner} />
+                    <div className={styles.content}>
+                        <SVG.planet
+                            key={10 + currentPlanet}
+                            className={styles.planet}
+                            onMouseEnter={() => handleMouseEnterPlanet(0)}
+                            onTouchStart={() => handleMouseEnterPlanet(0)}
+                            style={{
+                                visibility: currentPlanet === 0 ? 'visible' : 'hidden',
+                                opacity: currentPlanet === 0 ? 1 : 0,
+                            }}
+                        />
+                        <SVG.planet
+                            key={20 + currentPlanet}
+                            className={styles.planet}
+                            onMouseEnter={() => handleMouseEnterPlanet(1)}
+                            onTouchStart={() => handleMouseEnterPlanet(1)}
+                            style={{
+                                visibility: currentPlanet === 1 ? 'visible' : 'hidden',
+                                opacity: currentPlanet === 1 ? 1 : 0,
+                            }}
+                        />
+                        <SVG.planet
+                            key={30 + currentPlanet}
+                            className={styles.planet}
+                            onMouseEnter={() => handleMouseEnterPlanet(2)}
+                            onTouchStart={() => handleMouseEnterPlanet(2)}
+                            style={{
+                                visibility: currentPlanet === 2 ? 'visible' : 'hidden',
+                                opacity: currentPlanet === 2 ? 1 : 0,
+                            }}
+                        />
+                    </div>
+                </div>
+                <div className={styles.draggablesContainer}>
+                    <div>|</div>
+                </div>
+            </div>
+
+            </div>
+        </ScrollArea>
     );
+
+    function handleKanjiReroll (index: number) {
+        let start, end;
+
+        if (Math.random() < 0.6) {
+            start = KATAKANA_CP_START;
+            end = KATAKANA_CP_END;
+        }
+        else {
+            start = KANJI_CP_START;
+            end = KANJI_CP_END;
+        }
+
+        const codePoint = Math.floor(Math.random() * (end - start + 1)) + start;
+        
+        setCurrentKanji(
+            prev => prev.substring(0, index)
+                + String.fromCharCode(codePoint)
+                + prev.substring(index + 1)
+        );
+    }
+
+    function handleMouseEnterPlanet (index: number) {
+        if (currentPlanet !== index) return;
+
+        let newVal = randomInt(3);
+        if (newVal === currentPlanet) newVal++;
+        newVal %= 3;
+
+        setCurrentPlanet(newVal);
+    }
 }
 
 function _WordTable () {
@@ -263,6 +382,11 @@ function _SocialMediaButton ({
             </div>
         </a>
     );
+}
+
+interface _DraggableProps {
+    id: string;
+    children: React.ReactNode;
 }
 
 

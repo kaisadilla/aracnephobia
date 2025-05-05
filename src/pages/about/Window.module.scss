@@ -47,6 +47,7 @@
 
     > .content {
         padding: calc(var(--border-width) / 2);
+        padding-top: 0;
         width: 100%;
         flex: 1;
         overflow: hidden;

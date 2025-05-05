@@ -10,6 +10,10 @@
         visibility: hidden;
     }
 
+    img {
+        display: block;
+    }
+
     img:not(.sentinel), svg:not(.sentinel) {
         position: absolute;
         top: 0px;
