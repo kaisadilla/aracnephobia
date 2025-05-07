@@ -39,8 +39,8 @@ function AboutMe (props: AboutMeProps) {
             type='always'
             scrollbarSize="4em"
         >
-            <div className={$cl(styles.sectionContent, styles.aboutMe)}>
-                
+
+        <div className={$cl(styles.sectionContent, styles.aboutMe)}>
             <SiteImage
                 className={$cl(styles.bg, styles.bgGrid)}
                 image={IMG.about.am_3d_grid}
@@ -182,8 +182,8 @@ function AboutMe (props: AboutMeProps) {
                     <div>|</div>
                 </div>
             </div>
-
-            </div>
+        </div>
+        
         </ScrollArea>
     );
 

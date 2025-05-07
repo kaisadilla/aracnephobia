@@ -476,7 +476,6 @@ function _VideoView ({
             />
             {isLoaded && playing === false && <div
                 className={styles.playButton}
-                onClick={() => setPlaying(true)}
             />}
         </div>
         {!videoFile.host && <div className={styles.controls}>

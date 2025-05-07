@@ -412,3 +412,7 @@
 @include text-shadow("text-shadow-regular", 1, false);
 @include text-shadow("text-shadow-light", 0.5, false);
 @include text-shadow("text-shadow-border", 0.55, true);
+
+@mixin neon-glow {
+    filter: drop-shadow(0 0 0.4rem var(--color-primary));
+}

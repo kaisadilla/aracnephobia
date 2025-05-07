@@ -42,6 +42,18 @@ import about_mental_toxicity from "./about/mental_toxicity.webp";
 import about_skills_bg1 from "./about/skills_bg1.webp";
 import about_skills_pic1 from "./about/skills_pic1.webp";
 import about_eva1 from "./about/eva1.webp";
+import about_toroid_07 from "./about/toroid_7.webp";
+import about_guapisima_bg from "./about/guapisima_bg.png";
+import about_guapisima from "./about/guapisima.png";
+import about_photo1 from "./about/photo1.webp";
+import about_digital_face from "./about/digital_face.webp";
+import about_logo_doppie from "./about/logo_doppie.webp";
+import about_logo_jlazz from "./about/logo_jlazz.png";
+import about_logo_morgue from "./about/logo_morgue.png";
+import about_jlazz_bg1 from "./about/jlazz_bg_1.webp";
+import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
+import about_doppie_bg1 from "./about/doppie_bg_1.webp";
+import about_doppie_bg2 from "./about/doppie_bg_2.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -130,6 +142,18 @@ export const IMG = {
         skills_bg1: about_skills_bg1,
         skills_pic1: about_skills_pic1,
         eva1: about_eva1,
+        toroid_07: about_toroid_07,
+        guapisima: about_guapisima,
+        guapisima_bg: about_guapisima_bg,
+        photo1: about_photo1,
+        digital_face: about_digital_face,
+        logo_doppie: about_logo_doppie,
+        logo_jlazz: about_logo_jlazz,
+        logo_morgue: about_logo_morgue,
+        jlazz_bg1: about_jlazz_bg1,
+        jlazz_bg2: about_jlazz_bg2,
+        doppie_bg1: about_doppie_bg1,
+        doppie_bg2: about_doppie_bg2,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

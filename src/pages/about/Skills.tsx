@@ -1,5 +1,5 @@
 import { ScrollArea } from '@mantine/core';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { $cl } from 'utils';
 import styles from './section.module.scss';
 import SiteImage from 'components/SiteImage';
@@ -10,13 +10,16 @@ import SVG from 'assets/img/svg';
 import { Typewriter } from 'react-simple-typewriter';
 import gsap from 'gsap';
 
+import video_morgue from "assets/portfolio2/Reel/La Morgue de Aracne.mp4";
+import video_rastreadores from "assets/video/rastreadores.mp4";
+import ReactPlayer from 'react-player';
+import VideoWindow from './VideoWindow';
+
 export interface SkillsProps {
     
 }
 
 function Skills (props: SkillsProps) {
-    const pathRef = useRef<SVGPathElement>(null);
-
     return (
         <ScrollArea
             classNames={{
@@ -29,75 +32,225 @@ function Skills (props: SkillsProps) {
             type='always'
             scrollbarSize="4em"
         >
-            <div className={$cl(styles.sectionContent, styles.skills)}>
-                <div className={styles.firstRow}>
-                    <SiteImage
-                        className={styles.left}
-                        image={IMG.about.mental_toxicity}
+
+        <div className={$cl(styles.sectionContent, styles.skills)}>
+            <div className={styles.firstRow}>
+                <SiteImage
+                    className={styles.left}
+                    image={IMG.about.mental_toxicity}
+                />
+                <div
+                    className={styles.right}
+                    style={{backgroundImage: `url(${IMG.about.skills_bg1})`}}
+                >
+                    <ChromaticAberrationImage
+                        image={IMG.about.skills_pic1}
+                        horizFlicker={6}
+                        vertFlicker={6}
                     />
-                    <div
-                        className={styles.right}
-                        style={{backgroundImage: `url(${IMG.about.skills_bg1})`}}
-                    >
-                        <ChromaticAberrationImage
-                            image={IMG.about.skills_pic1}
-                            horizFlicker={6}
-                            vertFlicker={6}
-                        />
-                    </div>
                 </div>
-                <Window className={styles.arts} title='art.skills'>
-                    <div className={styles.artContainer}>
-                        <_ArtSkill
-                            title="Concept art"
-                            icon={<SVG.about.skills.conceptArt />}
-                        />
-                        <_ArtSkill
-                            title="Digital painting"
-                            icon={<SVG.about.skills.digitalPainting />}
-                        />
-                        <_ArtSkill
-                            title="Comic artist"
-                            icon={<SVG.about.skills.comicArtist />}
-                        />
-                        <_ArtSkill
-                            title="Tattoo design"
-                            icon={<SVG.about.skills.tattooDesign />}
-                        />
-                    </div>
-                </Window>
-                <SiteImage className={styles.eva1} image={IMG.about.eva1} />
             </div>
-            <svg viewBox="0 0 721.4 483.19" fill="none" onClick={handleC}>
-                <path id="outo" ref={pathRef} stroke="currentColor" stroke-width="10" d="M721.4,483.19l-50.73-131.2c31.05-34.62,48.85-74.88,48.85-117.86C719.52,104.82,558.45,0,359.76,0S0,104.82,0,234.13s161.07,234.13,359.76,234.13c69.55,0,134.48-12.85,189.52-35.09l172.12,50.02Z"/>
-                <path id="into" stroke="none" stroke-width="13.4178" d="M64.5485 448.135L189.866 322.818L132.904 269.652C120.752 242.31 132.904 220.285 167.081 239.272L406.324 474.718L588.604 296.235L383.539 91.1698C372.146 56.9923 394.931 45.5998 417.716 56.9923L558.224 205.095L569.617 193.702C612.149 99.5243 546.831 55.7265 508.856 45.5998C482.274 22.8148 498.73 8.89059 516.451 7.62476C656.959 56.9923 626.579 186.107 596.199 239.272L622.782 262.057C649.364 288.64 651.896 303.83 641.769 311.425L440.501 512.693C422.273 530.921 402.526 530.414 394.931 527.883L303.791 448.135L174.676 569.655L132.904 527.883L7.58594 611.428L98.726 489.908L64.5485 448.135Z" stroke-linejoin="round"/>
-                </svg>
+            <Window className={styles.skillWindow} title='art.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Concept art"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Digital painting"
+                        icon={<SVG.about.skills.digitalPainting />}
+                    />
+                    <_ArtSkill
+                        className={styles.comicArtist}
+                        title="Comic artist"
+                        icon={<SVG.about.skills.comicArtist />}
+                    />
+                    <_ArtSkill
+                        className={styles.tattooDesign}
+                        title="Tattoo design"
+                        icon={<SVG.about.skills.tattooDesign />}
+                    />
+                </div>
+            </Window>
+            <SiteImage className={styles.eva1} image={IMG.about.eva1} />
+            <div className={styles.firstVidContainer}>
+                <VideoWindow
+                    className={styles.vid}
+                    title="move.on"
+                    src={video_morgue}
+                />
+                <div className={styles.image}>
+                    <SiteImage image={IMG.about.toroid_07} />
+                </div>
+            </div>
+            <Window className={styles.skillWindow} title='video.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Video creator"
+                        className={styles.videoCreator}
+                        icon={<SVG.about.skills.videoCreator />}
+                    />
+                    <_ArtSkill
+                        title="Video editor"
+                        className={styles.videoEditor}
+                        icon={<SVG.about.skills.videoEditor />}
+                    />
+                    <_ArtSkill
+                        title="Motion graphics"
+                        icon={<SVG.about.skills.motionGraphics />}
+                    />
+                    <_ArtSkill
+                        title="2D animation"
+                        className={styles._2dAnimation}
+                        icon={<SVG.about.skills._2dAnimation />}
+                    />
+                </div>
+            </Window>
+            <div className={styles.secondVidContainer}>
+                <div className={styles.videox3}>
+                    <SVG.about.wordVideo className={styles.word1} />
+                    <SVG.about.wordVideo className={styles.word2} />
+                    <SVG.about.wordVideo className={styles.word3} />
+                </div>
+                <VideoWindow
+                    className={styles.vid}
+                    title="move.on"
+                    src={video_rastreadores}
+                    nodisc
+                />
+            </div>
+            <Window className={styles.skillWindow} title='video.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Videogame dev"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Web design"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="UX/UI"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Scrum & agile"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+            <div className={styles.guapisima}>
+                <div className={styles.left}>
+
+                </div>
+                <div
+                    className={styles.right}
+                    style={{backgroundImage: `url(${IMG.about.guapisima_bg})`}}
+                >
+                    <SiteImage image={IMG.about.guapisima} />
+                </div>
+            </div>
+            <Window className={styles.skillWindow} title='advertising.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Influencer Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Ads analytics"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+            <div className={styles.photo1}>
+                <div className={styles.left}>
+                    <SiteImage image={IMG.about.photo1} />
+                </div>
+                <div className={styles.right}>
+                    <ChromaticAberrationImage
+                        horizFlicker={30}
+                        duration={10}
+                        opacity={0.35}
+                        image={IMG.about.digital_face}
+                    />
+                </div>
+            </div>
+            <Window className={styles.skillWindow} title='design.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Graphic design"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Logo & Branding"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Photography"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+            <div className={styles.logos}>
+                <SiteImage
+                    className={styles.ornament1} image={IMG.about.jlazz_bg1}
+                />
+                <SiteImage
+                    className={styles.ornament2} image={IMG.about.jlazz_bg2}
+                />
+                <SiteImage
+                    className={styles.ornament3} image={IMG.about.doppie_bg1}
+                />
+                <SiteImage
+                    className={styles.ornament4} image={IMG.about.doppie_bg2}
+                />
+
+                <SiteImage className={styles.logo} image={IMG.about.logo_jlazz} />
+                <div className={styles.morgueContainer}>
+                    <SiteImage image={IMG.about.logo_morgue} />
+                </div>
+                <SiteImage className={styles.logo} image={IMG.about.logo_doppie} />
+            </div>
+            <Window className={styles.skillWindow} title='design.skills'>
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Storytelling"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Copy writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Script writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+        </div>
+
         </ScrollArea>
     );
-
-    function handleC () {
-        const target = Math.random() < 0.5 ? "#into" : "#outo";
-
-        gsap.to(pathRef.current, {
-            duration: 3,
-            morphSVG: target,
-            ease: 'power2.inOut',
-        })
-    }
 }
 
 interface _ArtSkillProps {
     title: string;
     icon: React.ReactElement;
+    className?: string;
 }
 
 function _ArtSkill ({
     title,
     icon,
+    className,
 }: _ArtSkillProps) {
 
     return (
-        <div className={styles.artSkill}>
+        <div className={$cl(styles.artSkill, className)}>
             <div className={styles.nameContainer}>
                 <span>{title}</span>
             </div>
