@@ -54,6 +54,7 @@ import about_jlazz_bg1 from "./about/jlazz_bg_1.webp";
 import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
 import about_doppie_bg1 from "./about/doppie_bg_1.webp";
 import about_doppie_bg2 from "./about/doppie_bg_2.webp";
+import about_artist_designer from "./about/artist_designer.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -154,6 +155,7 @@ export const IMG = {
         jlazz_bg2: about_jlazz_bg2,
         doppie_bg1: about_doppie_bg1,
         doppie_bg2: about_doppie_bg2,
+        artist_designer: about_artist_designer,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

@@ -61,6 +61,9 @@ function AboutMe (props: AboutMeProps) {
                     image={IMG.about.sorry}
                 />
             </div>
+            <div className={styles.artistDesigner}>
+                <SiteImage image={IMG.about.artist_designer} />
+            </div>
             <Window
                 className={styles.wordTableWindow}
                 title="Hashtag.cloud"
