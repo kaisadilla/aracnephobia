@@ -27,33 +27,7 @@ function AboutPage (props: AboutPageProps) {
 
     return (
         <div className={styles.page}>
-            <div className={styles.left}>
-                {isPhone && <>
-                    <SiteImage
-                        className={styles.curtain}
-                        image={IMG.about.curtain_top}
-                    />
-                    <ChromaticAberrationImage
-                        className={styles.estalot}
-                        horizFlicker={4}
-                        vertFlicker={8}
-                        image={IMG.about.estalot_horizontal_logo}
-                    />
-                </>}
-                {isPhone === false && <>
-                    <SiteImage
-                        className={styles.curtain}
-                        image={IMG.about.curtain_left}
-                    />
-                    <ChromaticAberrationImage
-                        className={styles.estalot}
-                        horizFlicker={4}
-                        vertFlicker={8}
-                        image={IMG.about.estalot_vertical_logo}
-                    />
-                </>}
-            </div>
-            <div className={styles.header}>
+            <div className={styles.headerLazaro}>
                 <ChromaticAberrationImage
                     image={IMG.about.header_motif}
                     horizFlicker={4}
@@ -64,6 +38,18 @@ function AboutPage (props: AboutPageProps) {
                     image={IMG.about.header_motif}
                     horizFlicker={4}
                     className={styles.right}
+                />
+            </div>
+            <div className={styles.headerEstalot}>
+                <SiteImage
+                    className={styles.curtain}
+                    image={IMG.about.curtain_top}
+                />
+                <ChromaticAberrationImage
+                    className={styles.estalot}
+                    horizFlicker={4}
+                    vertFlicker={8}
+                    image={IMG.about.estalot_horizontal_logo}
                 />
             </div>
             <div className={styles.navbar}>
@@ -114,9 +100,56 @@ function AboutPage (props: AboutPageProps) {
                 </div>
             </div>
             <div className={styles.content}>
+                <div className={styles.left}>
+                    <SiteImage
+                        className={styles.curtain}
+                        image={IMG.about.curtain_left}
+                    />
+                    <ChromaticAberrationImage
+                        className={styles.estalot}
+                        horizFlicker={4}
+                        vertFlicker={8}
+                        image={IMG.about.estalot_vertical_logo}
+                    />
+                </div>
+                <div className={styles.content2}>
+                    {section === 'about' && <AboutMe />}
+                    {section === 'skills' && <Skills />}
+                </div>
+            </div>
+
+            {false && <>
+                <div className={styles.left}>
+                {isPhone && <>
+                    <SiteImage
+                        className={styles.curtain}
+                        image={IMG.about.curtain_top}
+                    />
+                    <ChromaticAberrationImage
+                        className={styles.estalot}
+                        horizFlicker={4}
+                        vertFlicker={8}
+                        image={IMG.about.estalot_horizontal_logo}
+                    />
+                </>}
+                {isPhone === false && <>
+                    <SiteImage
+                        className={styles.curtain}
+                        image={IMG.about.curtain_left}
+                    />
+                    <ChromaticAberrationImage
+                        className={styles.estalot}
+                        horizFlicker={4}
+                        vertFlicker={8}
+                        image={IMG.about.estalot_vertical_logo}
+                    />
+                </>}
+            </div>
+            <div className={styles.content}>
                 {section === 'about' && <AboutMe />}
                 {section === 'skills' && <Skills />}
             </div>
+            </>}
         </div>
     );
 }

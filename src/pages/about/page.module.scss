@@ -12,35 +12,12 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    grid-template: "lef hea" auto
-                   "lef nav" auto
-                   "lef con" 1fr / 24vh 1fr;
 
-    > .left {
-        grid-area: lef;
-        order: 2;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 28vw;
-        width: 100%;
-        border-right: 1px solid var(--color-about-secondary);
-
-        .curtain {
-            width: 100vw;
-        }
-
-        .estalot {
-            flex: 1;
-            width: 80vw;
-        }
-    }
-
-    > .header {
-        grid-area: hea;
+    > .headerLazaro {
         order: 1;
+        height: auto;
         display: none;
+        flex-shrink: 0;
 
         font-family: var(--font-matisse-pro);
         font-weight: 100;
@@ -69,15 +46,30 @@
         }
     }
 
-    > .navbar {
-        grid-area: nav;
-        order: 3;
-
-        background-color: var(--color-about-secondary);
-        min-height: 80px;
+    > .headerEstalot {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        > .curtain {
+            width: 120vw;
+        }
+
+        > .estalot {
+            width: 80vw;
+            padding: 0.5rem 0;
+        }
+    }
+
+    > .navbar {
+        order: 3;
+        height: 80px;
+
+        background-color: var(--color-about-secondary);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
 
         > .ribbon {
             flex: 1;
@@ -143,45 +135,69 @@
     }
 
     > .content {
-        grid-area: con;
+        position: relative;
         order: 4;
-        flex: 1;
 
         overflow: hidden;
         display: flex;
-        justify-content: center;
+        justify-content: start;
+
+        > .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 100%;
+            width: 28vh;
+            overflow: hidden;
+            flex-shrink: 0;
+            user-select: none;
+        
+            .curtain {
+                height: 100vh;
+            }
+        
+            .estalot {
+                flex: 1;
+                height: 90%;
+            }
+        }
+
+        > .content2 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding-right: calc(28vh - (1920px - 100vw));
+        }
+    }
+}
+
+@media (max-width: 1470px) {
+    .page {
+        > .content {
+            > .left {
+                display: none;
+            }
+            > .content2 {
+                padding-right: 0;
+            }
+        }
     }
 }
 
 @include when-tablet {
     .page {
         --border-width: 0.675rem;
-
-        display: grid;
-
-        .left {
-            flex-direction: row;
-            transform: none;
-            height: 100vh;
-            align-items: center;
-
-            .curtain {
-                width: unset;
-                height: 100vh;
-            }
-    
-            .estalot {
-                width: unset;
-                height: 80vh;
-            }
-        }
         
-        .header {
+        .headerLazaro {
             display: flex;
 
             > span {
                 font-size: min(3.5em, 4.5vw);
             }
+        }
+
+        > .headerEstalot {
+            display: none;
         }
 
         .navbar {
@@ -228,8 +244,12 @@
 
 @include when-phone-landscape {
     .page {
-        > .header {
+        > .headerLazaro {
             display: flex;
+        }
+
+        > .headerEstalot {
+            display: none;
         }
 
         > .left {
@@ -237,7 +257,7 @@
         }
 
         > .navbar {
-            min-height: 32px;
+            height: auto;
 
             > .ribbon {
                 button {
@@ -266,7 +286,7 @@
 
 //@media (min-width: 1450px) {
 //    .page {
-//        .header {
+//        .headerLazaro {
 //            .navbar {
 //                button {
 //                    padding: 0.25em 1.5em;

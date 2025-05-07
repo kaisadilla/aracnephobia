@@ -13,6 +13,10 @@ import { ScrollArea } from '@mantine/core';
 import { DndContext, DragEndEvent, useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import MutableJapaneseChar from './MutableJapaneseChar';
+import en_US from 'localization/en_US';
+import { Typewriter } from 'react-simple-typewriter';
+import SkillCell from './SkillCell';
+import FeatureCell from './FeatureCell';
 
 const KATAKANA_CP_START = 0x30a0;
 const KATAKANA_CP_END = 0x30ff;
@@ -24,6 +28,7 @@ export interface AboutMeProps {
 }
 
 function AboutMe (props: AboutMeProps) {
+    const [loc, setLoc] = useState(en_US);
     const [currentKanji, setCurrentKanji] = useState("新世紀エヴァンゲリオン");
     const [currentPlanet, setCurrentPlanet] = useState(randomInt(3));
 
@@ -64,69 +69,132 @@ function AboutMe (props: AboutMeProps) {
             <div className={styles.artistDesigner}>
                 <SiteImage image={IMG.about.artist_designer} />
             </div>
-            <Window
-                className={styles.wordTableWindow}
-                title="Hashtag.cloud"
-            >
-                <div className={styles.wordTableContainer}>
-                    <_WordTable />
-                </div>
-            </Window>
-            <Window
-                className={styles.socialMediaWindow}
-                title="Social.media"
-            >
-                <div className={styles.ribbon}>
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.youtube />}
-                        name="YouTube"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.twitch />}
-                        name="Twitch"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.instagram />}
-                        name="Instagram"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.tiktok />}
-                        name="Tiktok"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.twitter />}
-                        name="Twitter"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.linkedin />}
-                        name="LinkedIn"
-                    />
-                    <_SocialMediaButton
-                        icon={<SVG.socialMedia.bsky />}
-                        name="Bluesky"
-                    />
-                </div>
-            </Window>
-            <div className={styles.cutTheShapesContainer}>
-                <Window
-                    className={styles.cutTheShapesWindow}
-                    frameClassName={styles.cutTheShapesFrame}
-                    title="CutThe.Shapes"
-                >
-                    <ChromaticAberrationImage
-                        className={styles.cutTheShapes}
-                        horizFlicker={12}
-                        duration={8}
-                        opacity={0.35}
-                        image={IMG.about.cut_the_shapes}
-                    />
+            <div className={$cl(styles.g2, styles.bio)}>
+                <Window className={styles.left} title="bio.exe">
+                    <loc.about.about_me.bio className={styles.txtContainer} />
                 </Window>
-                <div className={styles.shapeContainer}>
-                    <SiteImage image={IMG.about.cts_model} />
-                    <SiteImage image={IMG.about.cts_planet} />
-                    <SiteImage image={IMG.about.cts_error} />
-                    <SiteImage image={IMG.about.cts_pseudo} />
+                <div className={styles.right} style={{
+                    backgroundImage: `url(${IMG.about.anim_bg1})`
+                }}>
+                    <SiteImage image={IMG.about.aracne_photo1} />
                 </div>
+            </div>
+            <div className={$cl(styles.g2, styles.collage1)}>
+                <div className={styles.left}>
+                    <Window className={styles.skillWindow} title='likes.me'>
+                        <div className={styles.featureContainer}>
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Animated musicals"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Video games"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Audiovisual arts"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Horror movies"
+                                bloody
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Rupaul's drag race"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Lovely cats"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Comics & literature"
+                            />
+                            <FeatureCell
+                                icon={<SVG.socialMedia.youtube />}
+                                name="Sci-fi"
+                            />
+                        </div>
+                    </Window>
+                    <div className={styles.socialMediaContainer}>
+                        <Window
+                            className={styles.skillWindow}
+                            title="Social.media"
+                        >
+                            <div className={styles.featureContainer}>
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.youtube />}
+                                    name="YouTube"
+                                    href="https://www.youtube.com/@LaMorguedeAracnePhobia"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.twitch />}
+                                    name="Twitch"
+                                    href="https://www.twitch.tv/aracnephobia"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.instagram />}
+                                    name="Instagram"
+                                    href="https://www.instagram.com/aracnephobia/"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.tiktok />}
+                                    name="Tiktok"
+                                    href="https://www.tiktok.com/@aracne_phobia"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.twitter />}
+                                    name="Twitter"
+                                    href="https://x.com/Aracnephobia"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.linkedin />}
+                                    name="LinkedIn"
+                                    href="https://www.linkedin.com/in/ana-l%C3%A1zaro-estalot-52a860104/"
+                                />
+                                <FeatureCell
+                                    icon={<SVG.socialMedia.bsky />}
+                                    name="Bluesky"
+                                    href="https://bsky.app/profile/aracnephobia.com"
+                                />
+                            </div>
+                        </Window>
+                        <div className={styles.ornaments}>
+                            <SiteImage image={IMG.about.ornaments1} />
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.right}>
+                    <Window className={styles.contactMe} title="contact.me">
+                        <a
+                            className={styles.container}
+                            href="mailto:a.lazaro.estalot@gmail.com"
+                        >
+                            <span>a.lazaro.estalot@gmail.com</span>
+                        </a>
+                    </Window>
+                    <div className={styles.photo2} style={{
+                        backgroundImage: `url(${IMG.about.anim_bg2})`
+                    }}>
+                        <SVG.circle />
+                        <SiteImage image={IMG.about.aracne_photo2} />
+                    </div>
+                </div>
+            </div>
+            <div
+                className={styles.damnYourEyes}
+                style={{backgroundImage: `url(${IMG.about.damn_your_eyes})`}}
+            >
+                <Window
+                    className={styles.wordTableWindow}
+                    title="Hashtag.cloud"
+                >
+                    <div className={styles.wordTableContainer}>
+                        <_WordTable />
+                    </div>
+                </Window>
             </div>
             <div className={styles.jpBigContainer}>
                 <div className={styles.frame}>
@@ -137,10 +205,6 @@ function AboutMe (props: AboutMeProps) {
                         />
                     )}
                 </div>
-                <SiteImage
-                    className={styles.technicolor}
-                    image={IMG.about.technicolor}
-                />
             </div>
             <div className={styles.footer}>
                 <div className={styles.planetContainer}>
@@ -181,35 +245,17 @@ function AboutMe (props: AboutMeProps) {
                         />
                     </div>
                 </div>
-                <div className={styles.draggablesContainer}>
-                    <div>|</div>
+                <div className={styles.ornaments}>
+                    <SiteImage image={IMG.about.ornaments2} />
+                    <a href="https://azariadev.dev" target='_blank'>
+                        Developed by <strong>Azaria</strong>
+                    </a>
                 </div>
             </div>
         </div>
         
         </ScrollArea>
     );
-
-    function handleKanjiReroll (index: number) {
-        let start, end;
-
-        if (Math.random() < 0.6) {
-            start = KATAKANA_CP_START;
-            end = KATAKANA_CP_END;
-        }
-        else {
-            start = KANJI_CP_START;
-            end = KANJI_CP_END;
-        }
-
-        const codePoint = Math.floor(Math.random() * (end - start + 1)) + start;
-        
-        setCurrentKanji(
-            prev => prev.substring(0, index)
-                + String.fromCharCode(codePoint)
-                + prev.substring(index + 1)
-        );
-    }
 
     function handleMouseEnterPlanet (index: number) {
         if (currentPlanet !== index) return;

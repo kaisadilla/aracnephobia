@@ -71,6 +71,45 @@ a {
     }
 }
 
+@keyframes almost-white {
+    $white: #fff;
+    $almost: #eedce8;
+
+    0%, 19.99% {
+        fill: $white;
+    }
+    20%, 20.19% {
+        fill: $almost;
+    }
+    20.2%, 20.39% {
+        fill: $white;
+    }
+    20.4%, 20.59% {
+        fill: $almost;
+    }
+    20.6%, 38.09% {
+        fill: $white;
+    }
+    38.10%, 38.29% {
+        fill: $almost;
+    }
+    38.3%, 38.59% {
+        fill: $white;
+    }
+    38.6%, 51.09% {
+        fill: $almost;
+    }
+    51.1%, 51.29% {
+        fill: $white;
+    }
+    51.3%, 51.49% {
+        fill: $almost;
+    }
+    51.5%, 100% {
+        fill: $white;
+    }
+}
+
 @keyframes glitch-move-sometimes {
     0%, 10.99% {
         opacity: 1;

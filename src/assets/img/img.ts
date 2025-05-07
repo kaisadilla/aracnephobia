@@ -55,6 +55,13 @@ import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
 import about_doppie_bg1 from "./about/doppie_bg_1.webp";
 import about_doppie_bg2 from "./about/doppie_bg_2.webp";
 import about_artist_designer from "./about/artist_designer.webp";
+import about_anim_bg_1 from "./about/anim_bg_1.gif";
+import about_aracne_photo1 from "./about/aracne_photo1.webp";
+import about_anim_bg_2 from "./about/anim_bg_2.gif";
+import about_aracne_photo2 from "./about/aracne_photo2.webp";
+import about_ornaments1 from "./about/ornaments1.webp";
+import about_ornaments2 from "./about/ornaments2.2x.webp";
+import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -156,6 +163,13 @@ export const IMG = {
         doppie_bg1: about_doppie_bg1,
         doppie_bg2: about_doppie_bg2,
         artist_designer: about_artist_designer,
+        anim_bg1: about_anim_bg_1,
+        aracne_photo1: about_aracne_photo1,
+        anim_bg2: about_anim_bg_2,
+        aracne_photo2: about_aracne_photo2,
+        ornaments1: about_ornaments1,
+        ornaments2: about_ornaments2,
+        damn_your_eyes: about_damn_your_eyes_2,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

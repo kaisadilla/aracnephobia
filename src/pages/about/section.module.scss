@@ -1,5 +1,3 @@
-:global(glitch-hover) {}
-
 .section {
     position: relative;
     max-width: 75rem;
@@ -10,23 +8,6 @@
     user-select: none;
     background-color: var(--color-about-secondary);
     color: var(--color-about-primary);
-
-    > :not(.bg) {
-        position: relative;
-        z-index: 10;
-    }
-
-    .bgGrid {
-        position: absolute;
-        opacity: 0.6;
-        top: -15.5vw;
-        width: 100%;
-    }
-
-    > .sectionContent {
-        width: 100%;
-        height: 100%;
-    }
 
     .scrollbar {
         display: block;
@@ -45,6 +26,38 @@
         .thumb {
             background-color: var(--color-about-secondary);
             border-radius: 0;
+        }
+    }
+}
+
+.sectionContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .bgGrid {
+        position: absolute;
+        opacity: 0.6;
+        top: -15.5vw;
+        width: 100%;
+    }
+
+    > :not(.bg) {
+        position: relative;
+        z-index: 10;
+    }
+
+    > .g2 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        > .left {
+            flex: 1;
+        }
+
+        > .right {
+            flex: 1;
         }
     }
 }
@@ -110,100 +123,189 @@
     > .artistDesigner {
         width: 100%;
         background-color: var(--color-about-secondary);
-
+        
         > img {
+            display: block;
             width: 100%;
         }
     }
 
-    > .wordTableWindow {
+    > .bio {
         width: 95%;
-        aspect-ratio: 460 / 469;
+        gap: 1rem;
 
-        .wordTableContainer {
-            aspect-ratio: 460 / 469;
-            width: 90%;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            position: relative;
-            //border: var(--border-width) solid var(--color-about-secondary);
-    
-            > div {
+        > .left {
+            order: 2;
+            flex-shrink: 0;
+
+            .txtContainer {
                 width: 100%;
-                height: 100%;
-                filter: brightness(0.6) sepia(100%) saturate(60%) hue-rotate(0deg);
+                font-family: var(--font-fragment-mono);
+                padding: 0 1.5em;
+
+                strong {
+                    font-weight: unset;
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        > .right {
+            order: 1;
+            position: relative;
+            background-size: cover;
+            box-sizing: border-box;
+
+            > img {
+                position: absolute;
+                height: calc(100% + 76px);
+                left: 2rem;
+                bottom: 0;
             }
         }
     }
 
-    > .socialMediaWindow {
+    > .collage1 {
         width: 95%;
 
-        .ribbon {
-            background-color: var(--color-about-secondary);
-            border: var(--border-half-width) solid var(--color-about-primary);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 100%;
-            padding: 1rem;
-        }
-    }
-
-    > .cutTheShapesContainer {
-        width: 90%;
-        display: flex;
-        gap: 0.5rem;
-        justify-content: space-between;
-
-        .cutTheShapesWindow {
-            width: 70%;
-            height: 640px;
-
-            .cutTheShapesFrame {
-                padding: 1rem;
-            }
-
-            .cutTheShapes {
-                height: 100%;
-                justify-content: start;
-
-                :global {
-                    animation: irregularBlur 30s infinite;
-                }
-
-                &:hover, &:active {
-                    :global {
-                        animation: blurToPop 60s forwards;
-                    }
-                }
-
-                img {
-                    object-position: left center;
-                }
-            }
-        }
-
-        > .shapeContainer {
-            flex: 1;
+        > .left {
+            flex: 1.25;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            align-items: center;
-            justify-content: center;
-            max-width: 210px;
 
-            > img {
-                width: 100%;
+            > .skillWindow {
+                width: calc(100% - 1rem);
+
+                .featureContainer {
+                    flex-wrap: wrap;
+                }
+            }
+
+            > .socialMediaContainer {
+                display: flex;
+                width: calc(100% - 0.5rem);
+                gap: 1rem;
+                align-items: start;
+
+                > .skillWindow {
+                    flex: 1;
+                }
+
+                .featureContainer {
+                    flex-wrap: wrap;
+                }
+
+                .ornaments {
+                    width: 100px;
+                    height: 100%;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+
+                    > img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        > .right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .contactMe {
+                flex: 1;
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    font-family: var(--font-fragment-mono);
+                    text-transform: uppercase;
+                    font-size: 1.3em;
+
+                    &:hover {
+                        :global {
+                            animation: glitch-move-sometimes 24s infinite;
+                        }
+                        color: white;
+
+                        > span {
+                            @include neon-glow-secondary;
+                        }
+                    }
+                }
+            }
+            > .photo2 {
+                //flex: 1;
+                position: relative;
+                background-size: cover;
+                box-sizing: border-box;
+                height: 600px;
+
+                > svg {
+                    position: absolute;
+                    width: 60%;
+                    top: 10%;
+                    left: 10%;
+                    fill: white;
+                    @include neon-glow-primary(2rem);
+                    
+                    :global {
+                        animation: almost-white 12s infinite;
+                    }
+                }
+    
+                > img {
+                    position: absolute;
+                    height: calc(100% + 56px);
+                    right: -1rem;
+                    bottom: 0;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    > .damnYourEyes {
+        width: 100%;
+        display: flex;
+        padding: 3rem 0;
+        justify-content: center;
+        align-items: center;
+        background-size: contain;
+        
+        > .wordTableWindow {
+            width: 82.6%;
+            aspect-ratio: 460 / 469;
+
+            .wordTableContainer {
+                aspect-ratio: 460 / 469;
+                width: 90%;
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                position: relative;
+                //border: var(--border-width) solid var(--color-about-secondary);
+        
+                > div {
+                    width: 100%;
+                    height: 100%;
+                    filter: brightness(0.6) sepia(100%) saturate(60%) hue-rotate(0deg);
+                }
             }
         }
     }
 
     > .jpBigContainer {
         position: relative;
-        width: 90%;
+        width: 95%;
         border: var(--border-half-width) solid var(--color-about-primary);
 
         > .frame {
@@ -241,17 +343,10 @@
                 }
             }
         }
-
-        > .technicolor {
-            position: absolute;
-            width: 25%;
-            right: 0;
-            bottom: -35px;
-        }
     }
-
+    
     > .footer {
-        width: 90%;
+        width: 95%;
         display: flex;
 
         > .planetContainer {
@@ -319,16 +414,38 @@
             }
         }
         
-        > .draggablesContainer {
-            position: relative;
+        > .ornaments {
             flex: 1;
             height: 180px;
-            //background-color: red;
+            display: flex;
+            justify-content: end;
+            align-items: start;
 
-            > div {
-                width: 100px;
-                height: 100px;
-                //background-color: blue;
+            > img {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+            }
+
+            > a {
+                position: relative;
+                top: -0.3em;
+                width: auto;
+                font-family: var(--font-fragment-mono);
+                font-size: 1.4em;
+
+                strong {
+                    @include crt-text-border;
+                    color: var(--color-secondary);
+                }
+
+                &:hover {
+                    strong {
+                        @include neon-glow-secondary;
+                        color: white;
+                    }
+                }
             }
         }
     }
@@ -579,14 +696,15 @@
     }
 }
 
-.socialMediaButton {
+.featureCell {
     $border-radius: 0.75rem;
 
+    position: relative;
     display: flex;
     flex-direction: column;
     border: var(--border-quarter-width) solid var(--color-about-primary);
     border-radius: $border-radius;
-    width: 7rem;
+    width: 7.7rem;
 
     > .iconContainer {
         background-color: var(--color-about-primary);
@@ -604,14 +722,15 @@
     }
 
     > .name {
+        height: 100%;
         color: var(--color-about-primary);
         font-family: var(--font-fragment-mono);
         text-transform: uppercase;
-        padding: 0.35rem 0;
+        padding: 0.35rem 0.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.25rem;
+        gap: 0.3rem;
 
         > span {
             font-size: 0.75rem;
@@ -626,8 +745,18 @@
             stroke-width: 1rem;
         }
     }
+
+    > .bloodyBorder {
+        fill: var(--color-about-secondary);
+        stroke: var(--color-about-primary);
+        stroke-width: 1.2rem;
+        position: absolute;
+        bottom: -18px;
+        right: 7px;
+        width: 28px;
+    }
             
-    @for $i from 1 through 10 {
+    @for $i from 1 through 20 {
         &:nth-child(#{$i}) > .name > svg {
             animation-delay: #{-800 + (random(1600) / 100)}s;
         }
@@ -645,6 +774,16 @@
         gap: 2rem;
         justify-content: center;
         padding: 1.5rem 1rem;
+    }
+
+    .featureContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        background-color: var(--color-about-secondary);
+        gap: 1rem;
+        justify-content: center;
+        padding: 0.5rem 0.5rem;
     }
 }
 
@@ -702,7 +841,7 @@
             //stroke: var(--color-primary);
             color: white;
             stroke: white;
-            @include neon-glow;
+            @include neon-glow-primary;
         }
     }
 

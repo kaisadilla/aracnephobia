@@ -5,19 +5,17 @@ import { $cl } from 'utils';
 
 export interface SiteImageProps extends Except<ImgProps, 'src'> {
     image: ImageSrc;
-    noAlt?: boolean;
 }
 
 function SiteImage ({
     image,
     alt,
-    noAlt,
     draggable = false,
     ...imgProps
 }: SiteImageProps) {
     const src = typeof image === 'string' ? image : image.src;
     const srcSet = typeof image === 'string' ? undefined : image.srcSet;
-    alt ??= noAlt ? undefined : (typeof image === 'string' ? image : image.alt);
+    //alt ??= noAlt ? undefined : (typeof image === 'string' ? image : image.alt);
 
     return (
         <img
