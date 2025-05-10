@@ -17,6 +17,7 @@ import en_US from 'localization/en_US';
 import { Typewriter } from 'react-simple-typewriter';
 import SkillCell from './SkillCell';
 import FeatureCell from './FeatureCell';
+import { useMediaQuery } from '@mantine/hooks';
 
 const KATAKANA_CP_START = 0x30a0;
 const KATAKANA_CP_END = 0x30ff;
@@ -28,6 +29,8 @@ export interface AboutMeProps {
 }
 
 function AboutMe (props: AboutMeProps) {
+    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
+
     const [loc, setLoc] = useState(en_US);
     const [currentKanji, setCurrentKanji] = useState("新世紀エヴァンゲリオン");
     const [currentPlanet, setCurrentPlanet] = useState(randomInt(3));
@@ -41,8 +44,8 @@ function AboutMe (props: AboutMeProps) {
             }}
             scrollbars='y'
             offsetScrollbars='y'
-            type='always'
-            scrollbarSize="4em"
+            type='auto'
+            scrollbarSize={isPhone ? "1em" : "4em"}
         >
 
         <div className={$cl(styles.sectionContent, styles.aboutMe)}>
@@ -67,7 +70,12 @@ function AboutMe (props: AboutMeProps) {
                 />
             </div>
             <div className={styles.artistDesigner}>
-                <SiteImage image={IMG.about.artist_designer} />
+                <SiteImage
+                    className={styles.tablet} image={IMG.about.artist_designer}
+                />
+                <SiteImage
+                    className={styles.phone} image={IMG.about.artist_designer_phone}
+                />
             </div>
             <div className={$cl(styles.g2, styles.bio)}>
                 <Window className={styles.left} title="bio.exe">
@@ -81,7 +89,10 @@ function AboutMe (props: AboutMeProps) {
             </div>
             <div className={$cl(styles.g2, styles.collage1)}>
                 <div className={styles.left}>
-                    <Window className={styles.skillWindow} title='likes.me'>
+                    <Window
+                        className={$cl(styles.skillWindow, styles.likes)}
+                        title='likes.me'
+                    >
                         <div className={styles.featureContainer}>
                             <FeatureCell
                                 icon={<SVG.socialMedia.youtube />}

@@ -6,7 +6,7 @@ const en_US: Localization = {
         about_me: {
             bio: (props: DivProps) => (<div {...props}>
                 <p>
-                    Hello there! I'm ana.
+                    Hello there! I'm Ana.
                 </p>
                 <p>
                     With over a decade working on <strong>strategic marketing</strong> and visual creation, my career has focused on crafting memorable <strong>brand identities</strong> and effective communication strategies, mixing <strong>online and offline marketing</strong> to maximize impact for our clients.

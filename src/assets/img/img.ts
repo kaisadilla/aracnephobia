@@ -55,6 +55,7 @@ import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
 import about_doppie_bg1 from "./about/doppie_bg_1.webp";
 import about_doppie_bg2 from "./about/doppie_bg_2.webp";
 import about_artist_designer from "./about/artist_designer.webp";
+import about_artist_designer_phone from "./about/artist_designer_phone.webp";
 import about_anim_bg_1 from "./about/anim_bg_1.gif";
 import about_aracne_photo1 from "./about/aracne_photo1.webp";
 import about_anim_bg_2 from "./about/anim_bg_2.gif";
@@ -163,6 +164,7 @@ export const IMG = {
         doppie_bg1: about_doppie_bg1,
         doppie_bg2: about_doppie_bg2,
         artist_designer: about_artist_designer,
+        artist_designer_phone: about_artist_designer_phone,
         anim_bg1: about_anim_bg_1,
         aracne_photo1: about_aracne_photo1,
         anim_bg2: about_anim_bg_2,

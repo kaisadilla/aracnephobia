@@ -1,10 +1,9 @@
 .section {
     position: relative;
-    max-width: 75rem;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-size: 1rem;
+    font-size: 0.9rem;
     user-select: none;
     background-color: var(--color-about-secondary);
     color: var(--color-about-primary);
@@ -12,11 +11,10 @@
     .scrollbar {
         display: block;
         background-color: var(--color-about-primary);
-        padding: 0 1.98em;
         transition: padding 0.33s;
+        padding: 0 0 0 var(--border-width);
 
         &:hover {
-            padding: 0 var(--border-width);
             .thumb {
                 background-color: var(--color-primary);
                 transition: background-color 1s;
@@ -50,7 +48,7 @@
     > .g2 {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         > .left {
             flex: 1;
@@ -58,6 +56,29 @@
 
         > .right {
             flex: 1;
+        }
+    }
+}
+
+@include when-tablet {
+    .section {
+        max-width: 75rem;
+        font-size: 1rem;
+
+        .scrollbar {
+            padding: 0 1.98em;
+            
+            &:hover {
+                padding: 0 var(--border-width);
+            }
+        }
+    }
+}
+
+@include when-desktop {
+    .sectionContent {
+        > .g2 {
+            flex-direction: row;
         }
     }
 }
@@ -81,8 +102,8 @@
         > .portrait {
             position: relative;
             aspect-ratio: 1 / 1;
-            width: 240px;
-            height: 240px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             border: var(--border-width) solid var(--color-about-primary);
             overflow: hidden;
@@ -111,6 +132,7 @@
 
         > .sorry {
             width: 100%;
+            padding: 0 0.5rem;
             max-width: 43.7rem;
             object-fit: contain;
 
@@ -127,6 +149,10 @@
         > img {
             display: block;
             width: 100%;
+        }
+        
+        > .tablet {
+            display: none;
         }
     }
 
@@ -155,6 +181,7 @@
             position: relative;
             background-size: cover;
             box-sizing: border-box;
+            display: none;
 
             > img {
                 position: absolute;
@@ -167,6 +194,7 @@
 
     > .collage1 {
         width: 95%;
+        gap: 1rem;
 
         > .left {
             flex: 1.25;
@@ -174,8 +202,12 @@
             flex-direction: column;
             gap: 1rem;
 
+            > .likes {
+                display: none;
+            }
+
             > .skillWindow {
-                width: calc(100% - 1rem);
+                width: 100%;
 
                 .featureContainer {
                     flex-wrap: wrap;
@@ -184,7 +216,7 @@
 
             > .socialMediaContainer {
                 display: flex;
-                width: calc(100% - 0.5rem);
+                width: 100%;
                 gap: 1rem;
                 align-items: start;
 
@@ -196,12 +228,13 @@
                     flex-wrap: wrap;
                 }
 
-                .ornaments {
+                .ornaments {                    
                     width: 100px;
                     height: 100%;
                     flex-shrink: 0;
-                    display: flex;
+                    display: none;
                     align-items: center;
+                    margin-right: -0.5rem;
 
                     > img {
                         width: 100%;
@@ -213,6 +246,7 @@
         > .right {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 1rem;
 
             .contactMe {
@@ -221,6 +255,7 @@
                 a {
                     width: 100%;
                     height: 100%;
+                    min-height: 4rem;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -247,11 +282,13 @@
                 background-size: cover;
                 box-sizing: border-box;
                 height: 600px;
+                width: 100%;
+                max-width: 500px;
 
                 > svg {
                     position: absolute;
                     width: 60%;
-                    top: 10%;
+                    bottom: 42%;
                     left: 10%;
                     fill: white;
                     @include neon-glow-primary(2rem);
@@ -264,6 +301,9 @@
                 > img {
                     position: absolute;
                     height: calc(100% + 56px);
+                    max-width: 100%;
+                    object-fit: contain;
+                    object-position: center bottom;
                     right: -1rem;
                     bottom: 0;
                     pointer-events: none;
@@ -275,13 +315,12 @@
     > .damnYourEyes {
         width: 100%;
         display: flex;
-        padding: 3rem 0;
         justify-content: center;
         align-items: center;
         background-size: contain;
         
         > .wordTableWindow {
-            width: 82.6%;
+            width: 100%;
             aspect-ratio: 460 / 469;
 
             .wordTableContainer {
@@ -334,8 +373,8 @@
             }
 
             > svg {
+                padding: 0.5em 0;
                 color: var(--color-about-secondary);
-                height: 100px;
                 width: calc(100% / 11);
 
                 &:hover {
@@ -348,11 +387,14 @@
     > .footer {
         width: 95%;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
 
         > .planetContainer {
             position: relative;
-            width: 55%;
             height: 180px;
+            max-width: 100%;
             border: var(--border-half-width) solid var(--color-about-primary);
 
             > .corner {
@@ -393,6 +435,7 @@
                     fill: none;
                     stroke-width: 1.8em;
                     height: 90px;
+                    max-width: 25%;
                     //visibility: hidden;
                     
                     &:nth-child(1) {
@@ -415,7 +458,9 @@
         }
         
         > .ornaments {
-            flex: 1;
+            position: relative;
+            flex-shrink: 0;
+            width: 100%;
             height: 180px;
             display: flex;
             justify-content: end;
@@ -426,6 +471,7 @@
                 top: 0;
                 right: 0;
                 height: 100%;
+                max-width: 100%;
             }
 
             > a {
@@ -446,6 +492,99 @@
                         color: white;
                     }
                 }
+            }
+        }
+    }
+}
+
+@include when-tablet {
+    .sectionContent.aboutMe {
+        > .aracneIntro {
+            > .portrait {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        > .artistDesigner {
+            > .phone {
+                display: none;
+            }
+
+            > .tablet {
+                display: block;
+            }
+        }
+
+        > .collage1 {
+            > .left {
+                flex-direction: row;
+
+                > .likes {
+                    display: flex;
+                }
+
+                > .socialMediaContainer {
+                    > .skillWindow {
+                        height: 100%;
+
+                        .featureContainer {
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            > .right {
+                flex-direction: row;
+            }
+        }
+
+        > .damnYourEyes {
+            padding: 3rem 0;
+
+            > .wordTableWindow {
+                width: 82.6%;
+            }
+        }
+    }
+}
+
+@include when-desktop {
+    .sectionContent.aboutMe {
+        > .bio {
+            > .right {
+                display: block;
+            }
+        }
+
+        > .collage1 {
+            > .left {
+                flex-direction: column;
+
+                > .socialMediaContainer {
+                    .ornaments {
+                        display: flex;
+                    }
+                }
+            }
+
+            > .right {
+                flex-direction: column;
+                align-items: unset;
+            }
+        }
+
+        > .footer {
+            flex-direction: row;
+
+            > .planetContainer {
+                width: 55%;
+            }
+
+            > .ornaments {
+                flex: 1;
+                width: 55%;
             }
         }
     }

@@ -9,6 +9,8 @@
 
     > .header {
         @include crt-text-light;
+
+        width: 100%;
         display: flex;
         align-items: center;
         padding: $border-width $border-width;
@@ -16,10 +18,12 @@
         
         > .title {
             flex: 1;
+            
             font-family: var(--font-fragment-mono);
             text-transform: uppercase;
             padding-left: 1em;
             font-size: 1.2rem;
+            overflow: hidden;
 
             :global {
                 animation: glitch-move-sometimes 24s infinite;
