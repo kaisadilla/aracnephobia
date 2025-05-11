@@ -64,6 +64,10 @@ import about_ornaments1 from "./about/ornaments1.webp";
 import about_ornaments2 from "./about/ornaments2.2x.webp";
 import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
 
+import about_skills_digital_artist from "./about/skills_digital_artist.webp";
+import about_skills_digital_artist_phone from "./about/skills_digital_artist_phone.webp";
+import about_sector_07 from "./about/sector_07.webp";
+
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
 import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
@@ -172,6 +176,10 @@ export const IMG = {
         ornaments1: about_ornaments1,
         ornaments2: about_ornaments2,
         damn_your_eyes: about_damn_your_eyes_2,
+
+        skills_digital_artist: about_skills_digital_artist,
+        skills_digital_artist_phone: about_skills_digital_artist_phone,
+        sector_07: about_sector_07,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

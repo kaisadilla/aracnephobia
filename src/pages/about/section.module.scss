@@ -58,6 +58,31 @@
             flex: 1;
         }
     }
+
+    > .header {
+        width: 100%;
+        background-color: var(--color-about-secondary);
+        
+        > img {
+            display: block;
+            width: 100%;
+        }
+        
+        > .tablet {
+            display: none;
+        }
+    }
+
+    .txtContainer {
+        width: 100%;
+        font-family: var(--font-fragment-mono);
+        padding: 0 1.5em;
+
+        strong {
+            font-weight: unset;
+            color: var(--color-primary);
+        }
+    }
 }
 
 @include when-tablet {
@@ -79,6 +104,16 @@
     .sectionContent {
         > .g2 {
             flex-direction: row;
+        }
+
+        > .header {
+            > .phone {
+                display: none;
+            }
+
+            > .tablet {
+                display: block;
+            }
         }
     }
 }
@@ -142,20 +177,6 @@
         }
     }
 
-    > .artistDesigner {
-        width: 100%;
-        background-color: var(--color-about-secondary);
-        
-        > img {
-            display: block;
-            width: 100%;
-        }
-        
-        > .tablet {
-            display: none;
-        }
-    }
-
     > .bio {
         width: 95%;
         gap: 1rem;
@@ -163,17 +184,6 @@
         > .left {
             order: 2;
             flex-shrink: 0;
-
-            .txtContainer {
-                width: 100%;
-                font-family: var(--font-fragment-mono);
-                padding: 0 1.5em;
-
-                strong {
-                    font-weight: unset;
-                    color: var(--color-primary);
-                }
-            }
         }
 
         > .right {
@@ -506,16 +516,6 @@
             }
         }
 
-        > .artistDesigner {
-            > .phone {
-                display: none;
-            }
-
-            > .tablet {
-                display: block;
-            }
-        }
-
         > .collage1 {
             > .left {
                 flex-direction: row;
@@ -595,8 +595,92 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    padding: 0 1%;
+
+    > .skillsText {
+        gap: 1rem;
+
+        > .right {
+            display: none;
+            position: relative;
+            background-size: cover;
+            
+            > img {
+                display: block;
+                position: absolute;
+                height: calc(100% + 60px);
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+
+    > .artSkills {
+        width: 100%;
+    }
+
+    > .videos {
+        position: relative;
+        width: 100%;
+
+        > .left {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .vid {
+                position: relative;
+                z-index: 100;
+                width: 95%;
+            }
+        }
+
+        > .right {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            > .tripleWord {
+                min-height: 55vw;
+                width: 100%;
+            }
+
+            .vid {
+                width: 95%;
+            }
+
+            > .sector07 {
+                padding-top: 1rem;
+                width: 80%;
+
+                > img {
+                    width: 100%;
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+
+    > .videoSkills {
+        width: 100%;
+    }
+
+    > .minigame {
+        height: 300px;
+        width: 100%;
+        background-color: #fce4f2;
+    }
+
+    > .devSkills {
+        width: 100%;
+    }
+
+
+
+    // <--------- OLD ---------->
 
     > .firstRow {
         width: 100%;
@@ -655,52 +739,6 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-
-        > .videox3 {
-            position: relative;
-            flex: 60;
-            display: flex;
-            align-items: center;
-            padding: var(--border-half-width);
-
-            > img {
-                width: 100%;
-            }
-
-            > .word1, > .word2, > .word3 {
-                width: 100%;
-                position: absolute;
-                left: 0;
-            }
-
-            > .word1 {
-                stroke: none;
-                fill: var(--color-about-primary);
-            }
-
-            > .word2, > .word3 {
-                stroke: var(--color-about-primary);
-                stroke-width: 2rem;
-                fill: var(--color-about-secondary);
-            }
-            
-            > .word1 {
-                opacity: 0.4;
-                top: 0%;
-                z-index: 1;
-            }
-            
-            > .word2 {
-                opacity: 0.7;
-                top: 25%;
-                z-index: 2;
-            }
-            
-            > .word3 {
-                top: 50%;
-                z-index: 3;
-            }
-        }
 
         > .vid {
             flex: 40;
@@ -835,6 +873,107 @@
     }
 }
 
+@include when-tablet {
+    .sectionContent.skills {
+        > .videos {
+            gap: 1rem;
+
+            > .left {
+                padding-left: 2.5%;
+
+                .vid {
+                    width: 70%;
+                }
+            }
+
+            > .right {
+                justify-content: end;
+                align-items: end;
+
+                > .tripleWord {
+                    position: absolute;
+                    width: 100%;
+                    height: 150%;
+                    min-height: unset;
+                    bottom: 50%;
+                    left: 0;
+                }
+
+                .vid {
+                    position: relative;
+                    z-index: 100;
+                    width: 50%;
+                    margin-right: 2.5%;
+                }
+
+                > .sector07 {
+                    position: absolute;
+                    width: 200px;
+                    bottom: 0;
+                    right: calc(50% + 40px);
+
+                    > img {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include when-desktop {
+    .sectionContent.skills {
+        > .skillsText {
+            > .right {
+                display: block;
+            }
+        }
+
+        > .artSkills {
+            width: 85%;
+        }
+
+        > .videos {
+            padding-left: 2%;
+            gap: 0;
+
+            > .left {
+                padding-left: unset;
+
+                .vid {
+                    width: 100%;
+                }
+            }
+            
+            > .right {
+                > .tripleWord {
+                    height: calc(100% - 100px);
+                    top: 0;
+                }
+
+                .vid {
+                    width: 350px;
+                    margin-right: 4%;
+                }
+
+                > .sector07 {
+                    width: calc(100% - 388px);
+                    left: 8px;
+                    right: unset;
+                }
+            }
+        }
+
+        > .videoSkills {
+            width: 85%;
+        }
+
+        > .devSkills {
+            width: 85%;
+        }
+    }
+}
+
 .featureCell {
     $border-radius: 0.75rem;
 
@@ -909,10 +1048,10 @@
         width: 100%;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         background-color: var(--color-about-secondary);
-        gap: 2rem;
         justify-content: center;
-        padding: 1.5rem 1rem;
+        gap: 1px;
     }
 
     .featureContainer {
@@ -929,12 +1068,16 @@
 .artSkill {
     display: flex;
     flex-direction: column;
-    width: 11rem;
     z-index: 100;
     border: var(--border-quarter-width) solid var(--color-about-primary);
+    width: calc(50% - 1px);
 
     > .nameContainer {
         color: var(--color-about-primary);
+        height: 2lh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         > span {
             font-family: var(--font-fragment-mono);
@@ -962,7 +1105,7 @@
         > .nameContainer {
             > span {
                 :global {
-                    animation: shortGlitch 0.05s linear forwards;
+                    animation: shortGlitch 0.05s linear forwards, text-shadow-border 1.6s infinite;
                 }
 
                 color: var(--color-primary);
@@ -1041,19 +1184,70 @@
     }
 }
 
-@include when-tablet {
-    .section.aboutMe {
-        > .aracneIntro {
-            > .portrait {
-            }
-        }
+.tripleWord {
+    position: relative;
+    flex: 60;
+    display: flex;
+    align-items: center;
+    padding: var(--border-half-width);
 
-        > .wordTableWindow {
-            width: 80%;
+    > img {
+        width: 100%;
+    }
+
+    > .word1, > .word2, > .word3 {
+        width: 100%;
+        position: absolute;
+        left: 0;
+    }
+
+    > .word1 {
+        stroke: none;
+        fill: var(--color-about-primary);
+    }
+
+    > .word2, > .word3 {
+        stroke: var(--color-about-primary);
+        stroke-width: 2rem;
+        fill: var(--color-about-secondary);
+    }
     
-            .wordTableContainer {
-                width: 90%;
-            }
+    > .word1 {
+        //opacity: 0.4;
+        top: 0%;
+        z-index: 1;
+    }
+    
+    > .word2 {
+        //opacity: 0.7;
+        top: 25%;
+        z-index: 2;
+    }
+    
+    > .word3 {
+        top: 50%;
+        z-index: 3;
+    }
+}
+
+@include when-tablet {
+    .skillWindow {
+        .artContainer {
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+    }
+
+    .artSkill {
+        width: 10rem;
+    }
+}
+
+@include when-desktop {
+    .skillWindow {
+        .artContainer {
+            gap: 2rem;
+            padding: 1.5rem 1rem;
         }
     }
 }

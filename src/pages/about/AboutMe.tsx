@@ -69,7 +69,7 @@ function AboutMe (props: AboutMeProps) {
                     image={IMG.about.sorry}
                 />
             </div>
-            <div className={styles.artistDesigner}>
+            <div className={styles.header}>
                 <SiteImage
                     className={styles.tablet} image={IMG.about.artist_designer}
                 />

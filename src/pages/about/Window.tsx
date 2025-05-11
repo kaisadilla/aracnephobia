@@ -21,7 +21,12 @@ function Window ({
     return (
         <div className={$cl(styles.window, className)} {...divProps}>
             <div className={styles.header}>
-                <div className={styles.title}>{title}</div>
+                <div
+                    className={styles.title}
+                    style={{animationDelay: `${(Math.random() * 12) - 6}s`}}
+                >
+                    {title}
+                </div>
                 <div className={styles.ribbon}>
                     <div><SVG.about.window.minimize /></div>
                     <div><SVG.about.window.heart /></div>
