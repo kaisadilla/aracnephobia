@@ -167,6 +167,30 @@ function Skills (props: SkillsProps) {
                 </div>
             </Window>
 
+            <div className={styles.logos}>
+                <SiteImage
+                    className={$cl(styles.ornament, styles.ornament1)}
+                    image={IMG.about.jlazz_bg1}
+                />
+                <SiteImage
+                    className={$cl(styles.ornament, styles.ornament2)}
+                    image={IMG.about.jlazz_bg2}
+                />
+                <SiteImage
+                    className={$cl(styles.ornament, styles.ornament3)}
+                    image={IMG.about.doppie_bg1}
+                />
+                <SiteImage
+                    className={$cl(styles.ornament, styles.ornament4)}
+                    image={IMG.about.doppie_bg2}
+                />
+
+                <SiteImage className={styles.logo} image={IMG.about.logo_jlazz} />
+                <div className={styles.morgueContainer}>
+                    <SiteImage image={IMG.about.logo_morgue} />
+                </div>
+                <SiteImage className={styles.logo} image={IMG.about.logo_doppie} />
+            </div>
 
             {/* <------ OLD ------>
             <h1>OLD</h1>
