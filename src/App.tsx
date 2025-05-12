@@ -49,7 +49,6 @@ function App() {
                             <SiteImage
                                 className={styles.introLogo}
                                 image={IMG.aracnephobia_logo}
-                                noAlt
                             />
                         </div>}
 

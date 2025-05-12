@@ -19,12 +19,10 @@ function PortfolioPage (props: PortfolioPageProps) {
                 <SiteImage
                     className={styles.rightCurtain}
                     image={IMG.twp_vert}
-                    noAlt
                 />
                 <SiteImage
                     className={styles.aracne}
                     image={IMG.psychedelic_aracne}
-                    noAlt
                 />
                 <div className={styles.content}>
                     <div className={styles.screen}>

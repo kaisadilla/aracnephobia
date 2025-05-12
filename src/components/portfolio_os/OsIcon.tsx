@@ -52,7 +52,6 @@ function OsIcon ({
             <ChromaticAberrationImage
                 className={styles.image}
                 image={IMG.os.folder}
-                noAlt
             />
             <div className={styles.fileName}>{file.name}</div>
         </div>

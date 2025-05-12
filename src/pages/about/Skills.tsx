@@ -168,28 +168,97 @@ function Skills (props: SkillsProps) {
             </Window>
 
             <div className={styles.logos}>
-                <SiteImage
-                    className={$cl(styles.ornament, styles.ornament1)}
-                    image={IMG.about.jlazz_bg1}
-                />
-                <SiteImage
-                    className={$cl(styles.ornament, styles.ornament2)}
-                    image={IMG.about.jlazz_bg2}
-                />
-                <SiteImage
-                    className={$cl(styles.ornament, styles.ornament3)}
-                    image={IMG.about.doppie_bg1}
-                />
-                <SiteImage
-                    className={$cl(styles.ornament, styles.ornament4)}
-                    image={IMG.about.doppie_bg2}
-                />
-
-                <SiteImage className={styles.logo} image={IMG.about.logo_jlazz} />
-                <div className={styles.morgueContainer}>
-                    <SiteImage image={IMG.about.logo_morgue} />
-                </div>
+                <SiteImage className={styles.logo} image={IMG.aracnephobia_logo} />
+                <SiteImage className={styles.logo} image={IMG.about.logo_morgue} />
                 <SiteImage className={styles.logo} image={IMG.about.logo_doppie} />
+            </div>
+
+            <Window
+                className={$cl(styles.skillWindow, styles.designSkills)}
+                title='design.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Graphic design"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Logo & Branding"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Photography"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+
+            <div className={$cl(styles.g2, styles.photo1)}>
+                <div className={styles.left}>
+                    <SiteImage image={IMG.about.photo1} />
+                </div>
+                <div className={styles.right}>
+                    <ChromaticAberrationImage
+                        image={IMG.about.design_design_design_design}
+                        horizFlicker={12}
+                        duration={10}
+                        opacity={0.3}
+                    />
+                </div>
+            </div>
+
+            <Window
+                className={$cl(styles.skillWindow, styles.adSkills)}
+                title='advertising.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Influencer Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Ads analytics"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+
+            <SiteImage
+                className={styles.family}
+                image={IMG.art.aracne_family}
+            />
+
+            <Window
+                className={$cl(styles.skillWindow, styles.readMeSkills)}
+                title='read.me'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Storytelling"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Copy writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Script writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+
+            <div className={$cl(styles.g2, styles.footer)}>
+                <div className={styles.left}>
+                    <SiteImage image={IMG.about.ornaments3} />
+                </div>
+                <div className={styles.right}>
+                    <SiteImage image={IMG.about.skills_pic1} />
+                </div>
             </div>
 
             {/* <------ OLD ------>
@@ -246,22 +315,6 @@ function Skills (props: SkillsProps) {
                     <SiteImage image={IMG.about.guapisima} />
                 </div>
             </div>
-            <Window className={styles.skillWindow} title='advertising.skills'>
-                <div className={styles.artContainer}>
-                    <_ArtSkill
-                        title="Marketing"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Influencer Marketing"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Ads analytics"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                </div>
-            </Window>
             <div className={styles.photo1}>
                 <div className={styles.left}>
                     <SiteImage image={IMG.about.photo1} />
@@ -275,22 +328,6 @@ function Skills (props: SkillsProps) {
                     />
                 </div>
             </div>
-            <Window className={styles.skillWindow} title='design.skills'>
-                <div className={styles.artContainer}>
-                    <_ArtSkill
-                        title="Graphic design"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Logo & Branding"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Photography"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                </div>
-            </Window>
             <div className={styles.logos}>
                 <SiteImage
                     className={styles.ornament1} image={IMG.about.jlazz_bg1}
@@ -310,23 +347,7 @@ function Skills (props: SkillsProps) {
                     <SiteImage image={IMG.about.logo_morgue} />
                 </div>
                 <SiteImage className={styles.logo} image={IMG.about.logo_doppie} />
-            </div>
-            <Window className={styles.skillWindow} title='design.skills'>
-                <div className={styles.artContainer}>
-                    <_ArtSkill
-                        title="Storytelling"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Copy writer"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                    <_ArtSkill
-                        title="Script writer"
-                        icon={<SVG.about.skills.conceptArt />}
-                    />
-                </div>
-            </Window>*/}
+            </div>*/}
         </div>
 
         </ScrollArea>

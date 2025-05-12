@@ -62,11 +62,13 @@ import about_anim_bg_2 from "./about/anim_bg_2.gif";
 import about_aracne_photo2 from "./about/aracne_photo2.webp";
 import about_ornaments1 from "./about/ornaments1.webp";
 import about_ornaments2 from "./about/ornaments2.2x.webp";
+import about_ornaments3 from "./about/ornaments3.2x.webp";
 import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
 
 import about_skills_digital_artist from "./about/skills_digital_artist.webp";
 import about_skills_digital_artist_phone from "./about/skills_digital_artist_phone.webp";
 import about_sector_07 from "./about/sector_07.webp";
+import about_design_design_design_design from "./about/design_design_design_design.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -84,6 +86,9 @@ import about_uiux_2 from "./about/word-table/uiux.2x.webp";
 import about_video_2 from "./about/word-table/video.2x.webp";
 import about_web_design_2 from "./about/word-table/web-design.2x.webp";
 import about_writer_2 from "./about/word-table/writer.2x.webp";
+
+import art_aracne_family from "./art/aracne_family.webp";
+
 import navigator_blog from "./navigator/blog.webp";
 import navigator_cv from "./navigator/cv.webp";
 import navigator_me from "./navigator/me.webp";
@@ -175,11 +180,13 @@ export const IMG = {
         aracne_photo2: about_aracne_photo2,
         ornaments1: about_ornaments1,
         ornaments2: about_ornaments2,
+        ornaments3: about_ornaments3,
         damn_your_eyes: about_damn_your_eyes_2,
 
         skills_digital_artist: about_skills_digital_artist,
         skills_digital_artist_phone: about_skills_digital_artist_phone,
         sector_07: about_sector_07,
+        design_design_design_design: about_design_design_design_design,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,
@@ -198,6 +205,9 @@ export const IMG = {
         video: about_video_2,
         web_design: about_web_design_2,
         writer: about_writer_2,
+    },
+    art: {
+        aracne_family: art_aracne_family,
     },
     navigator: {
         blog: navigator_blog,
