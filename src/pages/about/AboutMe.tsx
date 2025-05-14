@@ -18,6 +18,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import SkillCell from './SkillCell';
 import FeatureCell from './FeatureCell';
 import { useMediaQuery } from '@mantine/hooks';
+import { EnterByScalingUp, EnterFromAnimation } from './animations';
 
 const KATAKANA_CP_START = 0x30a0;
 const KATAKANA_CP_END = 0x30ff;
@@ -53,7 +54,7 @@ function AboutMe (props: AboutMeProps) {
                 className={$cl(styles.bg, styles.bgGrid)}
                 image={IMG.about.am_3d_grid}
             />
-            <div className={styles.aracneIntro}>
+            <EnterByScalingUp className={styles.aracneIntro}>
                 <div className={styles.portrait}>
                     <SiteImage
                         className={styles.regular}
@@ -68,7 +69,7 @@ function AboutMe (props: AboutMeProps) {
                     className={styles.sorry}
                     image={IMG.about.sorry}
                 />
-            </div>
+            </EnterByScalingUp>
             <div className={styles.header}>
                 <SiteImage
                     className={styles.tablet} image={IMG.about.artist_designer}
@@ -78,17 +79,24 @@ function AboutMe (props: AboutMeProps) {
                 />
             </div>
             <div className={$cl(styles.g2, styles.bio)}>
-                <Window className={styles.left} title="bio.exe">
-                    <loc.about.about_me.bio className={styles.txtContainer} />
-                </Window>
-                <div className={styles.right} style={{
-                    backgroundImage: `url(${IMG.about.anim_bg1})`
-                }}>
+                <EnterFromAnimation
+                    className={styles.left}
+                    from='right'
+                >
+                    <Window  title="bio.exe">
+                        <loc.about.about_me.bio className={styles.txtContainer} />
+                    </Window>
+                </EnterFromAnimation>
+                <EnterFromAnimation
+                    className={styles.right}
+                    from='left'
+                    style={{backgroundImage: `url(${IMG.about.anim_bg1})`}}
+                >
                     <SiteImage image={IMG.about.aracne_photo1} />
-                </div>
+                </EnterFromAnimation>
             </div>
             <div className={$cl(styles.g2, styles.collage1)}>
-                <div className={styles.left}>
+                <EnterFromAnimation from='left' className={styles.left}>
                     <Window
                         className={$cl(styles.skillWindow, styles.likes)}
                         title='likes.me'
@@ -176,8 +184,8 @@ function AboutMe (props: AboutMeProps) {
                             <SiteImage image={IMG.about.ornaments1} />
                         </div>
                     </div>
-                </div>
-                <div className={styles.right}>
+                </EnterFromAnimation>
+                <EnterFromAnimation from='right' className={styles.right}>
                     <Window className={styles.contactMe} title="contact.me">
                         <a
                             className={styles.container}
@@ -192,20 +200,22 @@ function AboutMe (props: AboutMeProps) {
                         <SVG.circle />
                         <SiteImage image={IMG.about.aracne_photo2} />
                     </div>
-                </div>
+                </EnterFromAnimation>
             </div>
             <div
                 className={styles.damnYourEyes}
                 style={{backgroundImage: `url(${IMG.about.damn_your_eyes})`}}
             >
-                <Window
-                    className={styles.wordTableWindow}
-                    title="Hashtag.cloud"
-                >
-                    <div className={styles.wordTableContainer}>
-                        <_WordTable />
-                    </div>
-                </Window>
+                <EnterByScalingUp className={styles.wordTableSuperContainer}>
+                    <Window
+                        className={styles.wordTableWindow}
+                        title="Hashtag.cloud"
+                    >
+                        <div className={styles.wordTableContainer}>
+                            <_WordTable />
+                        </div>
+                    </Window>
+                </EnterByScalingUp>
             </div>
             <div className={styles.jpBigContainer}>
                 <div className={styles.frame}>
@@ -218,7 +228,7 @@ function AboutMe (props: AboutMeProps) {
                 </div>
             </div>
             <div className={styles.footer}>
-                <div className={styles.planetContainer}>
+                <EnterFromAnimation from='left' className={styles.planetContainer}>
                     <SVG.about.window.close className={styles.corner} />
                     <SVG.about.window.close className={styles.corner} />
                     <SVG.about.window.close className={styles.corner} />
@@ -255,13 +265,13 @@ function AboutMe (props: AboutMeProps) {
                             }}
                         />
                     </div>
-                </div>
-                <div className={styles.ornaments}>
+                </EnterFromAnimation>
+                <EnterFromAnimation from='right' className={styles.ornaments}>
                     <SiteImage image={IMG.about.ornaments2} />
                     <a href="https://azariadev.dev" target='_blank'>
                         Developed by <strong>Azaria</strong>
                     </a>
-                </div>
+                </EnterFromAnimation>
             </div>
         </div>
         

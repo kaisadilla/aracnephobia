@@ -55,6 +55,27 @@
 }
 
 @font-face {
+    font-family: "Manjari";
+    src: url("../fonts/Manjari-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Manjari";
+    src: url("../fonts/Manjari-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Manjari";
+    src: url("../fonts/Manjari-Thin.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Matisse Pro";
     src: url("../fonts/FOT-Matisse Pro EB.otf") format("opentype");
     font-weight: normal;
@@ -77,6 +98,7 @@
     --font-illusion-magic: "Illusion Magic";
     --font-invisible: "Invisible";
     --font-jolly-lodger: "Jolly Lodger";
+    --font-manjari: "Manjari";
     --font-matisse-pro: "Matisse Pro";
     --font-wonder-night: "Wonder Night";
 }

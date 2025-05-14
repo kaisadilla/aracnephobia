@@ -50,6 +50,12 @@
     }
 }
 
+@mixin unless-desktop {
+    @media (max-width: 75rem) {
+        @content;
+    }
+}
+
 @mixin when-phone-landscape {
     @media screen and (orientation: landscape) and (max-width: 50rem) {
         @content;

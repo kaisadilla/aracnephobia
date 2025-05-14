@@ -70,6 +70,19 @@ import about_skills_digital_artist_phone from "./about/skills_digital_artist_pho
 import about_sector_07 from "./about/sector_07.webp";
 import about_design_design_design_design from "./about/design_design_design_design.webp";
 
+import about_creative_left from './about/creative_left.webp';
+import about_creative_right_1 from './about/creative_right_1.webp';
+import about_creative_right_2 from './about/creative_right_2.webp';
+import about_creative_right_3 from './about/creative_right_3.webp';
+import about_hardware_bg from './about/hardware_bg.webp';
+import about_hardware_cintiq from './about/hardware_cintiq.webp';
+import about_hardware_ipad from './about/hardware_ipad.webp';
+import about_hardware_camera from './about/hardware_camera.webp';
+
+import about_software_left from './about/software_left.webp';
+import about_software_right from './about/software_right.webp';
+import about_fake_controls from './about/fake_controls.webp';
+
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
 import about_cartoon_2 from "./about/word-table/cartoon.2x.webp";
@@ -86,6 +99,8 @@ import about_uiux_2 from "./about/word-table/uiux.2x.webp";
 import about_video_2 from "./about/word-table/video.2x.webp";
 import about_web_design_2 from "./about/word-table/web-design.2x.webp";
 import about_writer_2 from "./about/word-table/writer.2x.webp";
+
+import about_hw_figma from "./about/hardware/figma.webp";
 
 import art_aracne_family from "./art/aracne_family.webp";
 
@@ -187,6 +202,23 @@ export const IMG = {
         skills_digital_artist_phone: about_skills_digital_artist_phone,
         sector_07: about_sector_07,
         design_design_design_design: about_design_design_design_design,
+
+        creative_left: about_creative_left,
+        creative_right_1: about_creative_right_1,
+        creative_right_2: about_creative_right_2,
+        creative_right_3: about_creative_right_3,
+        hardware_bg: about_hardware_bg,
+        hardware_cintiq: about_hardware_cintiq,
+        hardware_ipad: about_hardware_ipad,
+        hardware_camera: about_hardware_camera,
+
+        software_left: about_software_left,
+        software_right: about_software_right,
+        fake_controls: about_fake_controls,
+
+        hardware: {
+            figma: about_hw_figma,
+        },
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,

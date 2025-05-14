@@ -8,6 +8,7 @@ import { $cl } from 'utils';
 import AboutMe from './AboutMe';
 import { useMediaQuery } from '@mantine/hooks';
 import Skills from './Skills';
+import Tools from './Tools';
 
 type Section = 'about'
     | 'skills'
@@ -115,6 +116,7 @@ function AboutPage (props: AboutPageProps) {
                 <div className={styles.content2}>
                     {section === 'about' && <AboutMe />}
                     {section === 'skills' && <Skills />}
+                    {section === 'tools' && <Tools />}
                 </div>
             </div>
 

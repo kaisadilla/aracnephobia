@@ -1,0 +1,28 @@
+.enterFrom {
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s linear;
+
+    &.enterFromLeft {
+        transform: translateX(-100%);
+    }
+
+    &.enterFromRight {
+        transform: translateX(100%);
+    }
+
+    &.visible {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.enterByScalingUp {
+    transform: scale(25%);
+    opacity: 0;
+    transition: transform 0.75s ease-in, opacity 0.75s ease-in;
+
+    &.visible {
+        transform: none;
+        opacity: 1;
+    }
+}
