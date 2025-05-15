@@ -1157,13 +1157,6 @@
                 &:nth-child(2) {
                     height: calc(100% + 10px);
                 }
-
-                //&:nth-child(1) {
-                //    aspect-ratio: 206 / 3534;
-                //}
-                //&:nth-child(3) {
-                //    aspect-ratio: 268 / 3470;
-                //}
             }
         }
     }
@@ -1186,14 +1179,17 @@
         > .center {
             flex: 1;
             height: 100%;
+                overflow: hidden;
+
+            .winFrame {
+                border: none;
+            }
 
             .container {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 background-color: var(--color-about-secondary);
-                gap: 1rem;
-                padding: 0.75rem;
             }
         }
 
@@ -1206,13 +1202,43 @@
             }
         }
     }
+
+    > .panicPhoto {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-position: 340px 0;
+        background-size: 50%;
+
+        > .photo {
+            width: 100%;
+
+            > img {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        > .panic {
+            background-color: var(--color-about-primary);
+            width: 100%;
+
+            > img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+
+    > .footer {
+        width: 98%;
+    }
 }
 
 .software {
-    width: 340px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    border: var(--border-quarter-width) solid var(--color-about-primary);
 
     > .pic {
         width: 100%;
@@ -1305,16 +1331,15 @@
         > .hardware {
             > .left {
                 height: calc(100vw - 1em);
-                transform-origin: top-left;
                 transform: rotateZ(90deg);
                 margin-bottom: -53vw;
             }
 
             > .right {
                 height: calc(100vw - 1em);
-                transform-origin: top-right;
                 transform: rotateZ(-90deg);
                 margin-top: -32vw;
+                margin-bottom: -35vw;
             }
         }
     }
@@ -1330,6 +1355,12 @@
             > .center {
                 margin: auto;
                 width: 90%;
+
+                .container {
+                    gap: 1rem;
+                    padding: 0.75rem;
+                }
+
                 .content {
                     > .hardware {
                         height: 168px;
@@ -1352,6 +1383,31 @@
                 height: calc(100vw - 4em);
             }
         }
+
+        > .softwareContainer {
+            > .center {
+                .winFrame {
+                    border: var(--border-half-width) solid var(--color-about-secondary);
+                }
+            }
+        }
+
+        > .panicPhoto {
+            position: relative;
+            > .panic {
+                background-color: unset;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -70%;
+                mix-blend-mode: difference;
+            }
+        }
+    }
+
+    .software {
+        width: 340px;
+        border: var(--border-quarter-width) solid var(--color-about-primary);
     }
 }
 
@@ -1392,6 +1448,246 @@
             > .left, > .right {
                 display: block;
             }
+        }
+
+        > .panicPhoto {
+            flex-direction: row;
+            position: unset;
+            justify-content: space-between;
+
+            > .photo {
+                width: 47%;
+                object-fit: contain;
+
+                > img {
+                    height: 100%;
+                }
+            }
+
+            > .panic {
+                width: 40%;
+                margin-top: unset;
+
+                background-color: var(--color-about-primary);
+                position: unset;
+                mix-blend-mode: unset;
+            }
+        }
+    }
+}
+
+.sectionContent.education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+
+    > .communication {
+        position: relative;
+        width: 95%;
+        aspect-ratio: 1080 / 170;
+
+        > div {
+            width: 100%;
+            aspect-ratio: 1080 / 100;
+            position: absolute;
+            left: 0;
+            background-color: var(--color-about-secondary);
+
+            > svg {
+                margin-top: -5px;
+            }
+
+            &:nth-child(1) > svg, &:nth-child(2) > svg {
+                fill: var(--color-about-primary);
+            }
+
+            &:nth-child(3) > svg {
+                fill: var(--color-about-secondary);
+                stroke-width: 1.5rem;
+                stroke: var(--color-about-primary);
+            }
+
+            &:nth-child(1) {
+                top: 0;
+                z-index: 10;
+            }
+
+            &:nth-child(2) {
+                top: 21%;
+                z-index: 11;
+            }
+
+            &:nth-child(3) {
+                top: 42%;
+                z-index: 12;
+            }
+        }
+    }
+
+    > .ganesha {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 2212 / 628;
+        background-size: contain;
+        display: flex;
+        margin-top: calc(70px - 4.3vw);
+
+        > img {
+            position: absolute;
+            display: block;
+            height: calc(100% + 80px);
+            bottom: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    > .credTree {
+        $height-esdip: 180px;
+        $height-esco: 220px;
+
+        margin-top: -1px;
+        width: 100%;
+
+        > .credSection {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            justify-content: stretch;
+            align-items: stretch;
+
+            > .left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+
+                > .visuals {
+                    width: 100%;
+                    height: 500px;
+                    padding: 1rem;
+
+                    > img {
+                        width: 100%;
+                    }
+                }
+
+                > .esdipLogo {
+                    height: $height-esdip;
+
+                    > .content {
+                        > img {
+                            width: 60%;
+                        }
+                    }
+                }
+
+                > .escoDesc {
+                    height: $height-esco;
+                }
+            }
+
+            > .treeRoot {
+                width: 32px;
+                background-color: var(--color-about-primary);
+            }
+
+            > .right {
+                flex: 1;
+
+                > .strategy {
+                    width: 100%;
+                    height: 500px;
+                    padding: 1rem;
+
+                    > img {
+                        width: 100%;
+                    }
+                }
+
+                > .esdipDesc {
+                    height: $height-esdip;
+                }
+
+                > .escoLogo {
+                    height: $height-esco;
+
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.branch {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //border: 1px solid red;
+
+    > .content {
+        flex: 1;
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        justify-content: center;
+        overflow: hidden;
+
+        &.desc {
+            line-height: 1lh;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            .date {
+                font-family: var(--font-invisible);
+                font-size: 2em;
+            }
+
+            .body {
+                font-family: var(--font-fragment-mono);
+                font-size: 1.25em;
+            }
+        }
+    }
+
+    > .branchImgContainer {
+        width: 100%;
+        display: flex;
+        fill: var(--color-about-primary);
+
+        .branch0 {
+            width: 88%;
+            padding-bottom: 10px;
+        }
+
+        .branch1 {
+            width: 85%;
+        }
+
+        .branch2 {
+            width: 60%;
+        }
+
+        .branch3 {
+            width: 95%;
+            padding-bottom: 9px;
+        }
+    }
+}
+
+@include when-desktop {
+    .sectionContent.education {
+        > .ganesha {
+            margin-top: unset;
         }
     }
 }

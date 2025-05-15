@@ -63,8 +63,92 @@ function Tools (props: ToolsProps) {
                     <SiteImage image={IMG.about.software_left} />
                 </EnterFromAnimation>
                 <EnterByScalingUp className={styles.center}>
-                    <Window title="software">
+                    <Window title="software" frameClassName={styles.winFrame}>
                         <div className={styles.container}>
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
+                            <_Software
+                                name="Figma"
+                                desc="The Collaborative Inteface Design Tool"
+                                icon={IMG.about.hardware.figma}
+                                perc={0.7}
+                            />
                             <_Software
                                 name="Figma"
                                 desc="The Collaborative Inteface Design Tool"
@@ -78,6 +162,20 @@ function Tools (props: ToolsProps) {
                     <SiteImage image={IMG.about.software_right} />
                 </EnterFromAnimation>
             </div>
+
+            <div
+                className={styles.panicPhoto}
+                style={{backgroundImage: `url(${IMG.about.cat_lines})`}}
+            >
+                <EnterFromAnimation from='left' className={styles.photo}>
+                    <SiteImage image={IMG.about.photo2} />
+                </EnterFromAnimation>
+                <EnterFromAnimation from='right' className={styles.panic}>
+                    <SiteImage image={IMG.about.panic} />
+                </EnterFromAnimation>
+            </div>
+
+            <SiteImage className={styles.footer} image={IMG.about.ornaments3} />
 
             </div>
         </ScrollArea>

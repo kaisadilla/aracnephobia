@@ -46,6 +46,7 @@ import about_toroid_07 from "./about/toroid_7.webp";
 import about_guapisima_bg from "./about/guapisima_bg.png";
 import about_guapisima from "./about/guapisima.png";
 import about_photo1 from "./about/photo1.webp";
+import about_photo2 from "./about/photo2.webp";
 import about_digital_face from "./about/digital_face.webp";
 import about_logo_doppie from "./about/logo_doppie.webp";
 import about_logo_jlazz from "./about/logo_jlazz.png";
@@ -82,6 +83,20 @@ import about_hardware_camera from './about/hardware_camera.webp';
 import about_software_left from './about/software_left.webp';
 import about_software_right from './about/software_right.webp';
 import about_fake_controls from './about/fake_controls.webp';
+import about_cat_lines from './about/cat_lines.webp';
+import about_panic from './about/panic.webp';
+
+import about_hw_figma from "./about/hardware/figma.webp";
+
+import about_communication_bg from "./about/communication_bg.webp";
+import about_visuals from "./about/visuals.webp";
+import about_strategy from "./about/strategy.webp";
+
+import about_ed_esdip from "./about/education/esdip.webp";
+import about_ed_esco from "./about/education/esco.webp";
+
+import art_aracne_family from "./art/aracne_family.webp";
+import art_aracne_ganesha from "./art/aracne_ganesha.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -99,10 +114,6 @@ import about_uiux_2 from "./about/word-table/uiux.2x.webp";
 import about_video_2 from "./about/word-table/video.2x.webp";
 import about_web_design_2 from "./about/word-table/web-design.2x.webp";
 import about_writer_2 from "./about/word-table/writer.2x.webp";
-
-import about_hw_figma from "./about/hardware/figma.webp";
-
-import art_aracne_family from "./art/aracne_family.webp";
 
 import navigator_blog from "./navigator/blog.webp";
 import navigator_cv from "./navigator/cv.webp";
@@ -179,6 +190,7 @@ export const IMG = {
         guapisima: about_guapisima,
         guapisima_bg: about_guapisima_bg,
         photo1: about_photo1,
+        photo2: about_photo2,
         digital_face: about_digital_face,
         logo_doppie: about_logo_doppie,
         logo_jlazz: about_logo_jlazz,
@@ -215,9 +227,20 @@ export const IMG = {
         software_left: about_software_left,
         software_right: about_software_right,
         fake_controls: about_fake_controls,
+        cat_lines: about_cat_lines,
+        panic: about_panic,
 
         hardware: {
             figma: about_hw_figma,
+        },
+
+        communication_bg: about_communication_bg,
+        visuals: about_visuals,
+        strategy: about_strategy,
+
+        education: {
+            esdip: about_ed_esdip,
+            esco: about_ed_esco,
         },
 
         // <--- TODO: MOVE --->
@@ -240,6 +263,7 @@ export const IMG = {
     },
     art: {
         aracne_family: art_aracne_family,
+        aracne_ganesha: art_aracne_ganesha,
     },
     navigator: {
         blog: navigator_blog,
