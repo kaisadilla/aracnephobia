@@ -94,6 +94,7 @@ import about_strategy from "./about/strategy.webp";
 
 import about_ed_esdip from "./about/education/esdip.webp";
 import about_ed_esco from "./about/education/esco.webp";
+import about_ed_colon from "./about/education/colon.webp";
 
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
@@ -241,6 +242,7 @@ export const IMG = {
         education: {
             esdip: about_ed_esdip,
             esco: about_ed_esco,
+            colon: about_ed_colon,
         },
 
         // <--- TODO: MOVE --->

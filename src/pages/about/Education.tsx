@@ -6,6 +6,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import SVG from 'assets/img/svg';
 import { IMG } from 'assets/img/img';
 import SiteImage from 'components/SiteImage';
+import { EnterByScalingUp, EnterFromAnimation } from './animations';
 
 export interface EducationProps {
     
@@ -28,23 +29,23 @@ function Education (props: EducationProps) {
         >
             <div className={$cl(styles.sectionContent, styles.education)}>
 
-            <div className={styles.communication}>
+            <EnterByScalingUp className={styles.communication}>
                 <div><SVG.about.education.wordCommunication /></div>
                 <div><SVG.about.education.wordCommunication /></div>
                 <div><SVG.about.education.wordCommunication /></div>
-            </div>
-            <div
+            </EnterByScalingUp>
+            <EnterByScalingUp
                 className={styles.ganesha}
                 style={{backgroundImage: `url(${IMG.about.communication_bg})`}}
             >
                 <SiteImage image={IMG.art.aracne_ganesha} />
-            </div>
+            </EnterByScalingUp>
             <div className={styles.credTree}>
                 <div className={styles.credSection}>
                     <div className={styles.left}>
-                        <div className={styles.visuals}>
+                        <EnterFromAnimation from='left' className={styles.visuals}>
                             <SiteImage image={IMG.about.visuals} />
-                        </div>
+                        </EnterFromAnimation>
                         <_Branch
                             className={styles.esdipLogo}
                             side='left'
@@ -63,12 +64,20 @@ function Education (props: EducationProps) {
                                 Triple titulación de Publicidad, RRHH, Periodismo y Comunicación Audiovisual.
                             </div>
                         </_Branch>
+                        <_Branch
+                            className={styles.colonLogo}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch4 />}
+                        >
+                            <SiteImage image={IMG.about.education.colon} />
+                        </_Branch>
                     </div>
                     <div className={styles.treeRoot} />
                     <div className={styles.right}>
-                        <div className={styles.strategy}>
+                        <EnterFromAnimation from='right' className={styles.strategy}>
                             <SiteImage image={IMG.about.strategy} />
-                        </div>
+                        </EnterFromAnimation>
                         <_Branch
                             className={styles.esdipDesc}
                             contentClassName={styles.desc}
@@ -86,6 +95,17 @@ function Education (props: EducationProps) {
                             branch={<_Branch3 />}
                         >
                             <SiteImage image={IMG.about.education.esco} />
+                        </_Branch>
+                        <_Branch
+                            className={styles.colonDesc}
+                            contentClassName={styles.desc}
+                            side='right'
+                            branch={<_Branch5 />}
+                        >
+                            <div className={styles.date}>2013</div>
+                            <div className={styles.body}>
+                                Comunicación en redes y Community Management.
+                            </div>
                         </_Branch>
                     </div>
                 </div>
@@ -161,6 +181,18 @@ function _Branch3 () {
     const Branch = SVG.about.education.branches[3];
     
     return <Branch className={styles.branch3} />;
+}
+
+function _Branch4 () {
+    const Branch = SVG.about.education.branches[4];
+    
+    return <Branch className={styles.branch4} />;
+}
+
+function _Branch5 () {
+    const Branch = SVG.about.education.branches[5];
+    
+    return <Branch className={styles.branch5} />;
 }
 
 

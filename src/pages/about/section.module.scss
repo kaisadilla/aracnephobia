@@ -1547,6 +1547,7 @@
     > .credTree {
         $height-esdip: 180px;
         $height-esco: 220px;
+        $height-colon: 240px;
 
         margin-top: -1px;
         width: 100%;
@@ -1563,7 +1564,7 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                align-items: end;
+                gap: 3rem;
 
                 > .visuals {
                     width: 100%;
@@ -1578,15 +1579,21 @@
                 > .esdipLogo {
                     height: $height-esdip;
 
-                    > .content {
-                        > img {
-                            width: 60%;
-                        }
+                    > .content > img {
+                        width: 60%;
                     }
                 }
 
                 > .escoDesc {
                     height: $height-esco;
+                }
+
+                > .colonLogo {
+                    height: $height-colon;
+
+                    > .content > img {
+                        width: 90%;
+                    }
                 }
             }
 
@@ -1597,6 +1604,9 @@
 
             > .right {
                 flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
 
                 > .strategy {
                     width: 100%;
@@ -1618,6 +1628,10 @@
                     img {
                         width: 70%;
                     }
+                }
+
+                > .colonDesc {
+                    height: $height-colon;
                 }
             }
         }
@@ -1680,6 +1694,14 @@
         .branch3 {
             width: 95%;
             padding-bottom: 9px;
+        }
+
+        .branch4 {
+            width: 80%;
+        }
+
+        .branch5 {
+            width: 80%;
         }
     }
 }
