@@ -26,3 +26,23 @@
         opacity: 1;
     }
 }
+
+.appearFrom {
+    opacity: 0;
+    transition: opacity 0.5s linear, clip-path 0.8s linear;
+    //clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    overflow: hidden;
+
+    &.appearFromLeft {
+        clip-path: polygon(99% 0, 100% 0, 100% 100%, 99% 100%);
+    }
+
+    &.appearFromRight {
+        clip-path: polygon(0 0, 1% 0, 1% 100%, 0 100%);
+    }
+
+    &.visible {
+        opacity: 1;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}

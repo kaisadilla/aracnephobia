@@ -6,7 +6,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import SVG from 'assets/img/svg';
 import { IMG } from 'assets/img/img';
 import SiteImage from 'components/SiteImage';
-import { EnterByScalingUp, EnterFromAnimation } from './animations';
+import { AppearFromAnimation, EnterByScalingUp, EnterFromAnimation } from './animations';
 
 export interface EducationProps {
     
@@ -28,6 +28,8 @@ function Education (props: EducationProps) {
             scrollbarSize={isPhone ? "1em" : "4em"}
         >
             <div className={$cl(styles.sectionContent, styles.education)}>
+
+            <div className={styles.content}>
 
             <EnterByScalingUp className={styles.communication}>
                 <div><SVG.about.education.wordCommunication /></div>
@@ -72,6 +74,75 @@ function Education (props: EducationProps) {
                         >
                             <SiteImage image={IMG.about.education.colon} />
                         </_Branch>
+                        <_Branch
+                            className={styles.trazosDesc}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch6 />}
+                        >
+                            <div className={styles.date}>2015 - 2016</div>
+                            <div className={styles.body}>
+                                Concept Art e Ilustración Digital.
+                            </div>
+                            <div className={styles.date}>2016 - 2017</div>
+                            <div className={styles.body}>
+                                Márketing Digital.
+                            </div>
+                            <div className={styles.date}>2017 - 2018</div>
+                            <div className={styles.body}>
+                                Motion Graphics.
+                            </div>
+                            <div className={styles.date}>2018 - 2019</div>
+                            <div className={styles.body}>
+                                Diseño Gráfico.
+                            </div>
+                        </_Branch>
+                        <_Branch
+                            className={styles.valleyLogo}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch8 />}
+                        >
+                            <SiteImage image={IMG.about.education.valley} />
+                        </_Branch>
+                        <_Branch
+                            className={styles.euroinnovaDesc}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch10 />}
+                        >
+                            <div className={styles.date}>2022 - 2023</div>
+                            <div className={styles.body}>
+                                Higiénico Sanitario, Micropigmentación y Tatuaje.
+                            </div>
+                        </_Branch>
+                        <_Branch
+                            className={styles.domestikaLogo}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch12 />}
+                        >
+                            <SiteImage image={IMG.about.education.domestika} />
+                        </_Branch>
+                        <_Branch
+                            className={styles.nuclioDesc}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<_Branch14 />}
+                        >
+                            <div className={styles.date}>2024 - 2025</div>
+                            <div className={styles.body}>
+                                Máster en UX / UI y Creación de Páginas Web.
+                            </div>
+                        </_Branch>
+                        <_Branch
+                            className={styles._35mmLogo}
+                            contentClassName={styles.desc}
+                            side='left'
+                            branch={<></>}
+                        >
+                            <SiteImage image={IMG.about.education._35mm} />
+                        </_Branch>
                     </div>
                     <div className={styles.treeRoot} />
                     <div className={styles.right}>
@@ -107,12 +178,109 @@ function Education (props: EducationProps) {
                                 Comunicación en redes y Community Management.
                             </div>
                         </_Branch>
+                        <_Branch
+                            className={styles.trazosLogo}
+                            side='right'
+                            branch={<_Branch7 />}
+                        >
+                            <SiteImage image={IMG.about.education.trazos} />
+                        </_Branch>
+                        <_Branch
+                            className={styles.valleyDesc}
+                            contentClassName={styles.desc}
+                            side='right'
+                            branch={<_Branch9 />}
+                        >
+                            <div className={styles.date}>2019 - 2020</div>
+                            <div className={styles.body}>
+                                Máster en Márketing Digital Estratégico.
+                            </div>
+                        </_Branch>
+                        <_Branch
+                            className={styles.euroinnovaLogo}
+                            side='right'
+                            branch={<_Branch11 />}
+                        >
+                            <SiteImage image={IMG.about.education.euroinnova} />
+                        </_Branch>
+                        <_Branch
+                            className={styles.domestikaDesc}
+                            contentClassName={styles.desc}
+                            side='right'
+                            branch={<_Branch13 />}
+                        >
+                            <div className={styles.date}>2020 - 2025</div>
+                            <div className={styles.body}>
+                                Diseño Gráfico y Comunicación Visual.
+                                <br />
+                                Tatuaje para Principiantes.
+                                <br />
+                                Técnicas de Tatuaje Blackwork.
+                                <br />
+                                Pepper Shading.
+                                <br />
+                                Técnica de Color para Tatuajes.
+                                <br />
+                                Introducción a Procreate.
+                                <br />
+                                Retrato de Personajes Femeninos.
+                                <br />
+                                Principios de Iluminación para Pintura Digital.
+                                <br />
+                                Ilustraciones Animadas Frame a Frame.
+                                <br />
+                                Introducción a Adobe Photoshop.
+                                <br />
+                                Pintura e Ilustración Realista en Procreate.
+                                <br />
+                                Ilustración Digital con Procreate.
+                                <br />
+                                Fotografía Profesional para Instagram.
+                                <br />
+                                Estrategia de Contenidos.
+                                <br />
+                                After Effects para Profesionales.
+                                <br />
+                                Figma de la A a la Z.
+                                <br />
+                                Videojuegos con Métodos UX.
+                            </div>
+                        </_Branch>
+                        <_Branch
+                            className={styles.nuclioLogo}
+                            side='right'
+                            branch={<_Branch15 />}
+                        >
+                            <SiteImage image={IMG.about.education.nuclio} />
+                        </_Branch>
+                        <_Branch
+                            className={styles._35mmDesc}
+                            contentClassName={styles.desc}
+                            side='right'
+                            branch={<></>}
+                        >
+                            <div className={styles.date}>2025 - 2027</div>
+                            <div className={styles.body}>
+                                Máster en Animación 2D y Narrativa (en curso).
+                            </div>
+                        </_Branch>
                     </div>
                 </div>
                 <div className={styles.destroy}>
+                    <SiteImage className={styles.word} image={IMG.about.destroy} />
+                    <SiteImage
+                        className={styles.web}
+                        image={IMG.about.destroy_web}
+                        //style={{maskImage: `url(${IMG.about.destroy_web_perlin})`}}
+                    />
+                    {false && <SiteImage className={styles.perlin} image={IMG.about.destroy_web_perlin} />}
                 </div>
             </div>
 
+            <SiteImage className={styles.footer} image={IMG.about.footer_education} />
+
+            </div>
+            
             </div>
 
         </ScrollArea>
@@ -135,7 +303,7 @@ function _Branch ({
     children,
 }: _BranchProps) {
     return (
-        <div className={$cl(styles.branch, className)}>
+        <AppearFromAnimation from={side} className={$cl(styles.branch, className)}>
             <div
                 className={$cl(styles.content, contentClassName)}
                 style={{
@@ -155,7 +323,7 @@ function _Branch ({
             >
                 {branch}
             </div>
-        </div>
+        </AppearFromAnimation>
     );
 }
 
@@ -193,6 +361,66 @@ function _Branch5 () {
     const Branch = SVG.about.education.branches[5];
     
     return <Branch className={styles.branch5} />;
+}
+
+function _Branch6 () {
+    const Branch = SVG.about.education.branches[6];
+    
+    return <Branch className={styles.branch6} />;
+}
+
+function _Branch7 () {
+    const Branch = SVG.about.education.branches[7];
+    
+    return <Branch className={styles.branch7} />;
+}
+
+function _Branch8 () {
+    const Branch = SVG.about.education.branches[8];
+    
+    return <Branch className={styles.branch8} />;
+}
+
+function _Branch9 () {
+    const Branch = SVG.about.education.branches[9];
+    
+    return <Branch className={styles.branch9} />;
+}
+
+function _Branch10 () {
+    const Branch = SVG.about.education.branches[10];
+    
+    return <Branch className={styles.branch10} />;
+}
+
+function _Branch11 () {
+    const Branch = SVG.about.education.branches[11];
+    
+    return <Branch className={styles.branch11} />;
+}
+
+function _Branch12 () {
+    const Branch = SVG.about.education.branches[12];
+    
+    return <Branch className={styles.branch12} />;
+}
+
+function _Branch13 () {
+    const Branch = SVG.about.education.branches[13];
+    
+    return <Branch className={styles.branch13} />;
+}
+
+function _Branch14 () {
+    const Branch = SVG.about.education.branches[14];
+    
+    return <Branch className={styles.branch14} />;
+}
+
+function _Branch15 () {
+    const Branch = SVG.about.education.branches[15];
+    
+    return <Branch className={styles.branch15} />;
 }
 
 

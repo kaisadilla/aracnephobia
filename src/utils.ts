@@ -9,7 +9,7 @@
  */
  export function $cl (
     ...params: (string | boolean | [string, boolean | undefined] | undefined | null)[]
-) : string
+) : string | undefined
 {
     let str = "";
 
@@ -34,7 +34,8 @@
         }
     }
 
-    return str.trim();
+    const cls = str.trim();
+    return cls === "" ? undefined : cls;
 }
 
 export function clampNumber (num: number, min: number, max: number) {

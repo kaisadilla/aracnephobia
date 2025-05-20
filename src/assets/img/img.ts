@@ -91,10 +91,20 @@ import about_hw_figma from "./about/hardware/figma.webp";
 import about_communication_bg from "./about/communication_bg.webp";
 import about_visuals from "./about/visuals.webp";
 import about_strategy from "./about/strategy.webp";
+import about_destroy from "./about/destroy.webp";
+import about_destroy_web from "./about/destroy_web.webp";
+import about_destroy_web_perlin from "./about/destroy_web_perlin.webp";
+import about_footer_education from "./about/footer_education.webp";
 
 import about_ed_esdip from "./about/education/esdip.webp";
 import about_ed_esco from "./about/education/esco.webp";
 import about_ed_colon from "./about/education/colon.webp";
+import about_ed_trazos from "./about/education/trazos.webp";
+import about_ed_valley from "./about/education/valley.webp";
+import about_ed_euroinnova from "./about/education/euroinnova.webp";
+import about_ed_domestika from "./about/education/domestika.webp";
+import about_ed_nuclio from "./about/education/nuclio.webp";
+import about_ed_35mm from "./about/education/35mm.webp";
 
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
@@ -238,11 +248,21 @@ export const IMG = {
         communication_bg: about_communication_bg,
         visuals: about_visuals,
         strategy: about_strategy,
+        destroy: about_destroy,
+        destroy_web: about_destroy_web,
+        destroy_web_perlin: about_destroy_web_perlin,
+        footer_education: about_footer_education,
 
         education: {
             esdip: about_ed_esdip,
             esco: about_ed_esco,
             colon: about_ed_colon,
+            trazos: about_ed_trazos,
+            valley: about_ed_valley,
+            euroinnova: about_ed_euroinnova,
+            domestika: about_ed_domestika,
+            nuclio: about_ed_nuclio,
+            _35mm: about_ed_35mm,
         },
 
         // <--- TODO: MOVE --->

@@ -1482,6 +1482,16 @@
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 4rem;
+    width: 100vw;
+    overflow-x: auto;
+}
+
+.sectionContent.education > .content {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     > .communication {
         position: relative;
@@ -1533,6 +1543,7 @@
         background-size: contain;
         display: flex;
         margin-top: calc(70px - 4.3vw);
+        z-index: 1000;
 
         > img {
             position: absolute;
@@ -1547,10 +1558,17 @@
     > .credTree {
         $height-esdip: 180px;
         $height-esco: 220px;
-        $height-colon: 240px;
+        $height-colon: 180px;
+        $height-trazos: 360px;
+        $height-valley: 320px;
+        $height-euroinnova: 280px;
+        $height-domestika: 620px;
+        $height-nuclio: 320px;
+        $height-35mm: 240px;
 
         margin-top: -1px;
         width: 100%;
+        overflow: hidden;
 
         > .credSection {
             width: 100%;
@@ -1565,6 +1583,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 3rem;
+                margin-bottom: 80px;
 
                 > .visuals {
                     width: 100%;
@@ -1593,6 +1612,45 @@
 
                     > .content > img {
                         width: 90%;
+                    }
+                }
+
+                > .trazosDesc {
+                    height: $height-trazos;
+                }
+
+                > .valleyLogo {
+                    height: $height-valley;
+
+                    > .content {
+                        > img {
+                            margin-right: 5rem;
+                            width: 50%;
+                        }
+                    }
+                }
+
+                > .euroinnovaDesc {
+                    height: $height-euroinnova;
+                }
+
+                > .domestikaLogo {
+                    height: $height-domestika;
+
+                    > .content > img {
+                        width: 90%;
+                    }
+                }
+
+                > .nuclioDesc {
+                    height: $height-nuclio;
+                }
+
+                > ._35mmLogo {
+                    height: $height-35mm;
+
+                    > .content > img {
+                        width: 70%;
                     }
                 }
             }
@@ -1633,8 +1691,81 @@
                 > .colonDesc {
                     height: $height-colon;
                 }
+
+                > .trazosLogo {
+                    height: $height-trazos;
+
+                    img {
+                        width: 80%;
+                    }
+                }
+
+                > .valleyDesc {
+                    height: $height-valley;
+                }
+
+                > .euroinnovaLogo {
+                    height: $height-euroinnova;
+
+                    img {
+                        width: 75%;
+                    }
+                }
+
+                > .domestikaDesc {
+                    height: $height-domestika;
+                }
+
+                > .nuclioLogo {
+                    height: $height-nuclio;
+
+                    img {
+                        width: 85%;
+                    }
+                }
+
+                > ._35mmDesc {
+                    height: $height-35mm;
+                }
             }
         }
+
+        > .destroy {
+            width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            
+            > .word {
+                margin-left: 20px;
+                width: 186px;
+            }
+
+            > .web {
+                position: absolute;
+                width: 100%;
+                top: -80px;
+                left: 0;
+            }
+
+            > .perlin {
+                position: absolute;
+                width: 100%;
+                top: -80px;
+                left: 0;
+            }
+        }
+    }
+
+    > .footer {
+        margin-top: 1rem;
+        width: 95%;
+    }
+}
+
+@include when-tablet {
+    .sectionContent.education {
+
     }
 }
 
@@ -1703,11 +1834,59 @@
         .branch5 {
             width: 80%;
         }
+
+        .branch6 {
+            width: 90%;
+        }
+
+        .branch7 {
+            width: 70%;
+        }
+
+        .branch8 {
+            width: 72%;
+            margin-right: -8px;
+            transform: translateY(15px);
+        }
+
+        .branch9 {
+            width: 87%;
+        }
+
+        .branch10 {
+            width: 80%;
+            padding-bottom: 8px;
+        }
+
+        .branch11 {
+            width: 80%;
+        }
+
+        .branch12 {
+            width: 90%;
+            margin-right: -9px;
+            padding-bottom: 2px;
+        }
+
+        .branch13 {
+            width: 60%;
+            margin-left: 9px;
+        }
+
+        .branch14 {
+            width: 88%;
+        }
+
+        .branch15 {
+            width: 86%;
+        }
     }
 }
 
-@include when-desktop {
+@include when-tablet {
     .sectionContent.education {
+        width: 100%;
+
         > .ganesha {
             margin-top: unset;
         }
