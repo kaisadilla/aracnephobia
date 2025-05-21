@@ -36,15 +36,17 @@ export function EnterFromAnimation ({
 }
 
 interface EnterByScalingUpProps extends DivProps {
+    threshold?: number;
     children?: React.ReactNode;
 }
 
 export function EnterByScalingUp ({
+    threshold = 0,
     children,
     className,
     ...divProps
 }: EnterByScalingUpProps) {
-    const { ref, isVisible } = useVisible({ threshold: 0 });
+    const { ref, isVisible } = useVisible({ threshold });
 
     return (
         <div

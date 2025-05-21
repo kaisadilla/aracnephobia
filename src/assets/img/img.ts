@@ -61,6 +61,7 @@ import about_anim_bg_1 from "./about/anim_bg_1.gif";
 import about_aracne_photo1 from "./about/aracne_photo1.webp";
 import about_anim_bg_2 from "./about/anim_bg_2.gif";
 import about_aracne_photo2 from "./about/aracne_photo2.webp";
+import about_aracne_photo3 from "./about/aracne_photo3.webp";
 import about_ornaments1 from "./about/ornaments1.webp";
 import about_ornaments2 from "./about/ornaments2.2x.webp";
 import about_ornaments3 from "./about/ornaments3.2x.webp";
@@ -123,9 +124,12 @@ import about_ed_35mm from "./about/education/35mm.webp";
 
 import about_trajectory_border from "./about/trajectory_border.webp";
 import about_trajectory from "./about/trajectory.webp";
+import about_tali from "./about/tali.webp";
+import about_eyes_galore from "./about/eyes_galore.webp";
 
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
+import art_dev_designer from "./art/dev_designer.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -234,6 +238,7 @@ export const IMG = {
         aracne_photo1: about_aracne_photo1,
         anim_bg2: about_anim_bg_2,
         aracne_photo2: about_aracne_photo2,
+        aracne_photo3: about_aracne_photo3,
         ornaments1: about_ornaments1,
         ornaments2: about_ornaments2,
         ornaments3: about_ornaments3,
@@ -300,6 +305,8 @@ export const IMG = {
 
         trajectory_border: about_trajectory_border,
         trajectory: about_trajectory,
+        tali: about_tali,
+        eyes_galore: about_eyes_galore,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,
@@ -322,6 +329,7 @@ export const IMG = {
     art: {
         aracne_family: art_aracne_family,
         aracne_ganesha: art_aracne_ganesha,
+        dev_designer: art_dev_designer,
     },
     navigator: {
         blog: navigator_blog,
