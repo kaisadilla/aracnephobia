@@ -86,7 +86,22 @@ import about_fake_controls from './about/fake_controls.webp';
 import about_cat_lines from './about/cat_lines.webp';
 import about_panic from './about/panic.webp';
 
-import about_hw_figma from "./about/hardware/figma.webp";
+import about_sw_figma from "./about/software/figma.webp";
+import about_sw_procreate from "./about/software/procreate.webp";
+import about_sw_clip_studio_paint from "./about/software/clip_studio_paint.webp";
+import about_sw_easy_tool_sai from "./about/software/easy_tool_sai.webp";
+import about_sw_photoshop from "./about/software/photoshop.webp";
+import about_sw_illustrator from "./about/software/illustrator.webp";
+import about_sw_in_design from "./about/software/in_design.webp";
+import about_sw_premiere from "./about/software/premiere.webp";
+import about_sw_final_cut_pro from "./about/software/final_cut_pro.webp";
+import about_sw_after_effects from "./about/software/after_effects.webp";
+import about_sw_apple_motion from "./about/software/apple_motion.webp";
+import about_sw_toon_boom_harmony from "./about/software/toon_boom_harmony.webp";
+import about_sw_meta from "./about/software/meta.webp";
+import about_sw_adsense from "./about/software/adsense.webp";
+import about_sw_wordpress from "./about/software/wordpress.webp";
+import about_sw_microsoft_365 from "./about/software/microsoft_365.webp";
 
 import about_communication_bg from "./about/communication_bg.webp";
 import about_visuals from "./about/visuals.webp";
@@ -241,8 +256,23 @@ export const IMG = {
         cat_lines: about_cat_lines,
         panic: about_panic,
 
-        hardware: {
-            figma: about_hw_figma,
+        software: {
+            adsense: about_sw_adsense,
+            after_effects: about_sw_after_effects,
+            apple_motion: about_sw_apple_motion,
+            clip_studio_paint: about_sw_clip_studio_paint,
+            easy_tool_sai: about_sw_easy_tool_sai,
+            figma: about_sw_figma,
+            final_cut_pro: about_sw_final_cut_pro,
+            illustrator: about_sw_illustrator,
+            in_design: about_sw_in_design,
+            meta: about_sw_meta,
+            microsoft_365: about_sw_microsoft_365,
+            photoshop: about_sw_photoshop,
+            premiere: about_sw_premiere,
+            procreate: about_sw_procreate,
+            toon_boom_harmony: about_sw_toon_boom_harmony,
+            wordpress: about_sw_wordpress,
         },
 
         communication_bg: about_communication_bg,

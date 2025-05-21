@@ -1162,16 +1162,23 @@
     }
 
     > .softwareContainer {
+        $aside-width: 192px;
+
         display: flex;
         flex-direction: row;
-        height: 1000px;
+        //height: 1000px;
         width: 100%;
+
+        > .left, > .right {
+            width: $aside-width;
+            background-size: contain;
+        }
 
         > .left {
             display: none;
-            height: 100%;
 
             > img {
+                width: 100%;
                 height: 100%;
             }
         }
@@ -1179,7 +1186,11 @@
         > .center {
             flex: 1;
             height: 100%;
-                overflow: hidden;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
 
             .winFrame {
                 border: none;
@@ -1195,10 +1206,10 @@
 
         > .right {
             display: none;
-            height: 100%;
 
             > img {
                 height: 100%;
+                width: 100%;
             }
         }
     }
@@ -1239,6 +1250,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    height: 300px;
 
     > .pic {
         width: 100%;
@@ -1256,6 +1268,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
+        flex: 1;
 
         > .txt {
             display: flex;
@@ -1274,6 +1287,7 @@
             > .desc {
                 font-family: var(--font-manjari);
                 font-weight: 400;
+                line-height: 0.8lh;
             }
         }
     }
@@ -1386,8 +1400,18 @@
 
         > .softwareContainer {
             > .center {
+                > div {
+                    width: 90%;
+                }
+
                 .winFrame {
                     border: var(--border-half-width) solid var(--color-about-secondary);
+                }
+
+                .container {
+                    padding: 1rem;
+                    justify-content: center;
+                    gap: 1rem;
                 }
             }
         }
@@ -1447,6 +1471,12 @@
         > .softwareContainer {
             > .left, > .right {
                 display: block;
+            }
+
+            > .center {
+                > div {
+                    width: 100%;
+                }
             }
         }
 
