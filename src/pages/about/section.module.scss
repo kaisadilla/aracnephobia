@@ -1923,6 +1923,63 @@
     }
 }
 
+.sectionContent.experience {
+    > .trajectoryContainer {
+        position: relative;
+        width: 100%;
+        border: 1px solid red;
+
+        > .impossibleContainer {
+            width: 100%;
+
+            > svg {
+                margin: -8px 0;
+
+                &:nth-child(odd) {
+                    fill: var(--color-about-primary);
+                }
+
+                &:nth-child(even) {
+                    fill: none;
+                    stroke: var(--color-about-primary);
+                    stroke-width: 0.2rem;
+                }
+            }
+        }
+
+        > .border {
+            width: 100%;
+        }
+
+        > .trajectoryWindow {
+            position: absolute;
+            width: calc(100% - 220px);
+            height: min(800px, 90vh);
+            bottom: 125px;
+            left: 110px;
+
+            .trajectoryFrame {
+                background-color: var(--color-about-secondary);
+                //background-color: #ddd;
+                overflow: hidden;
+                border: 1px solid red;
+
+                > .trajectoryFrame2 {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+
+                    > .trajectory {
+                        position: relative;
+                        height: calc(150% + 2rem);
+                        padding: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .featureCell {
     $border-radius: 0.75rem;
 

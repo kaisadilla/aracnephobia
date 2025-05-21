@@ -10,6 +10,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import Skills from './Skills';
 import Tools from './Tools';
 import Education from './Education';
+import Experience from './Experience';
 
 type Section = 'about'
     | 'skills'
@@ -119,6 +120,7 @@ function AboutPage (props: AboutPageProps) {
                     {section === 'skills' && <Skills />}
                     {section === 'tools' && <Tools />}
                     {section === 'education' && <Education />}
+                    {section === 'experience' && <Experience />}
                 </div>
             </div>
 

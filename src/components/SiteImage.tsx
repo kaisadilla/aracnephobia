@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { ImageSrc } from 'assets/img/img';
 import { Except, ImgProps } from 'types';
 import { $cl } from 'utils';
@@ -7,18 +7,19 @@ export interface SiteImageProps extends Except<ImgProps, 'src'> {
     image: ImageSrc;
 }
 
-function SiteImage ({
+const SiteImage = forwardRef<HTMLImageElement, SiteImageProps>(function SiteImage ({
     image,
     alt,
     draggable = false,
     ...imgProps
-}: SiteImageProps) {
+}, ref) {
     const src = typeof image === 'string' ? image : image.src;
     const srcSet = typeof image === 'string' ? undefined : image.srcSet;
     //alt ??= noAlt ? undefined : (typeof image === 'string' ? image : image.alt);
 
     return (
         <img
+            ref={ref}
             src={src}
             srcSet={srcSet}
             alt={alt}
@@ -26,6 +27,6 @@ function SiteImage ({
             {...imgProps}
         />
     );
-}
+});
 
 export default SiteImage;

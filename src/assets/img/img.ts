@@ -121,6 +121,9 @@ import about_ed_domestika from "./about/education/domestika.webp";
 import about_ed_nuclio from "./about/education/nuclio.webp";
 import about_ed_35mm from "./about/education/35mm.webp";
 
+import about_trajectory_border from "./about/trajectory_border.webp";
+import about_trajectory from "./about/trajectory.webp";
+
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
 
@@ -294,6 +297,9 @@ export const IMG = {
             nuclio: about_ed_nuclio,
             _35mm: about_ed_35mm,
         },
+
+        trajectory_border: about_trajectory_border,
+        trajectory: about_trajectory,
 
         // <--- TODO: MOVE --->
         animation: about_animation_2,
