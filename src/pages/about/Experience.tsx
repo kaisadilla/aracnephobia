@@ -18,7 +18,7 @@ function Experience (props: ExperienceProps) {
     // Trajectory components
     const containerRef = useRef<HTMLDivElement>(null);
     const trajRef = useRef<HTMLImageElement>(null);
-    const [pos, setPos] = useState({ x: 0, y: 0 });
+    const [pos, setPos] = useState({ x: 0, y: -370 });
     const [isDragging, setDragging] = useState(false);
     const start = useRef({ x: 0, y: 0 });
 
@@ -58,7 +58,7 @@ function Experience (props: ExperienceProps) {
                     <Window
                         className={styles.trajectoryWindow}
                         frameClassName={styles.trajectoryFrame}
-                        title=""
+                        title="History.me"
                     >
                         <div ref={containerRef} className={styles.trajectoryFrame2}>
                             <SiteImage

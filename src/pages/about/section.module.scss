@@ -1924,10 +1924,12 @@
 }
 
 .sectionContent.experience {
+    width: 100%;
+
     > .trajectoryContainer {
         position: relative;
         width: 100%;
-        border: 1px solid red;
+        height: calc(100vh - 220px);
 
         > .impossibleContainer {
             width: 100%;
@@ -1953,18 +1955,18 @@
 
         > .trajectoryWindow {
             position: absolute;
-            width: calc(100% - 220px);
-            height: min(800px, 90vh);
-            bottom: 125px;
-            left: 110px;
+            width: 100%;
+            height: calc(100vh - 220px);
+            top: 0;
+            left: 0;
 
             .trajectoryFrame {
                 background-color: var(--color-about-secondary);
                 //background-color: #ddd;
                 overflow: hidden;
-                border: 1px solid red;
 
                 > .trajectoryFrame2 {
+                    cursor: move;
                     width: 100%;
                     height: 100%;
                     overflow: hidden;
@@ -1975,6 +1977,39 @@
                         padding: 2rem;
                     }
                 }
+            }
+        }
+    }
+}
+
+@include when-tablet {
+    .sectionContent.experience {
+        padding-top: 1.5rem;
+
+        > .trajectoryContainer {
+            height: unset;
+
+            > .trajectoryWindow {
+                width: calc(100% - 17.5vw);
+                height: min(800px, 90vh);
+                top: unset;
+                left: min(110px, 9vw);
+                bottom: min(125px, 10.2vw);
+            }
+        }
+    }
+}
+
+@include when-desktop {
+    .sectionContent.experience {
+        padding-top: 0;
+        
+        > .trajectoryContainer {
+
+            > .trajectoryWindow {
+                width: calc(100% - 220px);
+                bottom: 125px;
+                left: 110px;
             }
         }
     }

@@ -93,7 +93,7 @@ function AboutPage (props: AboutPageProps) {
                         <span>Experience</span>
                     </button>
                 </div>
-                <SiteImage image={IMG.about.header_ae_logo} />
+                <SiteImage className={styles.aeLogo} image={IMG.about.header_ae_logo} />
                 <div className={styles.title}>
                     {section === 'about' && "About me"}
                     {section === 'skills' && "Skills"}

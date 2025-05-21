@@ -206,8 +206,8 @@
             border-bottom: var(--border-width) solid var(--color-about-primary);
             min-height: 64px;
 
-            > img {
-                display: block;
+            > .aeLogo {
+                display: none;
             }
 
             > .ribbon {
@@ -238,6 +238,10 @@
     .page {
         .navbar {
             gap: 5rem;
+
+            > .aeLogo {
+                display: block;
+            }
         }
     }
 }
