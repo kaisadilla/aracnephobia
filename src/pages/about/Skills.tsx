@@ -16,6 +16,7 @@ import ReactPlayer from 'react-player';
 import VideoWindow from './VideoWindow';
 import en_US from 'localization/en_US';
 import { useMediaQuery } from '@mantine/hooks';
+import { EnterByScalingDown, EnterByScalingUp, EnterFromAnimation } from './animations';
 
 export interface SkillsProps {
     
@@ -51,58 +52,75 @@ function Skills (props: SkillsProps) {
         </div>
 
         <div className={$cl(styles.g2, styles.skillsText)}>
-            <div className={styles.left}>
+            <EnterFromAnimation from='left' className={styles.left}>
                 <Window className={styles.win} title="skills.exe">
                     <loc.about.skills.skills className={styles.txtContainer} />
                 </Window>
                 <SiteImage image={IMG.about.mental_toxicity} />
-            </div>
-            <div className={styles.right} style={{
+            </EnterFromAnimation>
+            <EnterFromAnimation from='right' className={styles.right} style={{
                 backgroundImage: `url(${IMG.about.anim_bg1})`
             }}>
                 <SiteImage image={IMG.about.guapisima} />
-            </div>
+            </EnterFromAnimation>
         </div>
-
-        <Window
-            className={$cl(styles.skillWindow, styles.artSkills)}
-            title='art.skills'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Concept art"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Digital painting"
-                    icon={<SVG.about.skills.digitalPainting />}
-                />
-                <_ArtSkill
-                    className={styles.comicArtist}
-                    title="Comic artist"
-                    icon={<SVG.about.skills.comicArtist />}
-                />
-                <_ArtSkill
-                    className={styles.tattooDesign}
-                    title="Tattoo design"
-                    icon={<SVG.about.skills.tattooDesign />}
-                />
-            </div>
-        </Window>
+        
+        <EnterFromAnimation from='left'>
+            <Window
+                className={$cl(styles.skillWindow, styles.artSkills)}
+                title='art.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Concept art"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Digital painting"
+                        icon={<SVG.about.skills.digitalPainting />}
+                    />
+                    <_ArtSkill
+                        className={styles.comicArtist}
+                        title="Comic artist"
+                        icon={<SVG.about.skills.comicArtist />}
+                    />
+                    <_ArtSkill
+                        className={styles.tattooDesign}
+                        title="Tattoo design"
+                        icon={<SVG.about.skills.tattooDesign />}
+                    />
+                </div>
+            </Window>
+        </EnterFromAnimation>
 
         <div className={$cl(styles.g2, styles.videos)}>
-            <div className={styles.left}>
+            <EnterFromAnimation from='left' className={styles.left}>
                 <VideoWindow
                     className={styles.vid}
                     title="move.on"
                     src={video_morgue}
                 />
-            </div>
-            <div className={styles.right}>
+            </EnterFromAnimation>
+            <EnterFromAnimation from='right' className={styles.right}>
                 <div className={styles.tripleWord}>
-                    <SVG.about.wordVideo className={styles.word1} />
-                    <SVG.about.wordVideo className={styles.word2} />
-                    <SVG.about.wordVideo className={styles.word3} />
+                    <EnterByScalingDown
+                        className={styles.word1}
+                        style={{animationDelay: '0.4s'}}
+                    >
+                        <SVG.about.wordVideo />
+                    </EnterByScalingDown>
+                    <EnterByScalingDown
+                        className={styles.word2}
+                        style={{animationDelay: '0.7s'}}
+                    >
+                        <SVG.about.wordVideo />
+                    </EnterByScalingDown>
+                    <EnterByScalingDown
+                        className={styles.word3}
+                        style={{animationDelay: '1s'}}
+                    >
+                        <SVG.about.wordVideo />
+                    </EnterByScalingDown>
                 </div>
                 <VideoWindow
                     className={styles.vid}
@@ -113,148 +131,174 @@ function Skills (props: SkillsProps) {
                 <div className={styles.sector07}>
                     <SiteImage image={IMG.about.sector_07} />
                 </div>
-            </div>
+            </EnterFromAnimation>
         </div>
 
-        <Window
-            className={$cl(styles.skillWindow, styles.videoSkills)}
-            title='video.skills'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Video creator"
-                    className={styles.videoCreator}
-                    icon={<SVG.about.skills.videoCreator />}
-                />
-                <_ArtSkill
-                    title="Video editor"
-                    className={styles.videoEditor}
-                    icon={<SVG.about.skills.videoEditor />}
-                />
-                <_ArtSkill
-                    title="Motion graphics"
-                    icon={<SVG.about.skills.motionGraphics />}
-                />
-                <_ArtSkill
-                    title="2D animation"
-                    className={styles._2dAnimation}
-                    icon={<SVG.about.skills._2dAnimation />}
-                />
-            </div>
-        </Window>
+        <EnterFromAnimation from='right'>
+            <Window
+                className={$cl(styles.skillWindow, styles.videoSkills)}
+                title='video.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Video creator"
+                        className={styles.videoCreator}
+                        icon={<SVG.about.skills.videoCreator />}
+                    />
+                    <_ArtSkill
+                        title="Video editor"
+                        className={styles.videoEditor}
+                        icon={<SVG.about.skills.videoEditor />}
+                    />
+                    <_ArtSkill
+                        title="Motion graphics"
+                        icon={<SVG.about.skills.motionGraphics />}
+                    />
+                    <_ArtSkill
+                        title="2D animation"
+                        className={styles._2dAnimation}
+                        icon={<SVG.about.skills._2dAnimation />}
+                    />
+                </div>
+            </Window>
+        </EnterFromAnimation>
 
-        <div className={styles.minigame}>
+        <EnterByScalingUp className={styles.minigame}>
             TODO
-        </div>
+        </EnterByScalingUp>
 
-        <Window
-            className={$cl(styles.skillWindow, styles.devSkills)}
-            title='dev.skills'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Videogame dev"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Web design"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="UX/UI"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Scrum & agile"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-            </div>
-        </Window>
+        <EnterFromAnimation from='left'>
+            <Window
+                className={$cl(styles.skillWindow, styles.devSkills)}
+                title='dev.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Videogame dev"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Web design"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="UX/UI"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Scrum & agile"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+        </EnterFromAnimation>
 
         <div className={styles.logos}>
-            <SiteImage className={styles.logo} image={IMG.aracnephobia_logo} />
-            <SiteImage className={styles.logo} image={IMG.about.logo_morgue} />
-            <SiteImage className={styles.logo} image={IMG.about.logo_doppie} />
+            <EnterByScalingDown
+                className={styles.logo}
+                threshold={1}
+            >
+                <SiteImage image={IMG.aracnephobia_logo}  />
+            </EnterByScalingDown>
+            <EnterByScalingDown
+                className={styles.logo}
+                threshold={1}
+                style={{animationDelay: "0.35s"}}
+            >
+                <SiteImage image={IMG.about.logo_morgue} />
+            </EnterByScalingDown>
+            <EnterByScalingDown
+                className={styles.logo}
+                threshold={1}
+                style={{animationDelay: "0.7s"}}
+            >
+                <SiteImage image={IMG.about.logo_doppie} />
+            </EnterByScalingDown>
         </div>
 
-        <Window
-            className={$cl(styles.skillWindow, styles.designSkills)}
-            title='design.skills'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Graphic design"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Logo & Branding"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Photography"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-            </div>
-        </Window>
+        <EnterFromAnimation from='right'>
+            <Window
+                className={$cl(styles.skillWindow, styles.designSkills)}
+                title='design.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Graphic design"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Logo & Branding"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Photography"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+        </EnterFromAnimation>
 
         <div className={$cl(styles.g2, styles.photo1)}>
-            <div className={styles.left}>
+            <EnterFromAnimation from='right' className={styles.left}>
                 <SiteImage image={IMG.about.photo1} />
-            </div>
-            <div className={styles.right}>
+            </EnterFromAnimation>
+            <EnterFromAnimation from='right' className={styles.right}>
                 <ChromaticAberrationImage
                     image={IMG.about.design_design_design_design}
                     horizFlicker={12}
                     duration={10}
                     opacity={0.3}
                 />
-            </div>
+            </EnterFromAnimation>
         </div>
 
-        <Window
-            className={$cl(styles.skillWindow, styles.adSkills)}
-            title='advertising.skills'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Marketing"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Influencer Marketing"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Ads analytics"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-            </div>
-        </Window>
+        <EnterByScalingUp>
+            <Window
+                className={$cl(styles.skillWindow, styles.adSkills)}
+                title='advertising.skills'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Influencer Marketing"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Ads analytics"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+        </EnterByScalingUp>
 
-        <SiteImage
-            className={styles.family}
-            image={IMG.art.aracne_family}
-        />
+        <EnterByScalingUp className={styles.family}>
+            <SiteImage image={IMG.art.aracne_family} />
+        </EnterByScalingUp>
 
-        <Window
-            className={$cl(styles.skillWindow, styles.readMeSkills)}
-            title='read.me'
-        >
-            <div className={styles.artContainer}>
-                <_ArtSkill
-                    title="Storytelling"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Copy writer"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-                <_ArtSkill
-                    title="Script writer"
-                    icon={<SVG.about.skills.conceptArt />}
-                />
-            </div>
-        </Window>
+        <EnterByScalingDown>
+            <Window
+                className={$cl(styles.skillWindow, styles.readMeSkills)}
+                title='read.me'
+            >
+                <div className={styles.artContainer}>
+                    <_ArtSkill
+                        title="Storytelling"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Copy writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                    <_ArtSkill
+                        title="Script writer"
+                        icon={<SVG.about.skills.conceptArt />}
+                    />
+                </div>
+            </Window>
+        </EnterByScalingDown>
 
         <div className={$cl(styles.g2, styles.footer)}>
             <div className={styles.left}>

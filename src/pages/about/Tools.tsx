@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './section.module.scss';
 import { ScrollArea } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { EnterByScalingUp, EnterFromAnimation } from './animations';
+import { EnterByScalingDown, EnterByScalingUp, EnterFromAnimation } from './animations';
 import SiteImage from 'components/SiteImage';
 import { IMG } from 'assets/img/img';
 import Window from './Window';
@@ -34,19 +34,27 @@ function Tools (props: ToolsProps) {
                     <SiteImage image={IMG.about.creative_left} />
                 </EnterFromAnimation>
                 <EnterByScalingUp className={styles.center}>
-                    <Window className={styles.win} title="hardware">
+                    <Window
+                        className={styles.win}
+                        title="hardware"
+                        contentClassName={styles.winContent}
+                        frameClassName={styles.winFrame}
+                    >
                         <div className={styles.content}>
                             <_Hardware
                                 pic={IMG.about.hardware_cintiq}
                                 name="Cintiq 22HD"
+                                delay={0.6}
                             />
                             <_Hardware
                                 pic={IMG.about.hardware_ipad}
                                 name="iPad Pro 12.9 (6)"
+                                delay={0.9}
                             />
                             <_Hardware
                                 pic={IMG.about.hardware_camera}
                                 name="Sony Alpha Evil 7"
+                                delay={1.2}
                             />
                         </div>
                     </Window>
@@ -215,15 +223,19 @@ function Tools (props: ToolsProps) {
 interface _HardwareProps {
     pic: string;
     name: string;
+    delay: number;
 }
 
 function _Hardware ({
     pic,
     name,
+    delay,
 }: _HardwareProps) {
-
     return (
-        <div className={styles.hardware}>
+        <EnterByScalingDown
+            className={styles.hardware}
+            style={{animationDelay: `${delay}s`}}
+        >
             <div className={styles.image}>
                 <SiteImage className={styles.bg} image={IMG.about.hardware_bg} />
                 <SiteImage className={styles.pic} image={pic} />
@@ -231,7 +243,7 @@ function _Hardware ({
             <div className={styles.name}>
                 {name}
             </div>
-        </div>
+        </EnterByScalingDown>
     );
 }
 

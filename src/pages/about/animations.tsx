@@ -63,6 +63,29 @@ export function EnterByScalingUp ({
     );
 }
 
+export function EnterByScalingDown ({
+    threshold = 0,
+    children,
+    className,
+    ...divProps
+}: EnterByScalingUpProps) {
+    const { ref, isVisible } = useVisible({ threshold });
+
+    return (
+        <div
+            ref={ref}
+            className={$cl(
+                styles.enterByScalingDown,
+                isVisible && styles.visible,
+                className
+            )}
+            {...divProps}
+        >
+            {children}
+        </div>
+    );
+}
+
 interface AppearFromAnimationProps extends DivProps {
     from: 'left' | 'right';
     children?: React.ReactNode;

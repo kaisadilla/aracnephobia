@@ -7,6 +7,7 @@ import SVG from 'assets/img/svg';
 export interface WindowProps extends DivProps {
     title: string;
     children?: React.ReactNode;
+    contentClassName?: string;
     frameClassName?: string;
 }
 
@@ -14,7 +15,8 @@ function Window ({
     title,
     children,
     className,
-    frameClassName: contentClassName,
+    contentClassName,
+    frameClassName,
     ...divProps
 }: WindowProps) {
 
@@ -33,8 +35,8 @@ function Window ({
                     <div><SVG.about.window.close /></div>
                 </div>
             </div>
-            <div className={styles.content}>
-                <div className={$cl(styles.contentFrame, contentClassName)}>
+            <div className={$cl(styles.content, contentClassName)}>
+                <div className={$cl(styles.contentFrame, frameClassName)}>
                     {children}
                 </div>
             </div>
