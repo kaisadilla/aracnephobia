@@ -2,7 +2,7 @@ import './styles.scss'
 import '@mantine/core/styles.layer.css';
 import 'material-symbols';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import IndexPage from './IndexPage';
 import WipPage from './pages/WipPage';
 import { MantineProvider } from '@mantine/core';
@@ -21,58 +21,67 @@ import { IMG } from 'assets/img/img';
 type AnimState = 'cover' | 'logo' | 'website';
 
 function App() {
-    const [animState, setAnimState] = useState<AnimState>('cover');
-
-    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
-
     return (
         <BrowserRouter>
             <MantineProvider>
-
-            <Routes>
-                <Route index element={<IndexPage />} />
-                <Route path="/wip" element={<WipPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="*" element={
-                    <div className={styles.websiteFrame}>
-                        {animState === 'cover' && <div
-                            className={styles.curtain}
-                            onAnimationEnd={handleCoverAnimationEnd}
-                        >
-                            <img src="/img/curtain-default.svg" />
-                        </div>}
-
-                        {animState === 'logo' && <div
-                            className={$cl(styles.introLogoContainer)}
-                            onAnimationEnd={handleLogoAnimationEnd}
-                        >
-                            <SiteImage
-                                className={styles.introLogo}
-                                image={IMG.aracnephobia_logo}
-                            />
-                        </div>}
-
-                        {animState === 'website' && <>
-                            <div className={styles.headerContainer}>
-                                {isPhone === false && <WebHeader />}
-                                {isPhone && <PhoneHeader />}
-                            </div>
-                            <div className={styles.pageContainer}>
-                                <Routes>
-                                    <Route path="/portfolio" element={<PortfolioPage />} />
-                                </Routes>
-                            </div>
-                            {isPhone === false && <div className={styles.navigator}>
-                                <Navigator />
-                            </div>}
-                        </>}
-                    </div>
-                } />
-            </Routes>
-
+                <_RouterContent />
             </MantineProvider>
         </BrowserRouter>
     );
+}
+
+function _RouterContent () {
+    const loc = useLocation();
+
+    const [animState, setAnimState] = useState<AnimState>(
+        loc.pathname === "/about" ? 'website' : 'cover'
+    );
+
+    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
+
+    return (<>
+        <Routes>
+            <Route index element={<IndexPage />} />
+            <Route path="/wip" element={<WipPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={
+                <div className={styles.websiteFrame}>
+                    {animState === 'cover' && <div
+                        className={styles.curtain}
+                        onAnimationEnd={handleCoverAnimationEnd}
+                    >
+                        <img src="/img/curtain-default.svg" />
+                    </div>}
+
+                    {animState === 'logo' && <div
+                        className={$cl(styles.introLogoContainer)}
+                        onAnimationEnd={handleLogoAnimationEnd}
+                    >
+                        <SiteImage
+                            className={styles.introLogo}
+                            image={IMG.aracnephobia_logo}
+                        />
+                    </div>}
+
+                    {animState === 'website' && <>
+                        <div className={styles.headerContainer}>
+                            {isPhone === false && <WebHeader />}
+                            {isPhone && <PhoneHeader />}
+                        </div>
+                        <div className={styles.pageContainer}>
+                            <Routes>
+                                <Route path="/portfolio" element={<PortfolioPage />} />
+                            </Routes>
+                        </div>
+                    </>}
+                </div>
+            } />
+        </Routes>
+        
+        {isPhone === false && animState === 'website' && <div className={styles.navigator}>
+            <Navigator />
+        </div>}
+    </>);
 
     function handleCoverAnimationEnd () {
         setAnimState('logo');
@@ -84,5 +93,6 @@ function App() {
         }
     }
 }
+
 
 export default App

@@ -27,7 +27,7 @@
         }
     
         &:not(.selected):hover {
-            background-color: var(--color-primary);
+            background-color: var(--color-highlight1);
             color: var(--color-os-text-dark);
         }
     }
@@ -68,7 +68,7 @@
                 color: white;
 
                 &:hover {
-                    background-color: var(--color-primary);
+                    background-color: var(--color-highlight1);
                 }
             }
         }
@@ -118,7 +118,7 @@
         }
 
         .close {
-            background-color: var(--color-primary);
+            background-color: var(--color-highlight1);
 
             &:hover {
                 background-color: var(--color-os-primary);
@@ -177,7 +177,7 @@
         }
 
         &:hover {
-            background-color: var(--color-primary);
+            background-color: var(--color-highlight1);
         }
     }
 }
@@ -235,7 +235,7 @@
                 }
 
                 &:hover {
-                    background-color: var(--color-primary);
+                    background-color: var(--color-highlight1);
                 }
             }
         }
@@ -265,7 +265,7 @@
         color: var(--color-os-text-dark);
 
         &:hover {
-            background-color: var(--color-primary);
+            background-color: var(--color-highlight1);
         }
     }
 
@@ -345,7 +345,7 @@
             z-index: 100;
 
             &:hover {
-                border-left-color: var(--color-primary);
+                border-left-color: var(--color-highlight1);
             }
         }
     }
@@ -420,7 +420,7 @@
                         background-color: var(--color-os-primary);
 
                         &.selected {
-                            background-color: var(--color-primary);
+                            background-color: var(--color-highlight1);
                         }
                     }
                 }

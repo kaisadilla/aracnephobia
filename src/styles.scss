@@ -2,22 +2,22 @@
 @import "mantine.scss";
 
 :root {
-    --color-primary-l1: #ff33ae;
-    --color-primary: #ff009a;
-    --color-primary-d1: #be0071;
+    --color-highlight1-l1: #ff33ae;
+    --color-highlight1: #ff009a;
+    --color-highlight1-d1: #be0071;
 
-    --color-secondary-l1: #33ffff;
-    --color-secondary: #00ffff;
-    --color-secondary-d1: #00cccc;
+    --color-highlight2-l1: #33ffff;
+    --color-highlight2: #00ffff;
+    --color-highlight2-d1: #00cccc;
 
     --color-translucid: #ffffffb2;
     --color-translucid-contrast: #63605b;
-    
-    --color-navigator: white;
-    --color-navigator-text: #303030;
 
-    --color-about-primary: #2c3137;
-    --color-about-secondary: #c2bba8;
+    --color-primary: #2c3137;
+    --color-secondary: #c2bba8;
+    
+    --color-navigator: var(--color-primary);
+    --color-navigator-text: var(--color-secondary);
 
     --color-os-primary-l3: #d9d9d9;
     --color-os-primary-l2: #c3c7c7;
@@ -28,7 +28,7 @@
 
     --min-desktop: 50rem;
 
-    --background: var(--color-primary);
+    --background: var(--color-highlight1);
 
     --navigator-height: 7vw;
 
@@ -388,7 +388,7 @@ a {
     83% {
         transform: scaleX(1) scaleY(1) skewX(0deg);
         fill: none;
-        stroke: var(--color-secondary);
+        stroke: var(--color-highlight2);
     }
     84% {
         transform: scaleX(1.5) scaleY(.2) skewX(80deg);

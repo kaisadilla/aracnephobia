@@ -21,7 +21,7 @@
 
 @keyframes blink-caret {
     from, to {
-        color: var(--color-primary);
+        color: var(--color-highlight1);
     }
     50% {
         color: transparent;

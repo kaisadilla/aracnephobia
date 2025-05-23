@@ -1,7 +1,6 @@
 $jump-height: 5vh;
 
 .navigatorContainer {
-
     width: 100%;
     height: var(--navigator-height);
     //background-color: #ff000040;
@@ -34,6 +33,10 @@ $jump-height: 5vh;
         justify-content: space-evenly;
         align-items: end;
 
+        &:hover {
+            border-color: var(--color-highlight1);
+        }
+
         .left, .center, .right {
             overflow: hidden;
             display: flex;
@@ -62,10 +65,10 @@ $jump-height: 5vh;
 
             &:hover {
                 cursor: pointer;
-                border-color: var(--color-primary);
+                border-color: var(--color-highlight1);
 
                 svg, .label {
-                    color: var(--color-primary);
+                    color: var(--color-highlight1);
                 }
             }
         }

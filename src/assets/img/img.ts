@@ -10,6 +10,7 @@ import lettering from "./logo-lettering.webp";
 import lettering_1_5 from "./logo-lettering.1_5x.webp";
 import lettering_2 from "./logo-lettering.2x.webp";
 import lettering_sq_black from "./logo-lettering-sq-black.webp";
+import lettering_sq_pink from "./logo-lettering-sq-pink.webp";
 import menu_divider from "./menu-divider.webp";
 import menu_section_sections from "./menu-section-sections.webp";
 import menu_section_social from "./menu-section-social.webp";
@@ -66,6 +67,7 @@ import about_ornaments1 from "./about/ornaments1.webp";
 import about_ornaments2 from "./about/ornaments2.2x.webp";
 import about_ornaments3 from "./about/ornaments3.2x.webp";
 import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
+import about_game_placeholder from "./about/game_placeholder.webp";
 
 import about_skills_digital_artist from "./about/skills_digital_artist.webp";
 import about_skills_digital_artist_phone from "./about/skills_digital_artist_phone.webp";
@@ -243,6 +245,7 @@ export const IMG = {
         ornaments2: about_ornaments2,
         ornaments3: about_ornaments3,
         damn_your_eyes: about_damn_your_eyes_2,
+        game_placeholder: about_game_placeholder,
 
         skills_digital_artist: about_skills_digital_artist,
         skills_digital_artist_phone: about_skills_digital_artist_phone,
@@ -379,6 +382,7 @@ export const IMG = {
         ])
     },
     lettering_sq_black: lettering_sq_black,
+    lettering_sq_pink: lettering_sq_pink,
     menu_divider: menu_divider,
     menu_section_sections: menu_section_sections,
     menu_section_social: menu_section_social,

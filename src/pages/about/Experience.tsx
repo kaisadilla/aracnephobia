@@ -8,7 +8,7 @@ import { IMG } from 'assets/img/img';
 import SiteImage from 'components/SiteImage';
 import Window from './Window';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
-import { EnterByScalingUp, EnterFromAnimation } from './animations';
+import { EnterByScalingDown, EnterByScalingUp, EnterFromAnimation } from './animations';
 import { Typewriter } from 'react-simple-typewriter';
 import useVisible from 'hooks/useVisible';
 
@@ -52,9 +52,24 @@ function Experience (props: ExperienceProps) {
 
             <div className={styles.trajectoryContainer}>
                 <div className={styles.impossibleContainer}>
-                    <SVG.about.experience.wordImpossible />
-                    <SVG.about.experience.wordImpossible />
-                    <SVG.about.experience.wordImpossible />
+                    <EnterByScalingDown
+                        className={styles.word}
+                        style={{animationDelay: '0.4s'}}
+                    >
+                        <SVG.about.experience.wordImpossible />
+                    </EnterByScalingDown>
+                    <EnterByScalingDown
+                        className={styles.word}
+                        style={{animationDelay: '0.7s'}}
+                    >
+                        <SVG.about.experience.wordImpossible />
+                    </EnterByScalingDown>
+                    <EnterByScalingDown
+                        className={styles.word}
+                        style={{animationDelay: '1s'}}
+                    >
+                        <SVG.about.experience.wordImpossible />
+                    </EnterByScalingDown>
                 </div>
                 <SiteImage
                     className={styles.border}

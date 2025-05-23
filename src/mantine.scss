@@ -3,7 +3,7 @@
 }
 
 .mantine-Tooltip-tooltip, .mantine-TooltipFloating-tooltip {
-    background-color: var(--color-primary);
+    background-color: var(--color-highlight1);
     padding: 0rem 0.67rem;
     font-family: var(--font-jolly-lodger);
     font-size: 1.75rem;
@@ -15,7 +15,7 @@
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 
     &::before {
-        color: var(--color-secondary);
+        color: var(--color-highlight2);
         font-weight: 800;
     }
 }

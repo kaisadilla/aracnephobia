@@ -5,8 +5,8 @@
 
     @include crt(100);
 
-    background-color: var(--color-about-primary);
-    color: var(--color-about-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -65,7 +65,7 @@
         order: 3;
         height: 80px;
 
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -94,17 +94,17 @@
                 font-family: var(--font-fragment-mono);
                 font-size: max(0.8em, min(1.2em, 1.22vw));
                 text-transform: uppercase;
-                color: var(--color-about-primary);
+                color: var(--color-primary);
 
                 &:hover {
                     cursor: pointer;
-                    background-color: var(--color-about-primary);
-                    color: var(--color-about-secondary);
+                    background-color: var(--color-primary);
+                    color: var(--color-secondary);
                 }
 
                 &.selected {
-                    background-color: var(--color-about-primary);
-                    color: var(--color-about-secondary);
+                    background-color: var(--color-primary);
+                    color: var(--color-secondary);
                 }
 
                 svg {
@@ -119,8 +119,8 @@
         }
 
         > .title {
-            background-color: var(--color-about-primary);
-            color: var(--color-about-secondary);
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
             width: 100%;
             font-family: var(--font-fragment-mono);
             text-align: center;
@@ -203,7 +203,7 @@
         .navbar {
             padding: 0 1rem;
             flex-direction: row;
-            border-bottom: var(--border-width) solid var(--color-about-primary);
+            border-bottom: var(--border-width) solid var(--color-primary);
             min-height: 64px;
 
             > .aeLogo {
@@ -215,7 +215,7 @@
                 padding: 1rem 0;
 
                 button {
-                    border: 0.15em solid var(--color-about-primary);
+                    border: 0.15em solid var(--color-primary);
                     padding: 0.25em 1.5em;
                     height: 2.2em;
                     max-width: 15em;
@@ -269,14 +269,14 @@
                     padding: 0.25em;
                     max-width: 15em;
                     flex: 1;
-                    border-bottom: var(--border-width) solid var(--color-about-primary);
+                    border-bottom: var(--border-width) solid var(--color-primary);
     
                     > span {
                         display: inline;
                     }
 
                     &:not(&:last-child) {
-                        border-right: 1px solid var(--color-about-primary);
+                        border-right: 1px solid var(--color-primary);
                     }
                 }
             }

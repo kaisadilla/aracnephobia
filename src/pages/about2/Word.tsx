@@ -158,7 +158,7 @@ function Word ({
                         cursorStyle="|"
                         cursorColor={
                             revealState === 'revealing'
-                                ? "var(--color-primary)"
+                                ? "var(--color-highlight1)"
                                 : "transparent"
                         }
                         typeSpeed={duration / word.length}

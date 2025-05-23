@@ -1,3 +1,11 @@
+.navigator {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000000000000;
+}
+
 .websiteFrame {
     position: relative;
     width: 100vw;
@@ -11,13 +19,6 @@
 
     .pageContainer {
         flex: 1;
-    }
-
-    .navigator {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100vw;
     }
 
     .curtain {

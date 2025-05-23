@@ -420,9 +420,9 @@
 @include text-shadow("text-shadow-border", 0.55, true);
 
 @mixin neon-glow-primary($width: 0.4rem) {
-    filter: drop-shadow(0 0 $width var(--color-primary));
+    filter: drop-shadow(0 0 $width var(--color-highlight1));
 }
 
 @mixin neon-glow-secondary($width: 0.4rem) {
-    filter: drop-shadow(0 0 $width var(--color-secondary));
+    filter: drop-shadow(0 0 $width var(--color-highlight2));
 }

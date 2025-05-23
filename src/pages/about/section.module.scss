@@ -5,24 +5,24 @@
     overflow: hidden;
     font-size: 0.9rem;
     user-select: none;
-    background-color: var(--color-about-secondary);
-    color: var(--color-about-primary);
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
 
     .scrollbar {
         display: block;
-        background-color: var(--color-about-primary);
+        background-color: var(--color-primary);
         transition: padding 0.33s;
         padding: 0 0 0 var(--border-width);
 
         &:hover {
             .thumb {
-                background-color: var(--color-primary);
+                background-color: var(--color-highlight1);
                 transition: background-color 1s;
             }
         }
 
         .thumb {
-            background-color: var(--color-about-secondary);
+            background-color: var(--color-secondary);
             border-radius: 0;
         }
     }
@@ -62,7 +62,7 @@
 
     > .header {
         width: 100%;
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         
         > img {
             display: block;
@@ -81,7 +81,7 @@
 
         strong {
             font-weight: unset;
-            color: var(--color-primary);
+            color: var(--color-highlight1);
         }
     }
 }
@@ -141,7 +141,7 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            border: var(--border-width) solid var(--color-about-primary);
+            border: var(--border-width) solid var(--color-primary);
             overflow: hidden;
 
             &:hover, &:active {
@@ -350,7 +350,7 @@
                 justify-content: center;
                 margin: 0 auto;
                 position: relative;
-                //border: var(--border-width) solid var(--color-about-secondary);
+                //border: var(--border-width) solid var(--color-secondary);
         
                 > div {
                     width: 100%;
@@ -364,12 +364,12 @@
     > .jpBigContainer {
         position: relative;
         width: 95%;
-        border: var(--border-half-width) solid var(--color-about-primary);
+        border: var(--border-half-width) solid var(--color-primary);
 
         > .frame {
             width: 100%;
-            border: var(--border-half-width) solid var(--color-about-secondary);
-            background-color: var(--color-about-primary);
+            border: var(--border-half-width) solid var(--color-secondary);
+            background-color: var(--color-primary);
             text-align: center;
             text-wrap: nowrap;
             padding-left: 0.6em;
@@ -382,22 +382,22 @@
                 line-height: 1.1em;
                 font-size: min(5.9363vw, 4.9rem);
                 font-weight: 500;
-                color: var(--color-about-secondary);
+                color: var(--color-secondary);
                 //letter-spacing: 0.1em;
 
                 &:hover {
                     @include crt-text;
-                    color: var(--color-primary);
+                    color: var(--color-highlight1);
                 }
             }
 
             > svg {
                 padding: 0.5em 0;
-                color: var(--color-about-secondary);
+                color: var(--color-secondary);
                 width: calc(100% / 11);
 
                 &:hover {
-                    color: var(--color-primary);
+                    color: var(--color-highlight1);
                 }
             }
         }
@@ -414,7 +414,7 @@
             position: relative;
             height: 180px;
             max-width: 100%;
-            border: var(--border-half-width) solid var(--color-about-primary);
+            border: var(--border-half-width) solid var(--color-primary);
 
             > .corner {
                 $size: 1.25rem;
@@ -458,15 +458,15 @@
                     //visibility: hidden;
                     
                     &:nth-child(1) {
-                        stroke: var(--color-about-primary);
+                        stroke: var(--color-primary);
                     }
                     
                     &:nth-child(2) {
-                        stroke: var(--color-primary);
+                        stroke: var(--color-highlight1);
                     }
     
                     &:nth-child(3) {
-                        stroke: var(--color-secondary);
+                        stroke: var(--color-highlight2);
                     }
 
                     &:global {
@@ -502,7 +502,7 @@
 
                 strong {
                     @include crt-text-border;
-                    color: var(--color-secondary);
+                    color: var(--color-highlight2);
                 }
 
                 &:hover {
@@ -619,7 +619,7 @@
                 display: none;
 
                 &:hover {
-                    filter: invert(1) drop-shadow(0 0 0.4rem var(--color-secondary));
+                    filter: invert(1) drop-shadow(0 0 0.4rem var(--color-highlight2));
                 }
             }
         }
@@ -692,9 +692,11 @@
     }
 
     > .minigame {
-        height: 300px;
         width: 100%;
-        background-color: #fce4f2;
+
+        > img {
+            width: 100%;
+        }
     }
 
     > .devSkills {
@@ -709,7 +711,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: var(--color-about-primary);
+        background-color: var(--color-primary);
         justify-content: space-around;
 
         > .logo {
@@ -851,7 +853,7 @@
 
         > .image {
             flex: 42;
-            background-color: var(--color-about-primary);
+            background-color: var(--color-primary);
             display: flex;
             align-items: center;
             padding: var(--border-half-width);
@@ -1027,6 +1029,10 @@
             width: 85%;
         }
 
+        > .minigame {
+            width: 85%;
+        }
+
         > .devSkills {
             width: 85%;
         }
@@ -1108,7 +1114,7 @@
             .content {
                 display: flex;
                 flex-direction: column;
-                background-color: var(--color-about-secondary);
+                background-color: var(--color-secondary);
                 padding: 1rem 0;
                 gap: 1rem;
 
@@ -1142,7 +1148,7 @@
                     > .name {
                         display: flex;
                         align-items: center;
-                        color: var(--color-about-primary);
+                        color: var(--color-primary);
                         font-family: var(--font-invisible);
                         text-transform: uppercase;
                         font-size: 1.5rem;
@@ -1213,7 +1219,7 @@
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                background-color: var(--color-about-secondary);
+                background-color: var(--color-secondary);
             }
         }
 
@@ -1244,7 +1250,7 @@
         }
 
         > .panic {
-            background-color: var(--color-about-primary);
+            background-color: var(--color-primary);
             width: 100%;
 
             > img {
@@ -1286,7 +1292,7 @@
         > .txt {
             display: flex;
             flex-direction: column;
-            color: var(--color-about-primary);
+            color: var(--color-primary);
             padding: 0.5em;
             line-height: 1lh;
 
@@ -1306,7 +1312,7 @@
     }
 
     > .lowerSection {
-        background-color: var(--color-about-primary);
+        background-color: var(--color-primary);
         padding: 1rem;
         display: flex;
         flex-direction: column;
@@ -1327,12 +1333,12 @@
             position: relative;
             width: 100%;
             height: 12px;
-            background-color: var(--color-about-secondary);
+            background-color: var(--color-secondary);
             border-radius: $border-radius;
 
             > .fill {
                 position: absolute;
-                background-color: var(--color-secondary);
+                background-color: var(--color-highlight2);
                 height: 100%;
                 border-radius: $border-radius;
                 top: 0;
@@ -1344,8 +1350,8 @@
                 top: 0;
                 width: 24px;
                 height: 12px;
-                background-color: var(--color-about-secondary);
-                border: 3px solid var(--color-about-primary);
+                background-color: var(--color-secondary);
+                border: 3px solid var(--color-primary);
                 border-radius: calc($border-radius - 1px);
                 //transform: translateX(calc(-100% + 1px));
             }
@@ -1418,7 +1424,7 @@
                 }
 
                 .winFrame {
-                    border: var(--border-half-width) solid var(--color-about-secondary);
+                    border: var(--border-half-width) solid var(--color-secondary);
                 }
 
                 .container {
@@ -1444,7 +1450,7 @@
 
     .software {
         width: 340px;
-        border: var(--border-quarter-width) solid var(--color-about-primary);
+        border: var(--border-quarter-width) solid var(--color-primary);
     }
 }
 
@@ -1511,7 +1517,7 @@
                 width: 40%;
                 margin-top: unset;
 
-                background-color: var(--color-about-primary);
+                background-color: var(--color-primary);
                 position: unset;
                 mix-blend-mode: unset;
             }
@@ -1546,20 +1552,20 @@
             aspect-ratio: 1080 / 100;
             position: absolute;
             left: 0;
-            background-color: var(--color-about-secondary);
+            background-color: var(--color-secondary);
 
             > svg {
                 margin-top: -5px;
             }
 
             &:nth-child(1) > svg, &:nth-child(2) > svg {
-                fill: var(--color-about-primary);
+                fill: var(--color-primary);
             }
 
             &:nth-child(3) > svg {
-                fill: var(--color-about-secondary);
+                fill: var(--color-secondary);
                 stroke-width: 1.5rem;
-                stroke: var(--color-about-primary);
+                stroke: var(--color-primary);
             }
 
             &:nth-child(1) {
@@ -1700,7 +1706,7 @@
 
             > .treeRoot {
                 width: 32px;
-                background-color: var(--color-about-primary);
+                background-color: var(--color-primary);
             }
 
             > .right {
@@ -1850,7 +1856,7 @@
     > .branchImgContainer {
         width: 100%;
         display: flex;
-        fill: var(--color-about-primary);
+        fill: var(--color-primary);
 
         .branch0 {
             width: 88%;
@@ -1953,16 +1959,18 @@
             width: 100%;
             visibility: hidden;
 
-            > svg {
-                margin: -8px 0;
+            > .word {
+                > svg {
+                    margin: -8px 0;
+                }
 
                 &:nth-child(odd) {
-                    fill: var(--color-about-primary);
+                    fill: var(--color-primary);
                 }
 
                 &:nth-child(even) {
                     fill: none;
-                    stroke: var(--color-about-primary);
+                    stroke: var(--color-primary);
                     stroke-width: 0.2rem;
                 }
             }
@@ -1981,7 +1989,7 @@
             left: 0;
 
             .trajectoryFrame {
-                background-color: var(--color-about-secondary);
+                background-color: var(--color-secondary);
                 //background-color: #ddd;
                 overflow: hidden;
 
@@ -2021,8 +2029,8 @@
                     flex-direction: row;
                     gap: 1em;
                     align-items: center;
-                    fill: var(--color-about-secondary);
-                    color: var(--color-about-secondary);
+                    fill: var(--color-secondary);
+                    color: var(--color-secondary);
 
                     > svg {
                         width: 3rem;
@@ -2039,8 +2047,8 @@
                             animation: glitch-move-sometimes 24s infinite;
                         }
 
-                        fill: var(--color-primary);
-                        color: var(--color-primary);
+                        fill: var(--color-highlight1);
+                        color: var(--color-highlight1);
                     }
                 }
             }
@@ -2066,7 +2074,7 @@
             @include crt(10000);
 
             flex: 2;
-            border: var(--border-width) solid var(--color-about-primary);
+            border: var(--border-width) solid var(--color-primary);
 
             > img {
                 width: 100%;
@@ -2083,7 +2091,7 @@
             .frame {
                 display: flex;
                 flex-direction: row;
-                background-color: var(--color-about-secondary);
+                background-color: var(--color-secondary);
 
                 > .img {
                     flex: 1;
@@ -2103,7 +2111,7 @@
                     align-items: center;
                     padding: 1rem 0;
                     gap: 1rem;
-                    color: var(--color-about-primary);
+                    color: var(--color-primary);
 
                     > a {
                         display: flex;
@@ -2161,7 +2169,7 @@
             bottom: 0;
             right: 0;
             fill: none;
-            stroke: var(--color-about-primary);
+            stroke: var(--color-primary);
             stroke-width: 1rem;
         }
 
@@ -2282,12 +2290,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border: var(--border-quarter-width) solid var(--color-about-primary);
+    border: var(--border-quarter-width) solid var(--color-primary);
     border-radius: $border-radius;
     width: 7.7rem;
 
     > .iconContainer {
-        background-color: var(--color-about-primary);
+        background-color: var(--color-primary);
         width: 100%;
         height: 90px;
         padding: 1rem;
@@ -2297,15 +2305,15 @@
         svg {
             height: 100%;
             width: 100%;
-            fill: var(--color-about-secondary);
+            fill: var(--color-secondary);
         }
     }
 
     > .name {
         height: 100%;
-        color: var(--color-about-primary);
+        color: var(--color-primary);
         font-family: var(--font-fragment-mono);
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         border-bottom-left-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
         text-transform: uppercase;
@@ -2323,15 +2331,15 @@
             flex-shrink: 0;
             animation: svgNeonFlicker 16s infinite;
             height: 1.5rem;
-            fill: var(--color-primary);
-            stroke: var(--color-about-primary);
+            fill: var(--color-highlight1);
+            stroke: var(--color-primary);
             stroke-width: 1rem;
         }
     }
 
     > .bloodyBorder {
-        fill: var(--color-about-secondary);
-        stroke: var(--color-about-primary);
+        fill: var(--color-secondary);
+        stroke: var(--color-primary);
         stroke-width: 1.2rem;
         position: absolute;
         bottom: -18px;
@@ -2358,7 +2366,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         justify-content: center;
         gap: 1px;
     }
@@ -2367,7 +2375,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         gap: 1rem;
         justify-content: center;
         padding: 0.5rem 0.5rem;
@@ -2378,11 +2386,11 @@
     display: flex;
     flex-direction: column;
     z-index: 100;
-    border: var(--border-quarter-width) solid var(--color-about-primary);
+    border: var(--border-quarter-width) solid var(--color-primary);
     width: calc(50% - 1px);
 
     > .nameContainer {
-        color: var(--color-about-primary);
+        color: var(--color-primary);
         height: 2lh;
         display: flex;
         justify-content: center;
@@ -2399,14 +2407,14 @@
     }
 
     > .iconContainer {
-        background-color: var(--color-about-primary);
+        background-color: var(--color-primary);
         height: 7rem;
         padding: 0.8rem;
 
         > svg {
             height: 100%;
             width: 100%;
-            stroke: var(--color-about-secondary);
+            stroke: var(--color-secondary);
         }
     }
 
@@ -2417,7 +2425,7 @@
                     animation: shortGlitch 0.05s linear forwards, text-shadow-border 1.6s infinite;
                 }
 
-                color: var(--color-primary);
+                color: var(--color-highlight1);
             }
         }
 
@@ -2428,8 +2436,8 @@
 
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
-            //color: var(--color-primary);
-            //stroke: var(--color-primary);
+            //color: var(--color-highlight1);
+            //stroke: var(--color-highlight1);
             color: white;
             stroke: white;
             @include neon-glow-primary;
@@ -2477,7 +2485,7 @@
                 stroke-width: 0.65rem;
 
                 path:not(:nth-child(4)), circle {
-                    //fill: var(--color-about-secondary);
+                    //fill: var(--color-secondary);
                 }
             }
         }
@@ -2487,8 +2495,22 @@
             stroke-dashoffset: 1000;
 
             path:not(:nth-child(4)), circle {
-                //fill: var(--color-primary);
+                //fill: var(--color-highlight1);
             }
+        }
+    }
+
+    &.dash3000 {
+        &:hover svg {
+            stroke-dasharray: 3000;
+            stroke-dashoffset: 3000;
+        }
+    }
+
+    &.dash5000 {
+        &:hover svg {
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 5000;
         }
     }
 }
@@ -2513,13 +2535,13 @@
 
     > .word1 {
         stroke: none;
-        fill: var(--color-about-primary);
+        fill: var(--color-primary);
     }
 
     > .word2, > .word3 {
-        stroke: var(--color-about-primary);
+        stroke: var(--color-primary);
         stroke-width: 2rem;
-        fill: var(--color-about-secondary);
+        fill: var(--color-secondary);
     }
     
     > .word1 {
@@ -2564,31 +2586,31 @@
 
 @keyframes svgNeonFlicker {
     0%, 31.69% {
-        fill: var(--color-primary);
+        fill: var(--color-highlight1);
     }
     31.7%, 31.89% {
-        fill: var(--color-secondary);
+        fill: var(--color-highlight2);
     }
     31.9%, 32.09% {
-        fill: var(--color-primary);
+        fill: var(--color-highlight1);
     }
     32.1%, 32.19% {
-        fill: var(--color-secondary);
+        fill: var(--color-highlight2);
     }
     32.2%, 32.39% {
-        fill: var(--color-primary);
+        fill: var(--color-highlight1);
     }
     32.4%, 40.99% {
-        fill: var(--color-secondary);
+        fill: var(--color-highlight2);
     }
     41%, 72.99% {
-        fill: var(--color-primary);
+        fill: var(--color-highlight1);
     }
     73%, 73.49% {
-        fill: var(--color-secondary);
+        fill: var(--color-highlight2);
     }
     73.5%, 100% {
-        fill: var(--color-primary);
+        fill: var(--color-highlight1);
     }
 }
 

@@ -61,7 +61,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
             }
 
             > span {
-                color: var(--color-primary)
+                color: var(--color-highlight1)
             }
         }
 
@@ -127,7 +127,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
             opacity: 0;
 
             font-family: var(--font-wonder-night);
-            color: var(--color-primary);
+            color: var(--color-highlight1);
             font-size: 3.5em;
             height: 0.9em;
             line-height: 0.9em;
@@ -138,7 +138,7 @@ $fade-in-anim: fadeIn 0.4s linear 1s forwards;
             opacity: 0;
 
             font-family: var(--font-creepster);
-            color: var(--color-secondary);
+            color: var(--color-highlight2);
             font-size: 2em;
             height: 1.3em;
             line-height: 1em;

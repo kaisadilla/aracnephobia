@@ -7,16 +7,18 @@ import useVisible from "hooks/useVisible";
 
 interface EnterFromAnimationProps extends DivProps {
     from: 'left' | 'right';
+    threshold?: number;
     children?: React.ReactNode;
 }
 
 export function EnterFromAnimation ({
     from,
+    threshold = 0,
     children,
     className,
     ...divProps
 }: EnterFromAnimationProps) {
-    const { ref, isVisible } = useVisible({ threshold: 0 });
+    const { ref, isVisible } = useVisible({ threshold });
 
     return (
         <div
@@ -41,7 +43,7 @@ interface EnterByScalingUpProps extends DivProps {
 }
 
 export function EnterByScalingUp ({
-    threshold = 0,
+    threshold = 0.3,
     children,
     className,
     ...divProps
@@ -64,7 +66,7 @@ export function EnterByScalingUp ({
 }
 
 export function EnterByScalingDown ({
-    threshold = 0,
+    threshold = 0.3,
     children,
     className,
     ...divProps
@@ -88,16 +90,18 @@ export function EnterByScalingDown ({
 
 interface AppearFromAnimationProps extends DivProps {
     from: 'left' | 'right';
+    threshold?: number;
     children?: React.ReactNode;
 }
 
 export function AppearFromAnimation ({
     from,
+    threshold = 0.8,
     children,
     className,
     ...divProps
 }: AppearFromAnimationProps) {
-    const { ref, isVisible } = useVisible({ threshold: 0.8 });
+    const { ref, isVisible } = useVisible({ threshold });
 
     return (
         <div

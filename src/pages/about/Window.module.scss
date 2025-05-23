@@ -2,8 +2,8 @@
     $border-width: 0.35rem;
 
     width: 100%;
-    background-color: var(--color-about-primary);
-    color: var(--color-about-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
     display: flex;
     flex-direction: column;
 
@@ -36,8 +36,8 @@
             height: 1.75rem;
 
             > div {
-                background-color: var(--color-about-secondary);
-                color: var(--color-about-primary);
+                background-color: var(--color-secondary);
+                color: var(--color-primary);
                 width: 1.5rem;
                 padding: 0.25rem;
 
@@ -58,7 +58,7 @@
 
         > .contentFrame {
             position: relative;
-            border: var(--border-half-width) solid var(--color-about-secondary);
+            border: var(--border-half-width) solid var(--color-secondary);
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -72,7 +72,7 @@
     .vidContainer {
         position: relative;
         width: 100%;
-        background-color: var(--color-about-secondary);
+        background-color: var(--color-secondary);
         padding: 1rem;
         padding-bottom: 0;
     
@@ -88,11 +88,11 @@
             height: 0;
             border-top: $size solid transparent;
             border-bottom: $size solid transparent;
-            border-left: calc($size * 1.5) solid var(--color-about-secondary);
+            border-left: calc($size * 1.5) solid var(--color-secondary);
             z-index: 100;
 
             &:hover {
-                border-left-color: var(--color-primary);
+                border-left-color: var(--color-highlight1);
             }
         }
 
@@ -103,8 +103,8 @@
 
     .controlsContainer {
         position: relative;
-        background-color: var(--color-about-secondary);
-        color: var(--color-about-primary);
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
         height: 4rem;
         display: flex;
         flex-direction: row;
@@ -125,7 +125,7 @@
 
                 //width: 3.3rem;
                 height: 1.8rem;
-                fill: var(--color-about-primary);
+                fill: var(--color-primary);
 
                 &.flip {
                     transform: scaleX(-1);
@@ -137,7 +137,7 @@
 
                 &:hover {
                     //@include neon-glow;
-                    fill: var(--color-primary);
+                    fill: var(--color-highlight1);
                 }
             }
         }
@@ -147,7 +147,7 @@
             //position: absolute;
             //right: 1rem;
             height: 3.2rem;
-            fill: var(--color-about-primary);
+            fill: var(--color-primary);
         }
     }
 }

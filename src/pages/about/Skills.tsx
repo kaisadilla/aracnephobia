@@ -164,7 +164,7 @@ function Skills (props: SkillsProps) {
         </EnterFromAnimation>
 
         <EnterByScalingUp className={styles.minigame}>
-            TODO
+            <SiteImage image={IMG.about.game_placeholder} />
         </EnterByScalingUp>
 
         <EnterFromAnimation from='left'>
@@ -224,15 +224,18 @@ function Skills (props: SkillsProps) {
                 <div className={styles.artContainer}>
                     <_ArtSkill
                         title="Graphic design"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.graphicDesign />}
                     />
                     <_ArtSkill
                         title="Logo & Branding"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.logoBranding />}
                     />
                     <_ArtSkill
                         title="Photography"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash5000}
+                        icon={<SVG.about.skills.photography />}
                     />
                 </div>
             </Window>
