@@ -5,6 +5,7 @@ import styles from "./page.module.scss";
 import PortfolioOs from 'components/portfolio_os/PortfolioOs';
 import { OsContextProvider } from 'context/usePortfolioContext';
 import { useMediaQuery } from '@mantine/hooks';
+import { Portal } from '@mantine/core';
 
 export interface PortfolioPageProps {
     
@@ -16,16 +17,18 @@ function PortfolioPage (props: PortfolioPageProps) {
     return (
         <div className={styles.page}>
             {isPhone === false && <>
-                <SiteImage
-                    className={styles.rightCurtain}
-                    image={IMG.twp_vert}
-                />
+                <Portal>
+                    <SiteImage
+                        className={styles.rightCurtain}
+                        image={IMG.twp_vert}
+                    />
+                </Portal>
                 <SiteImage
                     className={styles.aracne}
                     image={IMG.psychedelic_aracne}
                 />
-                <div className={styles.content}>
-                    <div className={styles.screen}>
+                <div className="screenPresentation">
+                    <div className="screen">
                         <OsContextProvider>
                             <PortfolioOs />
                         </OsContextProvider>

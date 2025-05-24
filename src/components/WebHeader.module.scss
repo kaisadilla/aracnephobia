@@ -13,9 +13,11 @@
     justify-content: center;
     padding: 0 3vw;
     z-index: 1000;
+    user-select: none;
 
     > .logo {
         margin-bottom: 4px;
+        z-index: 10;
     }
 
     > .motifLeft, > .motifRight {
@@ -33,35 +35,37 @@
         transform: scaleX(-1);
     }
 
-    .psycho {
+    > .psycho {
         position: absolute;
         cursor: pointer;
         height: 40%;
         top: 1.5rem;
         right: 3rem;
     }
+}
 
+@include when-desktop {
+    $curtain-width: 205px;
 
+    .header {
+        &.rightPad {
+            padding-right: $curtain-width;
 
-    // <------ OLD ------>
+            > .motifRight {
+                right: calc($curtain-width + 0.5rem);
+            }
 
-    .planet {
-        height: 120%;
-        margin-right: -1.5vw;
-    }
+            > .psycho {
+                right: calc($curtain-width + 3rem);
+            }
+        }
 
-    .letteringContainer {
-        margin-top: 0.5vw;
-        height: 9.1vw;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
+        &.leftPad {
+            padding-left: $curtain-width;
 
-        .lettering {
-            width: 100%;
-            max-width: 72rem;
+            > .motifLeft {
+                left: calc($curtain-width + 0.5rem);
+            }
         }
     }
 }

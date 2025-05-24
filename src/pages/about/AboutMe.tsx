@@ -103,36 +103,36 @@ function AboutMe (props: AboutMeProps) {
                     >
                         <div className={styles.featureContainer}>
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.musicals} />}
                                 name="Animated musicals"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.games} />}
                                 name="Video games"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.arts} />}
                                 name="Audiovisual arts"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.horror} />}
                                 name="Horror movies"
                                 bloody
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.rupaul} />}
                                 name="Rupaul's drag race"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.cats} />}
                                 name="Lovely cats"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.literature} />}
                                 name="Comics & literature"
                             />
                             <FeatureCell
-                                icon={<SVG.socialMedia.youtube />}
+                                icon={<SiteImage image={IMG.about.me.scifi} />}
                                 name="Sci-fi"
                             />
                         </div>

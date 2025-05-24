@@ -39,6 +39,15 @@ import about_cts_pseudo from "./about/cts_pseudo.webp";
 import about_about_jp_big from "./about/about_jp_big.webp";
 import about_technicolor from "./about/technicolor.webp";
 
+import about_me_musicals from "./about/aboutme/musicals.png";
+import about_me_games from "./about/aboutme/games.png";
+import about_me_arts from "./about/aboutme/arts.png";
+import about_me_horror from "./about/aboutme/horror.png";
+import about_me_rupaul from "./about/aboutme/rupaul.png";
+import about_me_cats from "./about/aboutme/cats.png";
+import about_me_literature from "./about/aboutme/literature.png";
+import about_me_scifi from "./about/aboutme/scifi.png";
+
 import about_mental_toxicity from "./about/mental_toxicity.webp";
 import about_skills_bg1 from "./about/skills_bg1.webp";
 import about_skills_pic1 from "./about/skills_pic1.webp";
@@ -61,6 +70,7 @@ import about_artist_designer_phone from "./about/artist_designer_phone.webp";
 import about_anim_bg_1 from "./about/anim_bg_1.gif";
 import about_aracne_photo1 from "./about/aracne_photo1.webp";
 import about_anim_bg_2 from "./about/anim_bg_2.gif";
+import about_anim_bg_3 from "./about/anim_bg_3.gif";
 import about_aracne_photo2 from "./about/aracne_photo2.webp";
 import about_aracne_photo3 from "./about/aracne_photo3.webp";
 import about_ornaments1 from "./about/ornaments1.webp";
@@ -132,6 +142,7 @@ import about_eyes_galore from "./about/eyes_galore.webp";
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
 import art_dev_designer from "./art/dev_designer.webp";
+import art_mirror from "./art/mirror.webp";
 
 import about_animation_2 from "./about/word-table/animation.2x.webp";
 import about_branding_2 from "./about/word-table/branding.2x.webp";
@@ -239,6 +250,7 @@ export const IMG = {
         anim_bg1: about_anim_bg_1,
         aracne_photo1: about_aracne_photo1,
         anim_bg2: about_anim_bg_2,
+        anim_bg3: about_anim_bg_3,
         aracne_photo2: about_aracne_photo2,
         aracne_photo3: about_aracne_photo3,
         ornaments1: about_ornaments1,
@@ -246,6 +258,17 @@ export const IMG = {
         ornaments3: about_ornaments3,
         damn_your_eyes: about_damn_your_eyes_2,
         game_placeholder: about_game_placeholder,
+
+        me: {
+            musicals: about_me_musicals,
+            games: about_me_games,
+            arts: about_me_arts,
+            horror: about_me_horror,
+            rupaul: about_me_rupaul,
+            cats: about_me_cats,
+            literature: about_me_literature,
+            scifi: about_me_scifi,
+        },
 
         skills_digital_artist: about_skills_digital_artist,
         skills_digital_artist_phone: about_skills_digital_artist_phone,
@@ -333,6 +356,7 @@ export const IMG = {
         aracne_family: art_aracne_family,
         aracne_ganesha: art_aracne_ganesha,
         dev_designer: art_dev_designer,
+        mirror: art_mirror,
     },
     navigator: {
         blog: navigator_blog,

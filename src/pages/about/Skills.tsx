@@ -59,7 +59,7 @@ function Skills (props: SkillsProps) {
                 <SiteImage image={IMG.about.mental_toxicity} />
             </EnterFromAnimation>
             <EnterFromAnimation from='right' className={styles.right} style={{
-                backgroundImage: `url(${IMG.about.anim_bg1})`
+                backgroundImage: `url(${IMG.about.anim_bg3})`
             }}>
                 <SiteImage image={IMG.about.guapisima} />
             </EnterFromAnimation>
@@ -179,11 +179,13 @@ function Skills (props: SkillsProps) {
                     />
                     <_ArtSkill
                         title="Web design"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.webDesign />}
                     />
                     <_ArtSkill
-                        title="UX/UI"
-                        icon={<SVG.about.skills.conceptArt />}
+                        title="UX / UI"
+                        className={styles.dash5000}
+                        icon={<SVG.about.skills.ux_ui />}
                     />
                     <_ArtSkill
                         title="Scrum & agile"

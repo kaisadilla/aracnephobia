@@ -17,6 +17,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import PhoneHeader from 'components/PhoneHeader';
 import AboutPage from 'pages/about/page';
 import { IMG } from 'assets/img/img';
+import HomePage from 'pages/home/page';
 
 type AnimState = 'cover' | 'logo' | 'website';
 
@@ -38,6 +39,16 @@ function _RouterContent () {
     );
 
     const isPhone = useMediaQuery('(min-width: 50rem)') === false;
+    const curtainSide: 'left' | 'right' | 'none' = (() => {
+        if (loc.pathname === "/portfolio") {
+            return 'right';
+        }
+        if (loc.pathname === "/home") {
+            return 'left';
+        }
+
+        return 'none';
+    })();
 
     return (<>
         <Routes>
@@ -65,11 +76,12 @@ function _RouterContent () {
 
                     {animState === 'website' && <>
                         <div className={styles.headerContainer}>
-                            {isPhone === false && <WebHeader />}
+                            {isPhone === false && <WebHeader curtainSide={curtainSide} />}
                             {isPhone && <PhoneHeader />}
                         </div>
                         <div className={styles.pageContainer}>
                             <Routes>
+                                <Route path="/home" element={<HomePage />} />
                                 <Route path="/portfolio" element={<PortfolioPage />} />
                             </Routes>
                         </div>

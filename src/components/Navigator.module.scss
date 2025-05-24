@@ -13,6 +13,7 @@ $jump-height: 5vh;
     z-index: 1000000;
     position: relative;
     pointer-events: none;
+    user-select: none;
 
     .navigator {
         animation: bounceIn 0.35s linear 0s forwards;

@@ -26,6 +26,27 @@ const en_US: Localization = {
                 </p>
             </div>),
         },
+    },
+    months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ],
+    date: (date: Date) => {
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        return `${en_US.months[month]} ${day.toString().padStart(2, '0')}, ${year}`;
     }
 }
 

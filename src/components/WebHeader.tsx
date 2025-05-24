@@ -6,12 +6,15 @@ import SiteImage from './SiteImage';
 import { IMG } from 'assets/img/img';
 import { Tooltip } from '@mantine/core';
 import ChromaticAberrationImage from './ChromaticAberrationImage';
+import { $cl } from 'utils';
 
 export interface WebHeaderProps {
-    
+    curtainSide: 'left' | 'right' | 'none';
 }
 
-function WebHeader (props: WebHeaderProps) {
+function WebHeader ({
+    curtainSide,
+}: WebHeaderProps) {
     const [showLabel, setShowLabel] = useState(false);
 
     function handleMouseEnterPsycho () {
@@ -22,7 +25,11 @@ function WebHeader (props: WebHeaderProps) {
     };
 
     return (
-        <header className={styles.header}>
+        <header className={$cl(
+            styles.header,
+            curtainSide === 'left' && styles.leftPad,
+            curtainSide === 'right' && styles.rightPad,
+        )}>
             <ChromaticAberrationImage
                 className={styles.logo}
                 image={IMG.lettering_sq_pink}

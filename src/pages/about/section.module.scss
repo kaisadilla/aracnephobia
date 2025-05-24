@@ -2307,6 +2307,12 @@
             width: 100%;
             fill: var(--color-secondary);
         }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
     }
 
     > .name {
@@ -2329,7 +2335,7 @@
 
         > svg {
             flex-shrink: 0;
-            animation: svgNeonFlicker 16s infinite;
+            //animation: svgNeonFlicker 16s infinite;
             height: 1.5rem;
             fill: var(--color-highlight1);
             stroke: var(--color-primary);
@@ -2354,7 +2360,15 @@
     }
 
     &:hover {
-        animation: hangLoose 0.8s forwards;
+        > .name {
+            > svg {
+                fill: var(--color-highlight2);
+            }
+        }
+    }
+
+    &:hover {
+        //animation: hangLoose 0.8s forwards;
     }
 }
 

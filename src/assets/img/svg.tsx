@@ -174,6 +174,15 @@ const SVG = {
                     <path d="M394.938 178.503L436.71 140.528M497.47 269.643L535.445 231.668" stroke="currentColor" stroke-width="40.2535" stroke-linejoin="round"/>
                 </svg>
             ),
+            ux_ui: (svgProps: SvgProps) => (
+                <svg {...svgProps} viewBox="0 0 1417.44 1160.3" fill="none" stroke-width="18">
+                    <path d="M233.25,23.33h699.76c115.94,0,209.93,93.99,209.93,209.93v466.51c0,115.94-93.99,209.93-209.93,209.93H233.25c-115.94,0-209.93-93.99-209.93-209.93V233.25C23.33,117.31,117.31,23.33,233.25,23.33Z"/>
+                    <path d="M1084.64,1084.63l-58.31-314.89,314.89,58.31-69.97,93.3,128.29,93.3-128.29,128.29-104.97-128.29-81.64,69.98Z"/>
+                    <path d="M34.99,256.58h1107.95"/>
+                    <rect x="139.96" y="326.55" width="303.23" height="489.83"/>
+                    <rect x="489.82" y="326.55" width="513.16" height="139.95"/>
+                </svg>
+            ),
             videoCreator: (svgProps: SvgProps) => (
                 <svg {...svgProps} viewBox="0 -2 599 360" fill="none">
                     <mask id="path-1-inside-1_8017_11384" fill="none">
@@ -254,6 +263,17 @@ const SVG = {
                     <rect x="466.794" y="337.071" width="21.0301" height="35.0503" />
                     <rect x="550.904" y="337.071" width="21.0301" height="35.0503" />
                     <rect x="635.036" y="337.071" width="21.0301" height="35.0503" />
+                </svg>
+            ),
+            webDesign: (svgProps: SvgProps) => (
+                <svg {...svgProps} viewBox="0 0 1505.01 1047.56" fill="none" stroke-width="18">
+                    <rect x="222.31" y="9.38" width="1043.98" height="254.52"/>
+                    <rect x="222.31" y="358.56" width="634.07" height="679.62"/>
+                    <rect x="935.86" y="358.56" width="330.43" height="178.62"/>
+                    <rect x="935.86" y="844.37" width="330.43" height="178.61"/>
+                    <rect x="935.86" y="601.47" width="330.43" height="178.61"/>
+                    <polyline points="159.27 468.8 21.8 536.05 159.27 599.74"/>
+                    <polyline points="1345.74 468.76 1483.21 536.02 1345.74 599.71"/>
                 </svg>
             ),
         },

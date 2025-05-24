@@ -9,4 +9,9 @@ export default interface Localization {
             skills: (props: DivProps) => React.ReactElement;
         };
     };
+    months: [
+        string, string, string, string, string, string,
+        string, string, string, string, string, string
+    ],
+    date: (date: Date) => string;
 }
