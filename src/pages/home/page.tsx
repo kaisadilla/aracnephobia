@@ -20,7 +20,7 @@ function HomePage (props: HomePageProps) {
 
     useEffect(() => {
         (async () => {
-            const entry = await fetchFile("/blog/test.md");
+            const entry = await fetchFile("/blog/enemy.md");
             setDoc(entry);
         })();
     }, []);

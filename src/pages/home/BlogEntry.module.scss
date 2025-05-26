@@ -24,6 +24,7 @@
         }
 
         > .data {
+
             display: flex;
             flex-direction: column;
             text-align: center;
@@ -46,10 +47,26 @@
     }
 
     > .body {
+        //@include crt-text;
+        //@include crt-text-border;
+
         font-family: var(--font-fragment-mono);
 
         h1 {
             color: var(--color-highlight2);
+        }
+
+        h2 {
+            color: var(--color-highlight2);
+        }
+
+        h3 {
+            color: var(--color-highlight1);
+        }
+
+        strong {
+            font-weight: unset;
+            color: var(--color-highlight1);
         }
     }
 

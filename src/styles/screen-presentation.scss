@@ -1,7 +1,5 @@
 .screenPresentation {
     position: relative;
-    animation: growIn 0.4s linear 0s forwards;
-    transform: scale(0);
 
     display: flex;
     flex-direction: row;
@@ -20,6 +18,8 @@
 
 @include when-tablet {
     .screenPresentation {
+        animation: growIn 0.4s linear 0s forwards;
+        transform: scale(0);
         > .screen {
 
         }

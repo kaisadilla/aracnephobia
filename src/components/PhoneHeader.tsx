@@ -4,6 +4,7 @@ import SiteImage from './SiteImage';
 import { IMG } from 'assets/img/img';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal } from '@mantine/core';
+import ChromaticAberrationImage from './ChromaticAberrationImage';
 
 export interface PhoneHeaderProps {
     
@@ -14,10 +15,14 @@ function PhoneHeader (props: PhoneHeaderProps) {
 
     return (<>
         <div className={styles.header}>
-            <div className={styles.aracnePlanet}>
-                <SiteImage className={styles.planet} image={IMG.planet_1} />
-                <SiteImage className={styles.aracne} image={IMG.aracne} />
-            </div>
+            <ChromaticAberrationImage
+                className={styles.logo}
+                image={IMG.lettering_sq_pink}
+                horizFlicker={6}
+                vertFlicker={0}
+                duration={0.65}
+                opacity={0.6}
+            />
             <button className={styles.menuButton} onClick={open}>
                 <div />
                 <div />

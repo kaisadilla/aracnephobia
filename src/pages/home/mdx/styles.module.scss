@@ -1,0 +1,32 @@
+.spoiler {
+    color: var(--color-highlight1);
+    background-color: var(--color-highlight1);
+    transition: color 0.65s, background-color 0.65s;
+
+    &::selection {
+
+    }
+
+    &.revealed {
+        color: unset;
+        background-color: unset;
+    }
+
+    &:not(.revealed) {
+        cursor: pointer;
+    }
+}
+
+.quote {
+    padding: 0.25em 0 0.25em 3em;
+    border-left: var(--border-half-width) solid var(--color-secondary);
+    font-style: italic;
+
+    > * {
+        opacity: 0.6;
+    }
+
+    em {
+        font-style: normal;
+    }
+}

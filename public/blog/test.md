@@ -6,7 +6,7 @@ author: "aracnephobia"
 published: true
 ---
 # What is procedural?
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget congue ligula, ullamcorper bibendum ante. Morbi maximus vitae ante quis pellentesque. Integer condimentum sapien neque. Proin ornare et odio id pulvinar. Nulla vitae quam ut urna pharetra ornare. Cras tristique sem et eros fermentum mollis nec id arcu. Nulla lacinia auctor aliquam. Suspendisse potenti. Nam ornare at quam in posuere.
+Lorem ipsum dolor sit amet, <Spoiler>This is a huge spoiler.</Spoiler> consectetur adipiscing elit. Ut eget congue ligula, ullamcorper bibendum ante. Morbi maximus vitae ante quis pellentesque. Integer condimentum sapien neque. Proin ornare et odio id pulvinar. Nulla vitae quam ut urna pharetra ornare. Cras tristique sem et eros fermentum mollis nec id arcu. Nulla lacinia auctor aliquam. Suspendisse potenti. Nam ornare at quam in posuere.
 
 Etiam imperdiet enim a metus fringilla, quis tincidunt odio luctus. Quisque quis justo quam. Aliquam ultrices ex sagittis efficitur consequat. Duis nibh neque, porta vel tristique a, porta non libero. Etiam vitae est eleifend nisl eleifend maximus. Nam venenatis commodo nisl a consequat. Sed a laoreet libero. Aenean sit amet dignissim leo, eget aliquam magna.
 
