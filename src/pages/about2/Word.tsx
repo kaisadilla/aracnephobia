@@ -139,8 +139,8 @@ function Word ({
             {revealState === 'hidden' && <SiteImage
                 className={styles.image}
                 image={image}
-                onMouseEnter={handleHover}
-                onTouchStart={handleHover}
+                //onMouseEnter={handleHover}
+                onPointerDown={handleHover}
                 style={{
 
                 }}

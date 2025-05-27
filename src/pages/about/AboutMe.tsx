@@ -298,7 +298,7 @@ function _WordTable () {
                 imagePos={makeRect(0.74, 0.75, 0.26, 0.21)}
                 word="CARTOON"
                 font='invisible'
-                fontSize={1.3}
+                fontSize={1.25}
                 wordPos={makeRect(0.86, 0.18, 0.14, 0.82)}
             />
             <Word
@@ -314,9 +314,9 @@ function _WordTable () {
                 imagePos={makeRect(-0.006, 0.605, 0.19, 0.18)}
                 word="CONTENT&#x2009; CREATOR"
                 font='gotile'
-                fontSize={0.52}
+                fontSize={0.5}
                 align='right'
-                wordPos={makeRect(-0.0075, 0.59, 0.185, 0.4)}
+                wordPos={makeRect(-0.0075, 0.61, 0.185, 0.4)}
             />
             <Word
                 image={IMG.about.writer}
@@ -331,7 +331,7 @@ function _WordTable () {
                 imagePos={makeRect(0.465, 0.18, 0.15, 0.2)}
                 word="VIDEO"
                 font='invisible'
-                fontSize={1.4}
+                fontSize={1.35}
                 wordPos={makeRect(0.45, 0.01, 0.2, 0.8)}
             />
             <Word
@@ -363,7 +363,7 @@ function _WordTable () {
                 imagePos={makeRect(0.62, 0.06, 0.175, 0.155)}
                 word="MARKETING"
                 font='invisible'
-                fontSize={1.42}
+                fontSize={1.37}
                 wordPos={makeRect(0.654, 0.01, 0.13, 0.99)}
             />
             <Word
@@ -372,7 +372,7 @@ function _WordTable () {
                 word="STORYTELLING"
                 font='illusion-magic'
                 fontSize={2.25}
-                wordPos={makeRect(0.802, 0.51, 0.07, 0.49)}
+                wordPos={makeRect(0.802, 0.53, 0.07, 0.49)}
             />
             <Word
                 image={IMG.about.web_design}
@@ -388,15 +388,15 @@ function _WordTable () {
                 imagePos={makeRect(-0.02, 0.785, 0.305, 0.19)}
                 word="ILLUSTRATION"
                 font='grandstander'
-                fontSize={1.25}
-                wordPos={makeRect(0.1825, 0.57, 0.058, 0.43)}
+                fontSize={1.21}
+                wordPos={makeRect(0.1825, 0.56, 0.058, 0.43)}
             />
             <Word
                 image={IMG.about.comic}
                 imagePos={makeRect(0.34, 0.656, 0.12, 0.17)}
                 word="COMIC"
                 font='invisible'
-                fontSize={1.3}
+                fontSize={1.25}
                 wordPos={makeRect(0.37, 0.68, 0.08, 0.32)}
             />
             <Word
@@ -413,7 +413,7 @@ function _WordTable () {
                 word="MOTION GRAPHICS"
                 font='invisible'
                 align='start'
-                fontSize={0.64}
+                fontSize={0.63}
                 wordPos={makeRect(0.005, 0, 0.17, 0.59)}
             />
             <Word
@@ -421,7 +421,7 @@ function _WordTable () {
                 imagePos={makeRect(0.005, 0.44, 0.12, 0.11)}
                 word="UX/UI"
                 font='illusion-magic'
-                fontSize={1.8}
+                fontSize={1.75}
                 wordPos={makeRect(0.024, 0.415, 0.08, 0.20)}
             />{/**/}
         </WordTable>

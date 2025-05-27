@@ -340,11 +340,11 @@
         
         .wordTableWindow {
             width: 100%;
-            aspect-ratio: 460 / 469;
+            aspect-ratio: 460 / 520;
 
             .wordTableContainer {
                 aspect-ratio: 460 / 469;
-                width: 90%;
+                width: 100%;
                 z-index: 100;
                 display: flex;
                 justify-content: center;
@@ -355,7 +355,15 @@
                 > div {
                     width: 100%;
                     height: 100%;
-                    filter: brightness(0.6) sepia(100%) saturate(60%) hue-rotate(0deg);
+
+                    > div {
+                        cursor: pointer;
+                        filter: brightness(0.6) sepia(100%) saturate(60%) hue-rotate(0deg);
+
+                        &:hover {
+                            filter: brightness(0.6) sepia(100%) saturate(5000%) hue-rotate(300deg);
+                        }
+                    }
                 }
             }
         }
