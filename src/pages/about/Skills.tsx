@@ -175,7 +175,8 @@ function Skills (props: SkillsProps) {
                 <div className={styles.artContainer}>
                     <_ArtSkill
                         title="Videogame dev"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash5000}
+                        icon={<SVG.about.skills.videogameDev />}
                     />
                     <_ArtSkill
                         title="Web design"
@@ -265,15 +266,17 @@ function Skills (props: SkillsProps) {
                 <div className={styles.artContainer}>
                     <_ArtSkill
                         title="Marketing"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.marketing />}
                     />
                     <_ArtSkill
                         title="Influencer Marketing"
-                        icon={<SVG.about.skills.conceptArt />}
+                        icon={<SVG.about.skills.influencerMarketing />}
                     />
                     <_ArtSkill
                         title="Ads analytics"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.adsAnalytics />}
                     />
                 </div>
             </Window>
@@ -291,15 +294,18 @@ function Skills (props: SkillsProps) {
                 <div className={styles.artContainer}>
                     <_ArtSkill
                         title="Storytelling"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.storytelling />}
                     />
                     <_ArtSkill
                         title="Copy writer"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash5000}
+                        icon={<SVG.about.skills.copyWriter />}
                     />
                     <_ArtSkill
                         title="Script writer"
-                        icon={<SVG.about.skills.conceptArt />}
+                        className={styles.dash3000}
+                        icon={<SVG.about.skills.scriptwriter />}
                     />
                 </div>
             </Window>
