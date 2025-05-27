@@ -96,7 +96,7 @@ interface AppearFromAnimationProps extends DivProps {
 
 export function AppearFromAnimation ({
     from,
-    threshold = 0.8,
+    threshold = 0,
     children,
     className,
     ...divProps
