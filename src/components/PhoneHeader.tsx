@@ -129,18 +129,27 @@ function PhoneHeader (props: PhoneHeaderProps) {
                         <SiteImage image={IMG.navigator.cv} />
                         <div className={styles.label}>CV</div>
                     </div>
-                    <div className={styles.entry}>
+                    <a
+                        className={styles.entry}
+                        href="/portfolio"
+                    >
                         <SiteImage image={IMG.navigator.portfolio} />
                         <div className={styles.label}>Portfolio</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        href="/about"
+                    >
                         <SiteImage image={IMG.navigator.me} />
                         <div className={styles.label}>About me</div>
-                    </div>
-                    <div className={styles.entry}>
+                    </a>
+                    <a
+                        className={styles.entry}
+                        href="/home"
+                    >
                         <SiteImage image={IMG.navigator.blog} />
                         <div className={styles.label}>Blog</div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </Modal>
