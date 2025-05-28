@@ -1443,12 +1443,11 @@
     align-items: center;
     padding-top: 1rem;
     width: 100vw;
-    overflow-x: auto;
 }
 
 .sectionContent.education > .content {
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;

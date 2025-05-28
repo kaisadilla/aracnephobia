@@ -41,5 +41,21 @@
             z-index: 1;
             user-select: none;
         }
+
+        > .socialMedia {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-secondary);
+            padding: 1rem;
+            border-top-left-radius: 1.5rem;
+
+            > a {
+                > svg {
+                    height: 32px;
+                    width: 32px;
+                    object-fit: contain;
+                }
+            }
+        }
     }
 }
