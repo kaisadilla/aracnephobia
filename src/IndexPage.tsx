@@ -8,7 +8,7 @@ export interface IndexPageProps {
 function IndexPage (props: IndexPageProps) {
 
     return (
-        <Navigate to="/wip" />
+        <Navigate to="/home" />
     );
 }
 
