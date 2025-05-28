@@ -33,6 +33,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+    padding-bottom: 120px;
 
     .bgGrid {
         position: absolute;
@@ -124,7 +125,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding-bottom: 2rem;
 
     > .aracneIntro {
         width: 100%;
@@ -1538,7 +1538,6 @@
     flex-direction: column;
     align-items: center;
     padding-top: 1rem;
-    padding-bottom: 4rem;
     width: 100vw;
     overflow-x: auto;
 }
@@ -2020,7 +2019,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding-bottom: 25rem;
 
     > .trajectoryContainer {
         position: relative;
