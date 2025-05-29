@@ -13,17 +13,114 @@
         user-select: none;
     }
 
+    :global(.screenPresentation) {
+        display: flex;
+        flex-direction: column;
+
+        > .sections {
+            display: none;
+            font-family: var(--font-amatic-sc);
+            font-size: 2rem;
+            background-color: var(--color-secondary);
+
+            > button {
+                @include crt-text-light;
+
+                cursor: pointer;
+                padding: 0 0.5em;
+                color: var(--color-primary);
+
+                &:hover {
+                    color: var(--color-highlight1);
+                }
+            }
+        }
+    }
+
     .screenContent {
+        @include crt(100);
+        
         position: relative;
         
         width: 100%;
         height: 100%;
         overflow: hidden;
-        @include crt(100);
+
+        > .screenFrame {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: var(--color-primary);
+
+            > .socialMedia {
+                order: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                padding-bottom: 0;
+                width: unset;
+                background-color: var(--color-secondary);
+
+                > a {
+                    display: block;
+                    height: calc(32px + 2rem);
+
+                    svg {
+                        width: calc(32px + 1rem);
+                        height: calc(32px + 2rem);
+                        object-fit: contain;
+                        fill: var(--color-primary);
+                        object-fit: contain;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .sectionSelect {
+        z-index: 500000;
+        padding: 0.5rem 1rem;
+        background-color: var(--color-secondary);
+
+        .sectionInput {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            border: var(--color-primary) solid var(--border-half-width);
+            border-radius: 0;
+            font-family: var(--font-fragment-data);
+            text-transform: uppercase;
+            font-size: 1.25em;
+            text-align: center;
+        }
     }
 
     .socialMedia {
 
+    }
+}
+
+@include when-desktop {
+    .home {
+        :global(.screenPresentation) {
+            > .sections {
+                display: flex;
+            }
+        }
+
+        .screenContent {
+            > .screenFrame {
+                > .socialMedia {
+                    display: none;
+                }
+            }
+        }
+
+        .sectionSelect {
+            display: none;
+        }
     }
 }
 
@@ -38,6 +135,32 @@
     pointer-events: none;
     user-select: none;
     z-index: 1010;
+}
+
+.phoneSectionDropdown {
+    z-index: 2000 !important;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: var(--color-primary) solid var(--border-half-width);
+    border-radius: 0;
+    font-family: var(--font-fragment-data);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0;
+
+    .sectionOptions {
+
+        .sectionOption {
+            background-color: none;
+            border-radius: 0;
+            font-size: 1.25em;
+
+            &:hover, &:active {
+                background-color: var(--color-primary);
+                color: var(--color-secondary);
+            }
+        }
+    }
 }
 
 @keyframes leftCurtainIn {

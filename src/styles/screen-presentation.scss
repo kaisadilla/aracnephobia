@@ -9,7 +9,35 @@
     height: 100%;
     font-size: 1rem;
 
-    > .screen {
+    > .screenContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        align-items: start;
+        justify-content: center;
+
+        > .socialMedia {
+            width: 100%;
+            background-color: var(--color-secondary);
+            display: none;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 1rem 0;
+
+            > a {
+                > svg {
+                    height: 32px;
+                    width: 32px;
+                    object-fit: contain;
+                    fill: var(--color-primary);
+                }
+            }
+        }
+    }
+
+    .screen {
         width: 100%;
         height: 100%;
         overflow: hidden;
@@ -20,8 +48,8 @@
     .screenPresentation {
         animation: growIn 0.4s linear 0s forwards;
         transform: scale(0);
-        > .screen {
 
+        > .screenContainer {
         }
     }
 }
@@ -30,7 +58,26 @@
     .screenPresentation {
         height: calc(100% - var(--navigator-height));
 
-        > .screen {
+        > .screenContainer {
+            height: unset;
+            flex-direction: row;
+
+            > .socialMedia {
+                order: 0;
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                border-top-left-radius: 1.5rem;
+                margin-top: 32px;
+                width: unset;
+
+                > a {
+                    padding: 2px 0;
+                }
+            }
+        }
+
+        .screen {
             width: unset;
 
             aspect-ratio: 1293 / 650;
@@ -40,22 +87,7 @@
             border-radius: 1.25vw;
             z-index: 1;
             user-select: none;
-        }
-
-        > .socialMedia {
-            display: flex;
-            flex-direction: column;
-            background-color: var(--color-secondary);
-            padding: 1rem;
-            border-top-left-radius: 1.5rem;
-
-            > a {
-                > svg {
-                    height: 32px;
-                    width: 32px;
-                    object-fit: contain;
-                }
-            }
+            overflow: hidden;
         }
     }
 }
