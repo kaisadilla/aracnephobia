@@ -34,7 +34,7 @@ function Experience (props: ExperienceProps) {
             window.removeEventListener('pointermove', handleTrajPointerMove);
             window.removeEventListener('pointerup', handleTrajPointerUp);
         };
-    }, [isDragging, setDragging, pos, setPos, handleTrajPointerUp]);
+    }, [isDragging, setDragging, pos, setPos, handleTrajPointerUp, handleTrajPointerMove]);
 
     return (
         <ScrollArea

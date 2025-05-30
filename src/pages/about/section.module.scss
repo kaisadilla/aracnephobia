@@ -1976,6 +1976,7 @@
                         position: relative;
                         height: calc(150% + 2rem);
                         padding: 2rem;
+                        touch-action: none;
                     }
                 }
             }
