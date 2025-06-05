@@ -164,10 +164,6 @@ function Skills (props: SkillsProps) {
             </Window>
         </EnterFromAnimation>
 
-        <EnterByScalingUp className={styles.minigame}>
-            <PlanetGame />
-        </EnterByScalingUp>
-
         <EnterFromAnimation from='left'>
             <Window
                 className={$cl(styles.skillWindow, styles.devSkills)}
