@@ -161,6 +161,9 @@ import about_video_2 from "./about/word-table/video.2x.webp";
 import about_web_design_2 from "./about/word-table/web-design.2x.webp";
 import about_writer_2 from "./about/word-table/writer.2x.webp";
 
+import planet_game_planet from "./about/planet-game/planet.png";
+import planet_game_ufo from "./about/planet-game/ufo.png";
+
 import navigator_blog from "./navigator/blog.webp";
 import navigator_cv from "./navigator/cv.webp";
 import navigator_me from "./navigator/me.webp";
@@ -363,7 +366,7 @@ export const IMG = {
         cv: navigator_cv,
         me: navigator_me,
         portfolio: navigator_portfolio,
-    } as ImageCollection,
+    },
     os: {
         cursor: os_cursor,
         folder: {
@@ -375,7 +378,11 @@ export const IMG = {
             ])
         },
         pdf_logo: os_pdf_logo_2,
-    } as ImageCollection,
+    },
+    planetGame: {
+        planet: planet_game_planet,
+        ufo: planet_game_ufo,
+    },
     social: {
         bsky,
         twitter,
@@ -384,7 +391,7 @@ export const IMG = {
         tiktok,
         twitch,
         youtube,
-    } as ImageCollection,
+    },
     aracne: {
         src: aracne,
         srcSet: getSrcSet([

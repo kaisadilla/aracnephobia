@@ -19,6 +19,7 @@ import pdfWorker from 'pdfjs-dist/build/pdf.worker?worker&url';
 import myPdfFile from 'assets/portfolio/branding/aracne_phobia/brand_bible.pdf';
 import useDynamicHook from 'hooks/useDynamicSize';
 import { createPortal } from 'react-dom';
+import { useMediaQuery } from '@mantine/hooks';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -238,6 +239,7 @@ function _GalleryView ({
     onOpen,
 }: _GalleryViewProps) {
     const ctx = useOsContext();
+    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
 
     const folders = folder.content.filter(f => f.type === 'folder');
     const images = folder.content.filter(f => f.type === 'image');
@@ -310,7 +312,7 @@ function _GalleryView ({
             type: 'image',
             images,
             selectedIndex: index,
-        });
+        }, isPhone);
         setTimeout(() => ctx.setWindowOnTop(uuid), 10);
     }
 
@@ -319,7 +321,7 @@ function _GalleryView ({
             type: 'video',
             videos,
             selectedIndex: index,
-        });
+        }, isPhone);
         setTimeout(() => ctx.setWindowOnTop(uuid), 10);
     }
 
@@ -327,7 +329,7 @@ function _GalleryView ({
         const uuid = ctx.openWindow({
             type: 'pdf',
             pdf,
-        });
+        }, isPhone);
         setTimeout(() => ctx.setWindowOnTop(uuid), 10);
     }
 }

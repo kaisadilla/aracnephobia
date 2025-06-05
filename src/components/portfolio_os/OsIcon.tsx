@@ -7,6 +7,7 @@ import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { Folder, OsFile, useOsContext } from 'context/usePortfolioContext';
+import { useMediaQuery } from '@mantine/hooks';
 
 export const ICON_WIDTH = 95;
 export const ICON_HEIGHT = 100;
@@ -27,6 +28,7 @@ function OsIcon ({
     onPointerDown,
 }: OsIconProps) {
     const ctx = useOsContext();
+    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
 
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: file.name
@@ -66,7 +68,7 @@ function OsIcon ({
         const uuid = ctx.openWindow({
             type: 'folder',
             folder: file as Folder,
-        });
+        }, isPhone);
         ctx.setWindowOnTop(uuid);
     }
 }

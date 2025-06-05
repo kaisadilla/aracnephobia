@@ -216,7 +216,7 @@ interface OsContextState {
     openWindows: {[uuid: string]: OsWindow};
     windowIndices: Record<string, number>;
     focusedWindow: string | null;
-    openWindow: (content: WindowContent) => string;
+    openWindow: (content: WindowContent, isPhone: boolean) => string;
     updateWindow: (id: string, window: OsWindow) => void;
     closeWindow: (id: string) => void;
     setWindowOnTop: (key: string) => void;
@@ -243,7 +243,7 @@ const OsContextProvider = ({ children }: any) => {
     } = useIndices(Object.keys(state.openWindows));
 
     const value: OsContextState = useMemo(() => {
-        function openWindow (content: WindowContent) : string {
+        function openWindow (content: WindowContent, isPhone: boolean) : string {
             const uuid = uuidv4();
             setState(prev => ({
                 ...prev,
@@ -253,11 +253,11 @@ const OsContextProvider = ({ children }: any) => {
                         id: uuid,
                         content,
                         position: {
-                            top: Math.floor(Math.random() * 100),
-                            left: Math.floor(Math.random() * 300),
+                            top: isPhone ? 10 : Math.floor(Math.random() * 100),
+                            left: isPhone ? 10 : Math.floor(Math.random() * 300),
                         },
                         isMinimized: false,
-                        isMaximized: false,
+                        isMaximized: isPhone,
                     },
                 }
             }));

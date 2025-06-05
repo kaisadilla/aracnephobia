@@ -35,7 +35,11 @@ function PortfolioPage (props: PortfolioPageProps) {
                     </div>
                 </div>
             </>}
-            {isPhone && <span>This section is not yet available on phone devices.</span>}
+            {isPhone && <>
+                <OsContextProvider>
+                    <PortfolioOs />
+                </OsContextProvider>
+            </>}
         </div>
     );
 }

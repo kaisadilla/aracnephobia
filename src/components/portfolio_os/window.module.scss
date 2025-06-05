@@ -276,6 +276,36 @@
     }
 }
 
+@include unless-tablet {
+    .imageView {
+        position: relative;
+
+        .control {
+            position: absolute;
+            top: 50%;
+            height: 160px;
+            @include crt-text-border;
+            width: 3rem;
+            background-color: #00000050;
+            user-select: none;
+
+            &.previous {
+                border-top-right-radius: 24px;
+                border-bottom-right-radius: 24px;
+                transform: translateY(-50%);
+                left: 0;
+            }
+
+            &.next {
+                border-top-left-radius: 24px;
+                border-bottom-left-radius: 24px;
+                transform: translateY(-50%);
+                right: 0;
+            }
+        }
+    }
+}
+
 .videoView {
     position: relative;
     display: flex;

@@ -50,6 +50,12 @@
     }
 }
 
+@mixin unless-tablet {
+    @media (max-width: 50rem) {
+        @content;
+    }
+}
+
 @mixin unless-desktop {
     @media (max-width: 75rem) {
         @content;

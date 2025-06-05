@@ -17,6 +17,7 @@ import VideoWindow from './VideoWindow';
 import en_US from 'localization/en_US';
 import { useMediaQuery } from '@mantine/hooks';
 import { EnterByScalingDown, EnterByScalingUp, EnterFromAnimation } from './animations';
+import PlanetGame from './PlanetGame';
 
 export interface SkillsProps {
     
@@ -164,7 +165,7 @@ function Skills (props: SkillsProps) {
         </EnterFromAnimation>
 
         <EnterByScalingUp className={styles.minigame}>
-            <SiteImage image={IMG.about.game_placeholder} />
+            <PlanetGame />
         </EnterByScalingUp>
 
         <EnterFromAnimation from='left'>
