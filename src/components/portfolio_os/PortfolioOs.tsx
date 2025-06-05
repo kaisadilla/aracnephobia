@@ -35,6 +35,11 @@ function PortfolioOs (props: PortfolioOsProps) {
                     className={styles.curtain}
                     image={IMG.about.curtain_left}
                 />}
+                {isPhone && 
+                <SiteImage
+                    className={styles.aracne}
+                    image={IMG.psychedelic_aracne}
+                />}
                 <IconGrid />
                 <WindowArea />
             </div>

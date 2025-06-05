@@ -81,6 +81,13 @@
                 right: 0;
                 transform: scaleX(-1);
             }
+
+            > .aracne {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                max-height: 40%;
+            }
         }
 
         .taskbar {
