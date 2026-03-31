@@ -700,8 +700,58 @@
     }
 
     > .minigame {
-        width: 100%;
-        height: 500px;
+        --color-game: #472e54;
+        width: 99%;
+        height: fit-content;
+
+        > .gameWin {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            > .gameWinHeader {
+                position: relative;
+                width: 100%;
+                background-size: cover;
+                aspect-ratio: 4417 / 465;
+                font-family: var(--font-manjari);
+                color: var(--color-game);
+
+                > .title {
+                    position: absolute;
+                    font-size: 2rem;
+                    top: 5%;
+                    left: 3%;
+                }
+
+                > .help {
+                    position: absolute;
+                    font-size: 1.5rem;
+                    top: 53%;
+                    left: 15.5%;
+                }
+            }
+
+            > .gameWinContent {
+                width: 100%;
+                height: fit-content;
+                border: 8px solid var(--color-game);
+                border-top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fbfeed;
+                padding: 1rem;
+
+                > .gameContainer {
+                    width: 100%;
+                    aspect-ratio: 1075 / 410;
+                    border-radius: 1.5rem;
+                    border: 4px solid var(--color-game);
+                    overflow: hidden;
+                }
+            }
+        }
     }
 
     > .devSkills {
@@ -935,10 +985,6 @@
         }
 
         > .videoSkills {
-            width: 85%;
-        }
-
-        > .minigame {
             width: 85%;
         }
 

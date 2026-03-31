@@ -161,6 +161,7 @@ import about_video_2 from "./about/word-table/video.2x.webp";
 import about_web_design_2 from "./about/word-table/web-design.2x.webp";
 import about_writer_2 from "./about/word-table/writer.2x.webp";
 
+import about_game_win_header from "./about/game_win_header.webp";
 import planet_game_planet from "./about/planet-game/planet.png";
 import planet_game_ufo from "./about/planet-game/ufo.png";
 
@@ -261,6 +262,7 @@ export const IMG = {
         ornaments3: about_ornaments3,
         damn_your_eyes: about_damn_your_eyes_2,
         game_placeholder: about_game_placeholder,
+        game_win_header: about_game_win_header,
 
         me: {
             musicals: about_me_musicals,

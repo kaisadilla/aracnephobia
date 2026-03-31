@@ -18,6 +18,7 @@ import en_US from 'localization/en_US';
 import { useMediaQuery } from '@mantine/hooks';
 import { EnterByScalingDown, EnterByScalingUp, EnterFromAnimation } from './animations';
 import PlanetGame from './PlanetGame';
+import UfoGame from 'components/UfoGame';
 
 export interface SkillsProps {
     
@@ -163,6 +164,23 @@ function Skills (props: SkillsProps) {
                 </div>
             </Window>
         </EnterFromAnimation>
+
+        <EnterByScalingUp className={styles.minigame}>
+            <div className={styles.gameWin}>
+                <div className={styles.gameWinHeader} style={{
+                    backgroundImage: `url(${IMG.about.game_win_header})`,
+                }}>
+                    <div className={styles.title}>Play me</div>
+                    <div className={styles.help}>Use [Space] to continue</div>
+                </div>
+                <div className={styles.gameWinContent}>
+                    <div className={styles.gameContainer}>
+                        <UfoGame className={styles.game} />
+                    </div>
+                </div>
+            </div>
+            {false && <PlanetGame />}
+        </EnterByScalingUp>
 
         <EnterFromAnimation from='left'>
             <Window
