@@ -1,104 +1,104 @@
 @font-face {
-    font-family: "Amatic SC";
-    src: local('Amatic SC'), url('../fonts/AmaticSC-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Amatic SC";
+  src: local('Amatic SC'), url('../fonts/AmaticSC-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Creepster";
-    src: url("../fonts/Creepster-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Creepster";
+  src: url("../fonts/Creepster-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Fragment Mono";
-    src: url("../fonts/FragmentMono-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Fragment Mono";
+  src: url("../fonts/FragmentMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gotile';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Gotile'), url('../fonts/Gotile.ttf') format('truetype');
+  font-family: 'Gotile';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gotile'), url('../fonts/Gotile.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Grandstander';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Grandstander'), url('../fonts/Grandstander-VariableFont_wght.ttf') format('truetype');
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Grandstander'), url('../fonts/Grandstander-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Illusion Magic';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Illusion Magic'), url('../fonts/Illusion Magic.otf') format('opentype');
+  font-family: 'Illusion Magic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Illusion Magic'), url('../fonts/Illusion Magic.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Invisible';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Invisible Extra Bold'), url('../fonts/Invisible-ExtraBold.woff') format('woff');
+  font-family: 'Invisible';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Invisible Extra Bold'), url('../fonts/Invisible-ExtraBold.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'Jolly Lodger';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Jolly Lodger'), url('../fonts/JollyLodger-Regular.ttf') format('truetype');
+  font-family: 'Jolly Lodger';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Jolly Lodger'), url('../fonts/JollyLodger-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Manjari";
-    src: url("../fonts/Manjari-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Manjari";
+  src: url("../fonts/Manjari-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Manjari";
-    src: url("../fonts/Manjari-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Manjari";
+  src: url("../fonts/Manjari-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Manjari";
-    src: url("../fonts/Manjari-Thin.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Manjari";
+  src: url("../fonts/Manjari-Thin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Matisse Pro";
-    src: url("../fonts/FOT-Matisse Pro EB.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Matisse Pro";
+  src: url("../fonts/FOT-Matisse Pro EB.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Wonder Night";
-    src: url("../fonts/Wonder\ Night.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Wonder Night";
+  src: url("../fonts/Wonder\ Night.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-    --font-amatic-sc: "Amatic SC";
-    --font-creepster: "Creepster";
-    --font-fragment-mono: "Fragment Mono";
-    --font-gotile: "Gotile";
-    --font-grandstander: "Grandstander";
-    --font-illusion-magic: "Illusion Magic";
-    --font-invisible: "Invisible";
-    --font-jolly-lodger: "Jolly Lodger";
-    --font-manjari: "Manjari";
-    --font-matisse-pro: "Matisse Pro";
-    --font-wonder-night: "Wonder Night";
+  --font-amatic-sc: "Amatic SC";
+  --font-creepster: "Creepster";
+  --font-fragment-mono: "Fragment Mono";
+  --font-gotile: "Gotile";
+  --font-grandstander: "Grandstander";
+  --font-illusion-magic: "Illusion Magic";
+  --font-invisible: "Invisible";
+  --font-jolly-lodger: "Jolly Lodger";
+  --font-manjari: "Manjari";
+  --font-matisse-pro: "Matisse Pro";
+  --font-wonder-night: "Wonder Night";
 }

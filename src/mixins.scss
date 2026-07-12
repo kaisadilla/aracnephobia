@@ -1,424 +1,424 @@
 @use 'sass:math';
 
 @mixin hex-horizontal {
-    aspect-ratio: 1 / cos(30deg);
-    clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
+  aspect-ratio: 1 / cos(30deg);
+  clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%);
 }
 @mixin hex-vertical {
-    aspect-ratio: cos(30deg) / 1;
-    clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+  aspect-ratio: cos(30deg) / 1;
+  clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
 }
 
 @mixin cut-side-left ($perc) {
-    clip-path: polygon(
-        #{$perc} 0%,
-        100% 0%,
-        100% 100%,
-        #{$perc} 100%,
-        0% calc(100% -  #{$perc}),
-        0% #{$perc}
-    );
+  clip-path: polygon(
+    #{$perc} 0%,
+    100% 0%,
+    100% 100%,
+    #{$perc} 100%,
+    0% calc(100% -  #{$perc}),
+    0% #{$perc}
+  );
 }
 
 @mixin cut-side-right ($perc) {
-    clip-path: polygon(
-        calc(100% -  #{$perc}) 0%,
-        0% 0%,
-        0% 100%,
-        calc(100% -  #{$perc}) 100%,
-        100% calc(100% -  #{$perc}),
-        100% #{$perc}
-    );
+  clip-path: polygon(
+    calc(100% -  #{$perc}) 0%,
+    0% 0%,
+    0% 100%,
+    calc(100% -  #{$perc}) 100%,
+    100% calc(100% -  #{$perc}),
+    100% #{$perc}
+  );
 }
 
 @mixin blog-body {
-    padding: 1rem 0;
-    width: 100%;
-    max-width: 964px;
-    min-height: max(30vw, 200px);
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 964px;
+  min-height: max(30vw, 200px);
 }
 
 @mixin when-tablet {
-    @media (min-width: 50rem) {
-        @content;
-    }
+  @media (min-width: 50rem) {
+    @content;
+  }
 }
 
 @mixin when-desktop {
-    @media (min-width: 75rem) {
-        @content;
-    }
+  @media (min-width: 75rem) {
+    @content;
+  }
 }
 
 @mixin unless-tablet {
-    @media (max-width: 50rem) {
-        @content;
-    }
+  @media (max-width: 50rem) {
+    @content;
+  }
 }
 
 @mixin unless-desktop {
-    @media (max-width: 75rem) {
-        @content;
-    }
+  @media (max-width: 75rem) {
+    @content;
+  }
 }
 
 @mixin when-phone-landscape {
-    @media screen and (orientation: landscape) and (max-width: 50rem) {
-        @content;
-    }
+  @media screen and (orientation: landscape) and (max-width: 50rem) {
+    @content;
+  }
 }
 
 @mixin when-phone-portrait {
-    @media screen and (orientation: portrait) and (max-width: 50rem) {
-        @content;
-    }
+  @media screen and (orientation: portrait) and (max-width: 50rem) {
+    @content;
+  }
 }
 
 @mixin when-system-theme-light {
-    @media (prefers-color-scheme: light) {
-        @content;
-    }
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
 }
 
 @mixin when-system-theme-dark {
-    @media (prefers-color-scheme: dark) {
-        @content;
-    }
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
 }
 
 @mixin as-viewport {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 
 @function rem-as-pt ($pt, $base: 12) {
-    @return ($pt / $base) * 1rem;
+  @return ($pt / $base) * 1rem;
 }
 
 // CRT Effect: https://aleclownes.com/2017/02/01/crt-display.html
 
 @mixin crt($z-index) {
-    &::before {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: linear-gradient(
-            rgba(18, 16, 16, 0) 50%,
-            rgba(0, 0, 0, 0.25) 50%,
-        ), linear-gradient(
-            90deg, rgba(255, 0, 0, 0.06),
-            rgba(0, 255, 0, 0.02),
-            rgba(0, 0, 255, 0.06)
-        );
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%,
+    ), linear-gradient(
+      90deg, rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
 
-        z-index: $z-index;
-        background-size: 100% 2px, 3px 100%;
-        pointer-events: none;
-    }
+    z-index: $z-index;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
 
-    &::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: rgba(18, 16, 16, 0.1);
-        opacity: 0;
-        z-index: $z-index;
-        pointer-events: none;
-        animation: flicker 0.15s infinite;
-    }
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: $z-index;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+  }
 }
 
 @mixin crt-text() {
-    animation: text-shadow-regular 1.6s infinite;
+  animation: text-shadow-regular 1.6s infinite;
 
-    //@for $i from 1 through 100 {
-    //    &:nth-child(#{$i}) {
-    //        animation-delay: calc(#{math.random(1600)}ms - 1600ms)
-    //    }
-    //}
+  //@for $i from 1 through 100 {
+  //  &:nth-child(#{$i}) {
+  //    animation-delay: calc(#{math.random(1600)}ms - 1600ms)
+  //  }
+  //}
 }
 
 @mixin crt-text-light() {
-    animation: text-shadow-light 1.6s infinite;
+  animation: text-shadow-light 1.6s infinite;
 }
 
 @mixin crt-text-border() {
-    animation: text-shadow-border 1.6s infinite;
+  animation: text-shadow-border 1.6s infinite;
 }
 
 @keyframes flicker {
-    0% {
-        opacity: 0.27861;
-    }
+  0% {
+    opacity: 0.27861;
+  }
 
-    5% {
-        opacity: 0.34769;
-    }
+  5% {
+    opacity: 0.34769;
+  }
 
-    10% {
-        opacity: 0.23604;
-    }
+  10% {
+    opacity: 0.23604;
+  }
 
-    15% {
-        opacity: 0.90626;
-    }
+  15% {
+    opacity: 0.90626;
+  }
 
-    20% {
-        opacity: 0.18128;
-    }
+  20% {
+    opacity: 0.18128;
+  }
 
-    25% {
-        opacity: 0.83891;
-    }
+  25% {
+    opacity: 0.83891;
+  }
 
-    30% {
-        opacity: 0.65583;
-    }
+  30% {
+    opacity: 0.65583;
+  }
 
-    35% {
-        opacity: 0.67807;
-    }
+  35% {
+    opacity: 0.67807;
+  }
 
-    40% {
-        opacity: 0.26559;
-    }
+  40% {
+    opacity: 0.26559;
+  }
 
-    45% {
-        opacity: 0.84693;
-    }
+  45% {
+    opacity: 0.84693;
+  }
 
-    50% {
-        opacity: 0.96019;
-    }
+  50% {
+    opacity: 0.96019;
+  }
 
-    55% {
-        opacity: 0.08594;
-    }
+  55% {
+    opacity: 0.08594;
+  }
 
-    60% {
-        opacity: 0.20313;
-    }
+  60% {
+    opacity: 0.20313;
+  }
 
-    65% {
-        opacity: 0.71988;
-    }
+  65% {
+    opacity: 0.71988;
+  }
 
-    70% {
-        opacity: 0.53455;
-    }
+  70% {
+    opacity: 0.53455;
+  }
 
-    75% {
-        opacity: 0.37288;
-    }
+  75% {
+    opacity: 0.37288;
+  }
 
-    80% {
-        opacity: 0.71428;
-    }
+  80% {
+    opacity: 0.71428;
+  }
 
-    85% {
-        opacity: 0.70419;
-    }
+  85% {
+    opacity: 0.70419;
+  }
 
-    90% {
-        opacity: 0.7003;
-    }
+  90% {
+    opacity: 0.7003;
+  }
 
-    95% {
-        opacity: 0.36108;
-    }
+  95% {
+    opacity: 0.36108;
+  }
 
-    100% {
-        opacity: 0.24387;
-    }
+  100% {
+    opacity: 0.24387;
+  }
 }
 
 // Not used:
 @keyframes textShadow {
-    0% {
-        text-shadow: 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5), -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5), -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    5% {
-        text-shadow: 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5), -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  5% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5), -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    10% {
-        text-shadow: 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5), -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  10% {
+    text-shadow: 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5), -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    15% {
-        text-shadow: 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5), -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  15% {
+    text-shadow: 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5), -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    20% {
-        text-shadow: 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5), -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  20% {
+    text-shadow: 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5), -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    25% {
-        text-shadow: 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5), -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  25% {
+    text-shadow: 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5), -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    30% {
-        text-shadow: 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5), -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  30% {
+    text-shadow: 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5), -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    35% {
-        text-shadow: 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5), -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  35% {
+    text-shadow: 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5), -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    40% {
-        text-shadow: 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5), -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  40% {
+    text-shadow: 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5), -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    45% {
-        text-shadow: 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5), -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  45% {
+    text-shadow: 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5), -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    50% {
-        text-shadow: 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5), -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  50% {
+    text-shadow: 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5), -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    55% {
-        text-shadow: 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5), -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  55% {
+    text-shadow: 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5), -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    60% {
-        text-shadow: 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5), -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  60% {
+    text-shadow: 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5), -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    65% {
-        text-shadow: 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5), -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  65% {
+    text-shadow: 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5), -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    70% {
-        text-shadow: 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5), -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  70% {
+    text-shadow: 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5), -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    75% {
-        text-shadow: 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5), -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  75% {
+    text-shadow: 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5), -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    80% {
-        text-shadow: 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5), -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  80% {
+    text-shadow: 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5), -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    85% {
-        text-shadow: 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5), -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  85% {
+    text-shadow: 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5), -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    90% {
-        text-shadow: 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5), -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  90% {
+    text-shadow: 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5), -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    95% {
-        text-shadow: 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5), -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  95% {
+    text-shadow: 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5), -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 
-    100% {
-        text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5), -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-    }
+  100% {
+    text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5), -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+  }
 }
 
 @mixin text-shadow ($name, $opacity, $has-border) {
-    @keyframes #{$name} {
-        $border: 0px 0px 3px if($has-border, black, transparent);
-    
-        0% {
-            text-shadow: $border, 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        5% {
-            text-shadow: $border, 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        10% {
-            text-shadow: $border, 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        15% {
-            text-shadow: $border, 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        20% {
-            text-shadow: $border, 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        25% {
-            text-shadow: $border, 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        30% {
-            text-shadow: $border, 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        35% {
-            text-shadow: $border, 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        40% {
-            text-shadow: $border, 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        45% {
-            text-shadow: $border, 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        50% {
-            text-shadow: $border, 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        55% {
-            text-shadow: $border, 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        60% {
-            text-shadow: $border, 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        65% {
-            text-shadow: $border, 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        70% {
-            text-shadow: $border, 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        75% {
-            text-shadow: $border, 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        80% {
-            text-shadow: $border, 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        85% {
-            text-shadow: $border, 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        90% {
-            text-shadow: $border, 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        95% {
-            text-shadow: $border, 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
-    
-        100% {
-            text-shadow: $border, 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
-        }
+  @keyframes #{$name} {
+    $border: 0px 0px 3px if($has-border, black, transparent);
+  
+    0% {
+      text-shadow: $border, 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
     }
+  
+    5% {
+      text-shadow: $border, 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    10% {
+      text-shadow: $border, 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    15% {
+      text-shadow: $border, 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    20% {
+      text-shadow: $border, 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    25% {
+      text-shadow: $border, 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    30% {
+      text-shadow: $border, 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    35% {
+      text-shadow: $border, 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    40% {
+      text-shadow: $border, 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    45% {
+      text-shadow: $border, 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    50% {
+      text-shadow: $border, 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    55% {
+      text-shadow: $border, 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    60% {
+      text-shadow: $border, 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    65% {
+      text-shadow: $border, 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    70% {
+      text-shadow: $border, 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    75% {
+      text-shadow: $border, 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    80% {
+      text-shadow: $border, 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    85% {
+      text-shadow: $border, 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    90% {
+      text-shadow: $border, 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    95% {
+      text-shadow: $border, 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  
+    100% {
+      text-shadow: $border, 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5 * $opacity), -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3 * $opacity), 0 0 3px;
+    }
+  }
 }
 
 @include text-shadow("text-shadow-regular", 1, false);
@@ -426,9 +426,9 @@
 @include text-shadow("text-shadow-border", 0.55, true);
 
 @mixin neon-glow-primary($width: 0.4rem) {
-    filter: drop-shadow(0 0 $width var(--color-highlight1));
+  filter: drop-shadow(0 0 $width var(--color-highlight1));
 }
 
 @mixin neon-glow-secondary($width: 0.4rem) {
-    filter: drop-shadow(0 0 $width var(--color-highlight2));
+  filter: drop-shadow(0 0 $width var(--color-highlight2));
 }

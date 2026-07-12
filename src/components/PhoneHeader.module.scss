@@ -1,173 +1,173 @@
 .header {
-    width: 100%;
-    max-height: 100%;
-    background: black;
-    border-bottom: 0.3rem solid var(--color-secondary);
+  width: 100%;
+  max-height: 100%;
+  background: black;
+  border-bottom: 0.3rem solid var(--color-secondary);
+  position: relative;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+
+  .aracnePlanet {
     position: relative;
-    height: 120px;
+    height: 90%;
+    top: 24px;
+
+    .planet {
+      height: 100%;
+    }
+
+    .aracne {
+      position: absolute;
+      top: 5%;
+      left: 24%;
+      height: 90%;
+      border-radius: 50%;
+      border: 0.3rem solid white;
+    }
+  }
+
+  .menuButton {
+    position: absolute;
+    right: 16px;
+    top: 16px;
     display: flex;
-    justify-content: center;
-    z-index: 100;
+    flex-direction: column;
+    gap: 4px;
+    width: 32px;
 
-    .aracnePlanet {
-        position: relative;
-        height: 90%;
-        top: 24px;
-
-        .planet {
-            height: 100%;
-        }
-
-        .aracne {
-            position: absolute;
-            top: 5%;
-            left: 24%;
-            height: 90%;
-            border-radius: 50%;
-            border: 0.3rem solid white;
-        }
+    > div {
+      width: 100%;
+      height: 5px;
+      background-color: white;
+      border-radius: 10px;
     }
-
-    .menuButton {
-        position: absolute;
-        right: 16px;
-        top: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        width: 32px;
-
-        > div {
-            width: 100%;
-            height: 5px;
-            background-color: white;
-            border-radius: 10px;
-        }
-    }
+  }
 }
 
 .menu {
-    color: black;
-    position: absolute;
-    z-index: 500000000000;
-    user-select: none;
-    left: 0;
+  color: black;
+  position: absolute;
+  z-index: 500000000000;
+  user-select: none;
+  left: 0;
 
-    .modalInner {
-        padding-top: 0;
-        padding-bottom: 0;
-        padding-right: 0;
-        padding-left: 20%;
+  .modalInner {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 20%;
 
-        .modalContent {
-            border-radius: 0;
-            border-start-start-radius: 60px;
-            height: 100%;
-            max-height: 100%;
+    .modalContent {
+      border-radius: 0;
+      border-start-start-radius: 60px;
+      height: 100%;
+      max-height: 100%;
 
-            .modalHeader {
-                background-color: transparent;
+      .modalHeader {
+        background-color: transparent;
 
-                > h2 {
-                    width: 100%;
+        > h2 {
+          width: 100%;
 
-                    > div {
-                        flex: 1;
-                        display: flex;
-                        justify-content: center;
-                        align-items: start;
+          > div {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: start;
 
-                        .logo {
-                            flex: 1;
-                            height: 3.3rem;
-                            display: flex;
-                            justify-content: center;
-    
-                            > img {
-                                height: 100%;
-                            }
-                        }
-    
-                        span {
-                            font-size: 2.25rem;
-                            font-weight: 800;
-                        }
-                    }
-                }
+            .logo {
+              flex: 1;
+              height: 3.3rem;
+              display: flex;
+              justify-content: center;
+  
+              > img {
+                height: 100%;
+              }
             }
-
-            .modalBody {
-                
-                .noise {
-                    position: absolute;
-                    inset: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    
-                    mix-blend-mode: lighten; /* or 'screen' or 'color-dodge' depending on effect */
-                    pointer-events: none;
-                    filter: brightness(60%);
-                    z-index: 1000;
-                }
-
-                .content {
-                    .divider {
-                        width: 100%;
-                        display: flex;
-                        gap: 0.5rem;
-                        align-items: center;
-                        justify-content: end;
-                        padding-left: 1rem;
-                        position: relative;
-                        right: -18px;
-
-                        img:first-child {
-                            height: 1.25rem;
-                        }
-
-                        img:nth-child(2) {
-                            height: 1rem;
-                            //position: relative;
-                            //left: calc(var(--mantine-spacing-md) + 5px);
-                        }
-                    }
-
-                    .sectionList {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: end;
-                        width: 100%;
-
-                        .entry {
-                            display: flex;
-                            align-items: center;
-                            gap: 1em;
-                            justify-content: end;
-                            height: 46px;
-                            padding: 0.5em 1em 0.5em 0;
-
-                            .label {
-                                order: 0;
-                                font-family: var(--font-amatic-sc);
-                                font-size: 1.75rem;
-                                text-transform: capitalize;
-                            }
-
-                            img {
-                                order: 1;
-                                height: 100%;
-                                width: 42px;
-                                object-fit: contain;
-                            }
-                        }
-                    }
-                }
+  
+            span {
+              font-size: 2.25rem;
+              font-weight: 800;
             }
+          }
         }
+      }
+
+      .modalBody {
+        
+        .noise {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          
+          mix-blend-mode: lighten; /* or 'screen' or 'color-dodge' depending on effect */
+          pointer-events: none;
+          filter: brightness(60%);
+          z-index: 1000;
+        }
+
+        .content {
+          .divider {
+            width: 100%;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: end;
+            padding-left: 1rem;
+            position: relative;
+            right: -18px;
+
+            img:first-child {
+              height: 1.25rem;
+            }
+
+            img:nth-child(2) {
+              height: 1rem;
+              //position: relative;
+              //left: calc(var(--mantine-spacing-md) + 5px);
+            }
+          }
+
+          .sectionList {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            width: 100%;
+
+            .entry {
+              display: flex;
+              align-items: center;
+              gap: 1em;
+              justify-content: end;
+              height: 46px;
+              padding: 0.5em 1em 0.5em 0;
+
+              .label {
+                order: 0;
+                font-family: var(--font-amatic-sc);
+                font-size: 1.75rem;
+                text-transform: capitalize;
+              }
+
+              img {
+                order: 1;
+                height: 100%;
+                width: 42px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
     }
-    //background-color: white;
-    //width: 131px;
-    //height: 131px;
-    //z-index: 5000;
+  }
+  //background-color: white;
+  //width: 131px;
+  //height: 131px;
+  //z-index: 5000;
 }

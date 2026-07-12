@@ -1,142 +1,142 @@
 
 function getBrandingFolder () : Folder {
-    const folder: Folder = {
+  const folder: Folder = {
+    type: 'folder',
+    name: "Branding",
+    display: 'list',
+    parentFolder: null,
+    content: [
+      {
         type: 'folder',
-        name: "Branding",
-        display: 'list',
-        parentFolder: null,
+        name: "Aracne Phobia",
+        display: 'gallery',
         content: [
-            {
-                type: 'folder',
-                name: "Aracne Phobia",
-                display: 'gallery',
-                content: [
-                    {
-                        type: 'image',
-                        name: "cartas_borde",
-                        content: branding_af_cartas,
-                    },
-                    {
-                        type: 'image',
-                        name: "iconos",
-                        content: branding_af_iconos,
-                    },
-                    {
-                        type: 'image',
-                        name: "iconos_2",
-                        content: branding_af_iconos2,
-                    },
-                    {
-                        type: 'image',
-                        name: "iconos_3",
-                        content: branding_af_iconos3,
-                    },
-                    {
-                        type: 'image',
-                        name: "imagen",
-                        content: branding_af_imagen,
-                    },
-                    {
-                        type: 'image',
-                        name: "logo",
-                        content: branding_af_logo,
-                    },
-                    {
-                        type: 'image',
-                        name: "logo_spider",
-                        content: branding_af_logo_spider,
-                    },
-                    {
-                        type: 'image',
-                        name: "paneles",
-                        content: branding_af_paneles,
-                    },
-                    {
-                        type: 'image',
-                        name: "tipos",
-                        content: branding_af_tipos,
-                    },
-                    {
-                        type: 'pdf',
-                        name: "brand_bible",
-                        content: branding_af_brand_bible,
-                    },
-                ]
-            },
-            {
-                type: 'folder',
-                name: "Delugram",
-                display: 'gallery',
-                content: [
-                    {
-                        type: 'image',
-                        name: 'bible_1',
-                        content: branding_delugram_bible_1,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_2',
-                        content: branding_delugram_bible_2,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_3',
-                        content: branding_delugram_bible_3,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_4',
-                        content: branding_delugram_bible_4,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_5',
-                        content: branding_delugram_bible_5,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_6',
-                        content: branding_delugram_bible_6,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_7',
-                        content: branding_delugram_bible_7,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_8',
-                        content: branding_delugram_bible_8,
-                    },
-                    {
-                        type: 'image',
-                        name: 'bible_9',
-                        content: branding_delugram_bible_9,
-                    },
-                    {
-                        type: 'pdf',
-                        name: 'bible',
-                        content: branding_delugram_bible_pdf,
-                    },
-                    {
-                        type: 'image',
-                        name: 'logo.gif',
-                        content: branding_delugram_logo_gif,
-                    },
-                    {
-                        type: 'video',
-                        name: 'logo.mp4',
-                        content: branding_delugram_logo_mp4,
-                        thumbnail: branding_delugram_logo_mp4_thumbnail,
-                    },
-                ]
-            },
-            {
-                type: 'folder',
-                name: "Farmacia",
-                display: 'gallery',
-                content: [
-                    {
+          {
+            type: 'image',
+            name: "cartas_borde",
+            content: branding_af_cartas,
+          },
+          {
+            type: 'image',
+            name: "iconos",
+            content: branding_af_iconos,
+          },
+          {
+            type: 'image',
+            name: "iconos_2",
+            content: branding_af_iconos2,
+          },
+          {
+            type: 'image',
+            name: "iconos_3",
+            content: branding_af_iconos3,
+          },
+          {
+            type: 'image',
+            name: "imagen",
+            content: branding_af_imagen,
+          },
+          {
+            type: 'image',
+            name: "logo",
+            content: branding_af_logo,
+          },
+          {
+            type: 'image',
+            name: "logo_spider",
+            content: branding_af_logo_spider,
+          },
+          {
+            type: 'image',
+            name: "paneles",
+            content: branding_af_paneles,
+          },
+          {
+            type: 'image',
+            name: "tipos",
+            content: branding_af_tipos,
+          },
+          {
+            type: 'pdf',
+            name: "brand_bible",
+            content: branding_af_brand_bible,
+          },
+        ]
+      },
+      {
+        type: 'folder',
+        name: "Delugram",
+        display: 'gallery',
+        content: [
+          {
+            type: 'image',
+            name: 'bible_1',
+            content: branding_delugram_bible_1,
+          },
+          {
+            type: 'image',
+            name: 'bible_2',
+            content: branding_delugram_bible_2,
+          },
+          {
+            type: 'image',
+            name: 'bible_3',
+            content: branding_delugram_bible_3,
+          },
+          {
+            type: 'image',
+            name: 'bible_4',
+            content: branding_delugram_bible_4,
+          },
+          {
+            type: 'image',
+            name: 'bible_5',
+            content: branding_delugram_bible_5,
+          },
+          {
+            type: 'image',
+            name: 'bible_6',
+            content: branding_delugram_bible_6,
+          },
+          {
+            type: 'image',
+            name: 'bible_7',
+            content: branding_delugram_bible_7,
+          },
+          {
+            type: 'image',
+            name: 'bible_8',
+            content: branding_delugram_bible_8,
+          },
+          {
+            type: 'image',
+            name: 'bible_9',
+            content: branding_delugram_bible_9,
+          },
+          {
+            type: 'pdf',
+            name: 'bible',
+            content: branding_delugram_bible_pdf,
+          },
+          {
+            type: 'image',
+            name: 'logo.gif',
+            content: branding_delugram_logo_gif,
+          },
+          {
+            type: 'video',
+            name: 'logo.mp4',
+            content: branding_delugram_logo_mp4,
+            thumbnail: branding_delugram_logo_mp4_thumbnail,
+          },
+        ]
+      },
+      {
+        type: 'folder',
+        name: "Farmacia",
+        display: 'gallery',
+        content: [
+          {
                         type: 'pdf',
                         name: "Te cuida",
                         content: branding_farmacia_tecuida,

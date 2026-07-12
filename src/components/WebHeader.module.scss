@@ -1,71 +1,71 @@
 .header {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    max-height: 100%;
-    background: var(--color-primary);
-    border-bottom: 0.5rem solid var(--color-secondary);
-    position: relative;
-    height: 154px;
+  width: 100%;
+  max-height: 100%;
+  background: var(--color-primary);
+  border-bottom: 0.5rem solid var(--color-secondary);
+  position: relative;
+  height: 154px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0 3vw;
-    z-index: 1000;
-    user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 3vw;
+  z-index: 1000;
+  user-select: none;
 
-    > .logo {
-        margin-bottom: 4px;
-        z-index: 10;
-    }
+  > .logo {
+    margin-bottom: 4px;
+    z-index: 10;
+  }
 
-    > .motifLeft, > .motifRight {
-        position: absolute;
-        bottom: 0.5rem;
-        height: 36px;
-    }
+  > .motifLeft, > .motifRight {
+    position: absolute;
+    bottom: 0.5rem;
+    height: 36px;
+  }
 
-    > .motifLeft {
-        left: 0.5rem;
-    }
+  > .motifLeft {
+    left: 0.5rem;
+  }
 
-    > .motifRight {
-        right: 0.5rem;
-        transform: scaleX(-1);
-    }
+  > .motifRight {
+    right: 0.5rem;
+    transform: scaleX(-1);
+  }
 
-    > .psycho {
-        position: absolute;
-        cursor: pointer;
-        height: 40%;
-        top: 1.5rem;
-        right: 3rem;
-    }
+  > .psycho {
+    position: absolute;
+    cursor: pointer;
+    height: 40%;
+    top: 1.5rem;
+    right: 3rem;
+  }
 }
 
 @include when-desktop {
-    $curtain-width: 205px;
+  $curtain-width: 205px;
 
-    .header {
-        &.rightPad {
-            padding-right: $curtain-width;
+  .header {
+    &.rightPad {
+      padding-right: $curtain-width;
 
-            > .motifRight {
-                right: calc($curtain-width + 0.5rem);
-            }
+      > .motifRight {
+        right: calc($curtain-width + 0.5rem);
+      }
 
-            > .psycho {
-                right: calc($curtain-width + 3rem);
-            }
-        }
-
-        &.leftPad {
-            padding-left: $curtain-width;
-
-            > .motifLeft {
-                left: calc($curtain-width + 0.5rem);
-            }
-        }
+      > .psycho {
+        right: calc($curtain-width + 3rem);
+      }
     }
+
+    &.leftPad {
+      padding-left: $curtain-width;
+
+      > .motifLeft {
+        left: calc($curtain-width + 0.5rem);
+      }
+    }
+  }
 }
