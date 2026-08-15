@@ -1,5 +1,6 @@
 {
     "cSpell.ignoreWords": [
         "gotile"
-    ]
+    ],
+    "editor.tabSize": 2
 }

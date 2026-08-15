@@ -6,14 +6,22 @@ import ChromaticAberrationImage from './ChromaticAberrationImage';
 import SiteImage from './SiteImage';
 import styles from "./WebHeader.module.scss";
 
+export type Logo = 'web' | 'music';
+
 export interface WebHeaderProps {
   curtainSide: 'left' | 'right' | 'none';
+  logo: Logo;
 }
 
 function WebHeader ({
   curtainSide,
+  logo,
 }: WebHeaderProps) {
   const [showLabel, setShowLabel] = useState(false);
+
+  const logoImg = logo === 'music'
+    ? IMG.lettering_music_pink
+    : IMG.lettering_sq_pink;
 
   function handleMouseEnterPsycho () {
     if (Math.random() > 0.01) return;
@@ -30,7 +38,7 @@ function WebHeader ({
     )}>
       <ChromaticAberrationImage
         className={styles.logo}
-        image={IMG.lettering_sq_pink}
+        image={logoImg}
         horizFlicker={6}
         vertFlicker={0}
         duration={0.65}

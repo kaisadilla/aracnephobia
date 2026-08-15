@@ -134,3 +134,27 @@ export const Css = {
     return values[0];
   }
 }
+
+export async function getAudioDuration (url: string) {
+  const audio = new Audio(url);
+
+  await new Promise(
+    res => audio.addEventListener('loadedmetadata', res, { once: true })
+  );
+
+  return Math.floor(audio.duration * 1000);
+}
+
+export function copyToClipboard (text: string): void {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+  }
+  else {
+    const el = document.createElement("textarea");
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+  }
+}

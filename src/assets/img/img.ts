@@ -1,143 +1,144 @@
 
-import aracne from "./aracne.webp";
+import about_about_jp_big from "./about/about_jp_big.webp";
+import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
+import about_am_3d_grid from "./about/about_me_3d_grid.webp";
+import about_cts_error from "./about/cts_error.webp";
+import about_cts_model from "./about/cts_model.webp";
+import about_cts_planet from "./about/cts_planet.webp";
+import about_cts_pseudo from "./about/cts_pseudo.webp";
+import about_curtain_left_2 from "./about/curtain-left.2x.webp";
+import about_curtain_left from "./about/curtain-left.webp";
+import about_curtain_top from "./about/curtain-top.webp";
+import about_cut_the_shapes from "./about/cut_the_shapes.webp";
+import about_estalot_horizontal_logo from "./about/estalot-horizontal-logo.webp";
+import about_estalot_vertical_logo_2 from "./about/estalot-vertical-logo.2x.webp";
+import about_estalot_vertical_logo from "./about/estalot-vertical-logo.webp";
+import about_header_ae_logo from "./about/header-ae-logo.webp";
+import about_header_motif from "./about/header-motif.png";
+import about_sorry from "./about/sorry.webp";
+import about_technicolor from "./about/technicolor.webp";
 import aracne1_5 from "./aracne-1.5x.webp";
 import aracne2 from "./aracne-2x.webp";
 import aracne_alt_2 from "./aracne-alt.2x.webp";
+import aracne from "./aracne.webp";
 import aracnephobia_logo from "./aracnephobia-logo.webp";
 import crt_noise from "./crt_noise.gif";
 import estalot_logo from "./estalot-logo.webp";
-import lettering from "./logo-lettering.webp";
-import lettering_1_5 from "./logo-lettering.1_5x.webp";
-import lettering_2 from "./logo-lettering.2x.webp";
 import lettering_sq_black from "./logo-lettering-sq-black.webp";
 import lettering_sq_pink from "./logo-lettering-sq-pink.webp";
+import lettering_1_5 from "./logo-lettering.1_5x.webp";
+import lettering_2 from "./logo-lettering.2x.webp";
+import lettering from "./logo-lettering.webp";
+import lettering_music_pink from "./logo-music-lettering-pink.png";
 import menu_divider from "./menu-divider.webp";
 import menu_section_sections from "./menu-section-sections.webp";
 import menu_section_social from "./menu-section-social.webp";
 import planet_1 from "./planet-1.webp";
 import psychedelic_aracne from "./psychedelic_aracne.webp";
 import psychedelic_planet from "./psychedelic_planet.webp";
-import twp_vert from "./twp-vert.webp";
 import twp_vert_1_5 from "./twp-vert.1_5x.webp";
 import twp_vert_2 from "./twp-vert.2x.webp";
-import about_curtain_left from "./about/curtain-left.webp";
-import about_curtain_left_2 from "./about/curtain-left.2x.webp";
-import about_curtain_top from "./about/curtain-top.webp";
-import about_estalot_vertical_logo from "./about/estalot-vertical-logo.webp";
-import about_estalot_vertical_logo_2 from "./about/estalot-vertical-logo.2x.webp";
-import about_estalot_horizontal_logo from "./about/estalot-horizontal-logo.webp";
-import about_header_ae_logo from "./about/header-ae-logo.webp";
-import about_header_motif from "./about/header-motif.png";
-import about_am_3d_grid from "./about/about_me_3d_grid.webp";
-import about_am_3d_grid_2 from "./about/about_me_3d_grid.2x.webp";
-import about_sorry from "./about/sorry.webp";
-import about_cut_the_shapes from "./about/cut_the_shapes.webp";
-import about_cts_model from "./about/cts_model.webp";
-import about_cts_planet from "./about/cts_planet.webp";
-import about_cts_error from "./about/cts_error.webp";
-import about_cts_pseudo from "./about/cts_pseudo.webp";
-import about_about_jp_big from "./about/about_jp_big.webp";
-import about_technicolor from "./about/technicolor.webp";
+import twp_vert from "./twp-vert.webp";
 
-import about_me_musicals from "./about/aboutme/musicals.png";
-import about_me_games from "./about/aboutme/games.png";
 import about_me_arts from "./about/aboutme/arts.png";
-import about_me_horror from "./about/aboutme/horror.png";
-import about_me_rupaul from "./about/aboutme/rupaul.png";
 import about_me_cats from "./about/aboutme/cats.png";
+import about_me_games from "./about/aboutme/games.png";
+import about_me_horror from "./about/aboutme/horror.png";
 import about_me_literature from "./about/aboutme/literature.png";
+import about_me_musicals from "./about/aboutme/musicals.png";
+import about_me_rupaul from "./about/aboutme/rupaul.png";
 import about_me_scifi from "./about/aboutme/scifi.png";
 
-import about_mental_toxicity from "./about/mental_toxicity.webp";
-import about_skills_bg1 from "./about/skills_bg1.webp";
-import about_skills_pic1 from "./about/skills_pic1.webp";
-import about_eva1 from "./about/eva1.webp";
-import about_toroid_07 from "./about/toroid_7.webp";
-import about_guapisima_bg from "./about/guapisima_bg.png";
-import about_guapisima from "./about/guapisima.png";
-import about_photo1 from "./about/photo1.webp";
-import about_photo2 from "./about/photo2.webp";
+import about_anim_bg_1 from "./about/anim_bg_1.gif";
+import about_anim_bg_2 from "./about/anim_bg_2.gif";
+import about_anim_bg_3 from "./about/anim_bg_3.gif";
+import about_aracne_photo1 from "./about/aracne_photo1.webp";
+import about_aracne_photo2 from "./about/aracne_photo2.webp";
+import about_aracne_photo3 from "./about/aracne_photo3.webp";
+import about_artist_designer from "./about/artist_designer.webp";
+import about_artist_designer_phone from "./about/artist_designer_phone.webp";
+import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
 import about_digital_face from "./about/digital_face.webp";
+import about_doppie_bg1 from "./about/doppie_bg_1.webp";
+import about_doppie_bg2 from "./about/doppie_bg_2.webp";
+import about_eva1 from "./about/eva1.webp";
+import about_game_placeholder from "./about/game_placeholder.webp";
+import about_guapisima from "./about/guapisima.png";
+import about_guapisima_bg from "./about/guapisima_bg.png";
+import about_jlazz_bg1 from "./about/jlazz_bg_1.webp";
+import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
 import about_logo_doppie from "./about/logo_doppie.webp";
 import about_logo_jlazz from "./about/logo_jlazz.png";
 import about_logo_morgue from "./about/logo_morgue.png";
-import about_jlazz_bg1 from "./about/jlazz_bg_1.webp";
-import about_jlazz_bg2 from "./about/jlazz_bg_2.webp";
-import about_doppie_bg1 from "./about/doppie_bg_1.webp";
-import about_doppie_bg2 from "./about/doppie_bg_2.webp";
-import about_artist_designer from "./about/artist_designer.webp";
-import about_artist_designer_phone from "./about/artist_designer_phone.webp";
-import about_anim_bg_1 from "./about/anim_bg_1.gif";
-import about_aracne_photo1 from "./about/aracne_photo1.webp";
-import about_anim_bg_2 from "./about/anim_bg_2.gif";
-import about_anim_bg_3 from "./about/anim_bg_3.gif";
-import about_aracne_photo2 from "./about/aracne_photo2.webp";
-import about_aracne_photo3 from "./about/aracne_photo3.webp";
+import about_mental_toxicity from "./about/mental_toxicity.webp";
 import about_ornaments1 from "./about/ornaments1.webp";
 import about_ornaments2 from "./about/ornaments2.2x.webp";
 import about_ornaments3 from "./about/ornaments3.2x.webp";
-import about_damn_your_eyes_2 from "./about/damn_your_eyes.2x.webp";
-import about_game_placeholder from "./about/game_placeholder.webp";
+import about_photo1 from "./about/photo1.webp";
+import about_photo2 from "./about/photo2.webp";
+import about_skills_bg1 from "./about/skills_bg1.webp";
+import about_skills_pic1 from "./about/skills_pic1.webp";
+import about_toroid_07 from "./about/toroid_7.webp";
 
+import about_design_design_design_design from "./about/design_design_design_design.webp";
+import about_sector_07 from "./about/sector_07.webp";
 import about_skills_digital_artist from "./about/skills_digital_artist.webp";
 import about_skills_digital_artist_phone from "./about/skills_digital_artist_phone.webp";
-import about_sector_07 from "./about/sector_07.webp";
-import about_design_design_design_design from "./about/design_design_design_design.webp";
 
 import about_creative_left from './about/creative_left.webp';
 import about_creative_right_1 from './about/creative_right_1.webp';
 import about_creative_right_2 from './about/creative_right_2.webp';
 import about_creative_right_3 from './about/creative_right_3.webp';
 import about_hardware_bg from './about/hardware_bg.webp';
+import about_hardware_camera from './about/hardware_camera.webp';
 import about_hardware_cintiq from './about/hardware_cintiq.webp';
 import about_hardware_ipad from './about/hardware_ipad.webp';
-import about_hardware_camera from './about/hardware_camera.webp';
 
+import about_cat_lines from './about/cat_lines.webp';
+import about_fake_controls from './about/fake_controls.webp';
+import about_panic from './about/panic.webp';
 import about_software_left from './about/software_left.webp';
 import about_software_right from './about/software_right.webp';
-import about_fake_controls from './about/fake_controls.webp';
-import about_cat_lines from './about/cat_lines.webp';
-import about_panic from './about/panic.webp';
 
-import about_sw_figma from "./about/software/figma.webp";
-import about_sw_procreate from "./about/software/procreate.webp";
-import about_sw_clip_studio_paint from "./about/software/clip_studio_paint.webp";
-import about_sw_easy_tool_sai from "./about/software/easy_tool_sai.webp";
-import about_sw_photoshop from "./about/software/photoshop.webp";
-import about_sw_illustrator from "./about/software/illustrator.webp";
-import about_sw_in_design from "./about/software/in_design.webp";
-import about_sw_premiere from "./about/software/premiere.webp";
-import about_sw_final_cut_pro from "./about/software/final_cut_pro.webp";
+import about_sw_adsense from "./about/software/adsense.webp";
 import about_sw_after_effects from "./about/software/after_effects.webp";
 import about_sw_apple_motion from "./about/software/apple_motion.webp";
-import about_sw_toon_boom_harmony from "./about/software/toon_boom_harmony.webp";
+import about_sw_clip_studio_paint from "./about/software/clip_studio_paint.webp";
+import about_sw_easy_tool_sai from "./about/software/easy_tool_sai.webp";
+import about_sw_figma from "./about/software/figma.webp";
+import about_sw_final_cut_pro from "./about/software/final_cut_pro.webp";
+import about_sw_illustrator from "./about/software/illustrator.webp";
+import about_sw_in_design from "./about/software/in_design.webp";
 import about_sw_meta from "./about/software/meta.webp";
-import about_sw_adsense from "./about/software/adsense.webp";
-import about_sw_wordpress from "./about/software/wordpress.webp";
 import about_sw_microsoft_365 from "./about/software/microsoft_365.webp";
+import about_sw_photoshop from "./about/software/photoshop.webp";
+import about_sw_premiere from "./about/software/premiere.webp";
+import about_sw_procreate from "./about/software/procreate.webp";
+import about_sw_toon_boom_harmony from "./about/software/toon_boom_harmony.webp";
+import about_sw_wordpress from "./about/software/wordpress.webp";
 
 import about_communication_bg from "./about/communication_bg.webp";
-import about_visuals from "./about/visuals.webp";
-import about_strategy from "./about/strategy.webp";
 import about_destroy from "./about/destroy.webp";
 import about_destroy_web from "./about/destroy_web.webp";
 import about_destroy_web_perlin from "./about/destroy_web_perlin.webp";
 import about_footer_education from "./about/footer_education.webp";
+import about_strategy from "./about/strategy.webp";
+import about_visuals from "./about/visuals.webp";
 
-import about_ed_esdip from "./about/education/esdip.webp";
-import about_ed_esco from "./about/education/esco.webp";
+import about_ed_35mm from "./about/education/35mm.webp";
 import about_ed_colon from "./about/education/colon.webp";
+import about_ed_domestika from "./about/education/domestika.webp";
+import about_ed_esco from "./about/education/esco.webp";
+import about_ed_esdip from "./about/education/esdip.webp";
+import about_ed_euroinnova from "./about/education/euroinnova.webp";
+import about_ed_nuclio from "./about/education/nuclio.webp";
 import about_ed_trazos from "./about/education/trazos.webp";
 import about_ed_valley from "./about/education/valley.webp";
-import about_ed_euroinnova from "./about/education/euroinnova.webp";
-import about_ed_domestika from "./about/education/domestika.webp";
-import about_ed_nuclio from "./about/education/nuclio.webp";
-import about_ed_35mm from "./about/education/35mm.webp";
 
-import about_trajectory_border from "./about/trajectory_border.webp";
-import about_trajectory from "./about/trajectory.webp";
-import about_tali from "./about/tali.webp";
 import about_eyes_galore from "./about/eyes_galore.webp";
+import about_tali from "./about/tali.webp";
+import about_trajectory from "./about/trajectory.webp";
+import about_trajectory_border from "./about/trajectory_border.webp";
 
 import art_aracne_family from "./art/aracne_family.webp";
 import art_aracne_ganesha from "./art/aracne_ganesha.webp";
@@ -170,9 +171,9 @@ import navigator_cv from "./navigator/cv.webp";
 import navigator_me from "./navigator/me.webp";
 import navigator_portfolio from "./navigator/portfolio.webp";
 import os_cursor from "./os/cursor.webp";
-import os_folder from "./os/folder.png";
 import os_folder_1_5 from "./os/folder.1.5x.png";
 import os_folder_2 from "./os/folder.2x.png";
+import os_folder from "./os/folder.png";
 import os_pdf_logo_2 from "./os/pdf_logo.2x.webp";
 import bsky from "./social/bsky.webp";
 import twitter from "./social/formerly-known-as-twitter.webp";
@@ -185,260 +186,261 @@ import youtube from "./social/youtube.webp";
 export type ImageSrc = string | ResponsiveImageSrc;
 
 export type ResponsiveImageSrc = {
-    src: string;
-    srcSet: string;
-    alt?: string;
+  src: string;
+  srcSet: string;
+  alt?: string;
 }
 
 type ImageCollection = {
-    [name: string]: ImageSrc;
+  [name: string]: ImageSrc;
 }
 
 export const IMG = {
-    about: {
-        curtain_left: {
-            src: about_curtain_left,
-            srcSet: getSrcSet([
-                { src: about_curtain_left, size: "1x" },
-                { src: about_curtain_left_2, size: "1.5x"},
-                { src: about_curtain_left_2, size: "2x"},
-            ])
-        },
-        curtain_top: about_curtain_top,
-        estalot_vertical_logo: {
-            src: about_estalot_vertical_logo,
-            srcSet: getSrcSet([
-                { src: about_estalot_vertical_logo, size: "1x" },
-                { src: about_estalot_vertical_logo_2, size: "1.5x"},
-                { src: about_estalot_vertical_logo_2, size: "2x"},
-            ])
-        },
-        estalot_horizontal_logo: about_estalot_horizontal_logo,
-        header_ae_logo: about_header_ae_logo,
-        header_motif: about_header_motif,
-        am_3d_grid: {
-            src: about_am_3d_grid,
-            srcSet: getSrcSet([
-                { src: about_am_3d_grid, size: "1x" },
-                { src: about_am_3d_grid_2, size: "1.5x"},
-                { src: about_am_3d_grid_2, size: "2x"},
-            ])
-        },
-        sorry: about_sorry,
-        cut_the_shapes: about_cut_the_shapes,
-        cts_model: about_cts_model,
-        cts_planet: about_cts_planet,
-        cts_error: about_cts_error,
-        cts_pseudo: about_cts_pseudo,
-        about_jp_big: about_about_jp_big,
-        technicolor: about_technicolor,
-        mental_toxicity: about_mental_toxicity,
-        skills_bg1: about_skills_bg1,
-        skills_pic1: about_skills_pic1,
-        eva1: about_eva1,
-        toroid_07: about_toroid_07,
-        guapisima: about_guapisima,
-        guapisima_bg: about_guapisima_bg,
-        photo1: about_photo1,
-        photo2: about_photo2,
-        digital_face: about_digital_face,
-        logo_doppie: about_logo_doppie,
-        logo_jlazz: about_logo_jlazz,
-        logo_morgue: about_logo_morgue,
-        jlazz_bg1: about_jlazz_bg1,
-        jlazz_bg2: about_jlazz_bg2,
-        doppie_bg1: about_doppie_bg1,
-        doppie_bg2: about_doppie_bg2,
-        artist_designer: about_artist_designer,
-        artist_designer_phone: about_artist_designer_phone,
-        anim_bg1: about_anim_bg_1,
-        aracne_photo1: about_aracne_photo1,
-        anim_bg2: about_anim_bg_2,
-        anim_bg3: about_anim_bg_3,
-        aracne_photo2: about_aracne_photo2,
-        aracne_photo3: about_aracne_photo3,
-        ornaments1: about_ornaments1,
-        ornaments2: about_ornaments2,
-        ornaments3: about_ornaments3,
-        damn_your_eyes: about_damn_your_eyes_2,
-        game_placeholder: about_game_placeholder,
-        game_win_header: about_game_win_header,
-
-        me: {
-            musicals: about_me_musicals,
-            games: about_me_games,
-            arts: about_me_arts,
-            horror: about_me_horror,
-            rupaul: about_me_rupaul,
-            cats: about_me_cats,
-            literature: about_me_literature,
-            scifi: about_me_scifi,
-        },
-
-        skills_digital_artist: about_skills_digital_artist,
-        skills_digital_artist_phone: about_skills_digital_artist_phone,
-        sector_07: about_sector_07,
-        design_design_design_design: about_design_design_design_design,
-
-        creative_left: about_creative_left,
-        creative_right_1: about_creative_right_1,
-        creative_right_2: about_creative_right_2,
-        creative_right_3: about_creative_right_3,
-        hardware_bg: about_hardware_bg,
-        hardware_cintiq: about_hardware_cintiq,
-        hardware_ipad: about_hardware_ipad,
-        hardware_camera: about_hardware_camera,
-
-        software_left: about_software_left,
-        software_right: about_software_right,
-        fake_controls: about_fake_controls,
-        cat_lines: about_cat_lines,
-        panic: about_panic,
-
-        software: {
-            adsense: about_sw_adsense,
-            after_effects: about_sw_after_effects,
-            apple_motion: about_sw_apple_motion,
-            clip_studio_paint: about_sw_clip_studio_paint,
-            easy_tool_sai: about_sw_easy_tool_sai,
-            figma: about_sw_figma,
-            final_cut_pro: about_sw_final_cut_pro,
-            illustrator: about_sw_illustrator,
-            in_design: about_sw_in_design,
-            meta: about_sw_meta,
-            microsoft_365: about_sw_microsoft_365,
-            photoshop: about_sw_photoshop,
-            premiere: about_sw_premiere,
-            procreate: about_sw_procreate,
-            toon_boom_harmony: about_sw_toon_boom_harmony,
-            wordpress: about_sw_wordpress,
-        },
-
-        communication_bg: about_communication_bg,
-        visuals: about_visuals,
-        strategy: about_strategy,
-        destroy: about_destroy,
-        destroy_web: about_destroy_web,
-        destroy_web_perlin: about_destroy_web_perlin,
-        footer_education: about_footer_education,
-
-        education: {
-            esdip: about_ed_esdip,
-            esco: about_ed_esco,
-            colon: about_ed_colon,
-            trazos: about_ed_trazos,
-            valley: about_ed_valley,
-            euroinnova: about_ed_euroinnova,
-            domestika: about_ed_domestika,
-            nuclio: about_ed_nuclio,
-            _35mm: about_ed_35mm,
-        },
-
-        trajectory_border: about_trajectory_border,
-        trajectory: about_trajectory,
-        tali: about_tali,
-        eyes_galore: about_eyes_galore,
-
-        // <--- TODO: MOVE --->
-        animation: about_animation_2,
-        branding: about_branding_2,
-        cartoon: about_cartoon_2,
-        comic: about_comic_2,
-        content_creator: about_content_creator_2,
-        digital_artist: about_digital_artist_2,
-        graphic_design: about_graphic_design_2,
-        illustration: about_illustration_2,
-        marketing: about_marketing_2,
-        motion_graphics: about_motion_graphics_2,
-        storyboard: about_storyboard_2,
-        storytelling: about_storytelling_2,
-        uiux: about_uiux_2,
-        video: about_video_2,
-        web_design: about_web_design_2,
-        writer: about_writer_2,
+  about: {
+    curtain_left: {
+      src: about_curtain_left,
+      srcSet: getSrcSet([
+        { src: about_curtain_left, size: "1x" },
+        { src: about_curtain_left_2, size: "1.5x"},
+        { src: about_curtain_left_2, size: "2x"},
+      ])
     },
-    art: {
-        aracne_family: art_aracne_family,
-        aracne_ganesha: art_aracne_ganesha,
-        dev_designer: art_dev_designer,
-        mirror: art_mirror,
+    curtain_top: about_curtain_top,
+    estalot_vertical_logo: {
+      src: about_estalot_vertical_logo,
+      srcSet: getSrcSet([
+        { src: about_estalot_vertical_logo, size: "1x" },
+        { src: about_estalot_vertical_logo_2, size: "1.5x"},
+        { src: about_estalot_vertical_logo_2, size: "2x"},
+      ])
     },
-    navigator: {
-        blog: navigator_blog,
-        cv: navigator_cv,
-        me: navigator_me,
-        portfolio: navigator_portfolio,
+    estalot_horizontal_logo: about_estalot_horizontal_logo,
+    header_ae_logo: about_header_ae_logo,
+    header_motif: about_header_motif,
+    am_3d_grid: {
+      src: about_am_3d_grid,
+      srcSet: getSrcSet([
+        { src: about_am_3d_grid, size: "1x" },
+        { src: about_am_3d_grid_2, size: "1.5x"},
+        { src: about_am_3d_grid_2, size: "2x"},
+      ])
     },
-    os: {
-        cursor: os_cursor,
-        folder: {
-            src: os_folder,
-            srcSet: getSrcSet([
-                { src: os_folder, size: "1x" },
-                { src: os_folder_1_5, size: "1.5x"},
-                { src: os_folder_2, size: "2x"},
-            ])
-        },
-        pdf_logo: os_pdf_logo_2,
+    sorry: about_sorry,
+    cut_the_shapes: about_cut_the_shapes,
+    cts_model: about_cts_model,
+    cts_planet: about_cts_planet,
+    cts_error: about_cts_error,
+    cts_pseudo: about_cts_pseudo,
+    about_jp_big: about_about_jp_big,
+    technicolor: about_technicolor,
+    mental_toxicity: about_mental_toxicity,
+    skills_bg1: about_skills_bg1,
+    skills_pic1: about_skills_pic1,
+    eva1: about_eva1,
+    toroid_07: about_toroid_07,
+    guapisima: about_guapisima,
+    guapisima_bg: about_guapisima_bg,
+    photo1: about_photo1,
+    photo2: about_photo2,
+    digital_face: about_digital_face,
+    logo_doppie: about_logo_doppie,
+    logo_jlazz: about_logo_jlazz,
+    logo_morgue: about_logo_morgue,
+    jlazz_bg1: about_jlazz_bg1,
+    jlazz_bg2: about_jlazz_bg2,
+    doppie_bg1: about_doppie_bg1,
+    doppie_bg2: about_doppie_bg2,
+    artist_designer: about_artist_designer,
+    artist_designer_phone: about_artist_designer_phone,
+    anim_bg1: about_anim_bg_1,
+    aracne_photo1: about_aracne_photo1,
+    anim_bg2: about_anim_bg_2,
+    anim_bg3: about_anim_bg_3,
+    aracne_photo2: about_aracne_photo2,
+    aracne_photo3: about_aracne_photo3,
+    ornaments1: about_ornaments1,
+    ornaments2: about_ornaments2,
+    ornaments3: about_ornaments3,
+    damn_your_eyes: about_damn_your_eyes_2,
+    game_placeholder: about_game_placeholder,
+    game_win_header: about_game_win_header,
+
+    me: {
+      musicals: about_me_musicals,
+      games: about_me_games,
+      arts: about_me_arts,
+      horror: about_me_horror,
+      rupaul: about_me_rupaul,
+      cats: about_me_cats,
+      literature: about_me_literature,
+      scifi: about_me_scifi,
     },
-    planetGame: {
-        planet: planet_game_planet,
-        ufo: planet_game_ufo,
+
+    skills_digital_artist: about_skills_digital_artist,
+    skills_digital_artist_phone: about_skills_digital_artist_phone,
+    sector_07: about_sector_07,
+    design_design_design_design: about_design_design_design_design,
+
+    creative_left: about_creative_left,
+    creative_right_1: about_creative_right_1,
+    creative_right_2: about_creative_right_2,
+    creative_right_3: about_creative_right_3,
+    hardware_bg: about_hardware_bg,
+    hardware_cintiq: about_hardware_cintiq,
+    hardware_ipad: about_hardware_ipad,
+    hardware_camera: about_hardware_camera,
+
+    software_left: about_software_left,
+    software_right: about_software_right,
+    fake_controls: about_fake_controls,
+    cat_lines: about_cat_lines,
+    panic: about_panic,
+
+    software: {
+      adsense: about_sw_adsense,
+      after_effects: about_sw_after_effects,
+      apple_motion: about_sw_apple_motion,
+      clip_studio_paint: about_sw_clip_studio_paint,
+      easy_tool_sai: about_sw_easy_tool_sai,
+      figma: about_sw_figma,
+      final_cut_pro: about_sw_final_cut_pro,
+      illustrator: about_sw_illustrator,
+      in_design: about_sw_in_design,
+      meta: about_sw_meta,
+      microsoft_365: about_sw_microsoft_365,
+      photoshop: about_sw_photoshop,
+      premiere: about_sw_premiere,
+      procreate: about_sw_procreate,
+      toon_boom_harmony: about_sw_toon_boom_harmony,
+      wordpress: about_sw_wordpress,
     },
-    social: {
-        bsky,
-        twitter,
-        instagram,
-        linkedin,
-        tiktok,
-        twitch,
-        youtube,
+
+    communication_bg: about_communication_bg,
+    visuals: about_visuals,
+    strategy: about_strategy,
+    destroy: about_destroy,
+    destroy_web: about_destroy_web,
+    destroy_web_perlin: about_destroy_web_perlin,
+    footer_education: about_footer_education,
+
+    education: {
+      esdip: about_ed_esdip,
+      esco: about_ed_esco,
+      colon: about_ed_colon,
+      trazos: about_ed_trazos,
+      valley: about_ed_valley,
+      euroinnova: about_ed_euroinnova,
+      domestika: about_ed_domestika,
+      nuclio: about_ed_nuclio,
+      _35mm: about_ed_35mm,
     },
-    aracne: {
-        src: aracne,
-        srcSet: getSrcSet([
-            { src: aracne, size: "1x" },
-            { src: aracne1_5, size: "1.5x"},
-            { src: aracne2, size: "2x"},
-        ])
+
+    trajectory_border: about_trajectory_border,
+    trajectory: about_trajectory,
+    tali: about_tali,
+    eyes_galore: about_eyes_galore,
+
+    // <--- TODO: MOVE --->
+    animation: about_animation_2,
+    branding: about_branding_2,
+    cartoon: about_cartoon_2,
+    comic: about_comic_2,
+    content_creator: about_content_creator_2,
+    digital_artist: about_digital_artist_2,
+    graphic_design: about_graphic_design_2,
+    illustration: about_illustration_2,
+    marketing: about_marketing_2,
+    motion_graphics: about_motion_graphics_2,
+    storyboard: about_storyboard_2,
+    storytelling: about_storytelling_2,
+    uiux: about_uiux_2,
+    video: about_video_2,
+    web_design: about_web_design_2,
+    writer: about_writer_2,
+  },
+  art: {
+    aracne_family: art_aracne_family,
+    aracne_ganesha: art_aracne_ganesha,
+    dev_designer: art_dev_designer,
+    mirror: art_mirror,
+  },
+  navigator: {
+    blog: navigator_blog,
+    cv: navigator_cv,
+    me: navigator_me,
+    portfolio: navigator_portfolio,
+  },
+  os: {
+    cursor: os_cursor,
+    folder: {
+      src: os_folder,
+      srcSet: getSrcSet([
+        { src: os_folder, size: "1x" },
+        { src: os_folder_1_5, size: "1.5x"},
+        { src: os_folder_2, size: "2x"},
+      ])
     },
-    aracne_alt: aracne_alt_2,
-    aracnephobia_logo: aracnephobia_logo,
-    crt_noise: crt_noise,
-    estalot_logo,
-    lettering: {
-        src: lettering,
-        srcSet: getSrcSet([
-            { src: lettering, size: "1x" },
-            { src: lettering_1_5, size: "1.5x" },
-            { src: lettering_2, size: "2x"},
-        ])
-    },
-    lettering_sq_black: lettering_sq_black,
-    lettering_sq_pink: lettering_sq_pink,
-    menu_divider: menu_divider,
-    menu_section_sections: menu_section_sections,
-    menu_section_social: menu_section_social,
-    planet_1: planet_1,
-    psychedelic_aracne: psychedelic_aracne,
-    psychedelic_planet: psychedelic_planet,
-    twp_vert: {
-        src: twp_vert,
-        srcSet: getSrcSet([
-            { src: twp_vert, size: "1x" },
-            { src: twp_vert_1_5, size: "1.5x" },
-            { src: twp_vert_2, size: "2x"},
-        ])
-    }
+    pdf_logo: os_pdf_logo_2,
+  },
+  planetGame: {
+    planet: planet_game_planet,
+    ufo: planet_game_ufo,
+  },
+  social: {
+    bsky,
+    twitter,
+    instagram,
+    linkedin,
+    tiktok,
+    twitch,
+    youtube,
+  },
+  aracne: {
+    src: aracne,
+    srcSet: getSrcSet([
+      { src: aracne, size: "1x" },
+      { src: aracne1_5, size: "1.5x"},
+      { src: aracne2, size: "2x"},
+    ])
+  },
+  aracne_alt: aracne_alt_2,
+  aracnephobia_logo: aracnephobia_logo,
+  crt_noise: crt_noise,
+  estalot_logo,
+  lettering: {
+    src: lettering,
+    srcSet: getSrcSet([
+      { src: lettering, size: "1x" },
+      { src: lettering_1_5, size: "1.5x" },
+      { src: lettering_2, size: "2x"},
+    ])
+  },
+  lettering_sq_black: lettering_sq_black,
+  lettering_sq_pink: lettering_sq_pink,
+  lettering_music_pink,
+  menu_divider: menu_divider,
+  menu_section_sections: menu_section_sections,
+  menu_section_social: menu_section_social,
+  planet_1: planet_1,
+  psychedelic_aracne: psychedelic_aracne,
+  psychedelic_planet: psychedelic_planet,
+  twp_vert: {
+    src: twp_vert,
+    srcSet: getSrcSet([
+      { src: twp_vert, size: "1x" },
+      { src: twp_vert_1_5, size: "1.5x" },
+      { src: twp_vert_2, size: "2x"},
+    ])
+  }
 }
 
 function getSrcSet (imgs: {src: string, size: string}[]) : string {
-    var strSet = "";
+  var strSet = "";
 
-    for (let i = 0; i < imgs.length; i++) {
-        const img = imgs[i];
-        strSet += img.src + " " + img.size + ", ";
-    }
-    
-    return strSet;
+  for (let i = 0; i < imgs.length; i++) {
+    const img = imgs[i];
+    strSet += img.src + " " + img.size + ", ";
+  }
+  
+  return strSet;
 }

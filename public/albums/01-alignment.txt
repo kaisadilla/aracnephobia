@@ -1,0 +1,9 @@
+Alignment: chaotic-dysfunctional
+---
+song: 01-alignment/restless
+name: Restless
+has_video
+---
+song: 01-alignment/purple_rabbit
+name: Purple Rabbit
+has_video

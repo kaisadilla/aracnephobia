@@ -1,0 +1,41 @@
+.page {
+  @include crt(1000000);
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  > .desktop {
+    flex: 1;
+    
+    position: relative;
+
+    > .bg {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      translate: 0px -48px;
+
+      /* Set the target color */
+      background-color: var(--color-music-os-purple);
+
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      
+      /* Matches image dimensions */
+      max-width: 80%;
+      max-height: 60%;
+      aspect-ratio: 256 / 118;
+      image-rendering: crisp-edges;
+      display: inline-block;
+    }
+  }
+
+  > .taskbar {
+    height: 56px;
+  }
+}

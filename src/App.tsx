@@ -1,109 +1,74 @@
-import './styles.scss'
 import '@mantine/core/styles.layer.css';
 import 'material-symbols';
+import './styles/main.scss';
 
+import { MantineProvider } from '@mantine/core';
+import Layout from 'components/Layout';
+import { ServerProvider } from 'context/useServer';
+import { SongProvider } from 'context/useSong';
+import AboutPage from 'pages/about/page';
+import HomePage from 'pages/home/page';
+import MusicPage from 'pages/music/page';
+import MusicOsPage from 'pages/musicOs/page';
+import { MusicOsProvider } from 'pages/musicOs/useMusicOsCtx';
+import PortfolioPage from 'pages/portfolio/page';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import IndexPage from './IndexPage';
 import WipPage from './pages/WipPage';
-import { MantineProvider } from '@mantine/core';
-import styles from "./App.module.scss";
-import WebHeader from 'components/WebHeader';
-import Navigator from 'components/Navigator';
-import PortfolioPage from 'pages/portfolio/page';
-import { useEffect, useState } from 'react';
-import { $cl } from 'utils';
-import SiteImage from 'components/SiteImage';
-import { useMediaQuery } from '@mantine/hooks';
-import PhoneHeader from 'components/PhoneHeader';
-import AboutPage from 'pages/about/page';
-import { IMG } from 'assets/img/img';
-import HomePage from 'pages/home/page';
 
 type AnimState = 'cover' | 'logo' | 'website';
 
 function App() {
-    return (
-        <BrowserRouter>
-            <MantineProvider>
-                <_RouterContent />
-            </MantineProvider>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <MantineProvider>
+        <_RouterContent />
+      </MantineProvider>
+    </BrowserRouter>
+  );
 }
 
 function _RouterContent () {
-    const loc = useLocation();
+  const loc = useLocation();
 
-    const [animState, setAnimState] = useState<AnimState>(
-        loc.pathname === "/about" ? 'website' : 'cover'
-    );
-
-    const isPhone = useMediaQuery('(min-width: 50rem)') === false;
-    const curtainSide: 'left' | 'right' | 'none' = (() => {
-        if (loc.pathname === "/portfolio") {
-            return 'right';
-        }
-        if (loc.pathname === "/home") {
-            return 'left';
-        }
-
-        return 'none';
-    })();
-
-    return (<>
-        <Routes>
-            <Route index element={<IndexPage />} />
-            <Route path="/wip" element={<WipPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="*" element={
-                <div className={styles.websiteFrame}>
-                    {animState === 'cover' && <div
-                        className={styles.curtain}
-                        onAnimationEnd={handleCoverAnimationEnd}
-                    >
-                        <img src="/img/curtain-default.svg" />
-                    </div>}
-
-                    {animState === 'logo' && <div
-                        className={$cl(styles.introLogoContainer)}
-                        onAnimationEnd={handleLogoAnimationEnd}
-                    >
-                        <SiteImage
-                            className={styles.introLogo}
-                            image={IMG.aracnephobia_logo}
-                        />
-                    </div>}
-
-                    {animState === 'website' && <>
-                        <div className={styles.headerContainer}>
-                            {isPhone === false && <WebHeader curtainSide={curtainSide} />}
-                            {isPhone && <PhoneHeader />}
-                        </div>
-                        <div className={styles.pageContainer}>
-                            <Routes>
-                                <Route path="/home" element={<HomePage />} />
-                                <Route path="/portfolio" element={<PortfolioPage />} />
-                            </Routes>
-                        </div>
-                    </>}
-                </div>
-            } />
-        </Routes>
-        
-        {isPhone === false && animState === 'website' && <div className={styles.navigator}>
-            <Navigator />
-        </div>}
-    </>);
-
-    function handleCoverAnimationEnd () {
-        setAnimState('logo');
+  const curtainSide: 'left' | 'right' | 'none' = (() => {
+    if (loc.pathname === "/portfolio") {
+      return 'right';
+    }
+    if (loc.pathname === "/home") {
+      return 'left';
     }
 
-    function handleLogoAnimationEnd (evt: React.AnimationEvent<HTMLDivElement>) {
-        if (evt.animationName === styles.bounceOut) {
-            setAnimState('website');
-        }
-    }
+    return 'none';
+  })();
+
+  return (<>
+    <Routes>
+      <Route index element={<IndexPage />} />
+      <Route path="/wip" element={<WipPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/music" element={
+        <ServerProvider>
+          <SongProvider>
+            <MusicPage />
+          </SongProvider>
+        </ServerProvider>
+      } />
+      <Route path="/music_os" element={
+        <MusicOsProvider>
+          <MusicOsPage />
+        </MusicOsProvider>
+      } />
+      <Route path="*" element={
+        <Layout logo='web' curtainSide={curtainSide} navigator>
+          <Routes>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+          </Routes>
+        </Layout>
+      } />
+    </Routes>
+  </>);
 }
 
 

@@ -89,6 +89,27 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Pixel Game";
+  src: url("../fonts/Pixel Game.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Curved";
+  src: url("../fonts/Curved-v2g7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blackout Sunrise";
+  src: url("../fonts/Blackout Sunrise.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --font-amatic-sc: "Amatic SC";
   --font-creepster: "Creepster";
@@ -101,4 +122,7 @@
   --font-manjari: "Manjari";
   --font-matisse-pro: "Matisse Pro";
   --font-wonder-night: "Wonder Night";
+  --font-pixel-game: "Pixel Game";
+  --font-curved: "Curved";
+  --font-blackout-sunrise: "Blackout Sunrise";
 }

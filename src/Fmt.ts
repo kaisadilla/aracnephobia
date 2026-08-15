@@ -1,0 +1,38 @@
+const Fmt = {
+  timestamp (
+    seconds: number,
+    decimalDigits: number = 0,
+    startAt: 'h' | 'm' | 's' = 's',
+  ) {
+    if (isNaN(seconds)) seconds = 0;
+
+    const isNegative = seconds < 0;
+    seconds = Math.abs(seconds);
+
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+
+    const parts = [];
+
+    const startAtValue = startAt === 'h' ? 3 : startAt === 'm' ? 2 : 1;
+    const showHours = h > 0 || startAtValue >= 3;
+    const showMins = h > 0 || m > 0 || startAtValue >= 2;
+    
+    if (showHours) parts.push(String(h).padStart(2, '0'));
+    if (showMins) parts.push(String(m).padStart(2, '0'));
+
+    let secondsStr = String(s).padStart(2, '0');
+    if (decimalDigits > 0) {
+      const ms = Math.floor((seconds % 1) * Math.pow(10, decimalDigits));
+
+      secondsStr += '.' + String(ms).padStart(decimalDigits, '0');
+    }
+
+    parts.push(secondsStr);
+
+    return (isNegative ? "-" : "") + parts.join(':');
+  },
+}
+
+export default Fmt;

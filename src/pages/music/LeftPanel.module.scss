@@ -1,0 +1,35 @@
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+
+  width: 2px;
+  height: 100%;
+
+  transition: width 0.25s;
+
+  &[data-open=true] {
+    width: 100%;
+  }
+
+  .dragger {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    width: 16px;
+    height: 100%;
+  }
+
+  @include desktop {
+    $width: 280px;
+
+    position: static;
+    width: $width;
+
+    &[data-open=true] {
+      width: $width;
+    }
+  }
+}

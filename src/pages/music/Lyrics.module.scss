@@ -1,0 +1,77 @@
+.lyrics, .noLyrics {
+  flex: 1;
+
+  user-select: none;
+
+  &[data-solid=true] {
+    background-color: var(--color-primary);
+  }
+  &[data-solid=false] {
+    background-color: color-mix(in srgb, black 60%, transparent);
+  }
+}
+
+.lyrics {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 12px;
+
+  &[data-solid=false] {
+    .line {
+      paint-order: stroke fill;
+      -webkit-text-stroke-width: calc(3.25px);
+      -webkit-text-stroke-color: black;
+    }
+  }
+
+  .line {
+    font-size: 12pt;
+    font-weight: 400;
+    color: white;
+
+    font-family: font('Chelsea Market');
+    text-align: center;
+    line-height: 1.2em;
+
+    transition: color 0.25s, font-size 0.25s;
+
+    &[data-active=true] {
+      color: var(--color-music-yellow);
+      font-size: 14pt;
+      margin: 12px 0;
+    }
+
+    @include desktop {
+      font-size: 16pt;
+
+      &:hover {
+        color: var(--color-music-pink);
+        text-decoration: underline;
+        transition: unset;
+      }
+      
+      &[data-active=true] {
+        font-size: 30pt;
+      }
+    }
+  }
+}
+
+.noLyrics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 18pt;
+  font-style: italic;
+  font-weight: 300;
+}

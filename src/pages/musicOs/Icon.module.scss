@@ -1,0 +1,35 @@
+.icon {
+  @include crt-text;
+
+  position: absolute;
+  pointer-events: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  user-select: none;
+
+  &[data-selected=true] {
+    .image {
+      filter: sepia(100%) saturate(250%) brightness(90%) hue-rotate(33deg);
+    }
+
+    .fileName {
+      background-color: var(--color-music-yellow);
+      color: black;
+    }
+  }
+
+  .image {
+    width: 95px;
+    height: 72px;
+    object-fit: contain;
+  }
+
+  .file-name {
+    padding: 0 0.6em;
+    border-radius: 0.3em;
+  }
+}

@@ -432,3 +432,13 @@
 @mixin neon-glow-secondary($width: 0.4rem) {
   filter: drop-shadow(0 0 $width var(--color-highlight2));
 }
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@function font ($font) {
+  @return $font, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
