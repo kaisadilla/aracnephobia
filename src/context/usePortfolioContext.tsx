@@ -1,19 +1,6 @@
 import useIndices from "hooks/useIndices";
 import { createContext, useContext, useMemo, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { getBrandingFolder, getDrawingFolder, getReelsFolder } from "./portfolio_files";
 
 export interface OsWindow {
@@ -146,7 +133,7 @@ const OsContextProvider = ({ children }: any) => {
 }
 
 export {
-    OsContextProvider, useOsContext
+  OsContextProvider, useOsContext
 };
 
 export interface BaseFile {

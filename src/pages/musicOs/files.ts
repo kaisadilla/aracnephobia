@@ -21,6 +21,35 @@ function broken (name: string) : BrokenFile {
   };
 }
 
+export interface OsWindow {
+  content: WindowContent;
+  id: string;
+  position: { top: number, left: number, };
+  isMinimized: boolean;
+  isMaximized: boolean;
+}
+
+export interface PlayerWindowContent {
+  type: 'player';
+}
+
+export interface FolderWindowContent {
+  type: 'folder';
+}
+
+export interface ErrorWindowContent {
+  type: 'error';
+}
+
+export interface InfoWindowContent {
+  type: 'info';
+}
+
+export type WindowContent = PlayerWindowContent
+  | FolderWindowContent
+  | ErrorWindowContent
+  | InfoWindowContent;
+
 const FILES = [
   broken("THE//MASK"),
   broken("THE//RAGE"),

@@ -2,6 +2,7 @@ import i_bg from 'assets/img/music_os/bg.png';
 import IconGrid from './IconGrid';
 import styles from './page.module.scss';
 import Taskbar from './Taskbar';
+import WindowArea from './WindowArea';
 
 export interface MusicOsPageProps {
   
@@ -21,6 +22,7 @@ function MusicOsPage (props: MusicOsPageProps) {
           }}
         />
         <IconGrid />
+        <WindowArea />
       </div>
       <div className={styles.taskbar}>
         <Taskbar />

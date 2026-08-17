@@ -63,7 +63,10 @@ function Icon ({
   }
 
   function handleDoubleClick () {
-    // TODO
+    const uuid = ctx.openWindow({
+      type: 'folder',
+    }); // TODO.
+    ctx.setWindowOnTop(uuid);
   }
 }
 
