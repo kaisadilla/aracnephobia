@@ -1,0 +1,3 @@
+.img {
+  @include tinted-img(var(--tint));
+}

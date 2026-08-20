@@ -1,10 +1,11 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import i_broken from 'assets/img/music_os/file/broken.png';
+import i_folder from 'assets/img/music_os/file/folder.png';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import React from 'react';
 import styles from './Icon.module.scss';
-import { File } from './files';
+import { File, FolderWindowContent } from './files';
 import { useMusicOs } from './useMusicOsCtx';
 
 export const ICON_WIDTH = 95;
@@ -38,6 +39,12 @@ function Icon ({
     zIndex: index,
   };
 
+  const iconImg = (() => {
+    if (file.type === 'folder') return i_folder;
+
+    return i_broken;
+  })();
+
   return (
     <div
       ref={setNodeRef}
@@ -51,7 +58,7 @@ function Icon ({
     >
       <ChromaticAberrationImage
         className={styles.image}
-        image={i_broken}
+        image={iconImg}
       />
       <div className={styles.fileName}>{file.name}</div>
     </div>
@@ -63,9 +70,20 @@ function Icon ({
   }
 
   function handleDoubleClick () {
-    const uuid = ctx.openWindow({
-      type: 'folder',
-    }); // TODO.
+    const content = (() => {
+      if (file.type === 'folder') {
+        return {
+          type: 'folder',
+          folder: file,
+        } as FolderWindowContent
+      }
+
+      return null;
+    })();
+
+    if (content === null) return;
+
+    const uuid = ctx.openWindow(content);
     ctx.setWindowOnTop(uuid);
   }
 }

@@ -16,8 +16,6 @@ function WindowArea (props: WindowAreaProps) {
   const ctx = useMusicOs();
   const desktopSize = useDynamicHook(ref);
 
-  console.log(ctx.windowIndices);
-
   return (
     <div ref={ref} className={styles.windowArea}>
       <DndContext onDragEnd={handleDragEnd}>

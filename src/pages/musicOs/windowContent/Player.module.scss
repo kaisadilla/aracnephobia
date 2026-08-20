@@ -1,0 +1,122 @@
+.content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color: black;
+  border: 4px solid black;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > video {
+    max-width: 100%;
+    height: 100%;
+    //opacity: 0.2;
+  }
+
+  > .hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > .lyrics {
+      flex: 1;
+
+      width: 100%;
+      min-height: 0;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: safe center;
+      align-items: center;
+      padding: 24px 12px;
+
+      scrollbar-color: var(--color-music-os-pink) #00000080;
+
+      > .line {
+        font-size: 16pt;
+        font-weight: 400;
+        color: white;
+
+        font-family: font('Chelsea Market');
+        text-align: center;
+        line-height: 1.2em;
+
+        transition: color 0.25s, font-size 0.25s;
+
+        paint-order: stroke fill;
+        -webkit-text-stroke-width: calc(3.25px);
+        -webkit-text-stroke-color: black;
+
+        background-color: #00000080;
+
+        padding: 8px 32px;
+
+        &[data-active=true] {
+          color: var(--color-music-os-pink);
+          font-size: 22pt;
+          padding: 12px 32px;
+        }
+
+        &:hover {
+          color: var(--color-music-os-yellow);
+          text-decoration: underline;
+          transition: unset;
+        }
+      }
+    }
+
+    > .controls {
+      margin-bottom: 32px;
+      
+      width: 80%;
+      max-width: 400px;
+
+      display: flex;
+      flex-direction: column;
+
+      background-color: var(--color-music-os-purple);
+      border-radius: 12px;
+      box-shadow: 5px 5px 0 #00000040;
+
+      > .ribbon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        > button {
+          padding: 12px 16px 7px 16px;
+
+          > div {
+            --tint: var(--color-music-os-pink);
+
+            width: 42px;
+            aspect-ratio: 1 / 1;
+          }
+
+          &:hover {
+            > div {
+              --tint: var(--color-music-os-yellow);
+            }
+          }
+        }
+      }
+    }
+  }
+}

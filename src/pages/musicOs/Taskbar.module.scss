@@ -40,7 +40,7 @@
     }
   }
 
-  .tabContainer {
+  > .tabContainer {
     flex: 1;
     overflow: hidden;
 
@@ -50,6 +50,38 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
+  }
+
+  > .systray {
+    height: 55%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+
+    > .volume {
+      --tint: white;
+
+      cursor: pointer;
+
+      height: 100%;
+      aspect-ratio: 174 / 128;
+      margin-right: 8px;
+    }
+
+    > .heart {
+      --tint: var(--color-music-os-pink);
+
+      cursor: pointer;
+
+      height: 100%;
+      aspect-ratio: 164 / 128;
+
+      &[data-filled=true] {
+        --tint: white;
+      }
+    }
   }
 
   > .startMenu {
@@ -73,11 +105,14 @@
       gap: 16px;
       padding: 8px 16px;
 
-      > img {
+      > div {
+        --tint: var(--color-music-os-pink);
+
         width: 48px;
         aspect-ratio: 1 / 1;
 
         object-fit: contain;
+        object-position: center;
       }
 
       > span {
@@ -92,6 +127,33 @@
         > span {
           color: black;
         }
+      }
+    }
+  }
+
+  > .audioMenu {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    right: 16px;
+    z-index: 500000;
+
+    > input {
+      writing-mode: vertical-lr;
+      direction: rtl;
+      appearance: none;
+      background-color: white;
+
+      &::-moz-range-progress {
+        background-color: var(--color-music-os-pink);
+        width: 100%;
+      }
+
+      &::-moz-range-thumb {
+        width: 100%;
+        height: 12px;
+        border-radius: 4px;
+        background-color: var(--color-music-os-purple);
+        border: none;
       }
     }
   }

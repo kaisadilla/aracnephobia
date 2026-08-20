@@ -1,5 +1,5 @@
 import useIndices from "hooks/useIndices";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import FILES, { File, OsWindow, WindowContent } from "./files";
 
@@ -9,14 +9,18 @@ interface InternalState {
   openWindows: { [uuid: string]: OsWindow };
   windowIndices: Record<string, number>;
   focusedWindow: string | null;
+  volume: number; // from 0 to 3.
 }
 
 interface MusicOsValue extends InternalState {
   setStartMenuOpen: (open: boolean) => void;
-  openWindow: (content: WindowContent) => string;
+  openWindow: (
+    content: WindowContent, latestWindow?: { width: number, height: number, }
+  ) => string;
   updateWindow: (id: string, window: OsWindow) => void;
   closeWindow: (id: string) => void;
   setWindowOnTop: (key: string) => void;
+  setVolume: (value: number) => void;
 }
 
 const MusicOsContext = createContext(undefined as MusicOsValue | undefined);
@@ -26,7 +30,16 @@ export const MusicOsProvider = ({ children }: any) => {
     files: FILES,
     isStartMenuOpen: false,
     openWindows: {},
+    volume: 2,
   }); // TODO: FIX TYPING.
+
+  const [latestWindow, setLatestWindow] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (latestWindow === null) return;
+
+    setWindowOnTop(latestWindow)
+  }, [latestWindow]);
 
   const {
     indices: windowIndices,
@@ -41,7 +54,10 @@ export const MusicOsProvider = ({ children }: any) => {
     }));
   }
 
-  function openWindow (content: WindowContent) : string {
+  function openWindow (
+    content: WindowContent,
+    initialSize = { width: 700, height: 450 }
+  ) : string {
     const uuid = uuidv4();
 
     setState(prev => ({
@@ -55,11 +71,14 @@ export const MusicOsProvider = ({ children }: any) => {
             top: Math.floor(Math.random() * 100),
             left: Math.floor(Math.random() * 300),
           },
+          initialSize,
           isMinimized: false,
           isMaximized: false,
         },
       },
     }));
+    
+    setLatestWindow(uuid);
 
     return uuid;
   }
@@ -86,6 +105,13 @@ export const MusicOsProvider = ({ children }: any) => {
     });
   }
 
+  function setVolume (value: number) {
+    setState(prev => ({
+      ...prev,
+      volume: value,
+    }));
+  }
+
   return (
     <MusicOsContext.Provider value={{
       ...state,
@@ -96,6 +122,7 @@ export const MusicOsProvider = ({ children }: any) => {
       updateWindow,
       closeWindow,
       setWindowOnTop,
+      setVolume,
     }}>
       {children}
     </MusicOsContext.Provider>

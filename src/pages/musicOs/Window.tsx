@@ -11,6 +11,8 @@ import { Rnd } from 'react-rnd';
 import { OsWindow } from './files';
 import { useMusicOs } from './useMusicOsCtx';
 import styles from './Window.module.scss';
+import FolderContent from './windowContent/Folder';
+import PlayerContent from './windowContent/Player';
 
 export interface WindowProps {
   parentWidth: number;
@@ -33,7 +35,7 @@ function Window ({
     id: window.id,
   });
 
-  const [ size, setSize ] = useState({ width: 700, height: 450 });
+  const [ size, setSize ] = useState({ ...window.initialSize });
 
   const rndStyle: React.CSSProperties = {
     top: window.isMaximized ? 0 : window.position.top + "px",
@@ -49,6 +51,13 @@ function Window ({
   const windowSize = window.isMaximized
     ? { width: parentWidth, height: parentHeight }
     : size;
+
+  const windowName = (() => {
+    if (window.content.type === 'folder') return window.content.folder.name;
+    if (window.content.type === 'player') return window.content.song.name;
+
+    return "Window";
+  })();
 
   return (
     <Rnd
@@ -76,7 +85,7 @@ function Window ({
             {...listeners}
             onPointerMove={handleTitleDrag}
           >
-            {window.content.type}
+            {windowName}
           </div>
           <div className={styles.ribbon}>
             <button
@@ -104,7 +113,12 @@ function Window ({
         </div>
 
         <div className={styles.content}>
-          CONTENT!
+          {window.content.type === 'folder' && <FolderContent
+            content={window.content}
+          />}
+          {window.content.type === 'player' && <PlayerContent
+            content={window.content}
+          />}
         </div>
       </div>
     </Rnd>

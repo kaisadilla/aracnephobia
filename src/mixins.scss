@@ -439,6 +439,28 @@
   }
 }
 
+@mixin tinted-img ($col) {
+  background-color: $col;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  image-rendering: crisp-edges;
+  display: inline-block;
+}
+
+@mixin tinted-img-col ($col) {
+  background-color: $col;
+}
+
+@function change-opacity ($col, $opacity) {
+  @return color-mix(in srgb, $col $opacity, transparent);
+}
+
 @function font ($font) {
   @return $font, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

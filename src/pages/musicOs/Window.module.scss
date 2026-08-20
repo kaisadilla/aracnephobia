@@ -39,6 +39,11 @@
 
       > .title {
         flex: 1;
+        min-width: 0;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         font-family: var(--font-pixel-game);
         font-size: 26pt;
@@ -73,6 +78,7 @@
 
     > .content {
       flex: 1;
+      overflow: hidden;
       
       background-color: var(--color-music-os-purple);
       margin: 12px;

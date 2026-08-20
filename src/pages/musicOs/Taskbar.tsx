@@ -6,7 +6,12 @@ import i_qobuz from 'assets/img/music_os/start/qobuz.png';
 import i_spotify from 'assets/img/music_os/start/spotify.png';
 import i_tidal from 'assets/img/music_os/start/tidal.png';
 import i_youtube from 'assets/img/music_os/start/youtube.png';
-import { useEffect, useRef } from 'react';
+import i_heart_empty from 'assets/img/music_os/taskbar/heart_empty.png';
+import i_heart_filled from 'assets/img/music_os/taskbar/heart_filled.png';
+import i_volume from 'assets/img/music_os/taskbar/volume.png';
+import TintedImg from 'components/TintedImg';
+import { useClickOutside } from 'hooks/useClickOutside';
+import { useRef, useState } from 'react';
 import { OsWindow } from './files';
 import styles from './Taskbar.module.scss';
 import { useMusicOs } from './useMusicOsCtx';
@@ -26,28 +31,16 @@ const LINKS = {
 };
 
 function Taskbar (props: TaskbarProps) {
+  const [ isAudioOpen, setAudioOpen ] = useState(false);
+
   const ctx = useMusicOs();
-  const menuRef = useRef<HTMLDivElement>(null);
+
   const startRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (ctx.isStartMenuOpen === false) return;
-
-    function handleClickOutsideMenu (evt: MouseEvent) {
-      if (!menuRef.current || !startRef.current) return;
-      if (startRef.current.contains(evt.target as Node)) return;
-      if (menuRef.current.contains(evt.target as Node) === false) {
-        ctx.setStartMenuOpen(false);
-      }
-      console.log("closing");
-    }
-
-    document.addEventListener('mousedown', handleClickOutsideMenu);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutsideMenu);
-    }
-  }, [menuRef.current, ctx.isStartMenuOpen, ctx.setStartMenuOpen]);
+  useClickOutside(
+    startRef, menuRef, ctx.isStartMenuOpen, () => ctx.setStartMenuOpen(false)
+  );
 
   return (
     <div className={styles.taskbar}>
@@ -66,12 +59,38 @@ function Taskbar (props: TaskbarProps) {
         ))}
       </div>
 
+      <div className={styles.systray}>
+        <TintedImg
+          className={styles.volume}
+          src={i_volume}
+          onClick={() => ctx.setVolume(0)}
+        />
+        <TintedImg
+          className={styles.heart}
+          src={ctx.volume > 0 ? i_heart_filled : i_heart_empty}
+          data-filled={ctx.volume > 0}
+          onClick={() => ctx.setVolume(1)}
+        />
+        <TintedImg
+          className={styles.heart}
+          src={ctx.volume > 1 ? i_heart_filled : i_heart_empty}
+          data-filled={ctx.volume > 1}
+          onClick={() => ctx.setVolume(2)}
+        />
+        <TintedImg
+          className={styles.heart}
+          src={ctx.volume > 2 ? i_heart_filled : i_heart_empty}
+          data-filled={ctx.volume > 2}
+          onClick={() => ctx.setVolume(3)}
+        />
+      </div>
+
       {ctx.isStartMenuOpen && <div ref={menuRef} className={styles.startMenu}>
         <button
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.spotify)}
         >
-          <img src={i_spotify} />
+          <TintedImg src={i_spotify} />
           <span>Spotify</span>
         </button>
 
@@ -79,7 +98,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.bandcamp)}
         >
-          <img src={i_bandcamp} />
+          <TintedImg src={i_bandcamp} />
           <span>Bandcamp</span>
         </button>
 
@@ -87,7 +106,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.apple)}
         >
-          <img src={i_apple} />
+          <TintedImg src={i_apple} />
           <span>Apple Music</span>
         </button>
 
@@ -95,7 +114,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.youtube)}
         >
-          <img src={i_youtube} />
+          <TintedImg src={i_youtube} />
           <span>YouTube Music</span>
         </button>
 
@@ -103,7 +122,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.amazon)}
         >
-          <img src={i_amazon} />
+          <TintedImg src={i_amazon} />
           <span>Amazon Music</span>
         </button>
 
@@ -111,7 +130,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.qobuz)}
         >
-          <img src={i_qobuz} />
+          <TintedImg src={i_qobuz} />
           <span>Qobuz Music</span>
         </button>
 
@@ -119,7 +138,7 @@ function Taskbar (props: TaskbarProps) {
           className={styles.item}
           onPointerDown={() => handleClickStartElement(LINKS.tidal)}
         >
-          <img src={i_tidal} />
+          <TintedImg src={i_tidal} />
           <span>Tidal Music</span>
         </button>
       </div>}
@@ -128,6 +147,10 @@ function Taskbar (props: TaskbarProps) {
 
   function handleClickStart () {
     ctx.setStartMenuOpen(!ctx.isStartMenuOpen);
+  }
+
+  function handleClickAudio () {
+    setAudioOpen(prev => !prev);
   }
 
   function handleClickStartElement (url: string) {
