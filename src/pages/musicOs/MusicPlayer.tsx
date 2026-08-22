@@ -71,7 +71,7 @@ function MusicPlayer ({
         onPlay={handlePlayerPlay}
       />
 
-      <video
+      {song.hasVideo && <video
         ref={videoRef}
         className={styles.video}
         src={path + song.internalName + ".mp4"}
@@ -81,7 +81,7 @@ function MusicPlayer ({
         playsInline
         aria-hidden={true}
         tabIndex={-1}
-      />
+      />}
 
       <div className={styles.hud}>
         <div

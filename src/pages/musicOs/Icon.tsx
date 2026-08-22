@@ -49,7 +49,9 @@ function Icon ({
     if (file.type === 'broken') {
       return file.isLeak ? i_leak : i_broken;
     }
-    if (file.type === 'folder') return i_folder;
+    if (file.type === 'folder') {
+      return file.isLeak ? i_leak : i_folder;
+    }
     if (file.type === 'playlist') return i_playlist;
     if (file.type === 'witch') return i_witch;
     if (file.type === 'coven') return i_coven;
@@ -140,8 +142,8 @@ function Icon ({
       }
 
       return {
-        width: 700,
-        height: 450,
+        width: 720,
+        height: 475,
       }
     })();
 
@@ -150,7 +152,7 @@ function Icon ({
     const uuid = ctx.openWindow(content, dims);
     ctx.setWindowOnTop(uuid);
 
-    if (file.type === 'broken' && file.isLeak) {
+    if ((file.type === 'broken' || file.type === 'folder') && file.isLeak) {
       ctx.setLeakMode(true);
     }
   }

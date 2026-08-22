@@ -24,6 +24,9 @@ export interface FolderFile {
   songs: Song[];
   isLast: false;
   photos: Picture[];
+  drawings: Picture[];
+  links: LinkFile[];
+  isLeak: boolean;
 }
 
 export interface OtherFile {
@@ -88,11 +91,18 @@ export type Song = {
   name: string;
   internalName: string;
   folder: string;
+  hasVideo: boolean;
 }
 
 export type Picture = {
   name: string;
   image: string;
+}
+
+export type LinkFile = {
+  name: string;
+  site: 'youtube';
+  url: string;
 }
 
 function broken (
@@ -114,7 +124,12 @@ function broken (
 }
 
 function folder (
-  name: string, songs: Song[], photos: Picture[], drawings: Picture[]
+  name: string,
+  songs: Song[],
+  photos: Picture[],
+  drawings: Picture[],
+  links: LinkFile[],
+  isLeak: boolean = false
 ) : FolderFile {
   return {
     type: 'folder',
@@ -122,14 +137,23 @@ function folder (
     songs,
     isLast: false,
     photos,
+    drawings,
+    links,
+    isLeak,
   }
 }
 
-function song (folder: string, name: string, internalName: string) {
+function song (
+  folder: string,
+  name: string,
+  internalName: string,
+  hasVideo: boolean = true,
+) {
   return {
     name,
     internalName,
     folder,
+    hasVideo,
   }
 }
 
@@ -137,6 +161,14 @@ function picture (name: string, image: string) : Picture {
   return {
     name,
     image,
+  };
+}
+
+function link (name: string, site: LinkFile['site'], url: string) {
+  return {
+    name,
+    site,
+    url,
   };
 }
 
@@ -166,8 +198,42 @@ export const THE_MASK = folder(
   ],
   [
 
+  ],
+  [
   ]
-)
+);
+
+export const THE_LEAK = folder(
+  "THE//LEAK",
+  [
+    song("the_leak", "Purple Rabbit (Extended).mp3", "purple_rabbit_ext"),
+    song("the_leak", "She's Lovely.mp3", "shes_lovely"),
+    song("the_leak", "I Survived Wrong (Extended).mp3", "i_survived_wrong_ext", false),
+    song("the_leak", "Restless.mp3", "restless"),
+  ],
+  [
+    picture("Test 1.png", i_mask_p0),
+    picture("This is an incredibly long title for a picture.JPG", i_mask_p1),
+    picture("EW.pdf", i_mask_p2),
+    picture("Watching.gif", i_mask_p3),
+  ],
+  [
+    picture("Test 1.png", i_mask_p0),
+    picture("This is an incredibly long title for a picture.JPG", i_mask_p1),
+    picture("EW.pdf", i_mask_p2),
+    picture("Watching.gif", i_mask_p3),
+  ],
+  [
+    link(
+      "Carta de Mary a James (en Español)",
+      'youtube',
+      "https://youtu.be/UrAuAzh0Qyc"
+    ),
+  ],
+  true
+);
+
+
 const FILES = [
   THE_MASK,
   broken(
@@ -206,13 +272,7 @@ const FILES = [
     "ERROR 07 // PROCESS INCOMPLETE",
     "Something survived the fire. Access is not yet permitted."
   ),
-  broken(
-    "THE//LEAK",
-    null,
-    "ERROR ⛞⛞⛞ // CONTAINMENT FAILURE",
-    "Access denied. Not to protect the files, but the structure.",
-    true
-  ),
+  THE_LEAK,
   other('playlist', "Playlist"),
   other('witch', "The Witch", true),
   other('coven', "The Coven", true),

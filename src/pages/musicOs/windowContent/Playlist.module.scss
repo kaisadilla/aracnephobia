@@ -16,6 +16,7 @@
       height: 100%;
       background-color: black;
       border-radius: 12px;
+      overflow: hidden;
     }
   }
 
@@ -51,7 +52,7 @@
 
           > div {
             cursor: pointer;
-            
+
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -76,7 +77,7 @@
             > div {
               font-family: var(--font-pixel-game);
               font-size: 18pt;
-              color: var(--col-purple);
+              color: var(--color-music-os-purple);
             }
           }
         }

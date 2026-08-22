@@ -5,7 +5,7 @@
   --col-purple: var(--color-music-os-purple);
   --col-yellow: var(--color-music-os-yellow);
   --col-wallpaper: var(--color-music-os-purple);
-  --col-purple-text: white;
+  --col-contrast: white;
 
   width: 100vw;
   height: 100vh;
@@ -18,7 +18,7 @@
     --col-pink: var(--color-music-os-yellow);
     --col-purple: var(--color-music-os-yellow);
     --col-yellow: var(--color-music-os-purple);
-    --col-purple-text: black;
+    --col-contrast: black;
   }
 
   > .load {

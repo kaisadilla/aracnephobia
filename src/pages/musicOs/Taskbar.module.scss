@@ -61,7 +61,7 @@
     gap: 4px;
 
     > .volume {
-      --tint: white;
+      --tint: var(--col-contrast);
 
       cursor: pointer;
 
@@ -71,7 +71,7 @@
     }
 
     > .heart {
-      --tint: var(--col-pink);
+      --tint: var(--color-music-os-pink);
 
       cursor: pointer;
 
@@ -79,7 +79,7 @@
       aspect-ratio: 164 / 128;
 
       &[data-filled=true] {
-        --tint: white;
+        --tint: var(--col-contrast);
       }
     }
   }
@@ -118,7 +118,7 @@
       > span {
         font-family: var(--font-pixel-game);
         font-size: 22pt;
-        color: var(--col-purple-text);
+        color: var(--col-contrast);
       }
 
       &:hover {
@@ -183,7 +183,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
-    color: var(--col-purple-text);
+    color: var(--col-contrast);
   }
 
   &:hover {
