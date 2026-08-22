@@ -18,7 +18,7 @@
     width: 300px;
     aspect-ratio: 979 / 764;
 
-    @include tinted-img(var(--color-music-os-pink));
+    @include tinted-img(var(--col-pink));
   }
 
   > .list {
@@ -27,7 +27,7 @@
     width: 100%;
     height: 100%;
     overflow: scroll;
-    scrollbar-color: var(--color-music-os-pink) transparent;
+    scrollbar-color: var(--col-pink) transparent;
 
     padding: 16px;
   }
@@ -54,7 +54,7 @@
   }
 
   > span {
-    color: var(--color-music-os-purple);
+    color: var(--col-purple);
     font-family: var(--font-pixel-game);
     font-size: 22pt;
 
@@ -65,7 +65,7 @@
 
   &:hover {
     > span {
-      color: var(--color-music-os-yellow);
+      color: var(--col-yellow);
     }
   }
 }

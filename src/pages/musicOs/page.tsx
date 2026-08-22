@@ -2,6 +2,7 @@ import i_bg from 'assets/img/music_os/bg.png';
 import IconGrid from './IconGrid';
 import styles from './page.module.scss';
 import Taskbar from './Taskbar';
+import { useMusicOs } from './useMusicOsCtx';
 import WindowArea from './WindowArea';
 
 export interface MusicOsPageProps {
@@ -9,9 +10,13 @@ export interface MusicOsPageProps {
 }
 
 function MusicOsPage (props: MusicOsPageProps) {
+  const ctx = useMusicOs();
 
   return (
-    <div className={styles.page}>
+    <div
+      className={styles.page}
+      data-leak-mode={ctx.isLeakMode}
+    >
       <div className={styles.desktop}>
         <div
           className={styles.bg}

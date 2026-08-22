@@ -1,11 +1,25 @@
 .page {
   @include crt(1000000);
 
+  --col-pink: var(--color-music-os-pink);
+  --col-purple: var(--color-music-os-purple);
+  --col-yellow: var(--color-music-os-yellow);
+  --col-wallpaper: var(--color-music-os-purple);
+  --col-purple-text: white;
+
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
+
+  &[data-leak-mode=true] {
+    --col-pink: var(--color-music-os-yellow);
+    --col-purple: var(--color-music-os-yellow);
+    --col-yellow: var(--color-music-os-purple);
+    --col-purple-text: black;
+  }
 
   > .desktop {
     flex: 1;
@@ -18,15 +32,13 @@
       margin: auto;
       translate: 0px -48px;
 
-      /* Set the target color */
-      background-color: var(--color-music-os-purple);
+      background-color: var(--col-purple);
 
       -webkit-mask-size: contain;
       mask-size: contain;
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
       
-      /* Matches image dimensions */
       max-width: 80%;
       max-height: 60%;
       aspect-ratio: 256 / 118;

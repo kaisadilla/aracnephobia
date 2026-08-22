@@ -1,11 +1,16 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import i_broken from 'assets/img/music_os/file/broken.png';
+import i_contact from 'assets/img/music_os/file/contact.png';
+import i_coven from 'assets/img/music_os/file/coven.png';
 import i_folder from 'assets/img/music_os/file/folder.png';
+import i_leak from 'assets/img/music_os/file/leak.png';
+import i_wish from 'assets/img/music_os/file/wish.png';
+import i_witch from 'assets/img/music_os/file/witch.png';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import React from 'react';
 import styles from './Icon.module.scss';
-import { File, FolderWindowContent } from './files';
+import { ErrorWindowContent, File, FolderWindowContent, InfoWindowContent } from './files';
 import { useMusicOs } from './useMusicOsCtx';
 
 export const ICON_WIDTH = 95;
@@ -40,7 +45,14 @@ function Icon ({
   };
 
   const iconImg = (() => {
+    if (file.type === 'broken') {
+      return file.isLeak ? i_leak : i_broken;
+    }
     if (file.type === 'folder') return i_folder;
+    if (file.type === 'witch') return i_witch;
+    if (file.type === 'coven') return i_coven;
+    if (file.type === 'wish') return i_wish;
+    if (file.type === 'contact') return i_contact;
 
     return i_broken;
   })();
@@ -70,21 +82,64 @@ function Icon ({
   }
 
   function handleDoubleClick () {
+    if (file.type === 'witch') {
+      window.open("https://www.aracnephobia.com", '_blank');
+      return;
+    }
+
     const content = (() => {
+      if (file.type === 'broken') {
+        return {
+          type: 'error',
+          image: file.image,
+          title: file.title,
+          message: file.message,
+        } as ErrorWindowContent;
+      }
       if (file.type === 'folder') {
         return {
           type: 'folder',
           folder: file,
-        } as FolderWindowContent
+        } as FolderWindowContent;
+      }
+      if (file.type === 'coven') {
+        return {
+          type: 'info',
+          infoType: 'coven',
+        } as InfoWindowContent;
       }
 
       return null;
     })();
 
+    const dims = (() => {
+      if (file.type === 'broken') {
+        return {
+          width: 600,
+          height: 600,
+        }
+      }
+      if (file.type === 'coven') {
+        return {
+          width: 850,
+          height: 600,
+        }
+      }
+
+      return {
+        width: 700,
+        height: 450,
+      }
+    })();
+
     if (content === null) return;
 
-    const uuid = ctx.openWindow(content);
+    const uuid = ctx.openWindow(content, dims);
     ctx.setWindowOnTop(uuid);
+
+    if (file.type === 'broken' && file.isLeak) {
+      ctx.setLeakMode(true);
+    }
   }
 }
 

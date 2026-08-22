@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FILES, { File, OsWindow, WindowContent } from "./files";
 
 interface InternalState {
+  isLeakMode: boolean;
   files: File[];
   isStartMenuOpen: boolean;
   openWindows: { [uuid: string]: OsWindow };
@@ -13,6 +14,7 @@ interface InternalState {
 }
 
 interface MusicOsValue extends InternalState {
+  setLeakMode: (value: boolean) => void;
   setStartMenuOpen: (open: boolean) => void;
   openWindow: (
     content: WindowContent, latestWindow?: { width: number, height: number, }
@@ -27,6 +29,7 @@ const MusicOsContext = createContext(undefined as MusicOsValue | undefined);
 
 export const MusicOsProvider = ({ children }: any) => {
   const [state, setState] = useState<InternalState>({
+    isLeakMode: false,
     files: FILES,
     isStartMenuOpen: false,
     openWindows: {},
@@ -46,6 +49,13 @@ export const MusicOsProvider = ({ children }: any) => {
     focused: focusedWindow,
     setOnTop: setWindowOnTop,
   } = useIndices(Object.keys({}));
+
+  function setLeakMode (value: boolean) {
+    setState(prev => ({
+      ...prev,
+      isLeakMode: value,
+    }));
+  }
 
   function setStartMenuOpen (open: boolean) {
     setState(prev => ({
@@ -117,6 +127,7 @@ export const MusicOsProvider = ({ children }: any) => {
       ...state,
       windowIndices,
       focusedWindow,
+      setLeakMode,
       setStartMenuOpen,
       openWindow,
       updateWindow,

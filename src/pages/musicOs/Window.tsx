@@ -8,10 +8,12 @@ import { NumberSize } from 're-resizable';
 import { Direction } from 're-resizable/lib/resizer';
 import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
-import { OsWindow } from './files';
+import { getWindowName, OsWindow } from './files';
 import { useMusicOs } from './useMusicOsCtx';
 import styles from './Window.module.scss';
+import ErrorContent from './windowContent/Error';
 import FolderContent from './windowContent/Folder';
+import InfoContent from './windowContent/Info';
 import PlayerContent from './windowContent/Player';
 
 export interface WindowProps {
@@ -52,13 +54,6 @@ function Window ({
     ? { width: parentWidth, height: parentHeight }
     : size;
 
-  const windowName = (() => {
-    if (window.content.type === 'folder') return window.content.folder.name;
-    if (window.content.type === 'player') return window.content.song.name;
-
-    return "Window";
-  })();
-
   return (
     <Rnd
       className={styles.windowContainer}
@@ -85,7 +80,7 @@ function Window ({
             {...listeners}
             onPointerMove={handleTitleDrag}
           >
-            {windowName}
+            {getWindowName(window)}
           </div>
           <div className={styles.ribbon}>
             <button
@@ -113,10 +108,16 @@ function Window ({
         </div>
 
         <div className={styles.content}>
+          {window.content.type === 'error' && <ErrorContent
+            content={window.content}
+          />}
           {window.content.type === 'folder' && <FolderContent
             content={window.content}
           />}
           {window.content.type === 'player' && <PlayerContent
+            content={window.content}
+          />}
+          {window.content.type === 'info' && <InfoContent
             content={window.content}
           />}
         </div>

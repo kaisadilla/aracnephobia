@@ -12,7 +12,7 @@ import i_volume from 'assets/img/music_os/taskbar/volume.png';
 import TintedImg from 'components/TintedImg';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useRef, useState } from 'react';
-import { OsWindow } from './files';
+import { getWindowName, OsWindow } from './files';
 import styles from './Taskbar.module.scss';
 import { useMusicOs } from './useMusicOsCtx';
 
@@ -177,7 +177,7 @@ function _Tab ({
       }
       onPointerDown={handlePointerDown}
     >
-      <span>{"Window"}</span>
+      <span>{getWindowName(window)}</span>
     </div>
   );
 

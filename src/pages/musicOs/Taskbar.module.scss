@@ -6,7 +6,7 @@
   width: 100%;
   height: 100%;
 
-  background-color: var(--color-music-os-purple);
+  background-color: var(--col-purple);
 
   display: flex;
   flex-direction: row;
@@ -36,7 +36,7 @@
     }
 
     &:hover {
-      background-color: var(--color-music-os-yellow);
+      background-color: var(--col-yellow);
     }
   }
 
@@ -71,7 +71,7 @@
     }
 
     > .heart {
-      --tint: var(--color-music-os-pink);
+      --tint: var(--col-pink);
 
       cursor: pointer;
 
@@ -94,7 +94,7 @@
 
     padding: 12px 0;
 
-    background-color: var(--color-music-os-purple);
+    background-color: var(--col-purple);
     border-radius: 12px;
     box-shadow: 5px 5px 0 #00000040;
 
@@ -118,11 +118,11 @@
       > span {
         font-family: var(--font-pixel-game);
         font-size: 22pt;
-        color: white;
+        color: var(--col-purple-text);
       }
 
       &:hover {
-        background-color: var(--color-music-os-yellow);
+        background-color: var(--col-yellow);
 
         > span {
           color: black;
@@ -144,7 +144,7 @@
       background-color: white;
 
       &::-moz-range-progress {
-        background-color: var(--color-music-os-pink);
+        background-color: var(--col-pink);
         width: 100%;
       }
 
@@ -152,7 +152,7 @@
         width: 100%;
         height: 12px;
         border-radius: 4px;
-        background-color: var(--color-music-os-purple);
+        background-color: var(--col-purple);
         border: none;
       }
     }
@@ -160,7 +160,7 @@
 }
 
 .tab {
-  width: 180px;
+  width: 240px;
   height: 60%;
   
   border: 3px solid var(--color-music-os-pink);
@@ -175,16 +175,28 @@
 
   > span {
     translate: 0 2px;
+    min-width: 0;
+
+    padding: 0 6px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    color: var(--col-purple-text);
   }
 
   &:hover {
-    background-color: var(--color-music-os-pink);
+    background-color: var(--col-pink);
     color: black;
   }
 
   &[data-focused=true] {
     border-color: black;
-    background-color: var(--color-music-os-yellow);
-    color: black;
+    background-color: var(--col-yellow);
+
+    > span {
+      color: black;
+    }
   }
 }

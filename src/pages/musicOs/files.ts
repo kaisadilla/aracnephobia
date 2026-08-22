@@ -1,15 +1,15 @@
-export type FileType = 'broken'
-  | 'folder'
-  | 'playlist'
-  | 'bug'
-  | 'witch'
-  | 'coven'
-  | 'wish'
-  | 'contact';
+import i_err_heart from 'assets/img/music_os/error/heart.png';
+import i_err_mask from 'assets/img/music_os/error/mask.png';
+import i_err_rage from 'assets/img/music_os/error/rage.png';
+import i_err_rope from 'assets/img/music_os/error/rope.png';
 
 export interface BrokenFile {
   type: 'broken';
   name: string;
+  image: string | null;
+  title: string;
+  message: string;
+  isLeak: boolean;
 }
 
 export interface FolderFile {
@@ -18,8 +18,14 @@ export interface FolderFile {
   songs: Song[];
 }
 
+export interface OtherFile {
+  name: string;
+  type: 'witch' | 'coven' | 'wish' | 'contact'
+}
+
 export type File = BrokenFile
-  | FolderFile;
+  | FolderFile
+  | OtherFile;
 
 export interface OsWindow {
   content: WindowContent;
@@ -42,10 +48,14 @@ export interface FolderWindowContent {
 
 export interface ErrorWindowContent {
   type: 'error';
+  image: string | null;
+  title: string;
+  message: string;
 }
 
 export interface InfoWindowContent {
   type: 'info';
+  infoType: 'coven' | 'aracne' | 'juanma';
 }
 
 export type WindowContent = PlayerWindowContent
@@ -59,10 +69,20 @@ export type Song = {
   folder: string;
 }
 
-function broken (name: string) : BrokenFile {
+function broken (
+  name: string,
+  image: string | null,
+  title: string,
+  message: string,
+  isLeak: boolean = false
+) : BrokenFile {
   return { 
     type: 'broken',
     name,
+    image,
+    title,
+    message,
+    isLeak,
   };
 }
 
@@ -82,6 +102,13 @@ function song (folder: string, name: string, internalName: string) {
   }
 }
 
+function other (type: OtherFile['type'], id: string) : OtherFile {
+  return {
+    type,
+    name: id,
+  }
+}
+
 const FILES = [
   folder(
     "THE//MASK",
@@ -92,9 +119,67 @@ const FILES = [
       song("the_mask", "Clean Clean Clean.mp3", "clean_clean_clean"),
     ],
   ),
-  broken("THE//RAGE"),
-  broken("THE//HEART"),
-  broken("THE//ROPE"),
+  broken(
+    "THE//RAGE",
+    i_err_rage,
+    "ERROR 02 // PRESSURE LIMIT",
+    "Anger is what happens when silence stops working"
+  ),
+  broken(
+    "THE//HEART",
+    i_err_heart,
+    "ERROR 03 // FOREIGN OBJECT",
+    "Attachment detected. Removal may cause structural damage."
+  ),
+  broken(
+    "THE//ROPE",
+    i_err_rope,
+    "ERROR 04 // EXIT PATH NOT FOUND",
+    "Not everything that holds you is keeping you safe."
+  ),
+  broken(
+    "THE//EYES",
+    i_err_mask,
+    "ERROR 05 // OBSERVER DETECTED",
+    "Too many eyes were used to build this version of you."
+  ),
+  broken(
+    "THE//BROKEN",
+    i_err_heart,
+    "ERROR 06 // RECOVERY FILE LOST",
+    "Survival does not restore the original file."
+  ),
+  broken(
+    "THE//SALV///",
+    i_err_rage,
+    "ERROR 07 // PROCESS INCOMPLETE",
+    "Something survived the fire. Access is not yet permitted."
+  ),
+  broken(
+    "THE//LEAK",
+    null,
+    "ERROR ⛞⛞⛞ // CONTAINMENT FAILURE",
+    "Access denied. Not to protect the files, but the structure.",
+    true
+  ),
+  other('witch', "witch"),
+  other('coven', "coven"),
+  other('wish', "wish"),
+  other('contact', "contact"),
 ]
+
+export function getWindowName (window: OsWindow) {
+  if (window.content.type === 'error') return window.content.title;
+  if (window.content.type === 'folder') return window.content.folder.name;
+  if (window.content.type === 'player') return window.content.song.name;
+  if (window.content.type === 'info') {
+    if (window.content.infoType === 'aracne') return "Ana Lázaro Estalot";
+    if (window.content.infoType === 'juanma') return "Juan Manuel García";
+
+    return "The Coven";
+  }
+
+  return "Window";
+};
 
 export default FILES;
