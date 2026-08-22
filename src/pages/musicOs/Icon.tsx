@@ -1,6 +1,5 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import i_err_mask from 'assets/img/music_os/error/mask.png';
 import i_broken from 'assets/img/music_os/file/broken.png';
 import i_contact from 'assets/img/music_os/file/contact.png';
 import i_coven from 'assets/img/music_os/file/coven.png';
@@ -91,6 +90,10 @@ function Icon ({
       window.open("https://www.aracnephobia.com", '_blank');
       return;
     }
+    if (file.type === 'contact') {
+      window.open("mailto:aracnephobiamusic@gmail.com", '_blank');
+      return;
+    }
 
     const content = (() => {
       if (file.type === 'broken') {
@@ -121,9 +124,9 @@ function Icon ({
       if (file.type === 'wish') {
         return {
           type: 'error',
-          image: i_err_mask,
-          title: "ERROR 01 // IDENTITY REQUIRED",
-          message: "You cannot remove a mask while you still need it to survive.",
+          image: null,
+          title: "ERROR ⛞⛞⛞ // CONTAINMENT FAILURE",
+          message: "Access denied. Not to protect the files, but the structure around them.",
         } as ErrorWindowContent;
       }
 
