@@ -1,6 +1,7 @@
 import i_bg from 'assets/img/music_os/bg.png';
 import v_load from 'assets/img/music_os/load.mp4';
 import { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import IconGrid from './IconGrid';
 import styles from './page.module.scss';
 import Taskbar from './Taskbar';
@@ -36,6 +37,13 @@ function MusicOsPage (props: MusicOsPageProps) {
       className={styles.page}
       data-leak-mode={ctx.isLeakMode}
     >
+      <Helmet>
+        <title>Aracnephobia's Music OS</title>
+        <meta property="og:title" content="Aracnephobia's Music" />
+        <meta property="og:description" content="All of Aracnephobia's songs in a needlessly complex retro interface." />
+        <meta property="og:image" content="https://aracnephobia.com/logo-music.png" />
+      </Helmet>
+
       <div className={styles.desktop}>
         <div
           className={styles.bg}
