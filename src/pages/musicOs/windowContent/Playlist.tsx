@@ -2,7 +2,7 @@ import i_song from 'assets/img/music_os/folder/song.png';
 import TextOnNoise from 'components/TextOnNoise';
 import { useState } from 'react';
 import { $cl } from 'utils';
-import { PlaylistWindowContent, Song, THE_MASK } from '../files';
+import { PlaylistWindowContent, Song, THE_LEAK, THE_MASK } from '../files';
 import MusicPlayer from '../MusicPlayer';
 import styles from './Playlist.module.scss';
 
@@ -23,6 +23,22 @@ function PlaylistContent (props: PlaylistContentProps) {
       </div>
 
       <div className={styles.playlist}>
+        <div className={$cl(styles.album, styles.theLeak)}>
+          <div className={styles.title}>
+            THE//LEAK
+          </div>
+          <div className={styles.list}>
+            {THE_LEAK.songs.map((s, i) => <div
+              key={i}
+              className={styles.entry}
+              onClick={() => handleClickSong(s)}
+            >
+              <img src={i_song} />
+              <div>{s.name}</div>
+            </div>)}
+          </div>
+        </div>
+
         <div className={$cl(styles.album, styles.theMask)}>
           <div className={styles.title}>
             THE//MASK
