@@ -28,8 +28,8 @@ export interface FolderFile {
 
 export interface OtherFile {
   name: string;
-  type: 'witch' | 'coven' | 'wish' | 'contact'
-  isLast: true;
+  type: 'playlist' | 'witch' | 'coven' | 'wish' | 'contact'
+  isLast: boolean;
 }
 
 export type File = BrokenFile
@@ -73,11 +73,16 @@ export interface GalleryWindowContent {
   pictures: Picture[];
 }
 
+export interface PlaylistWindowContent {
+  type: 'playlist';
+}
+
 export type WindowContent = PlayerWindowContent
   | FolderWindowContent
   | ErrorWindowContent
   | InfoWindowContent
-  | GalleryWindowContent;
+  | GalleryWindowContent
+  | PlaylistWindowContent;
 
 export type Song = {
   name: string;
@@ -135,33 +140,36 @@ function picture (name: string, image: string) : Picture {
   };
 }
 
-function other (type: OtherFile['type'], id: string) : OtherFile {
+function other (
+  type: OtherFile['type'], id: string, isLast: boolean = false
+) : OtherFile {
   return {
     type,
     name: id,
-    isLast: true,
+    isLast,
   }
 }
 
-const FILES = [
-  folder(
-    "THE//MASK",
-    [
-      song("the_mask", "Happy Happy Happy.mp3", "happy_happy_happy"),
-      song("the_mask", "Tomorrow.mp3", "tomorrow"),
-      song("the_mask", "Too many days.mp3", "too_many_days"),
-      song("the_mask", "Clean Clean Clean.mp3", "clean_clean_clean"),
-    ],
-    [
-      picture("Test 1.png", i_mask_p0),
-      picture("This is an incredibly long title for a picture.JPG", i_mask_p1),
-      picture("EW.pdf", i_mask_p2),
-      picture("Watching.gif", i_mask_p3),
-    ],
-    [
+export const THE_MASK = folder(
+  "THE//MASK",
+  [
+    song("the_mask", "Happy Happy Happy.mp3", "happy_happy_happy"),
+    song("the_mask", "Tomorrow.mp3", "tomorrow"),
+    song("the_mask", "Too many days.mp3", "too_many_days"),
+    song("the_mask", "Clean Clean Clean.mp3", "clean_clean_clean"),
+  ],
+  [
+    picture("Test 1.png", i_mask_p0),
+    picture("This is an incredibly long title for a picture.JPG", i_mask_p1),
+    picture("EW.pdf", i_mask_p2),
+    picture("Watching.gif", i_mask_p3),
+  ],
+  [
 
-    ]
-  ),
+  ]
+)
+const FILES = [
+  THE_MASK,
   broken(
     "THE//RAGE",
     i_err_rage,
@@ -205,10 +213,11 @@ const FILES = [
     "Access denied. Not to protect the files, but the structure.",
     true
   ),
-  other('witch', "witch"),
-  other('coven', "coven"),
-  other('wish', "wish"),
-  other('contact', "contact"),
+  other('playlist', "Playlist"),
+  other('witch', "The Witch", true),
+  other('coven', "The Coven", true),
+  other('wish', "Make a Wish", true),
+  other('contact', "Contact", true),
 ]
 
 export function getWindowName (window: OsWindow) {
@@ -222,6 +231,7 @@ export function getWindowName (window: OsWindow) {
     return "The Coven";
   }
   if (window.content.type === 'gallery') return window.content.name;
+  if (window.content.type === 'playlist') return "Playlist";
 
   return "Window";
 };

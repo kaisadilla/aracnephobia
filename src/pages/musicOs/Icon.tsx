@@ -5,15 +5,16 @@ import i_contact from 'assets/img/music_os/file/contact.png';
 import i_coven from 'assets/img/music_os/file/coven.png';
 import i_folder from 'assets/img/music_os/file/folder.png';
 import i_leak from 'assets/img/music_os/file/leak.png';
+import i_playlist from 'assets/img/music_os/file/playlist.png';
 import i_wish from 'assets/img/music_os/file/wish.png';
 import i_witch from 'assets/img/music_os/file/witch.png';
 import ChromaticAberrationImage from 'components/ChromaticAberrationImage';
 import React from 'react';
 import styles from './Icon.module.scss';
-import { ErrorWindowContent, File, FolderWindowContent, InfoWindowContent } from './files';
+import { ErrorWindowContent, File, FolderWindowContent, InfoWindowContent, PlaylistWindowContent } from './files';
 import { useMusicOs } from './useMusicOsCtx';
 
-export const ICON_WIDTH = 95;
+export const ICON_WIDTH = 130;
 export const ICON_HEIGHT = 100;
 
 export interface IconProps {
@@ -49,6 +50,7 @@ function Icon ({
       return file.isLeak ? i_leak : i_broken;
     }
     if (file.type === 'folder') return i_folder;
+    if (file.type === 'playlist') return i_playlist;
     if (file.type === 'witch') return i_witch;
     if (file.type === 'coven') return i_coven;
     if (file.type === 'wish') return i_wish;
@@ -108,6 +110,11 @@ function Icon ({
           infoType: 'coven',
         } as InfoWindowContent;
       }
+      if (file.type === 'playlist') {
+        return {
+          type: 'playlist'
+        } as PlaylistWindowContent;
+      }
 
       return null;
     })();
@@ -122,6 +129,12 @@ function Icon ({
       if (file.type === 'coven') {
         return {
           width: 850,
+          height: 600,
+        }
+      }
+      if (file.type === 'playlist') {
+        return {
+          width: 1000,
           height: 600,
         }
       }

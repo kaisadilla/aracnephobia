@@ -16,6 +16,7 @@ import FolderContent from './windowContent/Folder';
 import GalleryContent from './windowContent/Gallery';
 import InfoContent from './windowContent/Info';
 import PlayerContent from './windowContent/Player';
+import PlaylistContent from './windowContent/Playlist';
 
 export interface WindowProps {
   parentWidth: number;
@@ -122,6 +123,9 @@ function Window ({
             content={window.content}
           />}
           {window.content.type === 'gallery' && <GalleryContent
+            content={window.content}
+          />}
+          {window.content.type === 'playlist' && <PlaylistContent
             content={window.content}
           />}
         </div>

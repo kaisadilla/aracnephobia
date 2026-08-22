@@ -27,7 +27,7 @@ function IconGrid (props: IconGridProps) {
   const [ iconPos, setIconPos ] = useState<Record<string, [number, number]>>({});
 
   useEffect(() => {
-    setRows(Math.floor(desktopSize.width / (ICON_WIDTH + ICON_GAP)));
+    setRows(Math.floor(desktopSize.width / (ICON_WIDTH + ICON_GAP)) + 1);
     setCols(Math.floor(desktopSize.height / (ICON_HEIGHT + ICON_GAP)));
   }, [desktopSize]);
 
