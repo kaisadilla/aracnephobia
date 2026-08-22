@@ -8,12 +8,12 @@ interface InternalState {
   files: File[];
   isStartMenuOpen: boolean;
   openWindows: { [uuid: string]: OsWindow };
-  windowIndices: Record<string, number>;
-  focusedWindow: string | null;
   volume: number; // from 0 to 3.
 }
 
 interface MusicOsValue extends InternalState {
+  windowIndices: Record<string, number>;
+  focusedWindow: string | null;
   setLeakMode: (value: boolean) => void;
   setStartMenuOpen: (open: boolean) => void;
   openWindow: (
@@ -34,7 +34,7 @@ export const MusicOsProvider = ({ children }: any) => {
     isStartMenuOpen: false,
     openWindows: {},
     volume: 2,
-  }); // TODO: FIX TYPING.
+  });
 
   const [latestWindow, setLatestWindow] = useState<string | null>(null);
 
