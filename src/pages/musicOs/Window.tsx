@@ -187,6 +187,10 @@ function Window ({
 
   function handleClose () {
     ctx.closeWindow(window.id);
+
+    if (window.isLeak) {
+      ctx.setLeakMode(false);
+    }
   }
 }
 

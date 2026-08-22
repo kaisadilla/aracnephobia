@@ -66,6 +66,23 @@
         }
       }
 
+      &.theLeak {
+        > .title {
+          color: var(--color-music-os-yellow);
+          font-family: var(--font-curved);
+        }
+
+        > .list {
+          > .entry {
+            > div {
+              font-family: var(--font-pixel-game);
+              font-size: 18pt;
+              color: var(--color-music-os-yellow);
+            }
+          }
+        }
+      }
+
       &.theMask {
         > .title {
           color: var(--color-music-os-pink);

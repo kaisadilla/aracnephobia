@@ -41,7 +41,7 @@ function FolderContent ({
 
         <_Icon
           type='portfolio'
-          pictures={content.folder.photos}
+          pictures={content.folder.drawings}
         />
 
         {content.folder.links.map((l, i) => <_Icon

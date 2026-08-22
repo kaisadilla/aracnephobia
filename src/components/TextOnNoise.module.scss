@@ -21,8 +21,9 @@
 
     > .offline {
       filter: blur(3px);
-      font-size: 4.5rem;
+      font-size: 5.5rem;
       opacity: 0.7;
+      font-family: font('Chelsea Market');
 
       > div {
         position: absolute;

@@ -90,6 +90,10 @@ function Icon ({
       window.open("https://www.aracnephobia.com", '_blank');
       return;
     }
+    if (file.type === 'contact') {
+      window.open("mailto:aracnephobiamusic@gmail.com", '_blank');
+      return;
+    }
 
     const content = (() => {
       if (file.type === 'broken') {
@@ -117,6 +121,14 @@ function Icon ({
           type: 'playlist'
         } as PlaylistWindowContent;
       }
+      if (file.type === 'wish') {
+        return {
+          type: 'error',
+          image: null,
+          title: "ERROR ⛞⛞⛞ // CONTAINMENT FAILURE",
+          message: "Access denied. Not to protect the files, but the structure around them.",
+        } as ErrorWindowContent;
+      }
 
       return null;
     })();
@@ -140,6 +152,12 @@ function Icon ({
           height: 600,
         }
       }
+      if (file.type === 'wish') {
+        return {
+          width: 600,
+          height: 600,
+        }
+      }
 
       return {
         width: 720,
@@ -149,12 +167,13 @@ function Icon ({
 
     if (content === null) return;
 
-    const uuid = ctx.openWindow(content, dims);
+    const isLeak = (file.type === 'broken' || file.type === 'folder')
+      && file.isLeak;
+
+    const uuid = ctx.openWindow(content, dims, isLeak);
     ctx.setWindowOnTop(uuid);
 
-    if ((file.type === 'broken' || file.type === 'folder') && file.isLeak) {
-      ctx.setLeakMode(true);
-    }
+    if (isLeak) ctx.setLeakMode(true);
   }
 }
 

@@ -8,16 +8,18 @@ interface InternalState {
   files: File[];
   isStartMenuOpen: boolean;
   openWindows: { [uuid: string]: OsWindow };
-  windowIndices: Record<string, number>;
-  focusedWindow: string | null;
   volume: number; // from 0 to 3.
 }
 
 interface MusicOsValue extends InternalState {
+  windowIndices: Record<string, number>;
+  focusedWindow: string | null;
   setLeakMode: (value: boolean) => void;
   setStartMenuOpen: (open: boolean) => void;
   openWindow: (
-    content: WindowContent, latestWindow?: { width: number, height: number, }
+    content: WindowContent,
+    latestWindow?: { width: number, height: number, },
+    isLeak?: boolean,
   ) => string;
   updateWindow: (id: string, window: OsWindow) => void;
   closeWindow: (id: string) => void;
@@ -34,7 +36,7 @@ export const MusicOsProvider = ({ children }: any) => {
     isStartMenuOpen: false,
     openWindows: {},
     volume: 2,
-  }); // TODO: FIX TYPING.
+  });
 
   const [latestWindow, setLatestWindow] = useState<string | null>(null);
 
@@ -66,7 +68,8 @@ export const MusicOsProvider = ({ children }: any) => {
 
   function openWindow (
     content: WindowContent,
-    initialSize = { width: 700, height: 450 }
+    initialSize = { width: 700, height: 450 },
+    isLeak: boolean = false,
   ) : string {
     const uuid = uuidv4();
 
@@ -84,6 +87,7 @@ export const MusicOsProvider = ({ children }: any) => {
           initialSize,
           isMinimized: false,
           isMaximized: false,
+          isLeak,
         },
       },
     }));

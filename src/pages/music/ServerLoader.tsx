@@ -1,5 +1,5 @@
+import { useServer } from 'context/useServer';
 import { useEffect } from 'react';
-import { useServer } from '../context/useServer';
 import styles from './ServerLoader.module.scss';
 
 export interface ServerLoaderProps {

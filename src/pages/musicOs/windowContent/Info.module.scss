@@ -11,33 +11,134 @@
   display: flex;
   flex-direction: row;
 
-  > p {
-    flex: 1;
-    min-width: 300px;
+  > .profile {    
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 
-    margin: 0;
-    font-family: var(--font-pixel-game);
-    font-size: 22pt;
-    line-height: 1.25em;
+    &.juanma {
+      --col-bg: var(--color-music-os-cyan);
+      --col1: var(--color-music-os-purple);
+      --col2: var(--color-music-os-pink);
+      --font-title: var(--font-cc-monster-mash-outline);
+      --font-text: var(--font-pixel-game);
+    }
 
-    > span {
-      cursor: pointer;
+    &.aracne {
+      --col-bg: var(--color-music-os-pink);
+      --col1: var(--color-music-os-purple);
+      --col2: var(--color-music-os-cyan);
+      --font-title: var(--font-alice-in-wonderland);
+      --font-text: var(--font-pixel-game);
+    }
+    
+    > .header {
+      flex-shrink: 0;
 
-      color: var(--col-pink);
+      display: flex;
+      flex-direction: row;
 
-      &:hover {
-        color: var(--col-yellow);
+      background-color: var(--col-bg);
+      border-radius: 12px;
+      overflow: hidden;
+
+      height: 240px;
+
+      > .profile {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > .title {
+          color: var(--col1);
+
+          font-family: var(--font-title);
+          font-size: 32pt;
+
+          padding-top: 0.30em;
+          line-height: 0.65em;
+
+          white-space: nowrap;
+        }
+
+        > .name {
+          color: var(--col2);
+
+          font-family: var(--font-text);
+          font-size: 18pt;
+
+        }
+
+        > .links {
+          display: flex;
+          flex-direction: column;
+
+          > a {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            
+            height: 30px;
+
+            > div {
+              --tint: var(--col2);
+              width: 24px;
+            }
+
+            > span {
+              color: var(--col1);
+
+              font-family: var(--font-text);
+              font-size: 16pt;
+
+              &:hover {
+                color: var(--col2);
+              }
+            }
+          }
+        }
       }
     }
-  }
 
-  > .gallery {
-    flex-shrink: 0;
-    width: 200px;
-    padding: 0 16px;
+    > .body {
+      display: flex;
+      flex-direction: row;
 
-    > img {
-      width: 100%;
+      > article {
+        > p {
+          flex: 1;
+          min-width: 300px;
+
+          margin: 0;
+          font-family: var(--font-pixel-game);
+          font-size: 18pt;
+          line-height: 1.25em;
+
+          margin-bottom: 16px;
+
+          > span {
+            cursor: pointer;
+
+            color: var(--col-pink);
+
+            &:hover {
+              color: var(--col-yellow);
+            }
+          }
+        }
+      }
+
+      > .gallery {
+        flex-shrink: 0;
+        width: 200px;
+        padding: 0 16px;
+
+        > img {
+          width: 100%;
+        }
+      }
     }
   }
 }
