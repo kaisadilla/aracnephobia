@@ -97,7 +97,7 @@ export function useServer () : ServerValue {
 
 function initState () : InternalState {
   return {
-    url: "/public/music/",
+    url: "/music/",
     index: null,
     byOrder: [],
   };
