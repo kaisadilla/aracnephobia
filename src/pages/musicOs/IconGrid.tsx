@@ -32,12 +32,21 @@ function IconGrid (props: IconGridProps) {
   }, [desktopSize]);
 
   useEffect(() => {
-    let currentRow = 0;
-    let currentCol = 0;
+    let currentFirstRow = 0;
+    let currentFirstCol = 0;
+
+    let currentLastRow = 0;
+    let currentLastCol = 0;
 
     for (const f of ctx.files) {
+      let currentRow = f.isLast ? currentLastRow : currentFirstRow;
+      let currentCol = f.isLast ? currentLastCol : currentFirstCol;
+
       const top = currentCol * (ICON_HEIGHT + ICON_GAP);
-      const left = currentRow * (ICON_WIDTH + ICON_GAP);
+      const left = f.isLast
+        ? desktopSize.width - (currentRow * (ICON_WIDTH + ICON_GAP)) - ICON_WIDTH
+        : currentRow * (ICON_WIDTH + ICON_GAP);
+
 
       currentCol++;
       if (currentCol >= cols) {
@@ -49,6 +58,15 @@ function IconGrid (props: IconGridProps) {
         ...prev,
         [f.name]: [top, left],
       }));
+
+      if (f.isLast) {
+        currentLastRow = currentRow;
+        currentLastCol = currentCol;
+      }
+      else {
+        currentFirstRow = currentRow;
+        currentFirstCol = currentCol;
+      }
     }
   }, [rows, cols]);
 

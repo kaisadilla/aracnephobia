@@ -10,17 +10,20 @@ export interface BrokenFile {
   title: string;
   message: string;
   isLeak: boolean;
+  isLast: false;
 }
 
 export interface FolderFile {
   type: 'folder';
   name: string;
   songs: Song[];
+  isLast: false;
 }
 
 export interface OtherFile {
   name: string;
   type: 'witch' | 'coven' | 'wish' | 'contact'
+  isLast: true;
 }
 
 export type File = BrokenFile
@@ -83,6 +86,7 @@ function broken (
     title,
     message,
     isLeak,
+    isLast: false,
   };
 }
 
@@ -91,6 +95,7 @@ function folder (name: string, songs: Song[]) : FolderFile {
     type: 'folder',
     name,
     songs,
+    isLast: false,
   }
 }
 
@@ -106,6 +111,7 @@ function other (type: OtherFile['type'], id: string) : OtherFile {
   return {
     type,
     name: id,
+    isLast: true,
   }
 }
 

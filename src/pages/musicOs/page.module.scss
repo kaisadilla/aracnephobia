@@ -1,5 +1,5 @@
 .page {
-  @include crt(1000000);
+  @include crt(1000100);
 
   --col-pink: var(--color-music-os-pink);
   --col-purple: var(--color-music-os-purple);
@@ -19,6 +19,14 @@
     --col-purple: var(--color-music-os-yellow);
     --col-yellow: var(--color-music-os-purple);
     --col-purple-text: black;
+  }
+
+  > .load {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000000;
+    background-color: black;
   }
 
   > .desktop {

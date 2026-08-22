@@ -1,4 +1,6 @@
 import i_bg from 'assets/img/music_os/bg.png';
+import v_load from 'assets/img/music_os/load.mp4';
+import { useEffect, useRef, useState } from 'react';
 import IconGrid from './IconGrid';
 import styles from './page.module.scss';
 import Taskbar from './Taskbar';
@@ -11,6 +13,23 @@ export interface MusicOsPageProps {
 
 function MusicOsPage (props: MusicOsPageProps) {
   const ctx = useMusicOs();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const [ isLoading, setLoading ] = useState(true);
+
+  useEffect(() => {
+    function handleKeyPress (evt: any) {
+      setLoading(false);
+    }
+    
+    document.addEventListener('keypress', handleKeyPress);
+    document.addEventListener('touchend', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keypress', handleKeyPress);
+      document.removeEventListener('touchend', handleKeyPress);
+    }
+  }, []);
 
   return (
     <div
@@ -32,6 +51,19 @@ function MusicOsPage (props: MusicOsPageProps) {
       <div className={styles.taskbar}>
         <Taskbar />
       </div>
+
+      
+      {isLoading && <video
+        ref={videoRef}
+        className={styles.load}
+        src={v_load}
+        autoPlay
+        muted
+        playsInline
+        aria-hidden={true}
+        tabIndex={-1}
+        onEnded={() => setLoading(false)}
+      />}
     </div>
   );
 }
