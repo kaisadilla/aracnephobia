@@ -13,6 +13,7 @@ import { useMusicOs } from './useMusicOsCtx';
 import styles from './Window.module.scss';
 import ErrorContent from './windowContent/Error';
 import FolderContent from './windowContent/Folder';
+import GalleryContent from './windowContent/Gallery';
 import InfoContent from './windowContent/Info';
 import PlayerContent from './windowContent/Player';
 
@@ -118,6 +119,9 @@ function Window ({
             content={window.content}
           />}
           {window.content.type === 'info' && <InfoContent
+            content={window.content}
+          />}
+          {window.content.type === 'gallery' && <GalleryContent
             content={window.content}
           />}
         </div>

@@ -3,6 +3,11 @@ import i_err_mask from 'assets/img/music_os/error/mask.png';
 import i_err_rage from 'assets/img/music_os/error/rage.png';
 import i_err_rope from 'assets/img/music_os/error/rope.png';
 
+import i_mask_p0 from 'assets/img/music_os/gallery/the_mask/photos/test1.jpg';
+import i_mask_p1 from 'assets/img/music_os/gallery/the_mask/photos/test2.jpg';
+import i_mask_p2 from 'assets/img/music_os/gallery/the_mask/photos/test3.jpg';
+import i_mask_p3 from 'assets/img/music_os/gallery/the_mask/photos/test4.gif';
+
 export interface BrokenFile {
   type: 'broken';
   name: string;
@@ -18,6 +23,7 @@ export interface FolderFile {
   name: string;
   songs: Song[];
   isLast: false;
+  photos: Picture[];
 }
 
 export interface OtherFile {
@@ -61,15 +67,27 @@ export interface InfoWindowContent {
   infoType: 'coven' | 'aracne' | 'juanma';
 }
 
+export interface GalleryWindowContent {
+  type: 'gallery';
+  name: string;
+  pictures: Picture[];
+}
+
 export type WindowContent = PlayerWindowContent
   | FolderWindowContent
   | ErrorWindowContent
-  | InfoWindowContent;
+  | InfoWindowContent
+  | GalleryWindowContent;
 
 export type Song = {
   name: string;
   internalName: string;
   folder: string;
+}
+
+export type Picture = {
+  name: string;
+  image: string;
 }
 
 function broken (
@@ -90,12 +108,15 @@ function broken (
   };
 }
 
-function folder (name: string, songs: Song[]) : FolderFile {
+function folder (
+  name: string, songs: Song[], photos: Picture[], drawings: Picture[]
+) : FolderFile {
   return {
     type: 'folder',
     name,
     songs,
     isLast: false,
+    photos,
   }
 }
 
@@ -105,6 +126,13 @@ function song (folder: string, name: string, internalName: string) {
     internalName,
     folder,
   }
+}
+
+function picture (name: string, image: string) : Picture {
+  return {
+    name,
+    image,
+  };
 }
 
 function other (type: OtherFile['type'], id: string) : OtherFile {
@@ -124,6 +152,15 @@ const FILES = [
       song("the_mask", "Too many days.mp3", "too_many_days"),
       song("the_mask", "Clean Clean Clean.mp3", "clean_clean_clean"),
     ],
+    [
+      picture("Test 1.png", i_mask_p0),
+      picture("This is an incredibly long title for a picture.JPG", i_mask_p1),
+      picture("EW.pdf", i_mask_p2),
+      picture("Watching.gif", i_mask_p3),
+    ],
+    [
+
+    ]
   ),
   broken(
     "THE//RAGE",
@@ -184,6 +221,7 @@ export function getWindowName (window: OsWindow) {
 
     return "The Coven";
   }
+  if (window.content.type === 'gallery') return window.content.name;
 
   return "Window";
 };

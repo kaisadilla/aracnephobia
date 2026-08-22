@@ -2,7 +2,7 @@ import i_gallery from 'assets/img/music_os/folder/gallery.png';
 import i_portfolio from 'assets/img/music_os/folder/portfolio.png';
 import i_song from 'assets/img/music_os/folder/song.png';
 import i_folder_bg from 'assets/img/music_os/folder_bg_logo.png';
-import { FolderWindowContent, Song } from '../files';
+import { FolderWindowContent, Picture, Song } from '../files';
 import { useMusicOs } from '../useMusicOsCtx';
 import styles from './Folder.module.scss';
 
@@ -26,9 +26,19 @@ function FolderContent ({
       <div className={styles.list}>
         {content.folder.songs.map(s => <_Icon
           key={s.internalName}
-          type={'song'}
+          type='song'
           song={s}
         />)}
+
+        <_Icon
+          type='gallery'
+          pictures={content.folder.photos}
+        />
+
+        <_Icon
+          type='portfolio'
+          pictures={content.folder.photos}
+        />
       </div>
     </div>
   );
@@ -36,12 +46,14 @@ function FolderContent ({
 
 interface _IconProps {
   type: 'song' | 'gallery' | 'portfolio';
-  song: Song | null;
+  song?: Song | null;
+  pictures?: Picture[] | null;
 }
 
 function _Icon ({
   type,
-  song,
+  song = null,
+  pictures = null,
 }: _IconProps) {
   const ctx = useMusicOs();
 
@@ -68,7 +80,7 @@ function _Icon ({
   );
 
   function handleClickSong () {
-    ctx.openWindow(
+    if (type === 'song') ctx.openWindow(
       {
         type: 'player',
         song: song!,
@@ -76,6 +88,13 @@ function _Icon ({
       {
         width: 765,
         height: 800,
+      }
+    );
+    else ctx.openWindow(
+      {
+        type: 'gallery',
+        name: (type === 'gallery' ? "Photo Gallery" : "Drawing Portfolio"),
+        pictures: pictures!
       }
     );
   }
