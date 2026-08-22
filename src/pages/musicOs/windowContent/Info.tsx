@@ -88,7 +88,7 @@ function _Juanma (props: _JuanmaProps) {
           </div>
           <div className={styles.links}>
             <a
-              href="https://juanmagarciagrunge."
+              href="https://www.instagram.com/juanmarabone/"
               target='_blank'
             >
               <TintedImg src={i_link_instagram} />
@@ -109,7 +109,7 @@ function _Juanma (props: _JuanmaProps) {
               <span>@Juanmarabone.bsky.social</span>
             </a>
             <a
-              href="https://www.instagram.com/juanmarabone/"
+              href="https://juanmagarciagrunge.bandcamp.com/"
               target='_blank'
             >
               <TintedImg src={i_link_bc} />

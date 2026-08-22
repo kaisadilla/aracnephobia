@@ -47,14 +47,14 @@ function _RouterContent () {
       <Route index element={<IndexPage />} />
       <Route path="/wip" element={<WipPage />} />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/music" element={
+      <Route path="/playlist" element={
         <ServerProvider>
           <SongProvider>
             <MusicPage />
           </SongProvider>
         </ServerProvider>
       } />
-      <Route path="/music_os" element={
+      <Route path="/music" element={
         <MusicOsProvider>
           <MusicOsPage />
         </MusicOsProvider>
