@@ -88,28 +88,28 @@ function _Juanma (props: _JuanmaProps) {
           </div>
           <div className={styles.links}>
             <a
-              href="https://x.com/juanmarabone"
+              href="https://juanmagarciagrunge."
               target='_blank'
             >
               <TintedImg src={i_link_instagram} />
               <span>/Juanmarabone</span>
             </a>
             <a
-              href="https://juanmagarciagrunge.bandcamp.com/"
+              href="https://x.com/juanmarabonebandcamp.com/"
               target='_blank'
             >
               <TintedImg src={i_link_twitter} />
               <span>@Juanmarabone</span>
             </a>
             <a
-              href="https://www.instagram.com/juanmarabone/"
+              href="https://bsky.app/profile/juanmarabone.bsky.social"
               target='_blank'
             >
               <TintedImg src={i_link_bsky} />
               <span>@Juanmarabone.bsky.social</span>
             </a>
             <a
-              href="https://bsky.app/profile/juanmarabone.bsky.social"
+              href="https://www.instagram.com/juanmarabone/"
               target='_blank'
             >
               <TintedImg src={i_link_bc} />
@@ -171,28 +171,28 @@ function _Aracne (props: _AracneProps) {
           </div>
           <div className={styles.links}>
             <a
-              href="https://x.com/aracnephobia"
+              href="https://www.instagram.com/aracnephobia/"
               target='_blank'
             >
               <TintedImg src={i_link_instagram} />
               <span>/Aracnephobia</span>
             </a>
             <a
-              href="https://aracnephobia.bandcamp.com/"
+              href="https://x.com/aracnephobia"
               target='_blank'
             >
               <TintedImg src={i_link_twitter} />
               <span>@Aracnephobia</span>
             </a>
             <a
-              href="https://www.instagram.com/aracnephobia/"
+              href="https://bsky.app/profile/aracnephobia.com"
               target='_blank'
             >
               <TintedImg src={i_link_bsky} />
               <span>@Aracnephobia.com</span>
             </a>
             <a
-              href="https://bsky.app/profile/aracnephobia.com"
+              href="https://aracnephobia.bandcamp.com/"
               target='_blank'
             >
               <TintedImg src={i_link_bc} />
