@@ -42,3 +42,5 @@ next-env.d.ts
 
 dist/*
 dev/out
+src/assets/img/music_os/gallery/optimize/in
+src/assets/img/music_os/gallery/optimize/out
