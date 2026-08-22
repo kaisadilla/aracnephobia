@@ -1,5 +1,6 @@
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
+import i_err_mask from 'assets/img/music_os/error/mask.png';
 import i_broken from 'assets/img/music_os/file/broken.png';
 import i_contact from 'assets/img/music_os/file/contact.png';
 import i_coven from 'assets/img/music_os/file/coven.png';
@@ -117,6 +118,14 @@ function Icon ({
           type: 'playlist'
         } as PlaylistWindowContent;
       }
+      if (file.type === 'wish') {
+        return {
+          type: 'error',
+          image: i_err_mask,
+          title: "ERROR 01 // IDENTITY REQUIRED",
+          message: "You cannot remove a mask while you still need it to survive.",
+        } as ErrorWindowContent;
+      }
 
       return null;
     })();
@@ -140,6 +149,12 @@ function Icon ({
           height: 600,
         }
       }
+      if (file.type === 'wish') {
+        return {
+          width: 600,
+          height: 600,
+        }
+      }
 
       return {
         width: 720,
@@ -149,12 +164,13 @@ function Icon ({
 
     if (content === null) return;
 
-    const uuid = ctx.openWindow(content, dims);
+    const isLeak = (file.type === 'broken' || file.type === 'folder')
+      && file.isLeak;
+
+    const uuid = ctx.openWindow(content, dims, isLeak);
     ctx.setWindowOnTop(uuid);
 
-    if ((file.type === 'broken' || file.type === 'folder') && file.isLeak) {
-      ctx.setLeakMode(true);
-    }
+    if (isLeak) ctx.setLeakMode(true);
   }
 }
 

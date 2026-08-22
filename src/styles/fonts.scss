@@ -110,6 +110,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Alice in Wonderland";
+  src: url("../fonts/Alice_in_Wonderland.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CC Monster Mash Outline";
+  src: url("../fonts/CCMonsterMashOutline.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --font-amatic-sc: "Amatic SC";
   --font-creepster: "Creepster";
@@ -125,4 +139,6 @@
   --font-pixel-game: "Pixel Game";
   --font-curved: "Curved";
   --font-blackout-sunrise: "Blackout Sunrise";
+  --font-alice-in-wonderland: "Alice in Wonderland";
+  --font-cc-monster-mash-outline: "CC Monster Mash Outline";
 }

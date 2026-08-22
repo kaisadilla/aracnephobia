@@ -17,7 +17,9 @@ interface MusicOsValue extends InternalState {
   setLeakMode: (value: boolean) => void;
   setStartMenuOpen: (open: boolean) => void;
   openWindow: (
-    content: WindowContent, latestWindow?: { width: number, height: number, }
+    content: WindowContent,
+    latestWindow?: { width: number, height: number, },
+    isLeak?: boolean,
   ) => string;
   updateWindow: (id: string, window: OsWindow) => void;
   closeWindow: (id: string) => void;
@@ -66,7 +68,8 @@ export const MusicOsProvider = ({ children }: any) => {
 
   function openWindow (
     content: WindowContent,
-    initialSize = { width: 700, height: 450 }
+    initialSize = { width: 700, height: 450 },
+    isLeak: boolean = false,
   ) : string {
     const uuid = uuidv4();
 
@@ -84,6 +87,7 @@ export const MusicOsProvider = ({ children }: any) => {
           initialSize,
           isMinimized: false,
           isMaximized: false,
+          isLeak,
         },
       },
     }));

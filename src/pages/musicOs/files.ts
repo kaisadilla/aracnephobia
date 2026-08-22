@@ -46,6 +46,7 @@ export interface OsWindow {
   initialSize: { width: number, height: number };
   isMinimized: boolean;
   isMaximized: boolean;
+  isLeak: boolean;
 }
 
 export interface PlayerWindowContent {

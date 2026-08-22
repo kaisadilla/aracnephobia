@@ -21,6 +21,8 @@
     //max-height: 400px;
     inset: 0;
     margin: auto;
+
+    image-rendering: crisp-edges;
   }
 
   > .message {

@@ -18,7 +18,7 @@ function TintedImg ({
       className={$cl(styles.img, className)}
       style={{
         maskImage: `url('${src}')`,
-        WebkitMaskBoxImage: `url('${src}')`,
+        //WebkitMaskBoxImage: `url('${src}')`,
       }}
     />
   );
